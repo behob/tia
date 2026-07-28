@@ -22,6 +22,10 @@
 	"devDependencies": {
 		"wrangler": "4.88.0"
 	},
+	"overrides": {
+		"vite": "8.1.5",
+		"esbuild": "0.28.1"
+	},
 	"engines": {
 		"node": ">=22"
 	},
