@@ -17,7 +17,7 @@ const { footer, copyright } = site;
             </div>
           </div>
           <p class="mb-10">We transform your vision into beautifully<br /> crafted spaces.</p>
-          <p class="mb-0">{site.address.split(',').join(',<br/>')}</p>
+          <p class="mb-0" set:html={site.address.split(',').join(',<br/>')} />
         </div>
       </div>
       <div class="col-lg-3 col-md-6">
