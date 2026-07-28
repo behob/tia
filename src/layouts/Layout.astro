@@ -6,18 +6,57 @@ import Sidebar from '../components/layout/Sidebar.astro';
 import MobileMenu from '../components/layout/MobileMenu.astro';
 import Preloader from '../components/layout/Preloader.astro';
 import SearchBox from '../components/layout/SearchBox.astro';
+import { ClientRouter } from 'astro:transitions';
+import { site } from '../data/site';
 
 interface Props {
   title?: string;
   description?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  canonical?: string;
 }
 
 const {
-  title = 'TIA Interior - Architecture & Interior Design',
-  description = 'TIA Interior transforms your vision into beautifully crafted spaces. Luxury interior design and architecture studio based in Dubai, UAE.',
+  title = `${site.name} - ${site.tagline}`,
+  description = `${site.name} transforms your vision into beautifully crafted spaces. Luxury interior design and architecture studio based in Dubai, UAE.`,
+  ogImage = '/assets/img/bg-img/slider-img-1.png',
+  ogType = 'website',
+  canonical,
 } = Astro.props;
 
 const currentPath = Astro.url.pathname;
+const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: site.name,
+  description: site.tagline,
+  url: Astro.site?.href,
+  telephone: site.phoneRaw,
+  email: site.email,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'SkyCourts, Wadi Al Safa 5',
+    addressLocality: 'Dubai',
+    addressCountry: 'AE',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 25.0797,
+    longitude: 55.1409,
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '09:00',
+      closes: '18:00',
+    },
+  ],
+  sameAs: Object.values(site.social).filter((url) => url !== '#'),
+};
 ---
 
 <!DOCTYPE html>
@@ -26,8 +65,23 @@ const currentPath = Astro.url.pathname;
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description} />
+
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content={site.name} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
+
     <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png" />
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/assets/css/fontawesome.min.css" />
@@ -38,6 +92,10 @@ const currentPath = Astro.url.pathname;
     <link rel="stylesheet" href="/assets/css/animation.css" />
     <link rel="stylesheet" href="/assets/css/twentytwenty.min.css" />
     <link rel="stylesheet" href="/assets/css/swiper.min.css" />
+
+    <ClientRouter />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
 
   <body>
