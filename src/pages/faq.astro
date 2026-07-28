@@ -4,12 +4,43 @@ import PageHeader from '../components/ui/PageHeader.astro';
 import NewsletterSection from '../components/sections/NewsletterSection.astro';
 
 const faqs = [
-  { id: 'One', question: 'What interior design services do you offer?', answer: 'Our interior design services cover everything from initial concept development and space planning to selecting color schemes, furniture, and custom designs.', open: true },
-  { id: 'Two', question: 'How long does a typical project take?', answer: 'Project timelines vary based on scope and complexity. A single room redesign may take 4-6 weeks, while a full home renovation can take 3-6 months.' },
-  { id: 'Three', question: 'Do you offer virtual design consultations?', answer: 'Yes, we offer virtual consultations for clients who prefer remote collaboration. We use 3D rendering and virtual walkthroughs to bring your vision to life.' },
-  { id: 'Four', question: 'What is your design process?', answer: 'Our process begins with an initial consultation, followed by concept development, design presentation, material selection, and project implementation.' },
-  { id: 'Five', question: 'Can I create custom design?', answer: 'Absolutely! We specialize in custom design solutions tailored to your unique lifestyle, preferences, and spatial requirements.' },
-  { id: 'Six', question: 'How do I get started with a project?', answer: 'Simply reach out to us through our contact page or call us directly. We will schedule an initial consultation to discuss your vision and requirements.' },
+  {
+    id: 'One',
+    question: 'What interior design services do you offer?',
+    answer:
+      'Our interior design services cover everything from initial concept development and space planning to selecting color schemes, furniture, and custom designs.',
+    open: true,
+  },
+  {
+    id: 'Two',
+    question: 'How long does a typical project take?',
+    answer:
+      'Project timelines vary based on scope and complexity. A single room redesign may take 4-6 weeks, while a full home renovation can take 3-6 months.',
+  },
+  {
+    id: 'Three',
+    question: 'Do you offer virtual design consultations?',
+    answer:
+      'Yes, we offer virtual consultations for clients who prefer remote collaboration. We use 3D rendering and virtual walkthroughs to bring your vision to life.',
+  },
+  {
+    id: 'Four',
+    question: 'What is your design process?',
+    answer:
+      'Our process begins with an initial consultation, followed by concept development, design presentation, material selection, and project implementation.',
+  },
+  {
+    id: 'Five',
+    question: 'Can I create custom design?',
+    answer:
+      'Absolutely! We specialize in custom design solutions tailored to your unique lifestyle, preferences, and spatial requirements.',
+  },
+  {
+    id: 'Six',
+    question: 'How do I get started with a project?',
+    answer:
+      'Simply reach out to us through our contact page or call us directly. We will schedule an initial consultation to discuss your vision and requirements.',
+  },
 ];
 ---
 
@@ -19,10 +50,18 @@ const faqs = [
   <section class="faq-section pt-130 pb-130">
     <div class="container container-2">
       <div class="row section-heading-wrap">
-        <div class="shape"><img src="/assets/img/shapes/section-heading.png" alt="shape"  loading="lazy"/></div>
+        <div class="shape"><img src="/assets/img/shapes/section-heading.png" alt="shape" loading="lazy" /></div>
         <div class="col-lg-4 col-md-12">
           <div class="section-heading mb-0">
-            <h4 class="sub-heading" data-text-animation="fade-in-right" data-split="char" data-duration="0.9" data-stagger="0.03">Popular Queries</h4>
+            <h4
+              class="sub-heading"
+              data-text-animation="fade-in-right"
+              data-split="char"
+              data-duration="0.9"
+              data-stagger="0.03"
+            >
+              Popular Queries
+            </h4>
           </div>
         </div>
         <div class="col-lg-8 col-md-12">
@@ -36,18 +75,32 @@ const faqs = [
           <div class="faq-content-2">
             <div class="faq-accordion fade-wrapper">
               <div class="accordion" id="accordionExample">
-                {faqs.map((faq) => (
-                  <div class="accordion-item fade-top">
-                    <h2 class="accordion-header" id={`heading${faq.id}`}>
-                      <button class={`accordion-button${faq.open ? '' : ' collapsed'}`} type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${faq.id}`} aria-expanded={faq.open ? 'true' : 'false'} aria-controls={`collapse${faq.id}`}>
-                        {faq.question}
-                      </button>
-                    </h2>
-                    <div id={`collapse${faq.id}`} class={`accordion-collapse collapse${faq.open ? ' show' : ''}`} aria-labelledby={`heading${faq.id}`} data-bs-parent="#accordionExample">
-                      <div class="accordion-body">{faq.answer}</div>
+                {
+                  faqs.map((faq) => (
+                    <div class="accordion-item fade-top">
+                      <h2 class="accordion-header" id={`heading${faq.id}`}>
+                        <button
+                          class={`accordion-button${faq.open ? '' : ' collapsed'}`}
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target={`#collapse${faq.id}`}
+                          aria-expanded={faq.open ? 'true' : 'false'}
+                          aria-controls={`collapse${faq.id}`}
+                        >
+                          {faq.question}
+                        </button>
+                      </h2>
+                      <div
+                        id={`collapse${faq.id}`}
+                        class={`accordion-collapse collapse${faq.open ? ' show' : ''}`}
+                        aria-labelledby={`heading${faq.id}`}
+                        data-bs-parent="#accordionExample"
+                      >
+                        <div class="accordion-body">{faq.answer}</div>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))
+                }
               </div>
             </div>
           </div>
@@ -55,10 +108,12 @@ const faqs = [
         <div class="col-lg-3">
           <div class="faq-sidebar">
             <div class="faq-contact">
-              <div class="icon"><img src="/assets/img/icon/service-details-cta.png" alt="icon"  loading="lazy"/></div>
+              <div class="icon"><img src="/assets/img/icon/service-details-cta.png" alt="icon" loading="lazy" /></div>
               <h3>Still have questions?</h3>
               <p>Can't find the answer you're looking for? Please reach out to our team.</p>
-              <a href="/contact" class="tl-primary-btn">Get in Touch <span class="icon"><i class="fa-regular fa-arrow-right"></i></span></a>
+              <a href="/contact" class="tl-primary-btn"
+                >Get in Touch <span class="icon"><i class="fa-regular fa-arrow-right"></i></span></a
+              >
             </div>
           </div>
         </div>

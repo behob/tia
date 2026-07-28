@@ -17,6 +17,12 @@
 		"astro": "^7.1.4"
 	},
 	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^8.65.0",
+		"@typescript-eslint/parser": "^8.65.0",
+		"eslint": "^10.8.0",
+		"eslint-plugin-astro": "^3.0.1",
+		"prettier": "^3.9.6",
+		"prettier-plugin-astro": "^0.14.1",
 		"sass-embedded": "^1.100.0",
 		"typescript": "5.9.3",
 		"wrangler": "^4.114.0"
@@ -36,6 +42,8 @@
 		"check": "astro check && tsc && wrangler deploy --dry-run",
 		"deploy": "wrangler deploy",
 		"dev": "astro dev",
+		"lint": "eslint src/",
+		"format": "prettier --write src/",
 		"preview": "astro build && wrangler dev"
 	},
 	"type": "module"

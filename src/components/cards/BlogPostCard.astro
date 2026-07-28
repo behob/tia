@@ -23,12 +23,14 @@ const {
 ---
 
 <div class={`post-card ${variant === 'inner' ? 'post-card-2 inner-post' : ''}`}>
-  {variant === 'default' && (
-    <div class="post-thumb">
-      <img src={image} alt={title}  loading="lazy"/>
-      <span class="category">{category}</span>
-    </div>
-  )}
+  {
+    variant === 'default' && (
+      <div class="post-thumb">
+        <img src={image} alt={title} loading="lazy" />
+        <span class="category">{category}</span>
+      </div>
+    )
+  }
   <div class="post-content">
     <ul class="post-meta">
       {variant === 'inner' && <li class="category">{category}</li>}

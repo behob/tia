@@ -2,39 +2,38 @@
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/ui/PageHeader.astro';
 import TeamMemberCard from '../components/cards/TeamMemberCard.astro';
+import { teamMembers } from '../data/team';
+import { site } from '../data/site';
 
-const teamMembers = [
-  { image: '/assets/img/team/team-img-6.png', name: 'Mark Jackson', role: 'Exhibition Designer' },
-  { image: '/assets/img/team/team-img-7.png', name: 'Helen Reeves', role: 'Production Designer' },
-  { image: '/assets/img/team/team-img-8.png', name: 'Valeria Novikova', role: 'Interior Designer' },
-  { image: '/assets/img/team/team-img-1.png', name: 'Alex Podzemsky', role: 'Architect' },
-  { image: '/assets/img/team/team-img-2.png', name: 'Jake Nicholson', role: 'Project Manager' },
-  { image: '/assets/img/team/team-img-3.png', name: 'Sarah Mitchell', role: 'Design Director' },
-];
+const teamSocials = Object.fromEntries(
+  site.socials
+    .filter((s) => ['facebook', 'instagram', 'behance', 'linkedin'].includes(s.platform))
+    .map((s) => [s.platform, s.href]),
+);
 ---
 
-<Layout title="Our Team - TIA Interior" description="Meet the talented team behind TIA Interior's award-winning luxury design projects.">
+<Layout
+  title="Our Team - TIA Interior"
+  description="Meet the talented team behind TIA Interior's award-winning luxury design projects."
+>
   <PageHeader title="Our Team" currentPage="Team" />
 
   <section class="team-section pt-130 pb-130">
     <div class="container container-2">
       <div class="row gy-5" data-masonry='{"percentPosition": true }'>
-        {teamMembers.map((member, i) => (
-          <div class="col-lg-4 col-md-6">
-            <TeamMemberCard
-              image={member.image}
-              name={member.name}
-              role={member.role}
-              variant="grid"
-              social={{
-                facebook: '#',
-                instagram: '#',
-                behance: '#',
-                linkedin: '#',
-              }}
-            />
-          </div>
-        ))}
+        {
+          teamMembers.map((member, i) => (
+            <div class="col-lg-4 col-md-6">
+              <TeamMemberCard
+                image={member.image}
+                name={member.name}
+                role={member.role}
+                variant="grid"
+                social={teamSocials}
+              />
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>

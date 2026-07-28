@@ -4,16 +4,27 @@ import PageHeader from '../components/ui/PageHeader.astro';
 import { site } from '../data/site';
 ---
 
-<Layout title="Contact Us - TIA Interior" description="Get in touch with TIA Interior. Let's discuss your next luxury interior design project in Dubai.">
+<Layout
+  title="Contact Us - TIA Interior"
+  description="Get in touch with TIA Interior. Let's discuss your next luxury interior design project in Dubai."
+>
   <PageHeader title="Contact Us" currentPage="Contact Us" />
 
   <section class="contact-section pt-150 pb-150">
     <div class="container container-2">
       <div class="row section-heading-wrap w-100 ml-0">
-        <div class="shape"><img src="/assets/img/shapes/section-heading.png" alt="shape"  loading="lazy"/></div>
+        <div class="shape"><img src="/assets/img/shapes/section-heading.png" alt="shape" loading="lazy" /></div>
         <div class="col-lg-4 col-md-12">
           <div class="section-heading mb-0">
-            <h4 class="sub-heading" data-text-animation="fade-in-right" data-split="char" data-duration="0.9" data-stagger="0.03">get in touch</h4>
+            <h4
+              class="sub-heading"
+              data-text-animation="fade-in-right"
+              data-split="char"
+              data-duration="0.9"
+              data-stagger="0.03"
+            >
+              get in touch
+            </h4>
           </div>
         </div>
         <div class="col-lg-8 col-md-12">
@@ -37,7 +48,7 @@ import { site } from '../data/site';
               </div>
             </div>
             <div class="contact-img">
-              <img src="/assets/img/images/contact-img-1.png" alt="contact"  loading="lazy"/>
+              <img src="/assets/img/images/contact-img-1.png" alt="contact" loading="lazy" />
             </div>
           </div>
         </div>
@@ -67,11 +78,18 @@ import { site } from '../data/site';
               <div class="form-group">
                 <div class="form-item">
                   <h4 class="form-title">Message *</h4>
-                  <textarea id="message" name="message" class="form-control" rows="5" placeholder="Tell us about your project"></textarea>
+                  <textarea
+                    id="message"
+                    name="message"
+                    class="form-control"
+                    rows="5"
+                    placeholder="Tell us about your project"></textarea>
                 </div>
               </div>
               <div class="form-group mt-10">
-                <button type="submit" class="tl-primary-btn">Send Message <span class="icon"><i class="fa-regular fa-arrow-right"></i></span></button>
+                <button type="submit" class="tl-primary-btn"
+                  >Send Message <span class="icon"><i class="fa-regular fa-arrow-right"></i></span></button
+                >
               </div>
             </form>
             <div id="form-messages" class="mt-10"></div>

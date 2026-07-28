@@ -31,29 +31,25 @@ export const POST: APIRoute = async ({ request }) => {
     message = message.trim();
 
     if (!fullname || !phone || !email || !message) {
-      return new Response(
-        "Oops! There was a problem with your submission. Please complete the form and try again.",
-        { status: 400 }
-      );
+      return new Response('Oops! There was a problem with your submission. Please complete the form and try again.', {
+        status: 400,
+      });
     }
 
     if (fullname.length > 100 || message.length > 5000 || phone.length > 50 || email.length > 320) {
-      return new Response("Input exceeds maximum allowed length.", { status: 400 });
+      return new Response('Input exceeds maximum allowed length.', { status: 400 });
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return new Response("Please provide a valid email address.", { status: 400 });
+      return new Response('Please provide a valid email address.', { status: 400 });
     }
 
     const recipient = import.meta.env.CONTACT_EMAIL;
     const senderEmail = import.meta.env.SENDER_EMAIL;
     if (!recipient || !senderEmail) {
       console.error('Mail Route Error: CONTACT_EMAIL or SENDER_EMAIL not configured');
-      return new Response(
-        "Oops! Something went wrong and we couldn't send your message.",
-        { status: 500 }
-      );
+      return new Response("Oops! Something went wrong and we couldn't send your message.", { status: 500 });
     }
 
     const subject = `Message from ${fullname}`;
@@ -92,20 +88,14 @@ export const POST: APIRoute = async ({ request }) => {
     });
 
     if (response.ok) {
-      return new Response("Thank You! Your message has been sent.", { status: 200 });
+      return new Response('Thank You! Your message has been sent.', { status: 200 });
     } else {
       const errorText = await response.text();
       console.error('MailChannels Error:', errorText);
-      return new Response(
-        "Oops! Something went wrong and we couldn't send your message.",
-        { status: 500 }
-      );
+      return new Response("Oops! Something went wrong and we couldn't send your message.", { status: 500 });
     }
   } catch (error) {
     console.error('Mail Route Error:', error);
-    return new Response(
-      "Oops! Something went wrong and we couldn't send your message.",
-      { status: 500 }
-    );
+    return new Response("Oops! Something went wrong and we couldn't send your message.", { status: 500 });
   }
 };

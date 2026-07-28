@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/ui/PageHeader.astro';
 import { site } from '../data/site';
+import { teamDetail } from '../data/team';
 ---
 
 <Layout title="Team Details - TIA Interior" description="Learn more about our team members and their expertise.">
@@ -12,14 +13,14 @@ import { site } from '../data/site';
       <div class="row pin-inner">
         <div class="col-lg-6">
           <div class="team-details-img pin-box">
-            <img src="/assets/img/team/team-details-img.png" alt="team member"  loading="lazy"/>
+            <img src={teamDetail.image} alt="team member" loading="lazy" />
           </div>
         </div>
         <div class="col-lg-6">
           <div class="team-details-content scroll-content">
-            <h2 class="name">Ricardo Marlin</h2>
-            <span class="prof">Co-Founder & CEO</span>
-            <p class="desc">Mark Jackson was elected to judge the 3rd edition of Dezeen Awards. Having many years of expertise in the design of residential and public spaces — the founder and chief architect of TIA Interior and author of FAIN will look at the best entries from all over the world.</p>
+            <h2 class="name">{teamDetail.name}</h2>
+            <span class="prof">{teamDetail.role}</span>
+            <p class="desc">{teamDetail.bio}</p>
             <div class="team-details-contact">
               <span>Email address:</span>
               <a class="mail" href={`mailto:${site.email}`}>{site.email}</a>
@@ -33,33 +34,35 @@ import { site } from '../data/site';
             </div>
             <div class="team-details-info mb-0">
               <h3 class="details-title">Professional info</h3>
-              <p>Our team brings unparalleled creativity and technical proficiency to the world of interior design. We specialize in crafting spaces that are not only aesthetically stunning but also functional and tailored to our clients' unique lifestyles and needs.</p>
+              <p>{teamDetail.professionalInfo}</p>
               <ul class="team-details-list">
-                <li><i class="fa-sharp fa-solid fa-circle-check"></i>Quality Assurance and Site Inspections, 3D Rendering and Visualization</li>
-                <li><i class="fa-sharp fa-solid fa-circle-check"></i>Lighting Design and Ambiance Creation, Estimation and Budgeting</li>
-                <li><i class="fa-sharp fa-solid fa-circle-check"></i>Space Planning and Layout Optimization, Vendor and Contractor Coordination</li>
-                <li><i class="fa-sharp fa-solid fa-circle-check"></i>Color Theory and Palette Development, Energy-Efficient Design</li>
+                {
+                  teamDetail.expertise.map((item) => (
+                    <li>
+                      <i class="fa-sharp fa-solid fa-circle-check" />
+                      {item}
+                    </li>
+                  ))
+                }
               </ul>
             </div>
             <div class="skill-item-wrap">
               <h4 class="details-title">Expertise & skills</h4>
-              <p>Mark Jackson is a dynamic leader with a comprehensive skill set spanning strategic planning, business development. We specialize in crafting spaces that are not only aesthetically stunning but also functional and tailored to our clients' unique lifestyles and needs.</p>
+              <p>{teamDetail.expertiseDescription}</p>
               <div class="skills-items">
-                {[
-                  { title: 'Specialized Design Areas', width: '85%' },
-                  { title: 'Styles and Trends', width: '95%' },
-                  { title: 'Design Principles', width: '65%' },
-                ].map((skill) => (
-                  <div class="skills-item fade-top">
-                    <h4 class="title">{skill.title}</h4>
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" style={`width: ${skill.width}`}>
-                        <span>{skill.width}</span>
-                        <div class="dot"></div>
+                {
+                  teamDetail.skills.map((skill) => (
+                    <div class="skills-item fade-top">
+                      <h4 class="title">{skill.title}</h4>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" style={`width: ${skill.width}`}>
+                          <span>{skill.width}</span>
+                          <div class="dot" />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))
+                }
               </div>
             </div>
           </div>

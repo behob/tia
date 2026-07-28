@@ -12,32 +12,44 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
       <div class="row gallary-inner-top">
         <div class="col-lg-6 col-md-6">
           <div class="gallary-inner-item-2">
-            <a href="/assets/img/project/gallary-img-6.png" class="venobox" data-gall="gallary1"><img src="/assets/img/project/gallary-img-6.png" alt="gallery" loading="lazy" /></a>
+            <a href="/assets/img/project/gallary-img-6.png" class="venobox" data-gall="gallary1"
+              ><img src="/assets/img/project/gallary-img-6.png" alt="gallery" loading="lazy" /></a
+            >
           </div>
         </div>
         <div class="col-lg-6 col-md-6">
           <div class="gallary-inner-items">
-            {[7, 8, 9, 10].map((i) => (
-              <div class="gallary-inner-item-2">
-                <a href={`/assets/img/project/gallary-img-${i}.png`} class="venobox" data-gall="gallary1"><img src={`/assets/img/project/gallary-img-${i}.png`} alt="gallery" loading="lazy" /></a>
-              </div>
-            ))}
+            {
+              [7, 8, 9, 10].map((i) => (
+                <div class="gallary-inner-item-2">
+                  <a href={`/assets/img/project/gallary-img-${i}.png`} class="venobox" data-gall="gallary1">
+                    <img src={`/assets/img/project/gallary-img-${i}.png`} alt="gallery" loading="lazy" />
+                  </a>
+                </div>
+              ))
+            }
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-lg-6 col-md-6">
           <div class="gallary-inner-items">
-            {[11, 12, 13, 14].map((i) => (
-              <div class="gallary-inner-item-2">
-                <a href={`/assets/img/project/gallary-img-${i}.png`} class="venobox" data-gall="gallary1"><img src={`/assets/img/project/gallary-img-${i}.png`} alt="gallery" loading="lazy" /></a>
-              </div>
-            ))}
+            {
+              [11, 12, 13, 14].map((i) => (
+                <div class="gallary-inner-item-2">
+                  <a href={`/assets/img/project/gallary-img-${i}.png`} class="venobox" data-gall="gallary1">
+                    <img src={`/assets/img/project/gallary-img-${i}.png`} alt="gallery" loading="lazy" />
+                  </a>
+                </div>
+              ))
+            }
           </div>
         </div>
         <div class="col-lg-6 col-md-6">
           <div class="gallary-inner-item-2">
-            <a href="/assets/img/project/gallary-img-15.png" class="venobox" data-gall="gallary1"><img src="/assets/img/project/gallary-img-15.png" alt="gallery" loading="lazy" /></a>
+            <a href="/assets/img/project/gallary-img-15.png" class="venobox" data-gall="gallary1"
+              ><img src="/assets/img/project/gallary-img-15.png" alt="gallery" loading="lazy" /></a
+            >
           </div>
         </div>
       </div>

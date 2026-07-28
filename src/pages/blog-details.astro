@@ -2,9 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/ui/PageHeader.astro';
 import BlogPostCard from '../components/cards/BlogPostCard.astro';
+import { blogPosts, blogDetailsSidebarPosts } from '../data/blog';
 ---
 
-<Layout title="Blog Details - TIA Interior" description="Read the full article on modern interior design tips and trends.">
+<Layout
+  title="Blog Details - TIA Interior"
+  description="Read the full article on modern interior design tips and trends."
+>
   <PageHeader title="Blog Details" currentPage="Blog Details" />
 
   <section class="blog-details pt-150 pb-150 overflow-hidden">
@@ -21,17 +25,32 @@ import BlogPostCard from '../components/cards/BlogPostCard.astro';
               variant="inner"
             />
             <div class="blog-details-img mb-30">
-              <img src="/assets/img/blog/blog-details-img.png" alt="blog"  loading="lazy"/>
+              <img src="/assets/img/blog/blog-details-img.png" alt="blog" loading="lazy" />
             </div>
             <div class="blog-details-content">
-              <p class="mb-30">Modern interior design is all about creating a sleek, functional, and aesthetically pleasing space that reflects contemporary living. Whether you're updating a single room or redesigning your entire home, incorporating modern interior design principles can bring a fresh, sophisticated, and elegant ambiance. With an emphasis on minimalism, clean lines, open spaces, and smart functionality, modern interior design.</p>
+              <p class="mb-30">
+                Modern interior design is all about creating a sleek, functional, and aesthetically pleasing space that
+                reflects contemporary living. Whether you're updating a single room or redesigning your entire home,
+                incorporating modern interior design principles can bring a fresh, sophisticated, and elegant ambiance.
+                With an emphasis on minimalism, clean lines, open spaces, and smart functionality, modern interior
+                design.
+              </p>
               <h3 class="details-title-2">Understanding the Fundamentals</h3>
-              <p class="mb-40">Start by eliminating unnecessary items and embracing a "less is more" approach. Instead of filling every corner with furniture and decor, choose a few statement pieces that enhance the aesthetic of the room. Neutral tones, monochromatic palettes, and sleek, simple furniture contribute to the clean and uncluttered look of a modern home.</p>
+              <p class="mb-40">
+                Start by eliminating unnecessary items and embracing a "less is more" approach. Instead of filling every
+                corner with furniture and decor, choose a few statement pieces that enhance the aesthetic of the room.
+                Neutral tones, monochromatic palettes, and sleek, simple furniture contribute to the clean and
+                uncluttered look of a modern home.
+              </p>
               <div class="details-img-wrap mt-40 mb-40">
-                <img src="/assets/img/blog/blog-details-img-2.png" alt="blog detail"  loading="lazy"/>
+                <img src="/assets/img/blog/blog-details-img-2.png" alt="blog detail" loading="lazy" />
               </div>
               <h3 class="details-title-2">Color and Lighting</h3>
-              <p>Color plays a crucial role in modern design. Soft neutrals like whites, grays, and beiges form the foundation, while bold accent colors add personality. Natural and artificial lighting should work together to highlight architectural features and create a warm, inviting atmosphere.</p>
+              <p>
+                Color plays a crucial role in modern design. Soft neutrals like whites, grays, and beiges form the
+                foundation, while bold accent colors add personality. Natural and artificial lighting should work
+                together to highlight architectural features and create a warm, inviting atmosphere.
+              </p>
             </div>
             <div class="blog-tag-social">
               <div class="row align-items-center">
@@ -67,21 +86,21 @@ import BlogPostCard from '../components/cards/BlogPostCard.astro';
             <div class="sidebar-widget">
               <h3 class="widget-title">Recent Posts</h3>
               <div class="sidebar-post">
-                {[
-                  { img: '/assets/img/blog/post-1.jpg', title: 'Four Ways for Creating Extra Space', date: 'Dec 25, 2025' },
-                  { img: '/assets/img/blog/post-2.png', title: 'Modern Interior Design Tips', date: 'Dec 25, 2025' },
-                  { img: '/assets/img/blog/post-3.png', title: 'Minimalist Design for Modern Living', date: 'Dec 25, 2025' },
-                ].map((post) => (
-                  <div class="post-item">
-                    <div class="post-thumb">
-                      <img src={post.img} alt={post.title}  loading="lazy"/>
+                {
+                  blogDetailsSidebarPosts.map((post) => (
+                    <div class="post-item">
+                      <div class="post-thumb">
+                        <img src={post.img} alt={post.title} loading="lazy" />
+                      </div>
+                      <div class="post-content">
+                        <span class="date">{post.date}</span>
+                        <h4 class="title">
+                          <a href="/blog-details">{post.title}</a>
+                        </h4>
+                      </div>
                     </div>
-                    <div class="post-content">
-                      <span class="date">{post.date}</span>
-                      <h4 class="title"><a href="/blog-details">{post.title}</a></h4>
-                    </div>
-                  </div>
-                ))}
+                  ))
+                }
               </div>
             </div>
           </div>

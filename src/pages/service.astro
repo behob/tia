@@ -2,50 +2,63 @@
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/ui/PageHeader.astro';
 import ServiceCard from '../components/cards/ServiceCard.astro';
-import SectionHeading from '../components/ui/SectionHeading.astro';
+import { featureServices, iconServices } from '../data/services';
 ---
 
-<Layout title="Services - TIA Interior" description="Explore our comprehensive interior design services including residential, commercial, and hospitality design.">
+<Layout
+  title="Services - TIA Interior"
+  description="Explore our comprehensive interior design services including residential, commercial, and hospitality design."
+>
   <PageHeader title="Services" currentPage="Services" />
 
   <section class="feature-section pt-150 pb-110 overflow-hidden">
     <div class="container container-2">
       <div class="row section-heading-wrap feature-top">
-        <div class="shape"><img src="/assets/img/shapes/section-heading.png" alt="shape"  loading="lazy"/></div>
+        <div class="shape"><img src="/assets/img/shapes/section-heading.png" alt="shape" loading="lazy" /></div>
         <div class="col-lg-4 col-md-12">
           <div class="section-heading mb-0">
-            <h4 class="sub-heading" data-text-animation="fade-in-right" data-split="char" data-duration="0.9" data-stagger="0.03">WHO We Are</h4>
+            <h4
+              class="sub-heading"
+              data-text-animation="fade-in-right"
+              data-split="char"
+              data-duration="0.9"
+              data-stagger="0.03"
+            >
+              WHO We Are
+            </h4>
           </div>
         </div>
         <div class="col-lg-8 col-md-12">
           <div class="section-heading section-heading-2 mb-0">
-            <h2 class="section-title title-2">Explore our <span>comprehensive <br /> interior design</span> services</h2>
-            <p class="mb-0">We specialize in transforming visions into reality. Explore our portfolio of innovative architectural <br /> and interior design projects <br /> crafted with precision.</p>
+            <h2 class="section-title title-2">
+              Explore our <span>comprehensive <br /> interior design</span> services
+            </h2>
+            <p class="mb-0">
+              We specialize in transforming visions into reality. Explore our portfolio of innovative architectural <br
+              /> and interior design projects <br /> crafted with precision.
+            </p>
           </div>
         </div>
       </div>
       <div class="row">
-        {[
-          { icon: '/assets/img/service/feature-img-1.png', title: 'Residential Interior Design', desc: 'Tailored design services for private homes, including room makeovers and complete home transformations.' },
-          { icon: '/assets/img/service/feature-img-2.png', title: 'Commercial Interior Design', desc: 'Creating functional and aesthetically pleasing workspaces that boost productivity and reflect brand identity.' },
-          { icon: '/assets/img/service/feature-img-3.png', title: 'Interior Design Consultation', desc: 'Expert advice and guidance to help you make informed decisions about your space.' },
-          { icon: '/assets/img/service/feature-img-4.png', title: 'Outdoor & Landscape Design', desc: 'Beautiful outdoor spaces that extend your living area and connect with nature.' },
-        ].map((service) => (
-          <div class="col-lg-6">
-            <div class="feature-item-imgs">
-              <div class="feature-img">
-                <img src={service.icon} alt={service.title}  loading="lazy"/>
-                <div class="img-content">
+        {
+          featureServices.map((service) => (
+            <div class="col-lg-6">
+              <div class="feature-item-imgs">
+                <div class="feature-img">
+                  <img src={service.icon} alt={service.title} loading="lazy" />
+                  <div class="img-content">
+                    <p>{service.desc}</p>
+                  </div>
+                </div>
+                <div class="feature-content">
+                  <h3 class="title">{service.title}</h3>
                   <p>{service.desc}</p>
                 </div>
               </div>
-              <div class="feature-content">
-                <h3 class="title">{service.title}</h3>
-                <p>{service.desc}</p>
-              </div>
             </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </div>
   </section>
@@ -53,16 +66,13 @@ import SectionHeading from '../components/ui/SectionHeading.astro';
   <section class="service-section pt-130 pb-130 overflow-hidden">
     <div class="container container-2">
       <div class="row">
-        {[
-          { icon: '/assets/img/icon/service-icon-1.png', title: 'Architectural Design', desc: 'Dream it, we will design it! From big picture layouts to the tiniest details, our architectural magic brings your ideas to life.' },
-          { icon: '/assets/img/icon/service-icon-2.png', title: 'Interior Design & Planning', desc: 'We create beautiful, functional interiors that reflect your personality and lifestyle.' },
-          { icon: '/assets/img/icon/service-icon-3.png', title: 'Consulting Services', desc: 'Expert guidance to help you make the right design decisions for your space.' },
-          { icon: '/assets/img/icon/service-icon-4.png', title: 'Project Management', desc: 'We oversee every aspect of your project to ensure timely and budget-friendly delivery.' },
-        ].map((service) => (
-          <div class="col-xl-3 col-lg-6 col-md-12">
-            <ServiceCard {...service} />
-          </div>
-        ))}
+        {
+          iconServices.map((service) => (
+            <div class="col-xl-3 col-lg-6 col-md-12">
+              <ServiceCard {...service} />
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>

@@ -7,19 +7,13 @@ interface Props {
   year?: string;
 }
 
-const {
-  image,
-  title,
-  href = '/portfolio-details',
-  category = 'Residential',
-  year = '2025',
-} = Astro.props;
+const { image, title, href = '/portfolio-details', category = 'Residential', year = '2025' } = Astro.props;
 ---
 
 <div class="project-item antra-hover-view">
   <div class="project-img">
     <a class="d-block p-relative z-1" href={href}>
-      <img src={image} alt={title}  loading="lazy"/>
+      <img src={image} alt={title} loading="lazy" />
     </a>
     <ul>
       <li><a href={href}>{category}</a></li>

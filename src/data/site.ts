@@ -5,15 +5,14 @@ export const site = {
   phoneRaw: '+971568058711',
   email: 'info@tiadecors.com',
   address: 'SkyCourts, Wadi Al Safa 5, Dubai, UAE',
-  social: {
-    facebook: '#',
-    instagram: '#',
-    twitter: '#',
-    googlePlus: '#',
-    youtube: '#',
-    behance: '#',
-    linkedin: '#',
-  },
+  socials: [
+    { platform: 'facebook', href: '#', icon: 'fab fa-facebook-f', label: 'Facebook' },
+    { platform: 'instagram', href: '#', icon: 'fab fa-instagram', label: 'Instagram' },
+    { platform: 'twitter', href: '#', icon: 'fab fa-twitter', label: 'Twitter' },
+    { platform: 'youtube', href: '#', icon: 'fab fa-youtube', label: 'YouTube' },
+    { platform: 'behance', href: '#', icon: 'fab fa-behance', label: 'Behance' },
+    { platform: 'linkedin', href: '#', icon: 'fab fa-linkedin-in', label: 'LinkedIn' },
+  ],
   nav: {
     home: [
       { label: 'Apartments', href: '/index-2' },
@@ -74,12 +73,6 @@ export const site = {
       { label: 'Affiliate Program', href: '/contact' },
       { label: 'Terms & Conditions', href: '/contact' },
       { label: 'Support Center', href: '/contact' },
-    ],
-    socials: [
-      { label: 'Facebook', href: '#' },
-      { label: 'Instagram', href: '#' },
-      { label: 'YouTube', href: '#' },
-      { label: 'Twitter', href: '#' },
     ],
   },
   copyright: `© ${new Date().getFullYear()} TIA Interior. All Rights Reserved.`,

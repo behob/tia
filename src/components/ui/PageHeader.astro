@@ -6,12 +6,7 @@ interface Props {
   parentHref?: string;
 }
 
-const {
-  title,
-  currentPage,
-  parentLabel = 'Home',
-  parentHref = '/',
-} = Astro.props;
+const { title, currentPage, parentLabel = 'Home', parentHref = '/' } = Astro.props;
 
 const siteUrl = Astro.site?.href || 'https://tiadecors.com';
 

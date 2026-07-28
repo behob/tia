@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/ui/PageHeader.astro';
+import { portfolioDetail } from '../data/portfolio';
 ---
 
 <Layout title="Project Details - TIA Interior" description="Detailed view of our latest interior design project.">
@@ -9,69 +10,78 @@ import PageHeader from '../components/ui/PageHeader.astro';
   <section class="portfolio-details pt-130 pb-130">
     <div class="container container-2">
       <div class="project-details-wrap">
-        <h1 class="details-title">Stylish Family Apartment</h1>
+        <h1 class="details-title">{portfolioDetail.title}</h1>
         <div class="project-details-meta">
           <div class="details-meta">
             <span>Architect :</span>
-            <h5>TIA Interior Team</h5>
+            <h5>{portfolioDetail.architect}</h5>
           </div>
           <div class="details-meta">
             <span>Project Type:</span>
-            <h5>Interior Design</h5>
+            <h5>{portfolioDetail.projectType}</h5>
           </div>
           <div class="details-meta">
             <span>Client:</span>
-            <h5>TIA Interior</h5>
+            <h5>{portfolioDetail.client}</h5>
           </div>
           <div class="details-meta">
             <span>Terms:</span>
-            <h5>6 months</h5>
+            <h5>{portfolioDetail.terms}</h5>
           </div>
           <div class="details-meta">
             <span>Strategy :</span>
-            <h5>Minimalistic</h5>
+            <h5>{portfolioDetail.strategy}</h5>
           </div>
           <div class="details-meta">
             <span>Date :</span>
-            <h5>March 11, 2025</h5>
+            <h5>{portfolioDetail.date}</h5>
           </div>
         </div>
         <div class="project-details-img">
-          <img src="/assets/img/project/project-details-img-1.png" alt="project details"  loading="lazy"/>
+          <img src={portfolioDetail.heroImage} alt="project details" loading="lazy" />
         </div>
         <h2 class="details-title-2">Design in Details</h2>
-        <p>Considering the physical, mental, and emotional needs of people, interior designers use human-centered approaches to address how we live today. Creating novel approaches to promoting health, safety, and welfare, contemporary interiors are increasingly inspired by biophilia as a holistic approach to design.</p>
+        <p>{portfolioDetail.description}</p>
         <div class="project-details-list">
           <ul>
-            <li><i class="fa-sharp fa-solid fa-circle-check"></i><strong>Open Living Spaces:</strong> Creating open-plan living areas to enhance the flow and connection between indoor and outdoor spaces.</li>
-            <li><i class="fa-sharp fa-solid fa-circle-check"></i><strong>Natural Materials:</strong> Using reclaimed wood, stone, and natural fibers to evoke a sense of harmony with the surrounding environment.</li>
-            <li><i class="fa-sharp fa-solid fa-circle-check"></i><strong>Large Windows:</strong> Installing floor-to-ceiling windows to maximize natural light and provide unobstructed views.</li>
+            {
+              portfolioDetail.features.slice(0, 3).map((f) => (
+                <li>
+                  <>
+                    <i class="fa-sharp fa-solid fa-circle-check" />
+                    <strong>{f.title}:</strong>
+                  </>{' '}
+                  {f.desc}
+                </li>
+              ))
+            }
           </ul>
           <ul>
-            <li><i class="fa-sharp fa-solid fa-circle-check"></i><strong>Outdoor Living:</strong> Designing extensive outdoor areas, including a deck, pool, and garden, for relaxation and entertaining.</li>
-            <li><i class="fa-sharp fa-solid fa-circle-check"></i><strong>Modern Amenities:</strong> Incorporating state-of-the-art kitchen appliances, smart home technology, and luxurious bathroom fixtures.</li>
+            {
+              portfolioDetail.features.slice(3).map((f) => (
+                <li>
+                  <>
+                    <i class="fa-sharp fa-solid fa-circle-check" />
+                    <strong>{f.title}:</strong>
+                  </>{' '}
+                  {f.desc}
+                </li>
+              ))
+            }
           </ul>
         </div>
         <div class="project-details-items">
-          <div class="project-details-item text-center">
-            <h3 class="title">(30m2)</h3>
-            <span>bedroom</span>
-          </div>
-          <div class="project-details-item text-center">
-            <h3 class="title">(22m2)</h3>
-            <span>bathroom</span>
-          </div>
-          <div class="project-details-item text-center">
-            <h3 class="title">(28m2)</h3>
-            <span>workspace</span>
-          </div>
-          <div class="project-details-item text-center">
-            <h3 class="title">(15m2)</h3>
-            <span>kitchen area</span>
-          </div>
+          {
+            portfolioDetail.roomSizes.map((room) => (
+              <div class="project-details-item text-center">
+                <h3 class="title">({room.size})</h3>
+                <span>{room.label}</span>
+              </div>
+            ))
+          }
         </div>
         <h3 class="details-title-2">Incredible Result</h3>
-        <p>Establishing multi-sensory experiences, we can design interiors that resonate across ages and demographics. These rooms and spaces connect us to nature as a proven way to inspire us, boost our productivity, and create greater well-being.</p>
+        <p>{portfolioDetail.resultDescription}</p>
       </div>
     </div>
   </section>

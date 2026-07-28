@@ -3,16 +3,24 @@ import Layout from '../layouts/Layout.astro';
 import { site } from '../data/site';
 ---
 
-<Layout title="Coming Soon - TIA Interior" description="We are working on something amazing. Stay tuned!">
+<Layout title="Coming Soon - TIA Interior" description="We are working on something amazing. Stay tuned!" robots="noindex, nofollow">
   <section class="coming-section">
     <div class="bg-img" data-background="/assets/img/bg-img/coming-bg-1.png"></div>
     <div class="container container-2">
       <div class="coming-content text-center">
         <div class="coming-logo">
-          <a href="/"><img src="/assets/img/logo/logo-2.png" alt={`${site.name} logo`}  loading="lazy"/></a>
+          <a href="/"><img src="/assets/img/logo/logo-2.png" alt={`${site.name} logo`} loading="lazy" /></a>
         </div>
         <div class="section-heading white-content mb-40 align-items-center">
-          <h4 class="sub-heading" data-text-animation="fade-in-right" data-split="char" data-duration="0.9" data-stagger="0.03">COMING SOON</h4>
+          <h4
+            class="sub-heading"
+            data-text-animation="fade-in-right"
+            data-split="char"
+            data-duration="0.9"
+            data-stagger="0.03"
+          >
+            COMING SOON
+          </h4>
           <h2 class="section-title cursor-effect">TIA is in <span>the Works!</span></h2>
         </div>
         <div class="rr-product-countdown" data-countdown data-date="Jun 30 2027 20:20:22">

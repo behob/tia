@@ -14,6 +14,7 @@ interface Props {
   ogImage?: string;
   ogType?: 'website' | 'article';
   canonical?: string;
+  robots?: string;
 }
 
 const {
@@ -22,6 +23,7 @@ const {
   ogImage = '/assets/img/bg-img/slider-img-1.png',
   ogType = 'website',
   canonical,
+  robots = 'index, follow',
 } = Astro.props;
 
 const currentPath = Astro.url.pathname;
@@ -54,11 +56,11 @@ const jsonLd = {
       closes: '18:00',
     },
   ],
-  sameAs: Object.values(site.social).filter((url) => url !== '#'),
+  sameAs: site.socials.map((s) => s.href).filter((url) => url !== '#'),
 };
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
@@ -67,6 +69,7 @@ const jsonLd = {
 
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
     <link rel="canonical" href={canonicalURL} />
 
     <meta property="og:type" content={ogType} />

@@ -2,32 +2,15 @@
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/ui/PageHeader.astro';
 import { site } from '../data/site';
+import { serviceNames, serviceDetailsFeatures, serviceFaqs } from '../data/services';
 
-const otherServices = [
-  { label: 'Residential Interior Design', active: true },
-  { label: 'Commercial Interior Design' },
-  { label: 'Interior Design Consultation' },
-  { label: 'Outdoor & Landscape Design' },
-  { label: 'Renovation and Remodeling' },
-  { label: 'Interior 2D/3D Layouts' },
-];
-
-const features = [
-  { icon: '/assets/img/icon/service-details-1.png', title: 'Space Optimization', desc: 'Through the best smart space optimization interior design.' },
-  { icon: '/assets/img/icon/service-details-2.png', title: 'Flexible Layouts', desc: 'Through the best smart space optimization interior design.' },
-  { icon: '/assets/img/icon/service-details-3.png', title: 'Smart Technology', desc: 'Through the best smart space optimization interior design.' },
-  { icon: '/assets/img/icon/service-details-4.png', title: 'Cost Efficiency', desc: 'Through the best smart space optimization interior design.' },
-];
-
-const faqs = [
-  { id: 'One', question: 'What interior design services do you offer?', answer: 'Our interior design services cover everything you need to create a stunning and functional space. From initial concept development and space planning to selecting color schemes, furniture, and custom designs, we bring your vision to life.', open: true },
-  { id: 'Two', question: 'What services do you offer?', answer: 'Our interior design services cover everything you need to create a stunning and functional space. From initial concept development and space planning to selecting color schemes, furniture, and custom designs, we bring your vision to life.' },
-  { id: 'Three', question: 'What is your design process?', answer: 'Our interior design services cover everything you need to create a stunning and functional space. From initial concept development and space planning to selecting color schemes, furniture, and custom designs, we bring your vision to life.' },
-  { id: 'Four', question: 'Can I create custom design?', answer: 'Our interior design services cover everything you need to create a stunning and functional space. From initial concept development and space planning to selecting color schemes, furniture, and custom designs, we bring your vision to life.' },
-];
+const otherServices = serviceNames.map((label, i) => ({ label, active: i === 0 }));
 ---
 
-<Layout title="Service Details - TIA Interior" description="Learn more about our comprehensive interior design services.">
+<Layout
+  title="Service Details - TIA Interior"
+  description="Learn more about our comprehensive interior design services."
+>
   <PageHeader title="Service Details" currentPage="Service Details" />
 
   <section class="service-details pt-130 pb-130">
@@ -38,14 +21,18 @@ const faqs = [
             <div class="service-category-list">
               <h3 class="list-title">Other Services</h3>
               <ul>
-                {otherServices.map((s) => (
-                  <li class={s.active ? 'active' : ''}><a href="#">{s.label}</a></li>
-                ))}
+                {
+                  otherServices.map((s) => (
+                    <li class={s.active ? 'active' : ''}>
+                      <a href="#">{s.label}</a>
+                    </li>
+                  ))
+                }
               </ul>
             </div>
             <div class="service-details-cta">
               <div class="cta-bg" data-background="/assets/img/bg-img/service-cta-bg-2.png"></div>
-              <div class="icon"><img src="/assets/img/icon/service-details-cta.png" alt="icon"  loading="lazy"/></div>
+              <div class="icon"><img src="/assets/img/icon/service-details-cta.png" alt="icon" loading="lazy" /></div>
               <span>Do You Need Help?</span>
               <a class="number" href={`tel:${site.phoneRaw}`}>{site.phone}</a>
               <a class="mail" href={`mailto:${site.email}`}>{site.email}</a>
@@ -58,34 +45,54 @@ const faqs = [
         <div class="col-lg-8 col-md-12">
           <div class="service-details-content scroll-content">
             <div class="service-details-img">
-              <img src="/assets/img/service/service-details-img-1.png" alt="service details"  loading="lazy"/>
+              <img src="/assets/img/service/service-details-img-1.png" alt="service details" loading="lazy" />
             </div>
             <h1 class="details-title">About the service</h1>
-            <p>Commercial interior design is constantly evolving, with new trends emerging to meet the changing needs and preferences of businesses and their customers. One of the most significant trends in recent years is biophilic design, which involves incorporating natural elements like plants, wood, and stone into the design.</p>
-            <p>A growing demand for adaptable layouts that can accommodate changing needs. This might include modular movable partitions. Sustainability is also a key trend in commercial interior design.</p>
+            <p>
+              Commercial interior design is constantly evolving, with new trends emerging to meet the changing needs and
+              preferences of businesses and their customers. One of the most significant trends in recent years is
+              biophilic design, which involves incorporating natural elements like plants, wood, and stone into the
+              design.
+            </p>
+            <p>
+              A growing demand for adaptable layouts that can accommodate changing needs. This might include modular
+              movable partitions. Sustainability is also a key trend in commercial interior design.
+            </p>
             <div class="service-details-items">
-              {features.map((f) => (
-                <div class="service-details-item">
-                  <div class="icon"><img src={f.icon} alt={f.title}  loading="lazy"/></div>
-                  <div class="content">
-                    <h3 class="title">{f.title}</h3>
-                    <p>{f.desc}</p>
+              {
+                serviceDetailsFeatures.map((f) => (
+                  <div class="service-details-item">
+                    <div class="icon">
+                      <img src={f.icon} alt={f.title} loading="lazy" />
+                    </div>
+                    <div class="content">
+                      <h3 class="title">{f.title}</h3>
+                      <p>{f.desc}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))
+              }
             </div>
             <div class="service-details-img-wrap">
               <div class="details-img">
-                <img src="/assets/img/service/service-details-img-2.png" alt="service"  loading="lazy"/>
+                <img src="/assets/img/service/service-details-img-2.png" alt="service" loading="lazy" />
               </div>
               <div class="details-img">
-                <img src="/assets/img/service/service-details-img-3.png" alt="service"  loading="lazy"/>
+                <img src="/assets/img/service/service-details-img-3.png" alt="service" loading="lazy" />
               </div>
             </div>
             <h2 class="details-title">Types of Commercial Spaces</h2>
-            <p>In design, we bring characteristics of the natural world into built spaces, such as water, greenery, and natural light, or elements like wood and stone. Encouraging the use of natural systems and processes in design allows for exposure to nature, and in turn, these design approaches improve health and wellbeing.</p>
+            <p>
+              In design, we bring characteristics of the natural world into built spaces, such as water, greenery, and
+              natural light, or elements like wood and stone. Encouraging the use of natural systems and processes in
+              design allows for exposure to nature, and in turn, these design approaches improve health and wellbeing.
+            </p>
             <h2 class="details-title">Key Elements of Interior Design</h2>
-            <p>Several key elements are essential to successful commercial interior design. These include space planning, lighting design, material selection, furniture and fixtures, color and texture, technology integration, and acoustics.</p>
+            <p>
+              Several key elements are essential to successful commercial interior design. These include space planning,
+              lighting design, material selection, furniture and fixtures, color and texture, technology integration,
+              and acoustics.
+            </p>
             <div class="service-details-list-wrap">
               <ul>
                 <li><i class="fa-sharp fa-solid fa-circle-check"></i>We provide high quality design services.</li>
@@ -100,23 +107,40 @@ const faqs = [
                 <li><i class="fa-sharp fa-solid fa-circle-check"></i>We are confident about our projects.</li>
               </ul>
             </div>
-            <p class="mb-50">Commercial interior design is a dynamic and multifaceted field that plays a critical role in the success of businesses across a wide range of industries.</p>
+            <p class="mb-50">
+              Commercial interior design is a dynamic and multifaceted field that plays a critical role in the success
+              of businesses across a wide range of industries.
+            </p>
             <div class="service-faq">
               <h3 class="faq-title">Frequently asked questions</h3>
               <div class="faq-accordion fade-wrapper">
                 <div class="accordion" id="accordionExample">
-                  {faqs.map((faq) => (
-                    <div class="accordion-item fade-top">
-                      <h2 class="accordion-header" id={`heading${faq.id}`}>
-                        <button class={`accordion-button${faq.open ? '' : ' collapsed'}`} type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${faq.id}`} aria-expanded={faq.open ? 'true' : 'false'} aria-controls={`collapse${faq.id}`}>
-                          {faq.question}
-                        </button>
-                      </h2>
-                      <div id={`collapse${faq.id}`} class={`accordion-collapse collapse${faq.open ? ' show' : ''}`} aria-labelledby={`heading${faq.id}`} data-bs-parent="#accordionExample">
-                        <div class="accordion-body">{faq.answer}</div>
+                  {
+                    serviceFaqs.map((faq) => (
+                      <div class="accordion-item fade-top">
+                        <h2 class="accordion-header" id={`heading${faq.id}`}>
+                          <button
+                            class={`accordion-button${faq.open ? '' : ' collapsed'}`}
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target={`#collapse${faq.id}`}
+                            aria-expanded={faq.open ? 'true' : 'false'}
+                            aria-controls={`collapse${faq.id}`}
+                          >
+                            {faq.question}
+                          </button>
+                        </h2>
+                        <div
+                          id={`collapse${faq.id}`}
+                          class={`accordion-collapse collapse${faq.open ? ' show' : ''}`}
+                          aria-labelledby={`heading${faq.id}`}
+                          data-bs-parent="#accordionExample"
+                        >
+                          <div class="accordion-body">{faq.answer}</div>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))
+                  }
                 </div>
               </div>
             </div>

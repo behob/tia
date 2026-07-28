@@ -13,43 +13,70 @@ interface Props {
   };
 }
 
-const {
-  image,
-  name,
-  role,
-  href = '/team-details',
-  variant = 'grid',
-  social = {},
-} = Astro.props;
+const { image, name, role, href = '/team-details', variant = 'grid', social = {} } = Astro.props;
 ---
 
-{variant === 'grid' ? (
-  <div class="team-item-2">
-    <div class="team-thumb">
-      <img src={image} alt={name}  loading="lazy"/>
+{
+  variant === 'grid' ? (
+    <div class="team-item-2">
+      <div class="team-thumb">
+        <img src={image} alt={name} loading="lazy" />
+      </div>
+      <div class="team-content">
+        <h3 class="title">
+          <a href={href}>{name}</a>
+        </h3>
+        <span>{role}</span>
+        <ul class="team-social">
+          {social.facebook && (
+            <li>
+              <a href={social.facebook}>
+                <i class="fa-brands fa-facebook-f" />
+              </a>
+            </li>
+          )}
+          {social.instagram && (
+            <li>
+              <a href={social.instagram}>
+                <i class="fa-brands fa-instagram" />
+              </a>
+            </li>
+          )}
+          {social.behance && (
+            <li>
+              <a href={social.behance}>
+                <i class="fa-brands fa-behance" />
+              </a>
+            </li>
+          )}
+          {social.linkedin && (
+            <li>
+              <a href={social.linkedin}>
+                <i class="fa-brands fa-linkedin-in" />
+              </a>
+            </li>
+          )}
+        </ul>
+      </div>
     </div>
-    <div class="team-content">
-      <h3 class="title"><a href={href}>{name}</a></h3>
-      <span>{role}</span>
-      <ul class="team-social">
-        {social.facebook && <li><a href={social.facebook}><i class="fa-brands fa-facebook-f"></i></a></li>}
-        {social.instagram && <li><a href={social.instagram}><i class="fa-brands fa-instagram"></i></a></li>}
-        {social.behance && <li><a href={social.behance}><i class="fa-brands fa-behance"></i></a></li>}
-        {social.linkedin && <li><a href={social.linkedin}><i class="fa-brands fa-linkedin-in"></i></a></li>}
-      </ul>
+  ) : (
+    <div class="team-item" data-img={image}>
+      <div class="left-content">
+        <span class="number">
+          <slot name="number" />
+        </span>
+        <h3 class="title">
+          <a href={href}>{name}</a>
+        </h3>
+      </div>
+      <div class="mid-content">
+        <span>{role}</span>
+      </div>
+      <div class="arrow">
+        <a href={href}>
+          <i class="fa-solid fa-arrow-right" />
+        </a>
+      </div>
     </div>
-  </div>
-) : (
-  <div class="team-item" data-img={image}>
-    <div class="left-content">
-      <span class="number"><slot name="number" /></span>
-      <h3 class="title"><a href={href}>{name}</a></h3>
-    </div>
-    <div class="mid-content">
-      <span>{role}</span>
-    </div>
-    <div class="arrow">
-      <a href={href}><i class="fa-solid fa-arrow-right"></i></a>
-    </div>
-  </div>
-)}
+  )
+}

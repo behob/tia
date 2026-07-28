@@ -1,36 +1,41 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/ui/PageHeader.astro';
-
-const projects = [
-  { image: '/assets/img/project/project-1.png', title: 'Coastal Harmony Home', category: 'Residential' },
-  { image: '/assets/img/project/project-2.png', title: 'Coastal Harmony Home', category: 'Residential' },
-  { image: '/assets/img/project/project-4.png', title: 'Coastal Harmony Home', category: 'Residential' },
-  { image: '/assets/img/project/project-2.png', title: 'Coastal Harmony Home', category: 'Residential' },
-];
+import { hospitalityProjects } from '../data/portfolio';
 ---
 
-<Layout title="Hospitality Projects - TIA Interior" description="Explore our hospitality interior design projects in Dubai.">
+<Layout
+  title="Hospitality Projects - TIA Interior"
+  description="Explore our hospitality interior design projects in Dubai."
+>
   <PageHeader title="Our Projects" currentPage="Hospitality Projects" />
 
   <section class="project-section-inner bg-grey pt-130 pb-130">
     <div class="container container-2">
       <div class="project-item-wrap-2">
-        {projects.map((p) => (
-          <div class="project-item-2 antra-hover-view">
-            <div class="project-thumb">
-              <a href="/portfolio-details"><img src={p.image} alt={p.title}  loading="lazy"/></a>
-              <ul>
-                <li>{p.category}</li>
-                <li>Single Home</li>
-              </ul>
+        {
+          hospitalityProjects.map((p) => (
+            <div class="project-item-2 antra-hover-view">
+              <div class="project-thumb">
+                <a href="/portfolio-details">
+                  <img src={p.image} alt={p.title} loading="lazy" />
+                </a>
+                <ul>
+                  <li>{p.category}</li>
+                  <li>Single Home</li>
+                </ul>
+              </div>
+              <div class="project-content">
+                <h3 class="title">
+                  {p.title.split(' ').slice(0, 2).join(' ')} <br /> {p.title.split(' ').slice(2).join(' ')}
+                </h3>
+                <p>
+                  Dubai, UAE <br /> 2025
+                </p>
+              </div>
             </div>
-            <div class="project-content">
-              <h3 class="title">{p.title.split(' ').slice(0, 2).join(' ')} <br /> {p.title.split(' ').slice(2).join(' ')}</h3>
-              <p>Dubai, UAE <br /> 2025</p>
-            </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </div>
   </section>

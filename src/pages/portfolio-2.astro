@@ -2,40 +2,47 @@
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/ui/PageHeader.astro';
 import NewsletterSection from '../components/sections/NewsletterSection.astro';
-
-const projects = [
-  { image: '/assets/img/project/project-3.png', title: 'Coastal Harmony Home', category: 'Residential' },
-  { image: '/assets/img/project/project-4.png', title: 'Coastal Harmony Home', category: 'Residential' },
-  { image: '/assets/img/project/project-5.png', title: 'Coastal Harmony Home', category: 'Residential' },
-  { image: '/assets/img/project/project-6.png', title: 'Coastal Harmony Home', category: 'Residential' },
-  { image: '/assets/img/project/project-7.png', title: 'Coastal Harmony Home', category: 'Residential' },
-  { image: '/assets/img/project/project-8.png', title: 'Coastal Harmony Home', category: 'Residential' },
-];
+import { commercialProjects } from '../data/portfolio';
 ---
 
-<Layout title="Commercial Projects - TIA Interior" description="Explore our commercial interior design projects in Dubai.">
+<Layout
+  title="Commercial Projects - TIA Interior"
+  description="Explore our commercial interior design projects in Dubai."
+>
   <PageHeader title="Our Projects" currentPage="Commercial Projects" />
 
   <section class="project-section-inner pt-130 pb-130">
     <div class="container">
       <div class="row gy-5">
-        {projects.map((p) => (
-          <div class="col-lg-4 col-md-6">
-            <div class="project-item-3">
-              <div class="project-img">
-                <img src={p.image} alt={p.title}  loading="lazy"/>
-              </div>
-              <div class="project-content">
-                <ul>
-                  <li><a href="/portfolio-details">{p.category}</a></li>
-                  <li><a href="/portfolio-details">Single Home</a></li>
-                </ul>
-                <h3 class="title"><a href="/portfolio-details">{p.title}</a></h3>
-                <span>Dubai, UAE<br />2025</span>
+        {
+          commercialProjects.map((p) => (
+            <div class="col-lg-4 col-md-6">
+              <div class="project-item-3">
+                <div class="project-img">
+                  <img src={p.image} alt={p.title} loading="lazy" />
+                </div>
+                <div class="project-content">
+                  <ul>
+                    <li>
+                      <a href="/portfolio-details">{p.category}</a>
+                    </li>
+                    <li>
+                      <a href="/portfolio-details">Single Home</a>
+                    </li>
+                  </ul>
+                  <h3 class="title">
+                    <a href="/portfolio-details">{p.title}</a>
+                  </h3>
+                  <span>
+                    Dubai, UAE
+                    <br />
+                    2025
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </div>
   </section>

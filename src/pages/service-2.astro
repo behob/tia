@@ -2,37 +2,38 @@
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/ui/PageHeader.astro';
 import NewsletterSection from '../components/sections/NewsletterSection.astro';
-
-const services = [
-  { num: '01', title: 'Residential Interior Design', image: '/assets/img/service/service-img-1.png', desc: 'Tailored design services for private homes, including room makeovers and complete home transformations.' },
-  { num: '02', title: 'Renovation and Remodeling', image: '/assets/img/service/service-img-2.png', desc: 'Tailored design services for private homes, including room makeovers and complete home transformations.', big: true },
-  { num: '03', title: 'Commercial Interior Design', image: '/assets/img/service/service-img-3.png', desc: 'Tailored design services for private homes, including room makeovers and complete home transformations.' },
-  { num: '04', title: 'Interior Design Consultation', image: '/assets/img/service/service-img-4.png', desc: 'Tailored design services for private homes, including room makeovers and complete home transformations.', big: true },
-  { num: '05', title: 'Outdoor & Landscape Design', image: '/assets/img/service/service-img-5.png', desc: 'Tailored design services for private homes, including room makeovers and complete home transformations.' },
-  { num: '06', title: 'Renovation and Remodeling', image: '/assets/img/service/service-img-6.png', desc: 'Tailored design services for private homes, including room makeovers and complete home transformations.', big: true },
-];
+import { fitOutServices } from '../data/services';
 ---
 
-<Layout title="Fit-Out & Execution - TIA Interior" description="Our fit-out and execution services bring your interior design vision to life with precision.">
+<Layout
+  title="Fit-Out & Execution - TIA Interior"
+  description="Our fit-out and execution services bring your interior design vision to life with precision."
+>
   <PageHeader title="Services" currentPage="Fit-Out & Execution" />
 
   <section class="service-inner pt-130 pb-130">
     <div class="container container-2">
       <div class="row service-inner-item-wrap gy-5" data-masonry='{"percentPosition": true }'>
-        {services.map((s) => (
-          <div class="col-lg-4 col-md-6">
-            <div class={`service-item-2 antra-hover-view${s.big ? ' big' : ''}`}>
-              <div class="service-thumb">
-                <a href="/service-details"><img src={s.image} alt={s.title}  loading="lazy"/></a>
-                <span class="number">{s.num}</span>
-              </div>
-              <div class="service-content">
-                <h5 class="title"><a href="/service-details">{s.title}</a></h5>
-                <p>{s.desc}</p>
+        {
+          fitOutServices.map((s) => (
+            <div class="col-lg-4 col-md-6">
+              <div class={`service-item-2 antra-hover-view${s.big ? ' big' : ''}`}>
+                <div class="service-thumb">
+                  <a href="/service-details">
+                    <img src={s.image} alt={s.title} loading="lazy" />
+                  </a>
+                  <span class="number">{s.num}</span>
+                </div>
+                <div class="service-content">
+                  <h5 class="title">
+                    <a href="/service-details">{s.title}</a>
+                  </h5>
+                  <p>{s.desc}</p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </div>
   </section>

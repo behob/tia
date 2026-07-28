@@ -3,28 +3,25 @@ import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/ui/PageHeader.astro';
 import ProjectCard from '../components/cards/ProjectCard.astro';
 import NewsletterSection from '../components/sections/NewsletterSection.astro';
-
-const projects = [
-  { image: '/assets/img/project/project-img-1.png', title: 'Luxury Skyline', category: 'Residential', year: '2025' },
-  { image: '/assets/img/project/project-img-2.png', title: 'Bohemian Rhapsody', category: 'Residential', year: '2025' },
-  { image: '/assets/img/project/project-img-3.png', title: 'Urban Oasis', category: 'Commercial', year: '2024' },
-  { image: '/assets/img/project/project-img-4.png', title: 'Serenity Suites', category: 'Hospitality', year: '2024' },
-  { image: '/assets/img/project/project-img-5.png', title: 'Modern Workspace', category: 'Commercial', year: '2023' },
-  { image: '/assets/img/project/project-img-6.png', title: 'Coastal Retreat', category: 'Residential', year: '2023' },
-];
+import { residentialProjects } from '../data/portfolio';
 ---
 
-<Layout title="Our Projects - TIA Interior" description="Explore our portfolio of luxury interior design projects across residential, commercial, and hospitality sectors in Dubai.">
+<Layout
+  title="Our Projects - TIA Interior"
+  description="Explore our portfolio of luxury interior design projects across residential, commercial, and hospitality sectors in Dubai."
+>
   <PageHeader title="Our Projects" currentPage="Projects" />
 
   <section class="project-section-inner pt-130 pb-130">
     <div class="container container-2">
       <div class="row gy-5">
-        {projects.map((project) => (
-          <div class="col-lg-4 col-md-6">
-            <ProjectCard {...project} />
-          </div>
-        ))}
+        {
+          residentialProjects.map((project) => (
+            <div class="col-lg-4 col-md-6">
+              <ProjectCard {...project} />
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>

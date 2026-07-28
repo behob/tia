@@ -2,19 +2,31 @@
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/ui/PageHeader.astro';
 import TestimonialSection from '../components/sections/TestimonialSection.astro';
+import { pricingPlans, pricingFeatures } from '../data/pricing';
 ---
 
-<Layout title="Pricing Plans - TIA Interior" description="Explore our interior design pricing plans tailored to your project needs.">
+<Layout
+  title="Pricing Plans - TIA Interior"
+  description="Explore our interior design pricing plans tailored to your project needs."
+>
   <PageHeader title="Our Pricing" currentPage="Pricing" />
 
   <section class="pricing-section pt-130 pb-130">
-    <div class="shape-1"><img src="/assets/img/shapes/pricing-shape-1.png" alt="pricing"  loading="lazy"/></div>
+    <div class="shape-1"><img src="/assets/img/shapes/pricing-shape-1.png" alt="pricing" loading="lazy" /></div>
     <div class="container container-2">
       <div class="row section-heading-wrap ml-0 mw-100">
-        <div class="shape"><img src="/assets/img/shapes/section-heading.png" alt="shape"  loading="lazy"/></div>
+        <div class="shape"><img src="/assets/img/shapes/section-heading.png" alt="shape" loading="lazy" /></div>
         <div class="col-lg-4 col-md-12">
           <div class="section-heading mb-0">
-            <h4 class="sub-heading" data-text-animation="fade-in-right" data-split="char" data-duration="0.9" data-stagger="0.03">our pricing plans</h4>
+            <h4
+              class="sub-heading"
+              data-text-animation="fade-in-right"
+              data-split="char"
+              data-duration="0.9"
+              data-stagger="0.03"
+            >
+              our pricing plans
+            </h4>
           </div>
         </div>
         <div class="col-lg-8 col-md-12">
@@ -26,33 +38,42 @@ import TestimonialSection from '../components/sections/TestimonialSection.astro'
       <div class="row">
         <div class="col-lg-4 col-md-6">
           <div class="pricing-img-item">
-            <div class="bg-img"><img src="/assets/img/images/pricing-img-1.png" alt="pricing"  loading="lazy"/></div>
+            <div class="bg-img"><img src="/assets/img/images/pricing-img-1.png" alt="pricing" loading="lazy" /></div>
             <h3 class="title">Your dreams, <span>our mission, let's</span> make it happen.</h3>
           </div>
         </div>
-        {[
-          { name: 'Basic Plan', price: '$99.0', desc: 'Our foundation plan offers essential features at an affordable price, without breaking the bank.' },
-          { name: 'Premium Plan', price: '$199.0', desc: 'Our foundation plan offers essential features at an affordable price, without breaking the bank.' },
-        ].map((plan) => (
-          <div class="col-lg-4 col-md-6">
-            <div class="pricing-item">
-              <div class="shape"><img src="/assets/img/shapes/pricing-item-shape.png" alt="shape"  loading="lazy"/></div>
-              <h3 class="title">{plan.name}</h3>
-              <p>{plan.desc}</p>
-              <h4 class="price">{plan.price} <span>/per month</span></h4>
-              <ul class="pricing-list">
-                <li><i class="fa-sharp fa-solid fa-circle-check"></i>Individuals & small projects</li>
-                <li><i class="fa-sharp fa-solid fa-circle-check"></i>Access to design features</li>
-                <li><i class="fa-sharp fa-solid fa-circle-check"></i>Limited library of decorative items</li>
-                <li><i class="fa-sharp fa-solid fa-circle-check"></i>Email support</li>
-                <li><i class="fa-sharp fa-solid fa-circle-check"></i>Monthly updates</li>
-              </ul>
-              <div class="pricing-btn">
-                <a href="#" class="tl-primary-btn">Purchase Now <span class="icon"><i class="fa-regular fa-arrow-right"></i></span></a>
+        {
+          pricingPlans.map((plan) => (
+            <div class="col-lg-4 col-md-6">
+              <div class="pricing-item">
+                <div class="shape">
+                  <img src="/assets/img/shapes/pricing-item-shape.png" alt="shape" loading="lazy" />
+                </div>
+                <h3 class="title">{plan.name}</h3>
+                <p>{plan.desc}</p>
+                <h4 class="price">
+                  {plan.price} <span>/per month</span>
+                </h4>
+                <ul class="pricing-list">
+                  {pricingFeatures.map((feature) => (
+                    <li>
+                      <i class="fa-sharp fa-solid fa-circle-check" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <div class="pricing-btn">
+                  <a href="#" class="tl-primary-btn">
+                    Purchase Now{' '}
+                    <span class="icon">
+                      <i class="fa-regular fa-arrow-right" />
+                    </span>
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </div>
   </section>

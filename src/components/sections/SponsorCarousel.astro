@@ -1,12 +1,5 @@
 ---
-const sponsors = [
-  { image: '/assets/img/sponsor/sponsor-1.png', alt: 'Sponsor 1' },
-  { image: '/assets/img/sponsor/sponsor-2.png', alt: 'Sponsor 2' },
-  { image: '/assets/img/sponsor/sponsor-3.png', alt: 'Sponsor 3' },
-  { image: '/assets/img/sponsor/sponsor-4.png', alt: 'Sponsor 4' },
-  { image: '/assets/img/sponsor/sponsor-5.png', alt: 'Sponsor 5' },
-  { image: '/assets/img/sponsor/sponsor-6.png', alt: 'Sponsor 6' },
-];
+import { sponsors } from '../../data/sponsors';
 ---
 
 <section class="sponsor-section bg-white pt-120 pb-130 overflow-hidden">
@@ -16,13 +9,17 @@ const sponsors = [
     </div>
     <div class="sponsor-carousel swiper">
       <div class="swiper-wrapper">
-        {sponsors.map((sponsor) => (
-          <div class="swiper-slide">
-            <div class="sponsor-item">
-              <a href="#"><img src={sponsor.image} alt={sponsor.alt}  loading="lazy"/></a>
+        {
+          sponsors.map((sponsor) => (
+            <div class="swiper-slide">
+              <div class="sponsor-item">
+                <a href="#">
+                  <img src={sponsor.image} alt={sponsor.alt} loading="lazy" />
+                </a>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </div>
   </div>
