@@ -37,8 +37,25 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    // Update these for your domain
-    const recipient = "contact@yourdomain.com";
+    if (fullname.length > 100 || message.length > 5000 || phone.length > 50 || email.length > 320) {
+      return new Response("Input exceeds maximum allowed length.", { status: 400 });
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return new Response("Please provide a valid email address.", { status: 400 });
+    }
+
+    const recipient = import.meta.env.CONTACT_EMAIL;
+    const senderEmail = import.meta.env.SENDER_EMAIL;
+    if (!recipient || !senderEmail) {
+      console.error('Mail Route Error: CONTACT_EMAIL or SENDER_EMAIL not configured');
+      return new Response(
+        "Oops! Something went wrong and we couldn't send your message.",
+        { status: 500 }
+      );
+    }
+
     const subject = `Message from ${fullname}`;
 
     // Email body content
@@ -57,7 +74,7 @@ export const POST: APIRoute = async ({ request }) => {
           },
         ],
         from: {
-          email: 'no-reply@yourdomain.com', // Replace with your domain sender when deploying
+          email: senderEmail,
           name: fullname,
         },
         reply_to: {
