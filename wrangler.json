@@ -7,6 +7,12 @@
 		"directory": "./dist",
 		"binding": "ASSETS"
 	},
+	"kv_namespaces": [
+		{
+			"binding": "SESSION",
+			"id": "bd420c81a44e409f8c54c968f94dd0da"
+		}
+	],
 	"observability": {
 		"enabled": true
 	},
