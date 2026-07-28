@@ -6,7 +6,6 @@ import Sidebar from '../components/layout/Sidebar.astro';
 import MobileMenu from '../components/layout/MobileMenu.astro';
 import Preloader from '../components/layout/Preloader.astro';
 import SearchBox from '../components/layout/SearchBox.astro';
-import { ClientRouter } from 'astro:transitions';
 import { site } from '../data/site';
 
 interface Props {
@@ -93,7 +92,6 @@ const jsonLd = {
     <link rel="stylesheet" href="/assets/css/twentytwenty.min.css" />
     <link rel="stylesheet" href="/assets/css/swiper.min.css" />
 
-    <ClientRouter />
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
 
@@ -136,13 +134,5 @@ const jsonLd = {
     <script is:inline src="/assets/js/banner-process.js"></script>
     <script is:inline src="/assets/js/contact.js"></script>
     <script is:inline src="/assets/js/main.js"></script>
-    <script>
-      document.addEventListener('astro:after-swap', () => {
-        document.querySelectorAll('.preloader').forEach(el => el.remove());
-      });
-      document.addEventListener('astro:page-load', () => {
-        document.querySelectorAll('.preloader').forEach(el => el.remove());
-      });
-    </script>
   </body>
 </html>
