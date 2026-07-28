@@ -137,5 +137,11 @@ const jsonLd = {
     <script is:inline src="/assets/js/banner-process.js"></script>
     <script is:inline src="/assets/js/contact.js"></script>
     <script is:inline src="/assets/js/main.js"></script>
+    <script>
+      document.addEventListener('astro:after-swap', () => {
+        const preloader = document.querySelector('.preloader');
+        if (preloader) preloader.style.display = 'none';
+      });
+    </script>
   </body>
 </html>
