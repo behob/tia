@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Antra - Architecture & Interior Design HTML Template" description="">
+  <section class="coming-section">
+      <div class="bg-img" data-background="/assets/img/bg-img/coming-bg-1.png"></div>
+      <div class="container container-2">
+          <div class="coming-content text-center">
+              <div class="coming-logo">
+                  <a href="/"><img src="/assets/img/logo/logo-2.png" alt="logo"></a>
+              </div>
+              <div class="section-heading white-content mb-40 align-items-center">
+                  <h4 class="sub-heading" data-text-animation="fade-in-right" data-split="char" data-duration="0.9" data-stagger="0.03">COMING SOON</h4>
+                  <h2 class="section-title cursor-effect">Astra is in <span>the Works!</span></h2>
+              </div>
+              <div class="rr-product-countdown" data-countdown data-date="Jun 30 2027 20:20:22">
+                  <div class="rr-product-countdown-inner">
+                      <ul>
+                          <li><span data-days>0</span>d</li>
+                          <li><span data-hours>0</span>h</li>
+                          <li><span data-minutes>0</span>m</li>
+                          <li><span data-seconds>0</span>s</li>
+                      </ul>
+                  </div>
+              </div>
+              <p>hi! we are launching soon! please reach us at hello@example.com <br>for any immediate inquires!</p>
+              <div class="form-item message-item">
+                  <input id="message" name="message" class="form-control address" placeholder="Email Here.."></input>
+                  <button class="icon"><i class="fa-regular fa-arrow-right"></i></button>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Special script for coming-soon page countdown -->
+  <script is:inline src="/assets/js/vendor/countdown.js"></script>
+</Layout>
