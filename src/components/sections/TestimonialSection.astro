@@ -1,0 +1,113 @@
+---
+interface Props {
+  variant?: 'default' | 'centered';
+}
+
+const { variant = 'default' } = Astro.props;
+
+const testimonials = [
+  {
+    text: '"A wonderful experience! They knew what they were doing and were incredibly knowledgeable throughout the process."',
+    author: 'Morgan Dufresne',
+    role: 'Company Owner',
+    image: '/assets/img/testi/testi-author-1.png',
+  },
+];
+---
+
+{variant === 'default' ? (
+  <section class="testimonial-section bg-white pt-150">
+    <div class="container container-2">
+      <div class="row section-heading-wrap">
+        <div class="shape"><img src="/assets/img/shapes/section-heading.png" alt="shape" /></div>
+        <div class="col-lg-4 col-md-12">
+          <div class="section-heading mb-0">
+            <h4 class="sub-heading" data-text-animation="fade-in-right" data-split="char" data-duration="0.9" data-stagger="0.03">Our clients say</h4>
+          </div>
+        </div>
+        <div class="col-lg-8 col-md-12">
+          <div class="section-heading section-heading-2 mb-0">
+            <h2 class="section-title title-2">Here's What <span>warm words <br /> our clients</span> say</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="testi-img">
+            <img src="/assets/img/testi/testi-img-1.png" alt="testimonial" />
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="testi-carousel-wrap">
+            <div class="testi-top-content">
+              <div class="left-content">
+                <h3 class="rating">4.80</h3>
+                <div class="rating-list">
+                  <ul>
+                    <li><i class="fa-solid fa-star"></i></li>
+                    <li><i class="fa-solid fa-star"></i></li>
+                    <li><i class="fa-solid fa-star"></i></li>
+                    <li><i class="fa-solid fa-star"></i></li>
+                    <li><i class="fa-solid fa-star"></i></li>
+                  </ul>
+                  <span>2,688 reviews</span>
+                </div>
+              </div>
+              <div class="right-content">
+                <p>From concept to reality, the team turned my <br /> vision into a stunning, livable space. I couldn't <br /> be happier with this!</p>
+              </div>
+            </div>
+            <div class="testi-carousel swiper">
+              <div class="swiper-wrapper">
+                {testimonials.map((t) => (
+                  <div class="swiper-slide">
+                    <div class="testi-item">
+                      <p>{t.text}</p>
+                      <div class="testi-author">
+                        <div class="author-img">
+                          <img src={t.image} alt={t.author} />
+                        </div>
+                        <h4 class="name">{t.author} <span>{t.role}</span></h4>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+) : (
+  <section class="testimonial-section-2 pb-130">
+    <div class="bg-shape"><img src="/assets/img/shapes/testi-shape-1.png" alt="shape" /></div>
+    <div class="container container-2">
+      <div class="testi-carousel-wrap">
+        <div class="testi-carousel testi-carousel-2">
+          <div class="swiper-wrapper">
+            {testimonials.map((t) => (
+              <div class="swiper-slide">
+                <div class="testi-item-2 text-center">
+                  <div class="icon"><img src="/assets/img/icon/quote.png" alt="quote" /></div>
+                  <div class="content">
+                    <p>{t.text}</p>
+                    <div class="testi-author">
+                      <div class="author-img">
+                        <img src={t.image} alt={t.author} />
+                      </div>
+                      <div class="author-content">
+                        <h4 class="name">{t.author}</h4>
+                        <span>{t.role}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+)}

@@ -1,0 +1,28 @@
+---
+interface Props {
+  subtitle: string;
+  title: string;
+  titleSpan?: string;
+  description?: string;
+  center?: boolean;
+  extraClass?: string;
+}
+
+const {
+  subtitle,
+  title,
+  titleSpan,
+  description,
+  center = false,
+  extraClass = '',
+} = Astro.props;
+---
+
+<div class={`section-heading ${center ? 'text-center' : ''} mb-0`}>
+  <h4 class="sub-heading" data-text-animation="fade-in-right" data-split="char" data-duration="0.9" data-stagger="0.03">{subtitle}</h4>
+  <h2 class="section-title cursor-effect title-2">
+    {title}
+    {titleSpan && <span>{titleSpan}</span>}
+  </h2>
+  {description && <p class="mb-0">{description}</p>}
+</div>

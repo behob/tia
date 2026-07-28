@@ -1,78 +1,47 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/ui/PageHeader.astro';
+import NewsletterSection from '../components/sections/NewsletterSection.astro';
+
+const galleryItems = [
+  { image: '/assets/img/project/gallary-img-1.png', title: 'Bathroom Bliss' },
+  { image: '/assets/img/project/gallary-img-2.png', title: 'Living Room Stories' },
+  { image: '/assets/img/project/gallary-img-3.png', title: 'Office Room' },
+  { image: '/assets/img/project/gallary-img-4.png', title: 'Elegant Dining Spaces' },
+  { image: '/assets/img/project/gallary-img-5.png', title: 'Serene Bedrooms' },
+];
 ---
 
-<Layout title="Antra - Architecture & Interior Design HTML Template" description="">
-<section class="page-header">
-            <div class="bg-img" data-background="/assets/img/bg-img/page-header-bg.png"></div>
-            <div class="overlay"></div>
-            <div class="container">
-                <div class="page-header-content">
-                    <h1 class="title">gallery</h1>
-                    <h4 class="sub-title"><a class='home' href="/">Home </a><span class="icon">-</span><a class='inner-page' href="/gallary-1"> Gallery</a></h4>
-                </div>
-            </div>
-        </section>
-        <!-- ./ page-header -->
+<Layout title="Gallery - TIA Interior" description="Browse our gallery of stunning interior design projects.">
+  <PageHeader title="Gallery" currentPage="Gallery" />
 
-        <section class="gallery-inner pt-130 pb-130">
-            <div class="container container-2">
-                <div class="row section-heading-wrap ml-0 mw-100">  
-                    <div class="shape"><img src="/assets/img/shapes/section-heading.png" alt="shape"></div>
-                    <div class="col-lg-4 col-md-12">
-                        <div class="section-heading mb-0">
-                            <h4 class="sub-heading" data-text-animation="fade-in-right" data-split="char" data-duration="0.9" data-stagger="0.03">our gallery</h4>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 col-md-12">
-                        <div class="section-heading section-heading-2 mb-0 pl-0">
-                            <h2 class="section-title title-2">Gallery <span>of inspiring <br> interior</span> designs</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="gallary-item-wrap-inner">
-                    <div class="gallary-item-inner">
-                        <a href="/assets/img/project/gallary-img-1.png" class="venobox" data-gall="gallary1"><img src="/assets/img/project/gallary-img-1.png" alt="img"></a>
-                        <h4 class="title">Bathroom Bliss</h4>
-                    </div>
-                    <div class="gallary-item-inner">
-                        <a href="/assets/img/project/gallary-img-2.png" class="venobox" data-gall="gallary1"><img src="/assets/img/project/gallary-img-2.png" alt="img"></a>
-                        <h4 class="title">Living Room Stories</h4>
-                    </div>
-                    <div class="gallary-item-inner">
-                        <a href="/assets/img/project/gallary-img-3.png" class="venobox" data-gall="gallary1"><img src="/assets/img/project/gallary-img-3.png" alt="img"></a>
-                        <h4 class="title">Office Room</h4>
-                    </div>
-                    <div class="gallary-item-inner">
-                        <a href="/assets/img/project/gallary-img-4.png" class="venobox" data-gall="gallary1"><img src="/assets/img/project/gallary-img-4.png" alt="img"></a>
-                        <h4 class="title">Elegant Dining Spaces</h4>
-                    </div>
-                    <div class="gallary-item-inner">
-                        <a href="/assets/img/project/gallary-img-5.png" class="venobox" data-gall="gallary1"><img src="/assets/img/project/gallary-img-5.png" alt="img"></a>
-                        <h4 class="title">Serene Bedrooms</h4>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <section class="gallery-inner pt-130 pb-130">
+    <div class="container container-2">
+      <div class="row section-heading-wrap ml-0 mw-100">
+        <div class="shape"><img src="/assets/img/shapes/section-heading.png" alt="shape" /></div>
+        <div class="col-lg-4 col-md-12">
+          <div class="section-heading mb-0">
+            <h4 class="sub-heading" data-text-animation="fade-in-right" data-split="char" data-duration="0.9" data-stagger="0.03">our gallery</h4>
+          </div>
+        </div>
+        <div class="col-lg-8 col-md-12">
+          <div class="section-heading section-heading-2 mb-0 pl-0">
+            <h2 class="section-title title-2">Gallery <span>of inspiring <br /> interior</span> designs</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="gallary-item-wrap-inner">
+        {galleryItems.map((item) => (
+          <div class="gallary-item-inner">
+            <a href={item.image} class="venobox" data-gall="gallary1"><img src={item.image} alt={item.title} /></a>
+            <h4 class="title">{item.title}</h4>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-        <section class="newsletter-section bg-white pt-130 pb-130 overflow-hidden">
-            <div class="bg-shape"><img src="/assets/img/shapes/newsletter-shape.png" alt="shape"></div>
-            <div class="container">
-                <div class="newsletter-wrap">
-                    <div class="section-heading text-center align-items-center">
-                        <h4 class="sub-heading" data-text-animation="fade-in-right" data-split="char" data-duration="0.9" data-stagger="0.03">Subscribe to the newsletter</h4>
-                        <h2 class="section-title">Join <span>our newsletter <br> stay</span> up to date</h2>
-                        <p>Join our newsletter. Learn something new, gain access to exclusive content, <br> and stay informed with the latest updates in the industry.</p>
-                    </div>
-                    <div class="newsletter-form">
-                        <input type="text" id="email" name="email" class="form-control" placeholder="Email address..">
-                        <button type="submit"><i class="fa-regular fa-arrow-right-long"></i></button>
-                        
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- ./ newsletter-section -->
+  <NewsletterSection extraClass="pt-130" />
 </Layout>

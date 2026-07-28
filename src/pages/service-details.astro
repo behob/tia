@@ -1,172 +1,128 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/ui/PageHeader.astro';
+import { site } from '../data/site';
+
+const otherServices = [
+  { label: 'Residential Interior Design', active: true },
+  { label: 'Commercial Interior Design' },
+  { label: 'Interior Design Consultation' },
+  { label: 'Outdoor & Landscape Design' },
+  { label: 'Renovation and Remodeling' },
+  { label: 'Interior 2D/3D Layouts' },
+];
+
+const features = [
+  { icon: '/assets/img/icon/service-details-1.png', title: 'Space Optimization', desc: 'Through the best smart space optimization interior design.' },
+  { icon: '/assets/img/icon/service-details-2.png', title: 'Flexible Layouts', desc: 'Through the best smart space optimization interior design.' },
+  { icon: '/assets/img/icon/service-details-3.png', title: 'Smart Technology', desc: 'Through the best smart space optimization interior design.' },
+  { icon: '/assets/img/icon/service-details-4.png', title: 'Cost Efficiency', desc: 'Through the best smart space optimization interior design.' },
+];
+
+const faqs = [
+  { id: 'One', question: 'What interior design services do you offer?', answer: 'Our interior design services cover everything you need to create a stunning and functional space. From initial concept development and space planning to selecting color schemes, furniture, and custom designs, we bring your vision to life.', open: true },
+  { id: 'Two', question: 'What services do you offer?', answer: 'Our interior design services cover everything you need to create a stunning and functional space. From initial concept development and space planning to selecting color schemes, furniture, and custom designs, we bring your vision to life.' },
+  { id: 'Three', question: 'What is your design process?', answer: 'Our interior design services cover everything you need to create a stunning and functional space. From initial concept development and space planning to selecting color schemes, furniture, and custom designs, we bring your vision to life.' },
+  { id: 'Four', question: 'Can I create custom design?', answer: 'Our interior design services cover everything you need to create a stunning and functional space. From initial concept development and space planning to selecting color schemes, furniture, and custom designs, we bring your vision to life.' },
+];
 ---
 
-<Layout title="Antra - Architecture & Interior Design HTML Template" description="">
-<section class="page-header">
-            <div class="bg-img" data-background="/assets/img/bg-img/page-header-bg.png"></div>
-            <div class="overlay"></div>
-            <div class="container">
-                <div class="page-header-content">
-                    <h1 class="title">Service Details</h1>
-                    <h4 class="sub-title"><a class='home' href="/service">Home </a><span class="icon">-</span><a class='inner-page' href="/service-details"> Service Details</a></h4>
-                </div>
-            </div>
-        </section>
-        <!-- ./ page-header -->
+<Layout title="Service Details - TIA Interior" description="Learn more about our comprehensive interior design services.">
+  <PageHeader title="Service Details" currentPage="Service Details" />
 
-        <section class="service-details pt-130 pb-130">
-            <div class="container container-2">
-                <div class="row pin-inner">
-                    <div class="col-lg-4 col-md-12">
-                        <div class="service-details-left-content pin-box">
-                            <div class="service-category-list">
-                                <h3 class="list-title">Other Services</h3>
-                                <ul>
-                                    <li class="active"><a href="#">Residential Interior Design</a></li>
-                                    <li><a href="#">Commercial Interior Design</a></li>
-                                    <li><a href="#">Interior Design Consultation</a></li>
-                                    <li><a href="#">Outdoor & Landscape Design</a></li>
-                                    <li><a href="#">Renovation and Remodeling</a></li>
-                                    <li><a href="#">Interior 2D/3D Layouts</a></li>
-                                </ul>
-                            </div>
-                            <div class="service-details-cta">
-                                <div class="cta-bg" data-background="/assets/img/bg-img/service-cta-bg-2.png"></div>
-                                <div class="icon"><img src="/assets/img/icon/service-details-cta.png" alt="icon"></div>
-                                <span>Do You Need Help?</span>
-                                <a class="number" href="tel:+0844560789">+(084) 456-0789</a>
-                                <a class="mail" href="mailto:">support@example.com</a>
-                                <div class="cta-btn">
-                                    <a href="/contact">Get a call <br> Back</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 col-md-12">
-                        <div class="service-details-content scroll-content">
-                            <div class="service-details-img">
-                                <img src="/assets/img/service/service-details-img-1.png" alt="img">
-                            </div>
-                            <h1 class="details-title">About the service</h1>
-                            <p>Commercial interior design is constantly evolving, with a new trends emerging to meet the changing to needs and preferences of the businesses and their customers. One of the most significant trends in that's recent years is biophilic design, which involves incorporating natural elements like plants, wood, and stone into the design.</p>
-                            <p>A growing demand for adaptable layouts that can accommodate changing needs. This might include modular movable partitions. Sustainability is alsokey trend in commercial interior design</p>
-                            <div class="service-details-items">
-                                <div class="service-details-item">
-                                    <div class="icon"><img src="/assets/img/icon/service-details-1.png" alt="service"></div>
-                                    <div class="content">
-                                        <h3 class="title">Space Optimization</h3>
-                                        <p>Through the best smart space optimization interior design.</p>
-                                    </div>
-                                </div>
-                                <div class="service-details-item">
-                                    <div class="icon"><img src="/assets/img/icon/service-details-2.png" alt="service"></div>
-                                    <div class="content">
-                                        <h3 class="title">Flexible Layouts</h3>
-                                        <p>Through the best smart space optimization interior design.</p>
-                                    </div>
-                                </div>
-                                <div class="service-details-item">
-                                    <div class="icon"><img src="/assets/img/icon/service-details-3.png" alt="service"></div>
-                                    <div class="content">
-                                        <h3 class="title">Smart Technology</h3>
-                                        <p>Through the best smart space optimization interior design.</p>
-                                    </div>
-                                </div>
-                                <div class="service-details-item">
-                                    <div class="icon"><img src="/assets/img/icon/service-details-4.png" alt="service"></div>
-                                    <div class="content">
-                                        <h3 class="title">Cost Efficiency</h3>
-                                        <p>Through the best smart space optimization interior design.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="service-details-img-wrap">
-                                <div class="details-img">
-                                    <img src="/assets/img/service/service-details-img-2.png" alt="img">
-                                </div>
-                                <div class="details-img">
-                                    <img src="/assets/img/service/service-details-img-3.png" alt="img">
-                                </div>
-                            </div>
-                            <h2 class="details-title">Types of Commercial Spaces</h2>
-                            <p>In design, we bring characteristics of the natural world into built spaces, such as water, greenery, and natural light, or elements like wood and stone. Encouraging the use of natural systems and processes in design allows for exposure to nature, and in turn, these design approaches improve health and wellbeing. There are a number of possible benefits, including reduced heart rate variability and pulse rates, decreased blood pressure, and increased activity in our nervous systems, to name a few.</p>
-                            <h2 class="details-title">Key Elements of Interior Design</h2>
-                            <p>Several key elements are essential to successful commercial interior design. These include space planning, lighting design, material selection, furniture and fixtures, color and texture, technology integration, and acoustics.</p>
-                            <div class="service-details-list-wrap">
-                                <ul>
-                                    <li><i class="fa-sharp fa-solid fa-circle-check"></i>We provide high quality design services.</li>
-                                    <li><i class="fa-sharp fa-solid fa-circle-check"></i>Project on time and Latest Design.</li>
-                                    <li><i class="fa-sharp fa-solid fa-circle-check"></i>Scientific Skills For getting a better result.</li>
-                                    <li><i class="fa-sharp fa-solid fa-circle-check"></i>Renovations Benefit of Service</li>
-                                </ul>
-                                <ul>
-                                    <li><i class="fa-sharp fa-solid fa-circle-check"></i>Flexible with any structure of the building</li>
-                                    <li><i class="fa-sharp fa-solid fa-circle-check"></i>Commitment to customer service</li>
-                                    <li><i class="fa-sharp fa-solid fa-circle-check"></i>Experienced, time-served engineers</li>
-                                    <li><i class="fa-sharp fa-solid fa-circle-check"></i>We are confident about our projects.</li>
-                                </ul>
-                            </div>
-                            <p class="mb-50">Commercial interior design is a dynamic and multifaceted field that plays a critical role in the success of businesses across a wide range of industries. By blending creativity with practicality, commercial interior design</p>
-                            <div class="service-faq">
-                                <h3 class="faq-title">Frequently asked questions</h3>
-                                <div class="faq-accordion fade-wrapper">
-                                    <div class="accordion" id="accordionExample">
-                                        <div class="accordion-item fade-top">
-                                            <h2 class="accordion-header" id="headingOne">
-                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                    What interior design services do you offer?
-                                                </button>
-                                            </h2>
-                                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                <div class="accordion-body">
-                                                    Our interior design services cover everything you need to create a stunning and functional space. From initial concept development and space planning to selecting color schemes, furniture, and custom designs, we bring your vision to life.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="accordion-item fade-top">
-                                            <h2 class="accordion-header" id="headingTwo">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                    What services do you offer?
-                                                </button>
-                                            </h2>
-                                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                                <div class="accordion-body">
-                                                    Our interior design services cover everything you need to create a stunning and functional space. From initial concept development and space planning to selecting color schemes, furniture, and custom designs, we bring your vision to life.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="accordion-item fade-top">
-                                            <h2 class="accordion-header" id="headingThree">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                    What is your design process?
-                                                </button>
-                                            </h2>
-                                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                                <div class="accordion-body">
-                                                    Our interior design services cover everything you need to create a stunning and functional space. From initial concept development and space planning to selecting color schemes, furniture, and custom designs, we bring your vision to life.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="accordion-item fade-top">
-                                            <h2 class="accordion-header" id="headingFour">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                                    Can I create custom design?
-                                                </button>
-                                            </h2>
-                                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                                                <div class="accordion-body">
-                                                    Our interior design services cover everything you need to create a stunning and functional space. From initial concept development and space planning to selecting color schemes, furniture, and custom designs, we bring your vision to life.
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  <section class="service-details pt-130 pb-130">
+    <div class="container container-2">
+      <div class="row pin-inner">
+        <div class="col-lg-4 col-md-12">
+          <div class="service-details-left-content pin-box">
+            <div class="service-category-list">
+              <h3 class="list-title">Other Services</h3>
+              <ul>
+                {otherServices.map((s) => (
+                  <li class={s.active ? 'active' : ''}><a href="#">{s.label}</a></li>
+                ))}
+              </ul>
             </div>
-        </section>
-        <!-- ./ service-section -->
+            <div class="service-details-cta">
+              <div class="cta-bg" data-background="/assets/img/bg-img/service-cta-bg-2.png"></div>
+              <div class="icon"><img src="/assets/img/icon/service-details-cta.png" alt="icon" /></div>
+              <span>Do You Need Help?</span>
+              <a class="number" href={`tel:${site.phoneRaw}`}>{site.phone}</a>
+              <a class="mail" href={`mailto:${site.email}`}>{site.email}</a>
+              <div class="cta-btn">
+                <a href="/contact">Get a call <br /> Back</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 col-md-12">
+          <div class="service-details-content scroll-content">
+            <div class="service-details-img">
+              <img src="/assets/img/service/service-details-img-1.png" alt="service details" />
+            </div>
+            <h1 class="details-title">About the service</h1>
+            <p>Commercial interior design is constantly evolving, with new trends emerging to meet the changing needs and preferences of businesses and their customers. One of the most significant trends in recent years is biophilic design, which involves incorporating natural elements like plants, wood, and stone into the design.</p>
+            <p>A growing demand for adaptable layouts that can accommodate changing needs. This might include modular movable partitions. Sustainability is also a key trend in commercial interior design.</p>
+            <div class="service-details-items">
+              {features.map((f) => (
+                <div class="service-details-item">
+                  <div class="icon"><img src={f.icon} alt={f.title} /></div>
+                  <div class="content">
+                    <h3 class="title">{f.title}</h3>
+                    <p>{f.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div class="service-details-img-wrap">
+              <div class="details-img">
+                <img src="/assets/img/service/service-details-img-2.png" alt="service" />
+              </div>
+              <div class="details-img">
+                <img src="/assets/img/service/service-details-img-3.png" alt="service" />
+              </div>
+            </div>
+            <h2 class="details-title">Types of Commercial Spaces</h2>
+            <p>In design, we bring characteristics of the natural world into built spaces, such as water, greenery, and natural light, or elements like wood and stone. Encouraging the use of natural systems and processes in design allows for exposure to nature, and in turn, these design approaches improve health and wellbeing.</p>
+            <h2 class="details-title">Key Elements of Interior Design</h2>
+            <p>Several key elements are essential to successful commercial interior design. These include space planning, lighting design, material selection, furniture and fixtures, color and texture, technology integration, and acoustics.</p>
+            <div class="service-details-list-wrap">
+              <ul>
+                <li><i class="fa-sharp fa-solid fa-circle-check"></i>We provide high quality design services.</li>
+                <li><i class="fa-sharp fa-solid fa-circle-check"></i>Project on time and Latest Design.</li>
+                <li><i class="fa-sharp fa-solid fa-circle-check"></i>Scientific Skills For getting a better result.</li>
+                <li><i class="fa-sharp fa-solid fa-circle-check"></i>Renovations Benefit of Service</li>
+              </ul>
+              <ul>
+                <li><i class="fa-sharp fa-solid fa-circle-check"></i>Flexible with any structure of the building</li>
+                <li><i class="fa-sharp fa-solid fa-circle-check"></i>Commitment to customer service</li>
+                <li><i class="fa-sharp fa-solid fa-circle-check"></i>Experienced, time-served engineers</li>
+                <li><i class="fa-sharp fa-solid fa-circle-check"></i>We are confident about our projects.</li>
+              </ul>
+            </div>
+            <p class="mb-50">Commercial interior design is a dynamic and multifaceted field that plays a critical role in the success of businesses across a wide range of industries.</p>
+            <div class="service-faq">
+              <h3 class="faq-title">Frequently asked questions</h3>
+              <div class="faq-accordion fade-wrapper">
+                <div class="accordion" id="accordionExample">
+                  {faqs.map((faq) => (
+                    <div class="accordion-item fade-top">
+                      <h2 class="accordion-header" id={`heading${faq.id}`}>
+                        <button class={`accordion-button${faq.open ? '' : ' collapsed'}`} type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${faq.id}`} aria-expanded={faq.open ? 'true' : 'false'} aria-controls={`collapse${faq.id}`}>
+                          {faq.question}
+                        </button>
+                      </h2>
+                      <div id={`collapse${faq.id}`} class={`accordion-collapse collapse${faq.open ? ' show' : ''}`} aria-labelledby={`heading${faq.id}`} data-bs-parent="#accordionExample">
+                        <div class="accordion-body">{faq.answer}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>

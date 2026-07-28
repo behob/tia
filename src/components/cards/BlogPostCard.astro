@@ -1,0 +1,41 @@
+---
+interface Props {
+  image: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  author?: string;
+  category?: string;
+  href?: string;
+  variant?: 'default' | 'inner';
+}
+
+const {
+  image,
+  title,
+  excerpt,
+  date,
+  author = 'Admin',
+  category = 'Design',
+  href = '/blog-details',
+  variant = 'default',
+} = Astro.props;
+---
+
+<div class={`post-card ${variant === 'inner' ? 'post-card-2 inner-post' : ''}`}>
+  {variant === 'default' && (
+    <div class="post-thumb">
+      <img src={image} alt={title} />
+      <span class="category">{category}</span>
+    </div>
+  )}
+  <div class="post-content">
+    <ul class="post-meta">
+      {variant === 'inner' && <li class="category">{category}</li>}
+      <li>{date}</li>
+      <li>By <span>{author}</span></li>
+    </ul>
+    <h3 class="title"><a href={href}>{title}</a></h3>
+    {variant === 'default' && <p>{excerpt}</p>}
+  </div>
+</div>

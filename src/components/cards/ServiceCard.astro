@@ -1,0 +1,25 @@
+---
+interface Props {
+  icon: string;
+  title: string;
+  description: string;
+  href?: string;
+}
+
+const {
+  icon,
+  title,
+  description,
+  href = '/service-details',
+} = Astro.props;
+---
+
+<div class="service-item slide-anim" data-delay="0.3" data-offset="100" data-direction="bottom">
+  <div class="service-top">
+    <h3 class="title"><a href={href}>{title}</a></h3>
+    <div class="icon">
+      <img src={icon} alt={title} />
+    </div>
+  </div>
+  <p>{description}</p>
+</div>

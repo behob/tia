@@ -1,0 +1,30 @@
+---
+interface Props {
+  title: string;
+  currentPage: string;
+  parentLabel?: string;
+  parentHref?: string;
+}
+
+const {
+  title,
+  currentPage,
+  parentLabel = 'Home',
+  parentHref = '/',
+} = Astro.props;
+---
+
+<section class="page-header">
+  <div class="bg-img" data-background="/assets/img/bg-img/page-header-bg.png"></div>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="page-header-content">
+      <h1 class="title">{title}</h1>
+      <h4 class="sub-title">
+        <a class="home" href={parentHref}>{parentLabel}</a>
+        <span class="icon">-</span>
+        <a class="inner-page" href="#">{currentPage}</a>
+      </h4>
+    </div>
+  </div>
+</section>

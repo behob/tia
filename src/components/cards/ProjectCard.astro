@@ -1,0 +1,33 @@
+---
+interface Props {
+  image: string;
+  title: string;
+  href?: string;
+  category?: string;
+  year?: string;
+}
+
+const {
+  image,
+  title,
+  href = '/portfolio-details',
+  category = 'Residential',
+  year = '2025',
+} = Astro.props;
+---
+
+<div class="project-item antra-hover-view">
+  <div class="project-img">
+    <a class="d-block p-relative z-1" href={href}>
+      <img src={image} alt={title} />
+    </a>
+    <ul>
+      <li><a href={href}>{category}</a></li>
+      <li><a href={href}>{title}</a></li>
+    </ul>
+  </div>
+  <div class="project-content">
+    <h3 class="title"><a href={href}>{title}</a></h3>
+    <span>Dubai, UAE<br />{year}</span>
+  </div>
+</div>

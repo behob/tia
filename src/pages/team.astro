@@ -1,157 +1,41 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/ui/PageHeader.astro';
+import TeamMemberCard from '../components/cards/TeamMemberCard.astro';
+
+const teamMembers = [
+  { image: '/assets/img/team/team-img-6.png', name: 'Mark Jackson', role: 'Exhibition Designer' },
+  { image: '/assets/img/team/team-img-7.png', name: 'Helen Reeves', role: 'Production Designer' },
+  { image: '/assets/img/team/team-img-8.png', name: 'Valeria Novikova', role: 'Interior Designer' },
+  { image: '/assets/img/team/team-img-1.png', name: 'Alex Podzemsky', role: 'Architect' },
+  { image: '/assets/img/team/team-img-2.png', name: 'Jake Nicholson', role: 'Project Manager' },
+  { image: '/assets/img/team/team-img-3.png', name: 'Sarah Mitchell', role: 'Design Director' },
+];
 ---
 
-<Layout title="Antra - Architecture & Interior Design HTML Template" description="">
-<section class="page-header">
-            <div class="bg-img" data-background="/assets/img/bg-img/page-header-bg.png"></div>
-            <div class="overlay"></div>
-            <div class="container">
-                <div class="page-header-content">
-                    <h1 class="title">Our Team</h1>
-                    <h4 class="sub-title"><a class='home' href="/">Home </a><span class="icon">-</span><a class='inner-page' href="/team"> Team</a></h4>
-                </div>
-            </div>
-        </section>
-        <!-- ./ page-header -->
+<Layout title="Our Team - TIA Interior" description="Meet the talented team behind TIA Interior's award-winning luxury design projects.">
+  <PageHeader title="Our Team" currentPage="Team" />
 
-        <section class="team-section pt-130 pb-130">
-            <div class="container container-2">
-                <div class="row gy-5" data-masonry='{"percentPosition": true }'>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="team-item-2">
-                            <div class="team-thumb">
-                                <img src="/assets/img/team/team-img-6.png" alt="team">
-                            </div>
-                            <div class="team-content">
-                                <h3 class="title"><a href="/team-details">Mark Jackson</a></h3>
-                                <span>Exhibition designer</span>
-                                <ul class="team-social">
-                                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-behance"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="team-item-2 item-1">
-                            <div class="team-thumb">
-                                <img src="/assets/img/team/team-img-7.png" alt="team">
-                            </div>
-                            <div class="team-content">
-                                <h3 class="title"><a href="/team-details">Helen Reeves</a></h3>
-                                <span>Production designer</span>
-                                <ul class="team-social">
-                                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-behance"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="team-item-2">
-                            <div class="team-thumb">
-                                <img src="/assets/img/team/team-img-8.png" alt="team">
-                            </div>
-                            <div class="team-content">
-                                <h3 class="title"><a href="/team-details">Alex Podzemsky</a></h3>
-                                <span>Graphics Designer</span>
-                                <ul class="team-social">
-                                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-behance"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="team-item-2">
-                            <div class="team-thumb">
-                                <img src="/assets/img/team/team-img-2.png" alt="team">
-                            </div>
-                            <div class="team-content">
-                                <h3 class="title"><a href="/team-details">Mark Jackson</a></h3>
-                                <span>Exhibition designer</span>
-                                <ul class="team-social">
-                                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-behance"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="team-item-2">
-                            <div class="team-thumb">
-                                <img src="/assets/img/team/team-img-4.png" alt="team">
-                            </div>
-                            <div class="team-content">
-                                <h3 class="title"><a href="/team-details">Alex Podzemsky</a></h3>
-                                <span>Graphics Designer</span>
-                                <ul class="team-social">
-                                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-behance"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="team-item-2">
-                            <div class="team-thumb">
-                                <img src="/assets/img/team/team-img-5.png" alt="team">
-                            </div>
-                            <div class="team-content">
-                                <h3 class="title"><a href="/team-details">Helen Reeves</a></h3>
-                                <span>Production designer</span>
-                                <ul class="team-social">
-                                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-behance"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- ./ team-section -->
-
-        <section class="testimonial-section-2 pb-130">
-            <div class="bg-shape"><img src="/assets/img/shapes/testi-shape-1.png" alt="shape"></div>
-            <div class="container container-2">
-                <div class="testi-carousel-wrap">
-                    <div class="testi-carousel testi-carousel-2">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="testi-item-2 text-center">
-                                    <div class="icon"><img src="/assets/img/icon/quote.png" alt="icon"></div>
-                                    <div class="content">
-                                        <p>“I absolutely love my the new modern living room! The clean lines, a neutral tones, and minimalist interior create such a calming & stylish atmosphere. Highly recommend their modern interior design services!"</p>
-                                        <div class="testi-author">
-                                            <div class="author-img">
-                                                <img src="/assets/img/testi/testi-author-1.png" alt="testi">
-                                            </div>
-                                            <div class="author-content">
-                                                <h4 class="name">Morgan Dufresne</h4>
-                                                <span>Company owner</span>
-                                            </div>
-                                        </div>
-                                    </div>  
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- ./ testimonial-section -->
+  <section class="team-section pt-130 pb-130">
+    <div class="container container-2">
+      <div class="row gy-5" data-masonry='{"percentPosition": true }'>
+        {teamMembers.map((member, i) => (
+          <div class="col-lg-4 col-md-6">
+            <TeamMemberCard
+              image={member.image}
+              name={member.name}
+              role={member.role}
+              variant="grid"
+              social={{
+                facebook: '#',
+                instagram: '#',
+                behance: '#',
+                linkedin: '#',
+              }}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 </Layout>

@@ -1,115 +1,44 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/ui/PageHeader.astro';
+import NewsletterSection from '../components/sections/NewsletterSection.astro';
+
+const projects = [
+  { image: '/assets/img/project/project-3.png', title: 'Coastal Harmony Home', category: 'Residential' },
+  { image: '/assets/img/project/project-4.png', title: 'Coastal Harmony Home', category: 'Residential' },
+  { image: '/assets/img/project/project-5.png', title: 'Coastal Harmony Home', category: 'Residential' },
+  { image: '/assets/img/project/project-6.png', title: 'Coastal Harmony Home', category: 'Residential' },
+  { image: '/assets/img/project/project-7.png', title: 'Coastal Harmony Home', category: 'Residential' },
+  { image: '/assets/img/project/project-8.png', title: 'Coastal Harmony Home', category: 'Residential' },
+];
 ---
 
-<Layout title="Antra - Architecture & Interior Design HTML Template" description="">
-<section class="page-header">
-            <div class="bg-img" data-background="/assets/img/bg-img/page-header-bg.png"></div>
-            <div class="overlay"></div>
-            <div class="container">
-                <div class="page-header-content">
-                    <h1 class="title">Our Projects</h1>
-                    <h4 class="sub-title"><a class='home' href="/service">Home </a><span class="icon">-</span><a class='inner-page' href="/about"> Projects</a></h4>
-                </div>
+<Layout title="Commercial Projects - TIA Interior" description="Explore our commercial interior design projects in Dubai.">
+  <PageHeader title="Our Projects" currentPage="Commercial Projects" />
+
+  <section class="project-section-inner pt-130 pb-130">
+    <div class="container">
+      <div class="row gy-5">
+        {projects.map((p) => (
+          <div class="col-lg-4 col-md-6">
+            <div class="project-item-3">
+              <div class="project-img">
+                <img src={p.image} alt={p.title} />
+              </div>
+              <div class="project-content">
+                <ul>
+                  <li><a href="/portfolio-details">{p.category}</a></li>
+                  <li><a href="/portfolio-details">Single Home</a></li>
+                </ul>
+                <h3 class="title"><a href="/portfolio-details">{p.title}</a></h3>
+                <span>Dubai, UAE<br />2025</span>
+              </div>
             </div>
-        </section>
-        <!-- ./ page-header -->    
-        
-        <section class="project-section-inner pt-130 pb-130">
-            <div class="container">
-                <div class="row gy-5">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="project-item-3">
-                            <div class="project-img">
-                                <img src="/assets/img/project/project-3.png" alt="project">
-                            </div>
-                            <div class="project-content">
-                                <ul>
-                                    <li><a href="/portfolio-details">Residential</a></li>
-                                    <li><a href="/portfolio-details">Single Home</a></li>
-                                </ul>
-                                <h3 class="title"><a href="/portfolio-details">Coastal Harmony Home</a></h3>
-                                <span>Berlin, Germany <br>2025</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="project-item-3">
-                            <div class="project-img">
-                                <img src="/assets/img/project/project-4.png" alt="project">
-                            </div>
-                            <div class="project-content">
-                                <ul>
-                                    <li><a href="/portfolio-details">Residential</a></li>
-                                    <li><a href="/portfolio-details">Single Home</a></li>
-                                </ul>
-                                <h3 class="title"><a href="/portfolio-details">Coastal Harmony Home</a></h3>
-                                <span>Berlin, Germany <br>2025</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="project-item-3">
-                            <div class="project-img">
-                                <img src="/assets/img/project/project-5.png" alt="project">
-                            </div>
-                            <div class="project-content">
-                                <ul>
-                                    <li><a href="/portfolio-details">Residential</a></li>
-                                    <li><a href="/portfolio-details">Single Home</a></li>
-                                </ul>
-                                <h3 class="title"><a href="/portfolio-details">Coastal Harmony Home</a></h3>
-                                <span>Berlin, Germany <br>2025</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="project-item-3">
-                            <div class="project-img">
-                                <img src="/assets/img/project/project-6.png" alt="project">
-                            </div>
-                            <div class="project-content">
-                                <ul>
-                                    <li><a href="/portfolio-details">Residential</a></li>
-                                    <li><a href="/portfolio-details">Single Home</a></li>
-                                </ul>
-                                <h3 class="title"><a href="/portfolio-details">Coastal Harmony Home</a></h3>
-                                <span>Berlin, Germany <br>2025</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="project-item-3">
-                            <div class="project-img">
-                                <img src="/assets/img/project/project-7.png" alt="project">
-                            </div>
-                            <div class="project-content">
-                                <ul>
-                                    <li><a href="/portfolio-details">Residential</a></li>
-                                    <li><a href="/portfolio-details">Single Home</a></li>
-                                </ul>
-                                <h3 class="title"><a href="/portfolio-details">Coastal Harmony Home</a></h3>
-                                <span>Berlin, Germany <br>2025</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="project-item-3">
-                            <div class="project-img">
-                                <img src="/assets/img/project/project-8.png" alt="project">
-                            </div>
-                            <div class="project-content">
-                                <ul>
-                                    <li><a href="/portfolio-details">Residential</a></li>
-                                    <li><a href="/portfolio-details">Single Home</a></li>
-                                </ul>
-                                <h3 class="title"><a href="/portfolio-details">Coastal Harmony Home</a></h3>
-                                <span>Berlin, Germany <br>2025</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- ./ project-section -->
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <NewsletterSection />
 </Layout>

@@ -1,0 +1,64 @@
+---
+import { site } from '../../data/site';
+
+const { footer, copyright } = site;
+---
+
+<footer class="footer-section overflow-hidden">
+  <div class="footer-bg" data-background="/assets/img/bg-img/footer-bg.png"></div>
+  <div class="footer-shade"></div>
+  <div class="container container-2">
+    <div class="row footer-wrap">
+      <div class="col-lg-3 col-md-6">
+        <div class="footer-widget">
+          <div class="widget-header">
+            <div class="footer-logo">
+              <a href="/"><img src="/assets/img/logo/logo-2.png" alt={`${site.name} logo`} /></a>
+            </div>
+          </div>
+          <p class="mb-10">We transform your vision into beautifully<br /> crafted spaces.</p>
+          <p class="mb-0">{site.address.split(',').join(',<br/>')}</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="footer-widget footer-col-2">
+          <ul class="footer-list">
+            {footer.links.map((link) => (
+              <li><a href={link.href}>{link.label}</a></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="footer-widget footer-col-2 pl-0">
+          <ul class="footer-list">
+            {footer.projectLinks.map((link) => (
+              <li><a href={link.href}>{link.label}</a></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="footer-widget">
+          <div class="footer-address">
+            <a class="number" href={`tel:${site.phoneRaw}`}>+({site.phone})</a>
+            <a class="mail" href={`mailto:${site.email}`}>{site.email}</a>
+            <ul class="social-list">
+              {footer.socials.map((social) => (
+                <li><a href={social.href}>{social.label}</a></li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="copyright-area">
+    <div class="container">
+      <div class="copyright-content">
+        <p>{copyright}</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-text"><span>tia</span></div>
+</footer>
