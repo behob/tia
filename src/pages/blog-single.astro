@@ -9,7 +9,7 @@ const comments = [
 ];
 ---
 
-<Layout title="Blog Details - TIA Interior" description="Read the full article on modern interior design tips and trends.">
+<Layout title="Blog Single - TIA Interior" description="Interior design insights and expert tips from TIA Interior's blog.">
   <PageHeader title="Blog Details" currentPage="Blog Details" />
 
   <section class="blog-details pt-150 pb-150 overflow-hidden">
@@ -28,21 +28,21 @@ const comments = [
               </div>
             </div>
             <div class="blog-details-img mb-30">
-              <img src="/assets/img/blog/blog-details-img.png" alt="blog" />
+              <img src="/assets/img/blog/blog-details-img.png" alt="blog"  loading="lazy"/>
             </div>
             <div class="blog-details-content">
               <p class="mb-30">Modern interior design is all about creating a sleek, functional, and aesthetically pleasing space that reflects contemporary living. Whether you're updating a single room or redesigning your entire home, incorporating modern interior design principles can bring a fresh, sophisticated, and elegant ambiance.</p>
               <h3 class="details-title-2">Understanding the Fundamentals</h3>
               <p class="mb-40">Start by eliminating unnecessary items and embracing a "less is more" approach. Instead of filling every corner with furniture and decor, choose a few statement pieces that enhance the aesthetic of the room.</p>
               <div class="details-img-wrap mt-40 mb-40">
-                <img src="/assets/img/blog/blog-details-img-1.png" alt="blog" />
-                <img src="/assets/img/blog/blog-details-img-2.png" alt="blog" />
+                <img src="/assets/img/blog/blog-details-img-1.png" alt="blog"  loading="lazy"/>
+                <img src="/assets/img/blog/blog-details-img-2.png" alt="blog"  loading="lazy"/>
               </div>
               <h3 class="details-title-2">Exploring Design Styles</h3>
               <p class="mb-40">Modern interior design prioritizes furniture that is both aesthetically pleasing and highly functional. Look for multi-purpose furniture such as extendable dining tables, sofa beds, or modular shelving units.</p>
               <blockquote class="mb-40">
-                <div class="shape"><img src="/assets/img/icon/blog-details-1.png" alt="icon" /></div>
-                <div class="icon"><img src="/assets/img/icon/quote-2.png" alt="quote" /></div>
+                <div class="shape"><img src="/assets/img/icon/blog-details-1.png" alt="icon"  loading="lazy"/></div>
+                <div class="icon"><img src="/assets/img/icon/quote-2.png" alt="quote"  loading="lazy"/></div>
                 <div class="content">
                   <p>"Modern interior design transforms ordinary spaces into extraordinary environments. The core principle of modern design is 'less is more,' focusing on simplicity and the elimination of clutter."</p>
                   <h4 class="author">Aaliyah Brown</h4>
@@ -65,7 +65,7 @@ const comments = [
               {comments.map((comment, i) => (
                 <div class={`comment-item${i === 1 ? ' item-2' : ''}`}>
                   <div class="comment-thumb">
-                    <img src={comment.image} alt={comment.author} />
+                    <img src={comment.image} alt={comment.author}  loading="lazy"/>
                   </div>
                   <div class="comment-info">
                     <div class="comment-top">
@@ -73,7 +73,7 @@ const comments = [
                       <div class="comments-meta"><span>{comment.date}</span></div>
                     </div>
                     <p>{comment.text}</p>
-                    <button class="reply"><img src="/assets/img/icon/arrow-left.png" alt="arrow" /> Reply</button>
+                    <button class="reply"><img src="/assets/img/icon/arrow-left.png" alt="arrow"  loading="lazy"/> Reply</button>
                   </div>
                 </div>
               ))}

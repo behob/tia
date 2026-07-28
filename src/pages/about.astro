@@ -8,7 +8,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
   <PageHeader title="About Us" currentPage="About Us" />
 
   <section class="about-section-2 pt-130 pb-130">
-    <div class="shape-1"><img src="/assets/img/shapes/about-shape-1.png" alt="shape" /></div>
+    <div class="shape-1"><img src="/assets/img/shapes/about-shape-1.png" alt="shape"  loading="lazy"/></div>
     <div class="container container-2">
       <div class="row about-wrap-2">
         <div class="col-lg-8">
@@ -23,7 +23,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
                 <p>Years of <br /> experience</p>
               </div>
               <div class="counter-img">
-                <img src="/assets/img/images/about-img-2.png" alt="counter" />
+                <img src="/assets/img/images/about-img-2.png" alt="counter"  loading="lazy"/>
               </div>
             </div>
           </div>
@@ -31,7 +31,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
         <div class="col-lg-4">
           <div class="about-content-right">
             <div class="about-img-1">
-              <img src="/assets/img/images/about-img-3.png" alt="about" />
+              <img src="/assets/img/images/about-img-3.png" alt="about"  loading="lazy"/>
             </div>
             <div class="about-desc">
               <p>We believe that every space has the power to inspire, and that great design brings. Our mission is to craft environments that stir creativity, evoke emotion, and reflect the essence of those who inhabit them.</p>
@@ -54,10 +54,10 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
 
   <section class="history-section pt-130 pb-130">
     <div class="history-text"><span>tia</span></div>
-    <div class="history-element"><img src="/assets/img/images/counter-img-1.png" alt="counter" /></div>
+    <div class="history-element"><img src="/assets/img/images/counter-img-1.png" alt="counter"  loading="lazy"/></div>
     <div class="container container-2">
       <div class="row section-heading-wrap ml-0 mw-100">
-        <div class="shape"><img src="/assets/img/shapes/section-heading.png" alt="shape" /></div>
+        <div class="shape"><img src="/assets/img/shapes/section-heading.png" alt="shape"  loading="lazy"/></div>
         <div class="col-lg-4 col-md-12">
           <div class="section-heading mb-0">
             <h4 class="sub-heading" data-text-animation="fade-in-right" data-split="char" data-duration="0.9" data-stagger="0.03">our History</h4>
@@ -76,7 +76,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
               <div class="swiper-slide">
                 <div class="history-item">
                   <div class="history-img">
-                    <img src="/assets/img/images/history-img-1.png" alt="history" />
+                    <img src="/assets/img/images/history-img-1.png" alt="history"  loading="lazy"/>
                   </div>
                   <div class="history-content">
                     <div class="circle"></div>
@@ -114,7 +114,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
           <div class="col-xl-3 col-lg-6 col-md-6">
             <div class="process-item">
               <div class="process-thumb">
-                <img src={step.img} alt={step.title} />
+                <img src={step.img} alt={step.title}  loading="lazy"/>
               </div>
               <div class="process-content">
                 <h3 class="title"><span>{step.num}</span>. {step.title}</h3>
@@ -132,10 +132,10 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
   </section>
 
   <section class="award-section bg-grey pt-130 pb-130">
-    <div class="bg-shape"><img src="/assets/img/shapes/team-bg-shape-1.png" alt="shape" /></div>
+    <div class="bg-shape"><img src="/assets/img/shapes/team-bg-shape-1.png" alt="shape"  loading="lazy"/></div>
     <div class="container container-2">
       <div class="row section-heading-wrap">
-        <div class="shape"><img src="/assets/img/shapes/section-heading.png" alt="shape" /></div>
+        <div class="shape"><img src="/assets/img/shapes/section-heading.png" alt="shape"  loading="lazy"/></div>
         <div class="col-lg-4 col-md-12">
           <div class="section-heading mb-0">
             <h4 class="sub-heading" data-text-animation="fade-in-right" data-split="char" data-duration="0.9" data-stagger="0.03">Award & achievement</h4>
@@ -150,7 +150,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
       <div class="row award-wrap">
         <div class="col-lg-5">
           <div class="award-img">
-            <img src="/assets/img/images/award-img-1.png" alt="award" />
+            <img src="/assets/img/images/award-img-1.png" alt="award"  loading="lazy"/>
           </div>
         </div>
         <div class="col-lg-7">
@@ -198,7 +198,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
                 {[1, 2, 3, 4].map((i) => (
                   <div class="swiper-slide">
                     <div class="gallary-inner-item">
-                      <a href="/about"><img src={`/assets/img/images/gallary-img-${i}.png`} alt={`gallery ${i}`} /></a>
+                      <a href="/about"><img src={`/assets/img/images/gallary-img-${i}.png`} alt={`gallery ${i}`}  loading="lazy"/></a>
                     </div>
                   </div>
                 ))}
@@ -217,7 +217,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
   <section class="testimonial-section bg-white pt-150">
     <div class="container container-2">
       <div class="row section-heading-wrap">
-        <div class="shape"><img src="/assets/img/shapes/section-heading.png" alt="shape" /></div>
+        <div class="shape"><img src="/assets/img/shapes/section-heading.png" alt="shape"  loading="lazy"/></div>
         <div class="col-lg-4 col-md-12">
           <div class="section-heading mb-0">
             <h4 class="sub-heading" data-text-animation="fade-in-right" data-split="char" data-duration="0.9" data-stagger="0.03">Our clients say</h4>
@@ -232,7 +232,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
       <div class="row">
         <div class="col-lg-6">
           <div class="testi-img">
-            <img src="/assets/img/testi/testi-img-1.png" alt="testimonial" />
+            <img src="/assets/img/testi/testi-img-1.png" alt="testimonial"  loading="lazy"/>
           </div>
         </div>
         <div class="col-lg-6">
@@ -262,7 +262,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
                     <p>"A wonderful experience! They knew what they were doing and were incredibly knowledgeable throughout the process."</p>
                     <div class="testi-author">
                       <div class="author-img">
-                        <img src="/assets/img/testi/testi-author-1.png" alt="author" />
+                        <img src="/assets/img/testi/testi-author-1.png" alt="author"  loading="lazy"/>
                       </div>
                       <h4 class="name">Morgan Dufresne <span>Company Owner</span></h4>
                     </div>
@@ -286,7 +286,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
           {[1, 2, 3, 4, 5, 6].map((i) => (
             <div class="swiper-slide">
               <div class="sponsor-item">
-                <a href="#"><img src={`/assets/img/sponsor/sponsor-${i}.png`} alt={`sponsor ${i}`} /></a>
+                <a href="#"><img src={`/assets/img/sponsor/sponsor-${i}.png`} alt={`sponsor ${i}`}  loading="lazy"/></a>
               </div>
             </div>
           ))}

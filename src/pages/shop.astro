@@ -39,7 +39,7 @@ import PageHeader from '../components/ui/PageHeader.astro';
               ].map((item) => (
                 <div class="sidebar-item">
                   <div class="item-img">
-                    <img src={item.img} alt={item.title} />
+                    <img src={item.img} alt={item.title}  loading="lazy"/>
                   </div>
                   <div class="content">
                     <h4 class="title">{item.title}</h4>
@@ -68,7 +68,7 @@ import PageHeader from '../components/ui/PageHeader.astro';
                       <div class="shop-item">
                         <div class="shop-thumb">
                           <div class="overlay"></div>
-                          <img src={`/assets/img/shop/shop-${i}.png`} alt="shop" />
+                          <img src={`/assets/img/shop/shop-${i}.png`} alt="shop"  loading="lazy"/>
                           <ul class="shop-list">
                             <li><a href="#"><i class="fa-regular fa-cart-shopping"></i></a></li>
                             <li><a href="#"><i class="fa-light fa-heart"></i></a></li>

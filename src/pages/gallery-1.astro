@@ -18,7 +18,7 @@ const galleryItems = [
   <section class="gallery-inner pt-130 pb-130">
     <div class="container container-2">
       <div class="row section-heading-wrap ml-0 mw-100">
-        <div class="shape"><img src="/assets/img/shapes/section-heading.png" alt="shape" /></div>
+        <div class="shape"><img src="/assets/img/shapes/section-heading.png" alt="shape" loading="lazy" /></div>
         <div class="col-lg-4 col-md-12">
           <div class="section-heading mb-0">
             <h4 class="sub-heading" data-text-animation="fade-in-right" data-split="char" data-duration="0.9" data-stagger="0.03">our gallery</h4>
@@ -35,7 +35,7 @@ const galleryItems = [
       <div class="gallary-item-wrap-inner">
         {galleryItems.map((item) => (
           <div class="gallary-item-inner">
-            <a href={item.image} class="venobox" data-gall="gallary1"><img src={item.image} alt={item.title} /></a>
+            <a href={item.image} class="venobox" data-gall="gallary1"><img src={item.image} alt={item.title} loading="lazy" /></a>
             <h4 class="title">{item.title}</h4>
           </div>
         ))}

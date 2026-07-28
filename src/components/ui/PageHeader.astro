@@ -12,9 +12,30 @@ const {
   parentLabel = 'Home',
   parentHref = '/',
 } = Astro.props;
+
+const siteUrl = Astro.site?.href || 'https://tiadecors.com';
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: parentLabel,
+      item: new URL(parentHref, siteUrl).href,
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: currentPage,
+      item: new URL(Astro.url.pathname, siteUrl).href,
+    },
+  ],
+};
 ---
 
-<section class="page-header" transition:animate="fade">
+<section class="page-header">
   <div class="bg-img" data-background="/assets/img/bg-img/page-header-bg.png"></div>
   <div class="overlay"></div>
   <div class="container">
@@ -27,4 +48,5 @@ const {
       </h4>
     </div>
   </div>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
 </section>

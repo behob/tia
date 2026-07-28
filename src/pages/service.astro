@@ -11,7 +11,7 @@ import SectionHeading from '../components/ui/SectionHeading.astro';
   <section class="feature-section pt-150 pb-110 overflow-hidden">
     <div class="container container-2">
       <div class="row section-heading-wrap feature-top">
-        <div class="shape"><img src="/assets/img/shapes/section-heading.png" alt="shape" /></div>
+        <div class="shape"><img src="/assets/img/shapes/section-heading.png" alt="shape"  loading="lazy"/></div>
         <div class="col-lg-4 col-md-12">
           <div class="section-heading mb-0">
             <h4 class="sub-heading" data-text-animation="fade-in-right" data-split="char" data-duration="0.9" data-stagger="0.03">WHO We Are</h4>
@@ -34,7 +34,7 @@ import SectionHeading from '../components/ui/SectionHeading.astro';
           <div class="col-lg-6">
             <div class="feature-item-imgs">
               <div class="feature-img">
-                <img src={service.icon} alt={service.title} />
+                <img src={service.icon} alt={service.title}  loading="lazy"/>
                 <div class="img-content">
                   <p>{service.desc}</p>
                 </div>

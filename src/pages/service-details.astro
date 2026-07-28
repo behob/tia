@@ -45,7 +45,7 @@ const faqs = [
             </div>
             <div class="service-details-cta">
               <div class="cta-bg" data-background="/assets/img/bg-img/service-cta-bg-2.png"></div>
-              <div class="icon"><img src="/assets/img/icon/service-details-cta.png" alt="icon" /></div>
+              <div class="icon"><img src="/assets/img/icon/service-details-cta.png" alt="icon"  loading="lazy"/></div>
               <span>Do You Need Help?</span>
               <a class="number" href={`tel:${site.phoneRaw}`}>{site.phone}</a>
               <a class="mail" href={`mailto:${site.email}`}>{site.email}</a>
@@ -58,7 +58,7 @@ const faqs = [
         <div class="col-lg-8 col-md-12">
           <div class="service-details-content scroll-content">
             <div class="service-details-img">
-              <img src="/assets/img/service/service-details-img-1.png" alt="service details" />
+              <img src="/assets/img/service/service-details-img-1.png" alt="service details"  loading="lazy"/>
             </div>
             <h1 class="details-title">About the service</h1>
             <p>Commercial interior design is constantly evolving, with new trends emerging to meet the changing needs and preferences of businesses and their customers. One of the most significant trends in recent years is biophilic design, which involves incorporating natural elements like plants, wood, and stone into the design.</p>
@@ -66,7 +66,7 @@ const faqs = [
             <div class="service-details-items">
               {features.map((f) => (
                 <div class="service-details-item">
-                  <div class="icon"><img src={f.icon} alt={f.title} /></div>
+                  <div class="icon"><img src={f.icon} alt={f.title}  loading="lazy"/></div>
                   <div class="content">
                     <h3 class="title">{f.title}</h3>
                     <p>{f.desc}</p>
@@ -76,10 +76,10 @@ const faqs = [
             </div>
             <div class="service-details-img-wrap">
               <div class="details-img">
-                <img src="/assets/img/service/service-details-img-2.png" alt="service" />
+                <img src="/assets/img/service/service-details-img-2.png" alt="service"  loading="lazy"/>
               </div>
               <div class="details-img">
-                <img src="/assets/img/service/service-details-img-3.png" alt="service" />
+                <img src="/assets/img/service/service-details-img-3.png" alt="service"  loading="lazy"/>
               </div>
             </div>
             <h2 class="details-title">Types of Commercial Spaces</h2>

@@ -8,10 +8,10 @@ import TestimonialSection from '../components/sections/TestimonialSection.astro'
   <PageHeader title="Our Pricing" currentPage="Pricing" />
 
   <section class="pricing-section pt-130 pb-130">
-    <div class="shape-1"><img src="/assets/img/shapes/pricing-shape-1.png" alt="pricing" /></div>
+    <div class="shape-1"><img src="/assets/img/shapes/pricing-shape-1.png" alt="pricing"  loading="lazy"/></div>
     <div class="container container-2">
       <div class="row section-heading-wrap ml-0 mw-100">
-        <div class="shape"><img src="/assets/img/shapes/section-heading.png" alt="shape" /></div>
+        <div class="shape"><img src="/assets/img/shapes/section-heading.png" alt="shape"  loading="lazy"/></div>
         <div class="col-lg-4 col-md-12">
           <div class="section-heading mb-0">
             <h4 class="sub-heading" data-text-animation="fade-in-right" data-split="char" data-duration="0.9" data-stagger="0.03">our pricing plans</h4>
@@ -26,7 +26,7 @@ import TestimonialSection from '../components/sections/TestimonialSection.astro'
       <div class="row">
         <div class="col-lg-4 col-md-6">
           <div class="pricing-img-item">
-            <div class="bg-img"><img src="/assets/img/images/pricing-img-1.png" alt="pricing" /></div>
+            <div class="bg-img"><img src="/assets/img/images/pricing-img-1.png" alt="pricing"  loading="lazy"/></div>
             <h3 class="title">Your dreams, <span>our mission, let's</span> make it happen.</h3>
           </div>
         </div>
@@ -36,7 +36,7 @@ import TestimonialSection from '../components/sections/TestimonialSection.astro'
         ].map((plan) => (
           <div class="col-lg-4 col-md-6">
             <div class="pricing-item">
-              <div class="shape"><img src="/assets/img/shapes/pricing-item-shape.png" alt="shape" /></div>
+              <div class="shape"><img src="/assets/img/shapes/pricing-item-shape.png" alt="shape"  loading="lazy"/></div>
               <h3 class="title">{plan.name}</h3>
               <p>{plan.desc}</p>
               <h4 class="price">{plan.price} <span>/per month</span></h4>

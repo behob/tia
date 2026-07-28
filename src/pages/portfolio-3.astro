@@ -19,7 +19,7 @@ const projects = [
         {projects.map((p) => (
           <div class="project-item-2 antra-hover-view">
             <div class="project-thumb">
-              <a href="/portfolio-details"><img src={p.image} alt={p.title} /></a>
+              <a href="/portfolio-details"><img src={p.image} alt={p.title}  loading="lazy"/></a>
               <ul>
                 <li>{p.category}</li>
                 <li>Single Home</li>

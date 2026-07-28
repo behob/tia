@@ -4,7 +4,7 @@ import { site } from '../../data/site';
 const { footer, copyright } = site;
 ---
 
-<footer class="footer-section overflow-hidden" transition:persist>
+<footer class="footer-section overflow-hidden">
   <div class="footer-bg" data-background="/assets/img/bg-img/footer-bg.png"></div>
   <div class="footer-shade"></div>
   <div class="container container-2">
@@ -13,7 +13,7 @@ const { footer, copyright } = site;
         <div class="footer-widget">
           <div class="widget-header">
             <div class="footer-logo">
-              <a href="/"><img src="/assets/img/logo/logo-2.png" alt={`${site.name} logo`} /></a>
+              <a href="/"><img src="/assets/img/logo/logo-2.png" alt={`${site.name} logo`}  loading="lazy"/></a>
             </div>
           </div>
           <p class="mb-10">We transform your vision into beautifully<br /> crafted spaces.</p>

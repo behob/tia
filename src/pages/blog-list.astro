@@ -33,7 +33,7 @@ const tags = ['Architecture', 'Construction', 'Furniture', 'Design', 'Interior',
             i === 0 ? (
               <div class="post-card inner-post">
                 <div class="post-thumb">
-                  <img src={post.image} alt={post.title} />
+                  <img src={post.image} alt={post.title}  loading="lazy"/>
                 </div>
                 <div class="post-content">
                   <ul class="post-meta">
@@ -50,7 +50,7 @@ const tags = ['Architecture', 'Construction', 'Furniture', 'Design', 'Interior',
               <div class={`post-card-wrap${i === 1 ? ' post-card-wrap-inner' : ''}`} style={i > 1 ? 'display: none;' : ''}>
                 <div class="post-card">
                   <div class="post-thumb">
-                    <img src={post.image} alt={post.title} />
+                    <img src={post.image} alt={post.title}  loading="lazy"/>
                   </div>
                   <div class="post-content">
                     <ul class="post-meta">
@@ -95,7 +95,7 @@ const tags = ['Architecture', 'Construction', 'Furniture', 'Design', 'Interior',
             <h3 class="widget-title">Recent Post</h3>
             {sidebarPosts.map((post) => (
               <div class="sidebar-post">
-                <img src={post.image} alt={post.title} />
+                <img src={post.image} alt={post.title}  loading="lazy"/>
                 <div class="post-content">
                   <ul class="post-meta">
                     <li>{post.date}</li>
