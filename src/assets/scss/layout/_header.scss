@@ -739,7 +739,7 @@ START: Header CSS
         width: 100%;
         opacity: 0.5;
         visibility: visible;
-        cursor: url(../img/cancel.png), auto;
+        cursor: url(/assets/img/cancel.png), auto;
     }
     @include breakpoint(md) {
         display: none;
@@ -917,7 +917,7 @@ START: Header CSS
             width: 100%;
             opacity: 0.5;
             visibility: visible;
-            cursor: url(../img/cancel.png), auto;
+            cursor: url(/assets/img/cancel.png), auto;
         }
     }
 }
@@ -1063,9 +1063,6 @@ START: Header CSS
                     outline: none;
                 }
             }
-        }
-        &:hover {
-            cursor: url(../img/cross.png), auto;
         }
         .search-close {
             position: absolute;

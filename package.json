@@ -21,7 +21,7 @@
 	"devDependencies": {
 		"sass-embedded": "^1.100.0",
 		"typescript": "5.9.3",
-		"wrangler": "4.88.0"
+		"wrangler": "^4.114.0"
 	},
 	"overrides": {
 		"vite": "8.1.5",
