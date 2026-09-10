@@ -1,26 +1,26 @@
 export const residentialProjects = [
-  { image: '/assets/img/project/project-img-1.png', title: 'Luxury Skyline', category: 'Residential', year: '2025' },
-  { image: '/assets/img/project/project-img-2.png', title: 'Bohemian Rhapsody', category: 'Residential', year: '2025' },
-  { image: '/assets/img/project/project-img-3.png', title: 'Urban Oasis', category: 'Commercial', year: '2024' },
-  { image: '/assets/img/project/project-img-4.png', title: 'Serenity Suites', category: 'Hospitality', year: '2024' },
-  { image: '/assets/img/project/project-img-5.png', title: 'Modern Workspace', category: 'Commercial', year: '2023' },
-  { image: '/assets/img/project/project-img-6.png', title: 'Coastal Retreat', category: 'Residential', year: '2023' },
+  { image: '/assets/img/project/project-img-1.webp', title: 'Luxury Skyline', category: 'Residential', year: '2025' },
+  { image: '/assets/img/project/project-img-2.webp', title: 'Bohemian Rhapsody', category: 'Residential', year: '2025' },
+  { image: '/assets/img/project/project-img-3.webp', title: 'Urban Oasis', category: 'Commercial', year: '2024' },
+  { image: '/assets/img/project/project-img-4.webp', title: 'Serenity Suites', category: 'Hospitality', year: '2024' },
+  { image: '/assets/img/project/project-img-5.webp', title: 'Modern Workspace', category: 'Commercial', year: '2023' },
+  { image: '/assets/img/project/project-img-6.webp', title: 'Coastal Retreat', category: 'Residential', year: '2023' },
 ];
 
 export const commercialProjects = [
-  { image: '/assets/img/project/project-3.png', title: 'Coastal Harmony Home', category: 'Residential' },
-  { image: '/assets/img/project/project-4.png', title: 'Coastal Harmony Home', category: 'Residential' },
-  { image: '/assets/img/project/project-5.png', title: 'Coastal Harmony Home', category: 'Residential' },
-  { image: '/assets/img/project/project-6.png', title: 'Coastal Harmony Home', category: 'Residential' },
-  { image: '/assets/img/project/project-7.png', title: 'Coastal Harmony Home', category: 'Residential' },
-  { image: '/assets/img/project/project-8.png', title: 'Coastal Harmony Home', category: 'Residential' },
+  { image: '/assets/img/project/project-3.webp', title: 'Coastal Harmony Home', category: 'Residential' },
+  { image: '/assets/img/project/project-4.webp', title: 'Coastal Harmony Home', category: 'Residential' },
+  { image: '/assets/img/project/project-5.webp', title: 'Coastal Harmony Home', category: 'Residential' },
+  { image: '/assets/img/project/project-6.webp', title: 'Coastal Harmony Home', category: 'Residential' },
+  { image: '/assets/img/project/project-7.webp', title: 'Coastal Harmony Home', category: 'Residential' },
+  { image: '/assets/img/project/project-8.webp', title: 'Coastal Harmony Home', category: 'Residential' },
 ];
 
 export const hospitalityProjects = [
-  { image: '/assets/img/project/project-1.png', title: 'Coastal Harmony Home', category: 'Residential' },
-  { image: '/assets/img/project/project-2.png', title: 'Coastal Harmony Home', category: 'Residential' },
-  { image: '/assets/img/project/project-4.png', title: 'Coastal Harmony Home', category: 'Residential' },
-  { image: '/assets/img/project/project-2.png', title: 'Coastal Harmony Home', category: 'Residential' },
+  { image: '/assets/img/project/project-1.webp', title: 'Coastal Harmony Home', category: 'Residential' },
+  { image: '/assets/img/project/project-2.webp', title: 'Coastal Harmony Home', category: 'Residential' },
+  { image: '/assets/img/project/project-4.webp', title: 'Coastal Harmony Home', category: 'Residential' },
+  { image: '/assets/img/project/project-2.webp', title: 'Coastal Harmony Home', category: 'Residential' },
 ];
 
 export const portfolioDetail = {
@@ -31,7 +31,7 @@ export const portfolioDetail = {
   terms: '6 months',
   strategy: 'Minimalistic',
   date: 'March 11, 2025',
-  heroImage: '/assets/img/project/project-details-img-1.png',
+  heroImage: '/assets/img/project/project-details-img-1.webp',
   description:
     'Considering the physical, mental, and emotional needs of people, interior designers use human-centered approaches to address how we live today. Creating novel approaches to promoting health, safety, and welfare, contemporary interiors are increasingly inspired by biophilia as a holistic approach to design.',
   features: [

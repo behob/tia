@@ -739,7 +739,7 @@ START: Header CSS
     width: 100%;
     opacity: 0.5;
     visibility: visible;
-    cursor: url(/assets/img/cancel.png), auto;
+    cursor: url(/assets/img/cancel.webp), auto;
   }
   @include breakpoint(md) {
     display: none;
@@ -917,7 +917,7 @@ START: Header CSS
       width: 100%;
       opacity: 0.5;
       visibility: visible;
-      cursor: url(/assets/img/cancel.png), auto;
+      cursor: url(/assets/img/cancel.webp), auto;
     }
   }
 }

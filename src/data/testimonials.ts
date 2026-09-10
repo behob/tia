@@ -3,7 +3,7 @@ export const testimonials = [
     text: '"A wonderful experience! They knew what they were doing and were incredibly knowledgeable throughout the process."',
     author: 'Morgan Dufresne',
     role: 'Company Owner',
-    image: '/assets/img/testi/testi-author-1.png',
+    image: '/assets/img/testi/testi-author-1.webp',
   },
 ];
 

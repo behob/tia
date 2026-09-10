@@ -1,16 +1,16 @@
 export const teamMembers = [
-  { image: '/assets/img/team/team-img-6.png', name: 'Mark Jackson', role: 'Exhibition Designer' },
-  { image: '/assets/img/team/team-img-7.png', name: 'Helen Reeves', role: 'Production Designer' },
-  { image: '/assets/img/team/team-img-8.png', name: 'Valeria Novikova', role: 'Interior Designer' },
-  { image: '/assets/img/team/team-img-1.png', name: 'Alex Podzemsky', role: 'Architect' },
-  { image: '/assets/img/team/team-img-2.png', name: 'Jake Nicholson', role: 'Project Manager' },
-  { image: '/assets/img/team/team-img-3.png', name: 'Sarah Mitchell', role: 'Design Director' },
+  { image: '/assets/img/team/team-img-6.webp', name: 'Mark Jackson', role: 'Exhibition Designer' },
+  { image: '/assets/img/team/team-img-7.webp', name: 'Helen Reeves', role: 'Production Designer' },
+  { image: '/assets/img/team/team-img-8.webp', name: 'Valeria Novikova', role: 'Interior Designer' },
+  { image: '/assets/img/team/team-img-1.webp', name: 'Alex Podzemsky', role: 'Architect' },
+  { image: '/assets/img/team/team-img-2.webp', name: 'Jake Nicholson', role: 'Project Manager' },
+  { image: '/assets/img/team/team-img-3.webp', name: 'Sarah Mitchell', role: 'Design Director' },
 ];
 
 export const teamDetail = {
   name: 'Ricardo Marlin',
   role: 'Co-Founder & CEO',
-  image: '/assets/img/team/team-details-img.png',
+  image: '/assets/img/team/team-details-img.webp',
   bio: 'Mark Jackson was elected to judge the 3rd edition of Dezeen Awards. Having many years of expertise in the design of residential and public spaces — the founder and chief architect of TIA Interior and author of FAIN will look at the best entries from all over the world.',
   professionalInfo:
     "Our team brings unparalleled creativity and technical proficiency to the world of interior design. We specialize in crafting spaces that are not only aesthetically stunning but also functional and tailored to our clients' unique lifestyles and needs.",
