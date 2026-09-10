@@ -109,7 +109,7 @@
   var panorama, panoViewer, panoContainer;
   panoContainer = document.querySelector(".antra-panoroma-img");
 
-  if (panoContainer) {
+  if (panoContainer && typeof PANOLENS !== "undefined") {
     var antraData = $(".antra-panoroma-img").data("img");
     panorama = new PANOLENS.ImagePanorama(antraData);
     panoViewer = new PANOLENS.Viewer({ container: panoContainer });
@@ -250,11 +250,13 @@
     venoboxInit();
 
     // Data Background
-    $("[data-background").each(function () {
-      $(this).css(
-        "background-image",
-        "url( " + $(this).attr("data-background") + "  )",
-      );
+    $("[data-background]").each(function () {
+      var isMobile = window.innerWidth <= 767;
+      var bgMobile = $(this).attr("data-background-mobile");
+      var bg = isMobile && bgMobile ? bgMobile : $(this).attr("data-background");
+      if (bg) {
+        $(this).css("background-image", "url(" + bg + ")");
+      }
     });
 
     // Custom Cursor

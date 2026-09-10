@@ -3,7 +3,7 @@ import { site } from '../../data/site';
 ---
 
 <div id="sidebar-area" class="sidebar-area">
-  <button class="sidebar-trigger close">
+  <button class="sidebar-trigger close" aria-label="Close sidebar">
     <svg
       class="sidebar-close"
       xmlns="http://www.w3.org/2000/svg"
@@ -26,10 +26,9 @@ import { site } from '../../data/site';
   </button>
   <div class="side-menu-content">
     <div class="side-menu-logo">
-      <a class="dark-img" href="/"><img src="/assets/img/logo/logo-2.webp" alt={`${site.name} logo`} loading="lazy" /></a
-      >
+      <a class="dark-img" href="/"><img src="/assets/img/logo/logo-2.webp" alt={`${site.name} logo`} width="124" height="29" loading="lazy" /></a>
       <a class="light-img" href="/"
-        ><img src="/assets/img/logo/logo-1.webp" alt={`${site.name} logo`} loading="lazy" /></a
+        ><img src="/assets/img/logo/logo-1.webp" alt={`${site.name} logo`} width="124" height="29" loading="lazy" /></a
       >
     </div>
     <div class="side-menu-wrap"></div>
@@ -85,7 +84,7 @@ import { site } from '../../data/site';
       {
         site.socials.slice(0, 4).map((social) => (
           <li class={social.platform}>
-            <a href={social.href}>
+            <a href={social.href} aria-label={social.label}>
               <i class={social.icon} />
             </a>
           </li>

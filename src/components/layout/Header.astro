@@ -20,7 +20,7 @@ function isActive(href: string): boolean {
         <div class="header-left-wrap">
           <div class="header-logo d-lg-block">
             <a href="/">
-              <img src="/assets/img/logo/logo-2.webp" alt={`${site.name} logo`} />
+              <img src="/assets/img/logo/logo-2.webp" alt={`${site.name} logo`} width="124" height="29" />
             </a>
           </div>
           <div class="header-menu-wrap">
@@ -102,11 +102,11 @@ function isActive(href: string): boolean {
           <div class="header-btn-wrap">
             <a href="/contact" class="tl-primary-btn header-btn">Get in Touch</a>
           </div>
-          <div class="search-icon dl-search-icon">
+          <button type="button" class="search-icon dl-search-icon" aria-label="Open search dialog">
             <i class="fa-solid fa-magnifying-glass"></i>
-          </div>
+          </button>
           <div class="sidebar-icon">
-            <button class="sidebar-trigger open">
+            <button class="sidebar-trigger open" aria-label="Open sidebar menu">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M11 2C11 0.89543 11.8954 0 13 0H14C15.1046 0 16 0.895431 16 2V3C16 4.10457 15.1046 5 14 5H13C11.8954 5 11 4.10457 11 3V2Z"

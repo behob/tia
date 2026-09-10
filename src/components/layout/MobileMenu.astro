@@ -5,8 +5,8 @@ import { site } from '../../data/site';
 <div class="mobile-side-menu">
   <div class="side-menu-content">
     <div class="side-menu-head">
-      <a href="/"><img src="/assets/img/logo/logo-2.webp" alt={`${site.name} logo`} loading="lazy" /></a>
-      <button class="mobile-side-menu-close"><i class="fa-regular fa-xmark"></i></button>
+      <a href="/"><img src="/assets/img/logo/logo-2.webp" alt={`${site.name} logo`} width="124" height="29" loading="lazy" /></a>
+      <button class="mobile-side-menu-close" aria-label="Close navigation menu"><i class="fa-regular fa-xmark"></i></button>
     </div>
     <div class="side-menu-wrap"></div>
     <div class="side-menu-contact">
@@ -32,7 +32,7 @@ import { site } from '../../data/site';
       {
         site.socials.slice(0, 4).map((social) => (
           <li class={social.platform}>
-            <a href={social.href}>
+            <a href={social.href} aria-label={social.label}>
               <i class={social.icon} />
             </a>
           </li>

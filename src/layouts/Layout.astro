@@ -85,15 +85,57 @@ const jsonLd = {
     <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
 
     <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png" />
+
+    <!-- Google Fonts with preconnect & non-blocking stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Golos+Text:wght@400..900&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Golos+Text:wght@400..900&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Golos+Text:wght@400..900&display=swap"
+      />
+    </noscript>
+
+    <!-- Critical CSS -->
+    <link rel="preload" href="/assets/css/bootstrap.min.css" as="style" />
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/assets/css/fontawesome.min.css" />
-    <link rel="stylesheet" href="/assets/css/venobox.min.css" />
-    <link rel="stylesheet" href="/assets/css/odometer.min.css" />
-    <link rel="stylesheet" href="/assets/css/nice-select.css" />
-    <link rel="stylesheet" href="/assets/css/carouselTicker.css" />
-    <link rel="stylesheet" href="/assets/css/animation.css" />
-    <link rel="stylesheet" href="/assets/css/twentytwenty.min.css" />
+    <link rel="preload" href="/assets/css/swiper.min.css" as="style" />
     <link rel="stylesheet" href="/assets/css/swiper.min.css" />
+
+    <!-- FontAwesome (preloaded & non-blocking) -->
+    <link rel="preload" href="/assets/css/fontawesome.min.css" as="style" />
+    <link rel="stylesheet" href="/assets/css/fontawesome.min.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="/assets/css/fontawesome.min.css" /></noscript>
+
+    <!-- Non-critical deferred styles -->
+    <link rel="stylesheet" href="/assets/css/venobox.min.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="/assets/css/venobox.min.css" /></noscript>
+
+    <link rel="stylesheet" href="/assets/css/odometer.min.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="/assets/css/odometer.min.css" /></noscript>
+
+    <link rel="stylesheet" href="/assets/css/nice-select.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="/assets/css/nice-select.css" /></noscript>
+
+    <link rel="stylesheet" href="/assets/css/carouselTicker.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="/assets/css/carouselTicker.css" /></noscript>
+
+    <link rel="stylesheet" href="/assets/css/animation.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="/assets/css/animation.css" /></noscript>
+
+    <link rel="stylesheet" href="/assets/css/twentytwenty.min.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="/assets/css/twentytwenty.min.css" /></noscript>
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
@@ -107,12 +149,14 @@ const jsonLd = {
 
     <div id="antra-smooth-wrapper">
       <div id="antra-smooth-content">
-        <slot />
+        <main id="main-content">
+          <slot />
+        </main>
         <Footer />
       </div>
     </div>
 
-    <div id="scroll-percentage"><span id="scroll-percentage-value"></span></div>
+    <div id="scroll-percentage" role="button" aria-label="Scroll to top" tabindex="0"><span id="scroll-percentage-value"></span></div>
 
     <script is:inline src="/assets/js/vendor/jquery-3.7.1.min.js"></script>
     <script is:inline src="/assets/js/vendor/bootstrap-bundle.js"></script>
@@ -129,13 +173,11 @@ const jsonLd = {
     <script is:inline src="/assets/js/vendor/scroll-smoother.js"></script>
     <script is:inline src="/assets/js/vendor/jquery.carouselTicker.js"></script>
     <script is:inline src="/assets/js/vendor/nice-select.js"></script>
-    <script is:inline src="/assets/js/vendor/three.min.js"></script>
-    <script is:inline src="/assets/js/vendor/panolens.min.js"></script>
     <script is:inline src="/assets/js/vendor/jquery.event.move.min.js"></script>
     <script is:inline src="/assets/js/vendor/jquery.twentytwenty.min.js"></script>
     <script is:inline src="/assets/js/slider.js"></script>
     <script is:inline src="/assets/js/banner-process.js"></script>
     <script is:inline src="/assets/js/contact.js"></script>
-    <script is:inline src="/assets/js/main.js"></script>
+    <script is:inline src="/assets/js/main.min.js"></script>
   </body>
 </html>

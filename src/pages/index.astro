@@ -11,7 +11,11 @@ import Layout from '../layouts/Layout.astro';
       <div class="swiper-wrapper">
         <div class="swiper-slide">
           <div class="slider-item">
-            <div class="bg-img" data-background="/assets/img/bg-img/slider-img-1.webp"></div>
+            <div
+              class="bg-img"
+              data-background="/assets/img/bg-img/slider-img-1.webp"
+              data-background-mobile="/assets/img/bg-img/slider-img-1-mobile.webp"
+            ></div>
             <div class="container slider-container">
               <div class="slider-content-wrap">
                 <div class="slider-content">
@@ -61,14 +65,18 @@ import Layout from '../layouts/Layout.astro';
                 <p>Tech Specifications <br />Design Project <br />3D visualisation</p>
               </div>
               <div class="slider-thumb">
-                <img src="/assets/img/images/slider-thumb-1.webp" alt="slider" loading="lazy" />
+                <img src="/assets/img/images/slider-thumb-1.webp" alt="slider" width="280" height="300" loading="lazy" />
               </div>
             </div>
           </div>
         </div>
         <div class="swiper-slide">
           <div class="slider-item">
-            <div class="bg-img" data-background="/assets/img/bg-img/slider-img-2.webp"></div>
+            <div
+              class="bg-img"
+              data-background="/assets/img/bg-img/slider-img-2.webp"
+              data-background-mobile="/assets/img/bg-img/slider-img-2-mobile.webp"
+            ></div>
             <div class="container slider-container">
               <div class="slider-content-wrap">
                 <div class="slider-content">
@@ -118,7 +126,7 @@ import Layout from '../layouts/Layout.astro';
                 <p>Tech Specifications <br />Design Project <br />3D visualisation</p>
               </div>
               <div class="slider-thumb">
-                <img src="/assets/img/images/slider-thumb-1.webp" alt="slider" loading="lazy" />
+                <img src="/assets/img/images/slider-thumb-1.webp" alt="slider" width="280" height="300" loading="lazy" />
               </div>
             </div>
           </div>
@@ -129,7 +137,11 @@ import Layout from '../layouts/Layout.astro';
   <!-- ./ slider-section -->
 
   <section class="service-section pt-150 pb-110 overflow-hidden tl-bg-color fade-wrapper">
-    <div class="bg-shape" data-background="/assets/img/shapes/service-bg-shape-1.webp"></div>
+    <div
+      class="bg-shape"
+      data-background="/assets/img/shapes/service-bg-shape-1.webp"
+      data-background-mobile="/assets/img/shapes/service-bg-shape-1-mobile.webp"
+    ></div>
     <div class="container">
       <div class="row section-heading-wrap fade-top">
         <div class="shape"><img src="/assets/img/shapes/section-heading.webp" alt="shape" loading="lazy" /></div>
@@ -162,7 +174,7 @@ import Layout from '../layouts/Layout.astro';
             <div class="service-top">
               <h3 class="title"><a href="/service-details">Architectural <br /> Design</a></h3>
               <div class="icon">
-                <img src="/assets/img/icon/service-icon-1.webp" alt="service" loading="lazy" />
+                <img src="/assets/img/icon/service-icon-1.webp" alt="service" width="52" height="52" loading="lazy" />
               </div>
             </div>
             <p>
@@ -176,7 +188,7 @@ import Layout from '../layouts/Layout.astro';
             <div class="service-top">
               <h3 class="title"><a href="/service-details">Interior Design <br /> & Planning</a></h3>
               <div class="icon">
-                <img src="/assets/img/icon/service-icon-2.webp" alt="service" loading="lazy" />
+                <img src="/assets/img/icon/service-icon-2.webp" alt="service" width="52" height="52" loading="lazy" />
               </div>
             </div>
             <p>
@@ -190,7 +202,7 @@ import Layout from '../layouts/Layout.astro';
             <div class="service-top">
               <h3 class="title"><a href="/service-details">Consulting <br /> Services</a></h3>
               <div class="icon">
-                <img src="/assets/img/icon/service-icon-3.webp" alt="service" loading="lazy" />
+                <img src="/assets/img/icon/service-icon-3.webp" alt="service" width="52" height="52" loading="lazy" />
               </div>
             </div>
             <p>
@@ -204,7 +216,7 @@ import Layout from '../layouts/Layout.astro';
             <div class="service-top">
               <h3 class="title"><a href="/service-details">Project <br /> Management</a></h3>
               <div class="icon">
-                <img src="/assets/img/icon/service-icon-4.webp" alt="service" loading="lazy" />
+                <img src="/assets/img/icon/service-icon-4.webp" alt="service" width="52" height="52" loading="lazy" />
               </div>
             </div>
             <p>
@@ -404,7 +416,11 @@ import Layout from '../layouts/Layout.astro';
   <!-- ./ counter-section -->
 
   <section class="process-section overflow-hidden fade-wrapper">
-    <div class="bg-shape" data-background="/assets/img/shapes/process-shape-1.webp"></div>
+    <div
+      class="bg-shape"
+      data-background="/assets/img/shapes/process-shape-1.webp"
+      data-background-mobile="/assets/img/shapes/process-shape-1-mobile.webp"
+    ></div>
     <div class="container container-2">
       <div class="heading-space align-items-end">
         <div class="section-heading mb-0">
@@ -847,11 +863,21 @@ import Layout from '../layouts/Layout.astro';
   <!-- ./ team-section -->
 
   <section class="video-section">
-    <div class="bg-img" data-background="/assets/img/bg-img/video-bg-1.webp"></div>
+    <div
+      class="bg-img"
+      data-background="/assets/img/bg-img/video-bg-1.webp"
+      data-background-mobile="/assets/img/bg-img/video-bg-1-mobile.webp"
+    ></div>
     <div class="container container-2">
       <div class="video-content">
         <div class="play-btn">
-          <a class="video-popup venobox" data-autoplay="true" data-vbtype="video" href="https://youtu.be/JwC-Qx1lJso">
+          <a
+            class="video-popup venobox"
+            data-autoplay="true"
+            data-vbtype="video"
+            href="https://youtu.be/JwC-Qx1lJso"
+            aria-label="Play company overview video"
+          >
             <i class="fa-solid fa-play"></i>
           </a>
         </div>
@@ -1027,11 +1053,61 @@ import Layout from '../layouts/Layout.astro';
           </p>
         </div>
         <div class="newsletter-form fade-top">
-          <input type="text" id="email" name="email" class="form-control" placeholder="Email address.." />
-          <button type="submit"><i class="fa-regular fa-arrow-right-long"></i></button>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-control"
+            placeholder="Email address.."
+            aria-label="Email address"
+            required
+          />
+          <button type="submit" aria-label="Subscribe to newsletter"><i class="fa-regular fa-arrow-right-long"></i></button>
         </div>
       </div>
     </div>
   </section>
   <!-- ./ newsletter-section -->
+
+  <script>
+    // Lazy-load Three.js and Panolens only when 360 panorama container enters viewport
+    const panoContainer = document.querySelector('.antra-panoroma-img');
+    if (panoContainer) {
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              obs.disconnect();
+              const loadScript = (src: string) => {
+                return new Promise<void>((resolve, reject) => {
+                  const s = document.createElement('script');
+                  s.src = src;
+                  s.onload = () => resolve();
+                  s.onerror = reject;
+                  document.body.appendChild(s);
+                });
+              };
+
+              loadScript('/assets/js/vendor/three.min.js')
+                .then(() => loadScript('/assets/js/vendor/panolens.min.js'))
+                .then(() => {
+                  const antraData = panoContainer.getAttribute('data-img') || '/assets/img/bg-img/virtual-tours.webp';
+                  // @ts-ignore
+                  if (window.PANOLENS) {
+                    // @ts-ignore
+                    const panorama = new window.PANOLENS.ImagePanorama(antraData);
+                    // @ts-ignore
+                    const panoViewer = new window.PANOLENS.Viewer({ container: panoContainer });
+                    panoViewer.add(panorama);
+                  }
+                })
+                .catch((err) => console.error('Failed to load virtual tour viewer:', err));
+            }
+          });
+        },
+        { rootMargin: '200px' }
+      );
+      observer.observe(panoContainer);
+    }
+  </script>
 </Layout>
