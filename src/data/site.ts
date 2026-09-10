@@ -6,12 +6,32 @@ export const site = {
   email: 'info@tiadecors.com',
   address: 'SkyCourts, Wadi Al Safa 5, Dubai, UAE',
   socials: [
-    { platform: 'facebook', href: '#', icon: 'fab fa-facebook-f', label: 'Facebook' },
-    { platform: 'instagram', href: '#', icon: 'fab fa-instagram', label: 'Instagram' },
-    { platform: 'twitter', href: '#', icon: 'fab fa-twitter', label: 'Twitter' },
-    { platform: 'youtube', href: '#', icon: 'fab fa-youtube', label: 'YouTube' },
+    {
+      platform: 'facebook',
+      href: 'https://www.facebook.com/tia.interior.dubai',
+      icon: 'fab fa-facebook-f',
+      label: 'Facebook',
+    },
+    {
+      platform: 'instagram',
+      href: 'https://www.instagram.com/tia.interior.dubai/',
+      icon: 'fab fa-instagram',
+      label: 'Instagram',
+    },
+    { platform: 'twitter', href: 'https://x.com/tiadecors', icon: 'fab fa-twitter', label: 'X' },
+    {
+      platform: 'youtube',
+      href: 'https://www.youtube.com/@TIAInteriorDecorDesign',
+      icon: 'fab fa-youtube',
+      label: 'YouTube',
+    },
     { platform: 'behance', href: '#', icon: 'fab fa-behance', label: 'Behance' },
-    { platform: 'linkedin', href: '#', icon: 'fab fa-linkedin-in', label: 'LinkedIn' },
+    {
+      platform: 'linkedin',
+      href: 'https://linkedin.com/company/tia-interior-llc',
+      icon: 'fab fa-linkedin-in',
+      label: 'LinkedIn',
+    },
   ],
   nav: {
     home: [

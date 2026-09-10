@@ -1,18 +1,15 @@
 // @ts-check
-import { defineConfig } from "astro/config";
-import sitemap from "@astrojs/sitemap";
+import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
-import cloudflare from "@astrojs/cloudflare";
+import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://tiadecors.com",
-	integrations: [sitemap()],
-	adapter: cloudflare({
-		platformProxy: {
-			enabled: true,
-		},
-		prerenderEnvironment: "node",
-	}),
-	output: "static",
+  site: 'https://tiadecors.com',
+  integrations: [sitemap()],
+  adapter: cloudflare({
+    prerenderEnvironment: 'node',
+  }),
+  output: 'static',
 });

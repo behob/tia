@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/ui/PageHeader.astro';
 import { site } from '../data/site';
+
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 ---
 
 <Layout
@@ -55,6 +57,14 @@ import { site } from '../data/site';
         <div class="col-lg-6">
           <div class="request-form-wrap">
             <form action="/api/mail" method="post" id="ajax_contact" class="form-horizontal">
+              <input
+                type="text"
+                name="company_name"
+                tabindex="-1"
+                autocomplete="off"
+                aria-hidden="true"
+                style="position:absolute;left:-9999px;opacity:0;height:0;width:0;"
+              />
               <div class="form-group row">
                 <div class="col-md-6">
                   <div class="form-item">
@@ -86,6 +96,13 @@ import { site } from '../data/site';
                     placeholder="Tell us about your project"></textarea>
                 </div>
               </div>
+              {
+                turnstileSiteKey && (
+                  <div class="form-group mt-10">
+                    <div class="cf-turnstile" data-sitekey={turnstileSiteKey} />
+                  </div>
+                )
+              }
               <div class="form-group mt-10">
                 <button type="submit" class="tl-primary-btn"
                   >Send Message <span class="icon"><i class="fa-regular fa-arrow-right"></i></span></button
@@ -98,4 +115,5 @@ import { site } from '../data/site';
       </div>
     </div>
   </section>
+  {turnstileSiteKey && <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer />}
 </Layout>
