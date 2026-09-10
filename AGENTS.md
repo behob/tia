@@ -98,42 +98,9 @@ When modifying or expanding this codebase, agents MUST adhere to the following p
 
 ---
 
-## 4-Phase Modernization Roadmap
-
-The project is undergoing a 4-phase transformation from a converted HTML template to an idiomatic, high-performance Astro application:
-
-```
-┌────────────────────────┐      ┌────────────────────────┐
-│        PHASE 1         │      │        PHASE 2         │
-│ Asset Pipeline &       ├─────►│ Content Collections &  │
-│ Dynamic Routing        │      │ Component Decomposition│
-└────────────────────────┘      └────────────────────────┘
-            │                               │
-            ▼                               ▼
-┌────────────────────────┐      ┌────────────────────────┐
-│        PHASE 3         │      │        PHASE 4         │
-│ Islands Architecture & ├─────►│ Modern Astro Features &│
-│ JavaScript Decoupling  │      │ Cloudflare Tuning      │
-└────────────────────────┘      └────────────────────────┘
-```
 
 - **Phase 0: WebP Image Conversion & Asset Optimization (Prerequisite)**
   - Convert all 268 legacy PNG, JPG, and JPEG images to WebP format using `sharp`
   - Update all image references across `src/pages/`, `src/components/`, `src/data/`, and `src/assets/scss/`
   - Reduce static asset weight by ~65-75% before structural code refactoring
-- **Phase 1: Asset Pipeline & Dynamic Routing**
-  - Migrate static images to `src/assets/` with `<Image />` and `<Picture />`
-  - Replace duplicate detail pages with `[slug].astro` and `getStaticPaths()`
-  - Restructure navigation from `index-2`..`index-9` into semantic routes (`/sectors/[slug]`)
-- **Phase 2: Content Collections & Component Decomposition**
-  - Implement `src/content.config.ts` with strict Zod schemas for projects, services, blog, team
-  - Break monolithic 1,000+ line page templates into modular components in `src/components/sections/`
-  - Convert static data files into Markdown/MDX or schema-validated collections
-- **Phase 3: Islands Architecture & JavaScript Decoupling**
-  - Dismantle the 23 global inline scripts in `Layout.astro`
-  - Replace jQuery, Isotope, and Venobox with lightweight vanilla TypeScript or CSS solutions
-  - Isolate remaining interactive widgets (Swiper, 360 viewer) into Astro Islands with `client:visible`
-- **Phase 4: Modern Astro Features & Cloudflare Optimization**
-  - Migrate `/api/mail.ts` to type-safe Astro Actions (`astro:actions`)
-  - Enable Astro `ClientRouter` (View Transitions) for smooth navigation
-  - Fine-tune Cloudflare edge cache headers, Turnstile verification, and Core Web Vitals
+- 
