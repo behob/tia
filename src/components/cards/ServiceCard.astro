@@ -2,11 +2,13 @@
 interface Props {
   icon: string;
   title: string;
-  description: string;
+  description?: string;
+  desc?: string;
   href?: string;
 }
 
-const { icon, title, description, href = '/service-details' } = Astro.props;
+const { icon, title, description, desc, href = '/service-details' } = Astro.props;
+const cardDescription = description || desc || '';
 ---
 
 <div class="service-item slide-anim" data-delay="0.3" data-offset="100" data-direction="bottom">
@@ -16,5 +18,5 @@ const { icon, title, description, href = '/service-details' } = Astro.props;
       <img src={icon} alt={title} loading="lazy" />
     </div>
   </div>
-  <p>{description}</p>
+  <p>{cardDescription}</p>
 </div>
