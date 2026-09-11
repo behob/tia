@@ -2,12 +2,13 @@
 import OptimizedImage from '../ui/OptimizedImage.astro';
 interface Props {
   extraClass?: string;
+  sectionClass?: string;
 }
 
-const { extraClass = '' } = Astro.props;
+const { extraClass = '', sectionClass = `newsletter-section bg-white pb-130 overflow-hidden ${extraClass}` } = Astro.props;
 ---
 
-<section class={`newsletter-section bg-white pb-130 overflow-hidden ${extraClass}`}>
+<section class={sectionClass}>
   <div class="bg-shape"><OptimizedImage src="/assets/img/shapes/newsletter-shape.webp" alt="shape" loading="lazy" /></div>
   <div class="container">
     <div class="newsletter-wrap">

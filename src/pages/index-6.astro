@@ -1,6 +1,7 @@
 ---
 import OptimizedImage from '../components/ui/OptimizedImage.astro';
 import Layout from '../layouts/Layout.astro';
+import NewsletterSection from '../components/sections/NewsletterSection.astro';
 ---
 
 <Layout
@@ -888,32 +889,6 @@ import Layout from '../layouts/Layout.astro';
   </section>
   <!-- ./ blog-section -->
 
-  <section class="newsletter-section pt-130 pb-130 overflow-hidden tl-bg-color">
-    <div class="bg-shape"><OptimizedImage src="/assets/img/shapes/newsletter-shape.webp" alt="shape" loading="lazy" /></div>
-    <div class="container">
-      <div class="newsletter-wrap">
-        <div class="section-heading text-center">
-          <h4
-            class="sub-heading"
-            data-text-animation="fade-in-right"
-            data-split="char"
-            data-duration="0.9"
-            data-stagger="0.03"
-          >
-            Subscribe to the newsletter
-          </h4>
-          <h2 class="section-title cursor-effect">Join <span>our newsletter <br /> stay</span> up to date</h2>
-          <p>
-            Join our newsletter. Learn something new, gain access to exclusive content, <br /> and stay informed with the
-            latest updates in the industry.
-          </p>
-        </div>
-        <div class="newsletter-form">
-          <input type="email" id="newsletter-email" name="email" class="form-control" placeholder="Email address.." aria-label="Email address" />
-          <button type="submit" aria-label="Subscribe to newsletter"><i class="fa-regular fa-arrow-right-long"></i></button>
-        </div>
-      </div>
-    </div>
-  </section>
+  <NewsletterSection sectionClass="newsletter-section pt-130 pb-130 overflow-hidden tl-bg-color" />
   <!-- ./ newsletter-section -->
 </Layout>
