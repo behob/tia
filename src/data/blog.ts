@@ -5,7 +5,7 @@ export const blogPosts = [
     image: '/assets/img/blog/post-1.webp',
     title: 'Four Ways for Creating Extra Space in Small Homes',
     excerpt:
-      'Modest, recently established interior design company that seeks to address a variety of topics, including...',
+      'Discover four practical interior design ideas to create more space, improve flow, and enhance small homes.',
     date: 'Dec 25, 2025',
     category: 'Exteriors',
   },
@@ -13,7 +13,7 @@ export const blogPosts = [
     image: '/assets/img/blog/post-2.webp',
     title: 'Transform Your Home With the Modern Interior Design Tips',
     excerpt:
-      'Modest, recently established interior design company that seeks to address a variety of topics, including...',
+      'Explore modern interior design tips for creating stylish, functional rooms that reflect your lifestyle.',
     date: 'Dec 25, 2025',
     category: 'Exteriors',
   },
@@ -21,7 +21,7 @@ export const blogPosts = [
     image: '/assets/img/blog/post-3.webp',
     title: 'The Art of Minimalist Interior Design for Modern Living',
     excerpt:
-      'Modest, recently established interior design company that seeks to address a variety of topics, including...',
+      'Learn how minimalist interior design creates calm, functional living spaces with timeless visual appeal.',
     date: 'Dec 25, 2025',
     category: 'Exteriors',
   },
