@@ -1,3 +1,5 @@
+import type { FaqItem, ServiceCardData, ServiceFeature, ServiceListItem } from './types';
+
 export const featureServices = [
   {
     icon: '/assets/img/service/feature-img-1.webp',
@@ -19,7 +21,7 @@ export const featureServices = [
     title: 'Outdoor & Landscape Design',
     desc: 'Beautiful outdoor spaces that extend your living area and connect with nature.',
   },
-];
+] as const satisfies readonly ServiceCardData[];
 
 export const iconServices = [
   {
@@ -42,9 +44,9 @@ export const iconServices = [
     title: 'Project Management',
     desc: 'We oversee every aspect of your project to ensure timely and budget-friendly delivery.',
   },
-];
+] as const satisfies readonly ServiceCardData[];
 
-export const fitOutServices = [
+export const fitOutServices: readonly ServiceListItem[] = [
   {
     num: '01',
     title: 'Residential Interior Design',
@@ -84,9 +86,9 @@ export const fitOutServices = [
     desc: 'Tailored design services for private homes, including room makeovers and complete home transformations.',
     big: true,
   },
-];
+] as const;
 
-export const customFurnitureServices = [
+export const customFurnitureServices: readonly ServiceListItem[] = [
   {
     num: '01',
     title: 'Residential Interior Design',
@@ -123,7 +125,7 @@ export const customFurnitureServices = [
     image: '/assets/img/service/service-img-6.webp',
     desc: 'Tailored design services for private homes, including room makeovers and complete home transformations.',
   },
-];
+] as const;
 
 export const serviceNames = [
   'Residential Interior Design',
@@ -132,7 +134,7 @@ export const serviceNames = [
   'Outdoor & Landscape Design',
   'Renovation and Remodeling',
   'Interior 2D/3D Layouts',
-];
+] as const satisfies readonly string[];
 
 export const serviceDetailsFeatures = [
   {
@@ -155,9 +157,9 @@ export const serviceDetailsFeatures = [
     title: 'Cost Efficiency',
     desc: 'Through the best smart space optimization interior design.',
   },
-];
+] as const satisfies readonly ServiceFeature[];
 
-export const serviceFaqs = [
+export const serviceFaqs: readonly FaqItem[] = [
   {
     id: 'One',
     question: 'What interior design services do you offer?',
@@ -183,4 +185,4 @@ export const serviceFaqs = [
     answer:
       'Our interior design services cover everything you need to create a stunning and functional space. From initial concept development and space planning to selecting color schemes, furniture, and custom designs, we bring your vision to life.',
   },
-];
+] as const;

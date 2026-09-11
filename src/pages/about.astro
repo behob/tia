@@ -104,7 +104,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
         <div class="history-carousel swiper">
           <div class="swiper-wrapper">
             {
-              Array.from({ length: 6 }).map((_, i) => (
+              Array.from({ length: 6 }).map(() => (
                 <div class="swiper-slide">
                   <div class="history-item">
                     <div class="history-img">
@@ -291,7 +291,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
                     <div class="swiper-slide">
                       <div class="gallary-inner-item">
                         <a href="/about">
-                          <img src={`/assets/img/images/gallary-img-${i}.png`} alt={`gallery ${i}`} loading="lazy" />
+                          <img src={`/assets/img/images/gallary-img-${i}.webp`} alt={`gallery ${i}`} loading="lazy" />
                         </a>
                       </div>
                     </div>
@@ -397,7 +397,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
               <div class="swiper-slide">
                 <div class="sponsor-item">
                   <a href="#">
-                    <img src={`/assets/img/sponsor/sponsor-${i}.png`} alt={`sponsor ${i}`} loading="lazy" />
+                    <img src={`/assets/img/sponsor/sponsor-${i}.webp`} alt={`sponsor ${i}`} loading="lazy" />
                   </a>
                 </div>
               </div>
@@ -410,3 +410,4 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
 
   <NewsletterSection />
 </Layout>
+

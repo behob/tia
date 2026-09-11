@@ -1,3 +1,5 @@
+import type { PortfolioDetail, ProjectSummary } from './types';
+
 export const residentialProjects = [
   { image: '/assets/img/project/project-img-1.webp', title: 'Luxury Skyline', category: 'Residential', year: '2025' },
   { image: '/assets/img/project/project-img-2.webp', title: 'Bohemian Rhapsody', category: 'Residential', year: '2025' },
@@ -5,7 +7,7 @@ export const residentialProjects = [
   { image: '/assets/img/project/project-img-4.webp', title: 'Serenity Suites', category: 'Hospitality', year: '2024' },
   { image: '/assets/img/project/project-img-5.webp', title: 'Modern Workspace', category: 'Commercial', year: '2023' },
   { image: '/assets/img/project/project-img-6.webp', title: 'Coastal Retreat', category: 'Residential', year: '2023' },
-];
+] as const satisfies readonly ProjectSummary[];
 
 export const commercialProjects = [
   { image: '/assets/img/project/project-3.webp', title: 'Coastal Harmony Home', category: 'Residential' },
@@ -14,14 +16,14 @@ export const commercialProjects = [
   { image: '/assets/img/project/project-6.webp', title: 'Coastal Harmony Home', category: 'Residential' },
   { image: '/assets/img/project/project-7.webp', title: 'Coastal Harmony Home', category: 'Residential' },
   { image: '/assets/img/project/project-8.webp', title: 'Coastal Harmony Home', category: 'Residential' },
-];
+] as const satisfies readonly ProjectSummary[];
 
 export const hospitalityProjects = [
   { image: '/assets/img/project/project-1.webp', title: 'Coastal Harmony Home', category: 'Residential' },
   { image: '/assets/img/project/project-2.webp', title: 'Coastal Harmony Home', category: 'Residential' },
   { image: '/assets/img/project/project-4.webp', title: 'Coastal Harmony Home', category: 'Residential' },
   { image: '/assets/img/project/project-2.webp', title: 'Coastal Harmony Home', category: 'Residential' },
-];
+] as const satisfies readonly ProjectSummary[];
 
 export const portfolioDetail = {
   title: 'Stylish Family Apartment',
@@ -64,4 +66,4 @@ export const portfolioDetail = {
   ],
   resultDescription:
     'Establishing multi-sensory experiences, we can design interiors that resonate across ages and demographics. These rooms and spaces connect us to nature as a proven way to inspire us, boost our productivity, and create greater well-being.',
-};
+} as const satisfies PortfolioDetail;

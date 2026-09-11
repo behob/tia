@@ -1,3 +1,5 @@
+import type { TeamDetail, TeamMember } from './types';
+
 export const teamMembers = [
   { image: '/assets/img/team/team-img-6.webp', name: 'Mark Jackson', role: 'Exhibition Designer' },
   { image: '/assets/img/team/team-img-7.webp', name: 'Helen Reeves', role: 'Production Designer' },
@@ -5,7 +7,7 @@ export const teamMembers = [
   { image: '/assets/img/team/team-img-1.webp', name: 'Alex Podzemsky', role: 'Architect' },
   { image: '/assets/img/team/team-img-2.webp', name: 'Jake Nicholson', role: 'Project Manager' },
   { image: '/assets/img/team/team-img-3.webp', name: 'Sarah Mitchell', role: 'Design Director' },
-];
+] as const satisfies readonly TeamMember[];
 
 export const teamDetail = {
   name: 'Ricardo Marlin',
@@ -27,4 +29,4 @@ export const teamDetail = {
   ],
   expertiseDescription:
     "Mark Jackson is a dynamic leader with a comprehensive skill set spanning strategic planning, business development. We specialize in crafting spaces that are not only aesthetically stunning but also functional and tailored to our clients' unique lifestyles and needs.",
-};
+} as const satisfies TeamDetail;

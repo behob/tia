@@ -11,7 +11,7 @@ interface Props {
 const { subtitle, title, titleSpan, description, center = false, extraClass = '' } = Astro.props;
 ---
 
-<div class={`section-heading ${center ? 'text-center' : ''} mb-0`}>
+<div class={`section-heading ${center ? 'text-center' : ''} ${extraClass} mb-0`}>
   <h4 class="sub-heading" data-text-animation="fade-in-right" data-split="char" data-duration="0.9" data-stagger="0.03">
     {subtitle}
   </h4>

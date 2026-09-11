@@ -1,16 +1,7 @@
 ---
 import { site } from '../../data/site';
 
-interface Props {
-  currentPath?: string;
-}
-
-const { currentPath = '/' } = Astro.props;
 const { nav } = site;
-
-function isActive(href: string): boolean {
-  return currentPath === href || currentPath.startsWith(href + '/');
-}
 ---
 
 <header class="header sticky-active">

@@ -1,3 +1,5 @@
+import type { BlogComment, BlogPost, SidebarPost, SidebarPostSummary } from './types';
+
 export const blogPosts = [
   {
     image: '/assets/img/blog/post-1.webp',
@@ -23,7 +25,7 @@ export const blogPosts = [
     date: 'Dec 25, 2025',
     category: 'Exteriors',
   },
-];
+] as const satisfies readonly BlogPost[];
 
 export const blogListPosts = [
   {
@@ -75,7 +77,7 @@ export const blogListPosts = [
     date: 'Dec 25, 2025',
     category: 'Exteriors',
   },
-];
+] as const satisfies readonly BlogPost[];
 
 export const blogStandardPosts = [
   {
@@ -102,7 +104,7 @@ export const blogStandardPosts = [
     date: 'Dec 25, 2025',
     category: 'Exteriors',
   },
-];
+] as const satisfies readonly BlogPost[];
 
 export const sidebarPosts = [
   {
@@ -125,7 +127,7 @@ export const sidebarPosts = [
     title: 'Transforming Spaces into Dream Dwellings',
     date: 'Sep 10, 2025',
   },
-];
+] as const satisfies readonly SidebarPost[];
 
 export const blogCategories = [
   'Accessories',
@@ -134,7 +136,7 @@ export const blogCategories = [
   'Power Tools',
   'Uncategorized',
   'Ware Accessories',
-];
+] as const satisfies readonly string[];
 
 export const blogTags = [
   'Architecture',
@@ -146,7 +148,7 @@ export const blogTags = [
   'Living Room',
   'Building',
   'Planning',
-];
+] as const satisfies readonly string[];
 
 export const blogComments = [
   {
@@ -167,10 +169,10 @@ export const blogComments = [
     date: '10 Dec, 2025',
     text: 'Implement advanced grid integration strategies to seamlessly integrate solar energy into existing power grids. This includes deploying grid-friendly inverters.',
   },
-];
+] as const satisfies readonly BlogComment[];
 
 export const blogDetailsSidebarPosts = [
   { img: '/assets/img/blog/post-1.webp', title: 'Four Ways for Creating Extra Space', date: 'Dec 25, 2025' },
   { img: '/assets/img/blog/post-2.webp', title: 'Modern Interior Design Tips', date: 'Dec 25, 2025' },
   { img: '/assets/img/blog/post-3.webp', title: 'Minimalist Design for Modern Living', date: 'Dec 25, 2025' },
-];
+] as const satisfies readonly SidebarPostSummary[];

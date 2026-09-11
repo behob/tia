@@ -1,0 +1,21 @@
+---
+import { stylesheetAssets } from '../../data/assets';
+---
+
+{
+  stylesheetAssets.map((asset) => (
+    <>
+      {asset.preload && <link rel="preload" href={asset.href} as="style" />}
+      {asset.deferred ? (
+        <>
+          <link rel="stylesheet" href={asset.href} media="print" onload="this.removeAttribute('media')" />
+          <noscript>
+            <link rel="stylesheet" href={asset.href} />
+          </noscript>
+        </>
+      ) : (
+        <link rel="stylesheet" href={asset.href} />
+      )}
+    </>
+  ))
+}

@@ -1,3 +1,5 @@
+import type { PricingPlan } from './types';
+
 export const pricingPlans = [
   {
     name: 'Basic Plan',
@@ -9,7 +11,7 @@ export const pricingPlans = [
     price: '$199.0',
     desc: 'Our foundation plan offers essential features at an affordable price, without breaking the bank.',
   },
-];
+] as const satisfies readonly PricingPlan[];
 
 export const pricingFeatures = [
   'Individuals & small projects',
@@ -17,4 +19,4 @@ export const pricingFeatures = [
   'Limited library of decorative items',
   'Email support',
   'Monthly updates',
-];
+] as const satisfies readonly string[];

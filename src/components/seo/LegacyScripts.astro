@@ -1,0 +1,5 @@
+---
+import { legacyScriptAssets } from '../../data/assets';
+---
+
+{legacyScriptAssets.map((asset) => <script is:inline src={asset.src} defer></script>)}
