@@ -39,6 +39,8 @@
 	"scripts": {
 		"astro": "astro",
 		"build": "astro build",
+		"audit:a11y": "node scripts/audit-a11y.mjs",
+		"audit:assets": "node scripts/audit-assets.mjs",
 		"audit:routes": "node scripts/audit-routes.mjs",
 		"audit:seo": "node scripts/audit-seo.mjs",
 		"audit:seo:source": "node scripts/audit-source-seo.mjs",
@@ -50,7 +52,7 @@
 		"lint": "eslint src/",
 		"format": "prettier --write src/",
 		"preview": "astro build && wrangler dev",
-		"verify": "npm run check && npm run lint && npm run build && npm run audit:seo:source && npm run audit:seo && npm run audit:routes && npm run audit:scripts",
+		"verify": "npm run check && npm run lint && npm run build && npm run audit:seo:source && npm run audit:seo && npm run audit:routes && npm run audit:scripts && npm run audit:assets && npm run audit:a11y",
 		"visual:routes": "node scripts/visual-routes.mjs"
 	},
 	"type": "module"
