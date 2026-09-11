@@ -1,4 +1,5 @@
 ---
+import OptimizedImage from '../components/ui/OptimizedImage.astro';
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/ui/PageHeader.astro';
 import NewsletterSection from '../components/sections/NewsletterSection.astro';
@@ -11,7 +12,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
   <PageHeader title="About Us" currentPage="About Us" />
 
   <section class="about-section-2 pt-130 pb-130">
-    <div class="shape-1"><img src="/assets/img/shapes/about-shape-1.webp" alt="shape" loading="lazy" /></div>
+    <div class="shape-1"><OptimizedImage src="/assets/img/shapes/about-shape-1.webp" alt="shape" loading="lazy" /></div>
     <div class="container container-2">
       <div class="row about-wrap-2">
         <div class="col-lg-8">
@@ -36,7 +37,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
                 <p>Years of <br /> experience</p>
               </div>
               <div class="counter-img">
-                <img src="/assets/img/images/about-img-2.webp" alt="counter" loading="lazy" />
+                <OptimizedImage src="/assets/img/images/about-img-2.webp" alt="counter" loading="lazy" />
               </div>
             </div>
           </div>
@@ -44,7 +45,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
         <div class="col-lg-4">
           <div class="about-content-right">
             <div class="about-img-1">
-              <img src="/assets/img/images/about-img-3.webp" alt="about" loading="lazy" />
+              <OptimizedImage src="/assets/img/images/about-img-3.webp" alt="about" loading="lazy" />
             </div>
             <div class="about-desc">
               <p>
@@ -75,10 +76,10 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
 
   <section class="history-section pt-130 pb-130">
     <div class="history-text"><span>tia</span></div>
-    <div class="history-element"><img src="/assets/img/images/counter-img-1.webp" alt="counter" loading="lazy" /></div>
+    <div class="history-element"><OptimizedImage src="/assets/img/images/counter-img-1.webp" alt="counter" loading="lazy" /></div>
     <div class="container container-2">
       <div class="row section-heading-wrap ml-0 mw-100">
-        <div class="shape"><img src="/assets/img/shapes/section-heading.webp" alt="shape" loading="lazy" /></div>
+        <div class="shape"><OptimizedImage src="/assets/img/shapes/section-heading.webp" alt="shape" loading="lazy" /></div>
         <div class="col-lg-4 col-md-12">
           <div class="section-heading mb-0">
             <h4
@@ -108,7 +109,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
                 <div class="swiper-slide">
                   <div class="history-item">
                     <div class="history-img">
-                      <img src="/assets/img/images/history-img-1.webp" alt="history" loading="lazy" />
+                      <OptimizedImage src="/assets/img/images/history-img-1.webp" alt="history" loading="lazy" />
                     </div>
                     <div class="history-content">
                       <div class="circle" />
@@ -163,7 +164,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
             <div class="col-xl-3 col-lg-6 col-md-6">
               <div class="process-item">
                 <div class="process-thumb">
-                  <img src={step.img} alt={step.title} loading="lazy" />
+                  <OptimizedImage src={step.img} alt={step.title} loading="lazy" />
                 </div>
                 <div class="process-content">
                   <h3 class="title">
@@ -187,10 +188,10 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
   </section>
 
   <section class="award-section bg-grey pt-130 pb-130">
-    <div class="bg-shape"><img src="/assets/img/shapes/team-bg-shape-1.webp" alt="shape" loading="lazy" /></div>
+    <div class="bg-shape"><OptimizedImage src="/assets/img/shapes/team-bg-shape-1.webp" alt="shape" loading="lazy" /></div>
     <div class="container container-2">
       <div class="row section-heading-wrap">
-        <div class="shape"><img src="/assets/img/shapes/section-heading.webp" alt="shape" loading="lazy" /></div>
+        <div class="shape"><OptimizedImage src="/assets/img/shapes/section-heading.webp" alt="shape" loading="lazy" /></div>
         <div class="col-lg-4 col-md-12">
           <div class="section-heading mb-0">
             <h4
@@ -213,7 +214,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
       <div class="row award-wrap">
         <div class="col-lg-5">
           <div class="award-img">
-            <img src="/assets/img/images/award-img-1.webp" alt="award" loading="lazy" />
+            <OptimizedImage src="/assets/img/images/award-img-1.webp" alt="award" loading="lazy" />
           </div>
         </div>
         <div class="col-lg-7">
@@ -291,7 +292,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
                     <div class="swiper-slide">
                       <div class="gallary-inner-item">
                         <a href="/about">
-                          <img src={`/assets/img/images/gallary-img-${i}.webp`} alt={`gallery ${i}`} loading="lazy" />
+                          <OptimizedImage src={`/assets/img/images/gallary-img-${i}.webp`} alt={`gallery ${i}`} loading="lazy" />
                         </a>
                       </div>
                     </div>
@@ -312,7 +313,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
   <section class="testimonial-section bg-white pt-150">
     <div class="container container-2">
       <div class="row section-heading-wrap">
-        <div class="shape"><img src="/assets/img/shapes/section-heading.webp" alt="shape" loading="lazy" /></div>
+        <div class="shape"><OptimizedImage src="/assets/img/shapes/section-heading.webp" alt="shape" loading="lazy" /></div>
         <div class="col-lg-4 col-md-12">
           <div class="section-heading mb-0">
             <h4
@@ -335,7 +336,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
       <div class="row">
         <div class="col-lg-6">
           <div class="testi-img">
-            <img src="/assets/img/testi/testi-img-1.webp" alt="testimonial" loading="lazy" />
+            <OptimizedImage src="/assets/img/testi/testi-img-1.webp" alt="testimonial" loading="lazy" />
           </div>
         </div>
         <div class="col-lg-6">
@@ -371,7 +372,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
                     </p>
                     <div class="testi-author">
                       <div class="author-img">
-                        <img src="/assets/img/testi/testi-author-1.webp" alt="author" loading="lazy" />
+                        <OptimizedImage src="/assets/img/testi/testi-author-1.webp" alt="author" loading="lazy" />
                       </div>
                       <h4 class="name">Morgan Dufresne <span>Company Owner</span></h4>
                     </div>
@@ -397,7 +398,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
               <div class="swiper-slide">
                 <div class="sponsor-item">
                   <a href="#">
-                    <img src={`/assets/img/sponsor/sponsor-${i}.webp`} alt={`sponsor ${i}`} loading="lazy" />
+                    <OptimizedImage src={`/assets/img/sponsor/sponsor-${i}.webp`} alt={`sponsor ${i}`} loading="lazy" />
                   </a>
                 </div>
               </div>

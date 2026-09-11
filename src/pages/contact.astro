@@ -1,4 +1,5 @@
 ---
+import OptimizedImage from '../components/ui/OptimizedImage.astro';
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/ui/PageHeader.astro';
 import { site } from '../data/site';
@@ -15,7 +16,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
   <section class="contact-section pt-150 pb-150">
     <div class="container container-2">
       <div class="row section-heading-wrap w-100 ml-0">
-        <div class="shape"><img src="/assets/img/shapes/section-heading.webp" alt="shape" loading="lazy" /></div>
+        <div class="shape"><OptimizedImage src="/assets/img/shapes/section-heading.webp" alt="shape" loading="lazy" /></div>
         <div class="col-lg-4 col-md-12">
           <div class="section-heading mb-0">
             <h4
@@ -50,7 +51,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
               </div>
             </div>
             <div class="contact-img">
-              <img src="/assets/img/images/contact-img-1.webp" alt="contact" loading="lazy" />
+              <OptimizedImage src="/assets/img/images/contact-img-1.webp" alt="contact" loading="lazy" />
             </div>
           </div>
         </div>

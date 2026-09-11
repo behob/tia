@@ -1,4 +1,5 @@
 ---
+import OptimizedImage from '../components/ui/OptimizedImage.astro';
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/ui/PageHeader.astro';
 import { site } from '../data/site';
@@ -13,7 +14,7 @@ import { teamDetail } from '../data/team';
       <div class="row pin-inner">
         <div class="col-lg-6">
           <div class="team-details-img pin-box">
-            <img src={teamDetail.image} alt="team member" loading="lazy" />
+            <OptimizedImage src={teamDetail.image} alt="team member" loading="lazy" />
           </div>
         </div>
         <div class="col-lg-6">

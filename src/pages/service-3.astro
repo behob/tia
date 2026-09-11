@@ -1,4 +1,5 @@
 ---
+import OptimizedImage from '../components/ui/OptimizedImage.astro';
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/ui/PageHeader.astro';
 import NewsletterSection from '../components/sections/NewsletterSection.astro';
@@ -20,7 +21,7 @@ import { customFurnitureServices } from '../data/services';
               <div class="service-item-3 antra-hover-view">
                 <div class="service-thumb">
                   <a href="/service-details">
-                    <img src={s.image} alt={s.title} loading="lazy" />
+                    <OptimizedImage src={s.image} alt={s.title} loading="lazy" />
                   </a>
                   <span class="number">{s.num}</span>
                 </div>

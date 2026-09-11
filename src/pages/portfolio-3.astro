@@ -1,4 +1,5 @@
 ---
+import OptimizedImage from '../components/ui/OptimizedImage.astro';
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/ui/PageHeader.astro';
 import { hospitalityProjects } from '../data/portfolio';
@@ -18,7 +19,7 @@ import { hospitalityProjects } from '../data/portfolio';
             <div class="project-item-2 antra-hover-view">
               <div class="project-thumb">
                 <a href="/portfolio-details">
-                  <img src={p.image} alt={p.title} loading="lazy" />
+                  <OptimizedImage src={p.image} alt={p.title} loading="lazy" />
                 </a>
                 <ul>
                   <li>{p.category}</li>

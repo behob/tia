@@ -1,4 +1,5 @@
 ---
+import OptimizedImage from '../components/ui/OptimizedImage.astro';
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/ui/PageHeader.astro';
 import BlogPostCard from '../components/cards/BlogPostCard.astro';
@@ -25,7 +26,7 @@ import { blogDetailsSidebarPosts } from '../data/blog';
               variant="inner"
             />
             <div class="blog-details-img mb-30">
-              <img src="/assets/img/blog/blog-details-img.webp" alt="blog" loading="lazy" />
+              <OptimizedImage src="/assets/img/blog/blog-details-img.webp" alt="blog" loading="lazy" />
             </div>
             <div class="blog-details-content">
               <p class="mb-30">
@@ -43,7 +44,7 @@ import { blogDetailsSidebarPosts } from '../data/blog';
                 uncluttered look of a modern home.
               </p>
               <div class="details-img-wrap mt-40 mb-40">
-                <img src="/assets/img/blog/blog-details-img-2.webp" alt="blog detail" loading="lazy" />
+                <OptimizedImage src="/assets/img/blog/blog-details-img-2.webp" alt="blog detail" loading="lazy" />
               </div>
               <h3 class="details-title-2">Color and Lighting</h3>
               <p>
@@ -90,7 +91,7 @@ import { blogDetailsSidebarPosts } from '../data/blog';
                   blogDetailsSidebarPosts.map((post) => (
                     <div class="post-item">
                       <div class="post-thumb">
-                        <img src={post.img} alt={post.title} loading="lazy" />
+                        <OptimizedImage src={post.img} alt={post.title} loading="lazy" />
                       </div>
                       <div class="post-content">
                         <span class="date">{post.date}</span>

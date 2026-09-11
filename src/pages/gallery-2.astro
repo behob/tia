@@ -1,4 +1,5 @@
 ---
+import OptimizedImage from '../components/ui/OptimizedImage.astro';
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/ui/PageHeader.astro';
 import NewsletterSection from '../components/sections/NewsletterSection.astro';
@@ -13,7 +14,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
         <div class="col-lg-6 col-md-6">
           <div class="gallary-inner-item-2">
             <a href="/assets/img/project/gallary-img-6.webp" class="venobox" data-gall="gallary1"
-              ><img src="/assets/img/project/gallary-img-6.webp" alt="gallery" loading="lazy" /></a
+              ><OptimizedImage src="/assets/img/project/gallary-img-6.webp" alt="gallery" loading="lazy" /></a
             >
           </div>
         </div>
@@ -23,7 +24,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
               [7, 8, 9, 10].map((i) => (
                 <div class="gallary-inner-item-2">
                   <a href={`/assets/img/project/gallary-img-${i}.webp`} class="venobox" data-gall="gallary1">
-                    <img src={`/assets/img/project/gallary-img-${i}.webp`} alt="gallery" loading="lazy" />
+                    <OptimizedImage src={`/assets/img/project/gallary-img-${i}.webp`} alt="gallery" loading="lazy" />
                   </a>
                 </div>
               ))
@@ -38,7 +39,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
               [11, 12, 13, 14].map((i) => (
                 <div class="gallary-inner-item-2">
                   <a href={`/assets/img/project/gallary-img-${i}.webp`} class="venobox" data-gall="gallary1">
-                    <img src={`/assets/img/project/gallary-img-${i}.webp`} alt="gallery" loading="lazy" />
+                    <OptimizedImage src={`/assets/img/project/gallary-img-${i}.webp`} alt="gallery" loading="lazy" />
                   </a>
                 </div>
               ))
@@ -48,7 +49,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
         <div class="col-lg-6 col-md-6">
           <div class="gallary-inner-item-2">
             <a href="/assets/img/project/gallary-img-15.webp" class="venobox" data-gall="gallary1"
-              ><img src="/assets/img/project/gallary-img-15.webp" alt="gallery" loading="lazy" /></a
+              ><OptimizedImage src="/assets/img/project/gallary-img-15.webp" alt="gallery" loading="lazy" /></a
             >
           </div>
         </div>

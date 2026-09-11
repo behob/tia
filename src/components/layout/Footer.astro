@@ -1,4 +1,5 @@
 ---
+import OptimizedImage from '../ui/OptimizedImage.astro';
 import { site } from '../../data/site';
 
 const { footer, copyright } = site;
@@ -17,7 +18,7 @@ const { footer, copyright } = site;
         <div class="footer-widget">
           <div class="widget-header">
             <div class="footer-logo">
-              <a href="/"><img src="/assets/img/logo/logo-2.webp" alt={`${site.name} logo`} width="124" height="29" loading="lazy" /></a>
+              <a href="/"><OptimizedImage src="/assets/img/logo/logo-2.webp" alt={`${site.name} logo`} width="124" height="29" loading="lazy" /></a>
             </div>
           </div>
           <p class="mb-10">We transform your vision into beautifully<br /> crafted spaces.</p>

@@ -1,4 +1,5 @@
 ---
+import OptimizedImage from '../components/ui/OptimizedImage.astro';
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/ui/PageHeader.astro';
 import { blogListPosts, sidebarPosts, blogCategories, blogTags } from '../data/blog';
@@ -16,7 +17,7 @@ import { blogListPosts, sidebarPosts, blogCategories, blogTags } from '../data/b
               i === 0 ? (
                 <div class="post-card inner-post">
                   <div class="post-thumb">
-                    <img src={post.image} alt={post.title} loading="lazy" />
+                    <OptimizedImage src={post.image} alt={post.title} loading="lazy" />
                   </div>
                   <div class="post-content">
                     <ul class="post-meta">
@@ -42,7 +43,7 @@ import { blogListPosts, sidebarPosts, blogCategories, blogTags } from '../data/b
                 >
                   <div class="post-card">
                     <div class="post-thumb">
-                      <img src={post.image} alt={post.title} loading="lazy" />
+                      <OptimizedImage src={post.image} alt={post.title} loading="lazy" />
                     </div>
                     <div class="post-content">
                       <ul class="post-meta">
@@ -99,7 +100,7 @@ import { blogListPosts, sidebarPosts, blogCategories, blogTags } from '../data/b
             {
               sidebarPosts.map((post) => (
                 <div class="sidebar-post">
-                  <img src={post.image} alt={post.title} loading="lazy" />
+                  <OptimizedImage src={post.image} alt={post.title} loading="lazy" />
                   <div class="post-content">
                     <ul class="post-meta">
                       <li>{post.date}</li>

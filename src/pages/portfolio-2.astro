@@ -1,4 +1,5 @@
 ---
+import OptimizedImage from '../components/ui/OptimizedImage.astro';
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/ui/PageHeader.astro';
 import NewsletterSection from '../components/sections/NewsletterSection.astro';
@@ -19,7 +20,7 @@ import { commercialProjects } from '../data/portfolio';
             <div class="col-lg-4 col-md-6">
               <div class="project-item-3">
                 <div class="project-img">
-                  <img src={p.image} alt={p.title} loading="lazy" />
+                  <OptimizedImage src={p.image} alt={p.title} loading="lazy" />
                 </div>
                 <div class="project-content">
                   <ul>

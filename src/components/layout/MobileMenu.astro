@@ -1,11 +1,12 @@
 ---
+import OptimizedImage from '../ui/OptimizedImage.astro';
 import { site } from '../../data/site';
 ---
 
 <div class="mobile-side-menu">
   <div class="side-menu-content">
     <div class="side-menu-head">
-      <a href="/"><img src="/assets/img/logo/logo-2.webp" alt={`${site.name} logo`} width="124" height="29" loading="lazy" /></a>
+      <a href="/"><OptimizedImage src="/assets/img/logo/logo-2.webp" alt={`${site.name} logo`} width="124" height="29" loading="lazy" /></a>
       <button class="mobile-side-menu-close" aria-label="Close navigation menu"><i class="fa-regular fa-xmark"></i></button>
     </div>
     <div class="side-menu-wrap"></div>

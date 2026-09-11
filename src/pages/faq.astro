@@ -1,4 +1,5 @@
 ---
+import OptimizedImage from '../components/ui/OptimizedImage.astro';
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/ui/PageHeader.astro';
 import NewsletterSection from '../components/sections/NewsletterSection.astro';
@@ -50,7 +51,7 @@ const faqs = [
   <section class="faq-section pt-130 pb-130">
     <div class="container container-2">
       <div class="row section-heading-wrap">
-        <div class="shape"><img src="/assets/img/shapes/section-heading.webp" alt="shape" loading="lazy" /></div>
+        <div class="shape"><OptimizedImage src="/assets/img/shapes/section-heading.webp" alt="shape" loading="lazy" /></div>
         <div class="col-lg-4 col-md-12">
           <div class="section-heading mb-0">
             <h4
@@ -108,7 +109,7 @@ const faqs = [
         <div class="col-lg-3">
           <div class="faq-sidebar">
             <div class="faq-contact">
-              <div class="icon"><img src="/assets/img/icon/service-details-cta.webp" alt="icon" loading="lazy" /></div>
+              <div class="icon"><OptimizedImage src="/assets/img/icon/service-details-cta.webp" alt="icon" loading="lazy" /></div>
               <h3>Still have questions?</h3>
               <p>Can't find the answer you're looking for? Please reach out to our team.</p>
               <a href="/contact" class="tl-primary-btn"

@@ -1,4 +1,5 @@
 ---
+import OptimizedImage from '../components/ui/OptimizedImage.astro';
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/ui/PageHeader.astro';
 import ServiceFaqAccordion from '../components/sections/ServiceFaqAccordion.astro';
@@ -33,7 +34,7 @@ const otherServices = serviceNames.map((label, i) => ({ label, active: i === 0 }
             </div>
             <div class="service-details-cta">
               <div class="cta-bg" data-background="/assets/img/bg-img/service-cta-bg-2.webp"></div>
-              <div class="icon"><img src="/assets/img/icon/service-details-cta.webp" alt="icon" loading="lazy" /></div>
+              <div class="icon"><OptimizedImage src="/assets/img/icon/service-details-cta.webp" alt="icon" loading="lazy" /></div>
               <span>Do You Need Help?</span>
               <a class="number" href={`tel:${site.phoneRaw}`}>{site.phone}</a>
               <a class="mail" href={`mailto:${site.email}`}>{site.email}</a>
@@ -46,7 +47,7 @@ const otherServices = serviceNames.map((label, i) => ({ label, active: i === 0 }
         <div class="col-lg-8 col-md-12">
           <div class="service-details-content scroll-content">
             <div class="service-details-img">
-              <img src="/assets/img/service/service-details-img-1.webp" alt="service details" loading="lazy" />
+              <OptimizedImage src="/assets/img/service/service-details-img-1.webp" alt="service details" loading="lazy" />
             </div>
             <h1 class="details-title">About the service</h1>
             <p>
@@ -64,7 +65,7 @@ const otherServices = serviceNames.map((label, i) => ({ label, active: i === 0 }
                 serviceDetailsFeatures.map((f) => (
                   <div class="service-details-item">
                     <div class="icon">
-                      <img src={f.icon} alt={f.title} loading="lazy" />
+                      <OptimizedImage src={f.icon} alt={f.title} loading="lazy" />
                     </div>
                     <div class="content">
                       <h3 class="title">{f.title}</h3>
@@ -76,10 +77,10 @@ const otherServices = serviceNames.map((label, i) => ({ label, active: i === 0 }
             </div>
             <div class="service-details-img-wrap">
               <div class="details-img">
-                <img src="/assets/img/service/service-details-img-2.webp" alt="service" loading="lazy" />
+                <OptimizedImage src="/assets/img/service/service-details-img-2.webp" alt="service" loading="lazy" />
               </div>
               <div class="details-img">
-                <img src="/assets/img/service/service-details-img-3.webp" alt="service" loading="lazy" />
+                <OptimizedImage src="/assets/img/service/service-details-img-3.webp" alt="service" loading="lazy" />
               </div>
             </div>
             <h2 class="details-title">Types of Commercial Spaces</h2>

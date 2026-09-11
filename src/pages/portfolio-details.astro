@@ -1,4 +1,5 @@
 ---
+import OptimizedImage from '../components/ui/OptimizedImage.astro';
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/ui/PageHeader.astro';
 import { portfolioDetail } from '../data/portfolio';
@@ -38,7 +39,7 @@ import { portfolioDetail } from '../data/portfolio';
           </div>
         </div>
         <div class="project-details-img">
-          <img src={portfolioDetail.heroImage} alt="project details" loading="lazy" />
+          <OptimizedImage src={portfolioDetail.heroImage} alt="project details" loading="lazy" />
         </div>
         <h2 class="details-title-2">Design in Details</h2>
         <p>{portfolioDetail.description}</p>
