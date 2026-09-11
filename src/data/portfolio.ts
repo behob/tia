@@ -3,9 +3,9 @@ import type { PortfolioDetail, ProjectSummary } from './types';
 export const residentialProjects = [
   { image: '/assets/img/project/project-img-1.webp', title: 'Luxury Skyline', category: 'Residential', year: '2025' },
   { image: '/assets/img/project/project-img-2.webp', title: 'Bohemian Rhapsody', category: 'Residential', year: '2025' },
-  { image: '/assets/img/project/project-img-3.webp', title: 'Urban Oasis', category: 'Commercial', year: '2024' },
-  { image: '/assets/img/project/project-img-4.webp', title: 'Serenity Suites', category: 'Hospitality', year: '2024' },
-  { image: '/assets/img/project/project-img-5.webp', title: 'Modern Workspace', category: 'Commercial', year: '2023' },
+  { image: '/assets/img/project/project-img-3.webp', title: 'Vintage Glamour', category: 'Residential', year: '2024' },
+  { image: '/assets/img/project/project-img-4.webp', title: 'Titan Office Interior', category: 'Commercial', year: '2024' },
+  { image: '/assets/img/project/project-img-5.webp', title: 'Living Innovation', category: 'Residential', year: '2023' },
   { image: '/assets/img/project/project-img-6.webp', title: 'Coastal Retreat', category: 'Residential', year: '2023' },
 ] as const satisfies readonly ProjectSummary[];
 
