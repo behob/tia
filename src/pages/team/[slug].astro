@@ -1,0 +1,87 @@
+---
+import OptimizedImage from '../../components/ui/OptimizedImage.astro';
+import Layout from '../../layouts/Layout.astro';
+import PageHeader from '../../components/ui/PageHeader.astro';
+import { teamDetailPages } from '../../data/detailPages';
+import { site } from '../../data/site';
+
+export function getStaticPaths() {
+  return teamDetailPages.map((member) => ({
+    params: { slug: member.slug },
+    props: { member },
+  }));
+}
+
+const { member } = Astro.props;
+---
+
+<Layout
+  title={`${member.name} - ${member.role} - TIA Interior`}
+  description={`Learn more about ${member.name}, ${member.role} at TIA Interior in Dubai.`}
+  ogImage={member.image}
+>
+  <PageHeader title={member.name} currentPage="Team Details" />
+
+  <section class="team-details pt-140 pb-140 pin-section">
+    <div class="container container-2">
+      <div class="row pin-inner">
+        <div class="col-lg-6">
+          <div class="team-details-img pin-box">
+            <OptimizedImage src={member.image} alt={member.name} loading="lazy" />
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="team-details-content scroll-content">
+            <h2 class="name">{member.name}</h2>
+            <span class="prof">{member.role}</span>
+            <p class="desc">{member.bio}</p>
+            <div class="team-details-contact">
+              <span>Email address:</span>
+              <a class="mail" href={`mailto:${site.email}`}>{site.email}</a>
+              <a class="number" href={`tel:${site.phoneRaw}`}>{site.phone}</a>
+              <ul class="social-list">
+                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-behance"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+              </ul>
+            </div>
+            <div class="team-details-info mb-0">
+              <h3 class="details-title">Professional info</h3>
+              <p>{member.professionalInfo}</p>
+              <ul class="team-details-list">
+                {
+                  member.expertise.map((item) => (
+                    <li>
+                      <i class="fa-sharp fa-solid fa-circle-check" />
+                      {item}
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+            <div class="skill-item-wrap">
+              <h4 class="details-title">Expertise & skills</h4>
+              <p>{member.expertiseDescription}</p>
+              <div class="skills-items">
+                {
+                  member.skills.map((skill) => (
+                    <div class="skills-item fade-top">
+                      <h4 class="title">{skill.title}</h4>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" style={`width: ${skill.width}`}>
+                          <span>{skill.width}</span>
+                          <div class="dot" />
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -21,6 +21,19 @@ export interface BlogPost {
   featured?: boolean;
 }
 
+export interface BlogDetailPage extends BlogPost {
+  slug: string;
+  author: string;
+  detailImage: ImagePath;
+  secondaryImage: ImagePath;
+  intro: string;
+  sectionTitle: string;
+  sectionBody: string;
+  secondSectionTitle: string;
+  secondSectionBody: string;
+  tags: readonly string[];
+}
+
 export interface SidebarPost {
   image: ImagePath;
   title: string;
@@ -74,6 +87,12 @@ export interface ProjectSummary {
   year?: string;
 }
 
+export interface PortfolioDetailPage extends PortfolioDetail {
+  slug: string;
+  category: string;
+  seoDescription: string;
+}
+
 export interface PortfolioDetail {
   title: string;
   architect: string;
@@ -102,6 +121,7 @@ export interface TeamMember {
 }
 
 export interface TeamDetail extends TeamMember {
+  slug?: string;
   bio: string;
   professionalInfo: string;
   skills: readonly {

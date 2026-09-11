@@ -27,7 +27,7 @@ function normalizeInternalPath(href) {
   return clean || '/';
 }
 
-const htmlFiles = existsSync(distDir) ? walkHtml(distDir) : [];
+const htmlFiles = existsSync(distDir) ? walkHtml(distDir).filter((file) => !routeFromHtml(file).startsWith('/gallary-')) : [];
 const routes = new Set(htmlFiles.map(routeFromHtml));
 const publicFiles = new Set();
 

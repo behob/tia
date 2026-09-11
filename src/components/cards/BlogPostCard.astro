@@ -1,5 +1,6 @@
 ---
 import OptimizedImage from '../ui/OptimizedImage.astro';
+import { getBlogHref } from '../../data/detailPages';
 
 interface Props {
   image: string;
@@ -19,9 +20,11 @@ const {
   date,
   author = 'Admin',
   category = 'Design',
-  href = '/blog-details',
+  href,
   variant = 'default',
 } = Astro.props;
+
+const resolvedHref = href ?? getBlogHref(title);
 ---
 
 <div class={`post-card ${variant === 'inner' ? 'post-card-2 inner-post' : ''}`}>
@@ -39,7 +42,7 @@ const {
       <li>{date}</li>
       <li>By <span>{author}</span></li>
     </ul>
-    <h3 class="title"><a href={href}>{title}</a></h3>
+    <h3 class="title"><a href={resolvedHref}>{title}</a></h3>
     {variant === 'default' && <p>{excerpt}</p>}
   </div>
 </div>

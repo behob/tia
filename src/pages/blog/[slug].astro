@@ -1,0 +1,104 @@
+---
+import OptimizedImage from '../../components/ui/OptimizedImage.astro';
+import Layout from '../../layouts/Layout.astro';
+import PageHeader from '../../components/ui/PageHeader.astro';
+import BlogPostCard from '../../components/cards/BlogPostCard.astro';
+import { blogDetailsSidebarPosts } from '../../data/blog';
+import { blogDetailPages } from '../../data/detailPages';
+
+export function getStaticPaths() {
+  return blogDetailPages.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+---
+
+<Layout title={`${post.title} - TIA Interior`} description={post.excerpt} ogType="article" ogImage={post.image}>
+  <PageHeader title={post.title} currentPage="Blog Details" />
+
+  <section class="blog-details pt-150 pb-150 overflow-hidden">
+    <div class="container container-2">
+      <div class="row gy-5">
+        <div class="col-lg-8 col-md-12">
+          <div class="blog-details-wrap">
+            <BlogPostCard
+              image={post.image}
+              title={post.title}
+              excerpt=""
+              date={post.date}
+              category={post.category}
+              author={post.author}
+              href={`/blog/${post.slug}`}
+              variant="inner"
+            />
+            <div class="blog-details-img mb-30">
+              <OptimizedImage src={post.detailImage} alt={post.title} loading="lazy" />
+            </div>
+            <div class="blog-details-content">
+              <p class="mb-30">{post.intro}</p>
+              <h3 class="details-title-2">{post.sectionTitle}</h3>
+              <p class="mb-40">{post.sectionBody}</p>
+              <div class="details-img-wrap mt-40 mb-40">
+                <OptimizedImage src={post.secondaryImage} alt={`${post.title} detail`} loading="lazy" />
+              </div>
+              <h3 class="details-title-2">{post.secondSectionTitle}</h3>
+              <p>{post.secondSectionBody}</p>
+            </div>
+            <div class="blog-tag-social">
+              <div class="row align-items-center">
+                <div class="col-md-6">
+                  <div class="tag">
+                    <span>Tags:</span>
+                    {post.tags.map((tag) => <a href="#">{tag}</a>)}
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="social-share">
+                    <span>Share:</span>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12">
+          <div class="blog-sidebar">
+            <div class="sidebar-widget">
+              <h3 class="widget-title">Search</h3>
+              <form action="#" class="search-form">
+                <input type="text" class="form-control" placeholder="Search..." />
+                <button class="search-btn" type="button" aria-label="Search"><i class="fa-regular fa-magnifying-glass"></i></button>
+              </form>
+            </div>
+            <div class="sidebar-widget">
+              <h3 class="widget-title">Recent Posts</h3>
+              <div class="sidebar-post">
+                {
+                  blogDetailsSidebarPosts.map((sidebarPost) => (
+                    <div class="post-item">
+                      <div class="post-thumb">
+                        <OptimizedImage src={sidebarPost.img} alt={sidebarPost.title} loading="lazy" />
+                      </div>
+                      <div class="post-content">
+                        <span class="date">{sidebarPost.date}</span>
+                        <h4 class="title">
+                          <a href="/blog-details">{sidebarPost.title}</a>
+                        </h4>
+                      </div>
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

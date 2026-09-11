@@ -45,6 +45,10 @@ const sourceRoutes = new Set(walk(pagesDir).map(routeFromPage).filter(Boolean));
 const failures = [];
 
 for (const route of sourceRoutes) {
+  if (route.includes('[')) {
+    continue;
+  }
+
   if (!registeredRoutes.has(route)) {
     failures.push(`${route}: missing routeMeta entry in src/data/seo.ts`);
   }

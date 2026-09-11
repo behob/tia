@@ -1,5 +1,5 @@
-import { existsSync, readFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
+import { join, relative, sep } from 'node:path';
 
 const distDir = join(process.cwd(), 'dist', 'client');
 const expectedScriptRoutes = {
@@ -9,52 +9,32 @@ const expectedScriptRoutes = {
   '/assets/js/vendor/countdown.js': ['/coming-soon'],
 };
 
-const routes = [
-  '/',
-  '/about',
-  '/service',
-  '/service-2',
-  '/service-3',
-  '/service-details',
-  '/portfolio',
-  '/portfolio-2',
-  '/portfolio-3',
-  '/portfolio-details',
-  '/blog-grid',
-  '/blog-list',
-  '/blog-standard',
-  '/blog-single',
-  '/blog-details',
-  '/contact',
-  '/faq',
-  '/pricing',
-  '/team',
-  '/team-details',
-  '/gallery-1',
-  '/gallery-2',
-  '/shop',
-  '/shop-details',
-  '/coming-soon',
-  '/error-page',
-  '/index-2',
-  '/index-3',
-  '/index-4',
-  '/index-5',
-  '/index-6',
-  '/index-7',
-  '/index-8',
-  '/index-9',
-];
+function walkHtml(dir) {
+  return readdirSync(dir).flatMap((entry) => {
+    const fullPath = join(dir, entry);
+    const stats = statSync(fullPath);
 
-function htmlPath(route) {
-  return route === '/' ? join(distDir, 'index.html') : join(distDir, route.slice(1), 'index.html');
+    if (stats.isDirectory()) {
+      return walkHtml(fullPath);
+    }
+
+    return entry === 'index.html' ? [fullPath] : [];
+  });
+}
+
+function routeFromHtml(file) {
+  const relativePath = relative(distDir, file).split(sep).join('/');
+  return relativePath === 'index.html' ? '/' : `/${relativePath.replace(/\/index\.html$/, '')}`;
 }
 
 const failures = [];
+const routes = existsSync(distDir)
+  ? walkHtml(distDir)
+      .map((file) => ({ file, route: routeFromHtml(file) }))
+      .filter(({ route }) => !route.startsWith('/gallary-'))
+  : [];
 
-for (const route of routes) {
-  const file = htmlPath(route);
-
+for (const { route, file } of routes) {
   if (!existsSync(file)) {
     failures.push(`${route}: missing built HTML`);
     continue;

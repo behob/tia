@@ -1,0 +1,98 @@
+---
+import OptimizedImage from '../../components/ui/OptimizedImage.astro';
+import Layout from '../../layouts/Layout.astro';
+import PageHeader from '../../components/ui/PageHeader.astro';
+import { portfolioDetailPages } from '../../data/detailPages';
+
+export function getStaticPaths() {
+  return portfolioDetailPages.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<Layout title={`${project.title} - TIA Interior`} description={project.seoDescription} ogImage={project.heroImage}>
+  <PageHeader title={project.title} currentPage="Project Details" />
+
+  <section class="portfolio-details pt-130 pb-130">
+    <div class="container container-2">
+      <div class="project-details-wrap">
+        <h1 class="details-title">{project.title}</h1>
+        <div class="project-details-meta">
+          <div class="details-meta">
+            <span>Architect :</span>
+            <h5>{project.architect}</h5>
+          </div>
+          <div class="details-meta">
+            <span>Project Type:</span>
+            <h5>{project.projectType}</h5>
+          </div>
+          <div class="details-meta">
+            <span>Client:</span>
+            <h5>{project.client}</h5>
+          </div>
+          <div class="details-meta">
+            <span>Terms:</span>
+            <h5>{project.terms}</h5>
+          </div>
+          <div class="details-meta">
+            <span>Strategy :</span>
+            <h5>{project.strategy}</h5>
+          </div>
+          <div class="details-meta">
+            <span>Date :</span>
+            <h5>{project.date}</h5>
+          </div>
+        </div>
+        <div class="project-details-img">
+          <OptimizedImage src={project.heroImage} alt={project.title} loading="lazy" />
+        </div>
+        <h2 class="details-title-2">Design in Details</h2>
+        <p>{project.description}</p>
+        <div class="project-details-list">
+          <ul>
+            {
+              project.features.slice(0, 3).map((f) => (
+                <li>
+                  <>
+                    <i class="fa-sharp fa-solid fa-circle-check" />
+                    <strong>{f.title}:</strong>
+                  </>{' '}
+                  {f.desc}
+                </li>
+              ))
+            }
+          </ul>
+          <ul>
+            {
+              project.features.slice(3).map((f) => (
+                <li>
+                  <>
+                    <i class="fa-sharp fa-solid fa-circle-check" />
+                    <strong>{f.title}:</strong>
+                  </>{' '}
+                  {f.desc}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div class="project-details-items">
+          {
+            project.roomSizes.map((room) => (
+              <div class="project-details-item text-center">
+                <h3 class="title">({room.size})</h3>
+                <span>{room.label}</span>
+              </div>
+            ))
+          }
+        </div>
+        <h3 class="details-title-2">Incredible Result</h3>
+        <p>{project.resultDescription}</p>
+      </div>
+    </div>
+  </section>
+</Layout>

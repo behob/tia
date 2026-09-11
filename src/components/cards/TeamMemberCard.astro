@@ -1,5 +1,6 @@
 ---
 import OptimizedImage from '../ui/OptimizedImage.astro';
+import { getTeamHref } from '../../data/detailPages';
 
 interface Props {
   image: string;
@@ -15,7 +16,8 @@ interface Props {
   };
 }
 
-const { image, name, role, href = '/team-details', variant = 'grid', social = {} } = Astro.props;
+const { image, name, role, href, variant = 'grid', social = {} } = Astro.props;
+const resolvedHref = href ?? getTeamHref(name);
 ---
 
 {
@@ -26,7 +28,7 @@ const { image, name, role, href = '/team-details', variant = 'grid', social = {}
       </div>
       <div class="team-content">
         <h3 class="title">
-          <a href={href}>{name}</a>
+          <a href={resolvedHref}>{name}</a>
         </h3>
         <span>{role}</span>
         <ul class="team-social">
@@ -68,14 +70,14 @@ const { image, name, role, href = '/team-details', variant = 'grid', social = {}
           <slot name="number" />
         </span>
         <h3 class="title">
-          <a href={href}>{name}</a>
+          <a href={resolvedHref}>{name}</a>
         </h3>
       </div>
       <div class="mid-content">
         <span>{role}</span>
       </div>
       <div class="arrow">
-        <a href={href}>
+        <a href={resolvedHref}>
           <i class="fa-solid fa-arrow-right" />
         </a>
       </div>
