@@ -1,4 +1,6 @@
 ---
+import OptimizedImage from '../ui/OptimizedImage.astro';
+
 interface Props {
   icon: string;
   title: string;
@@ -15,7 +17,7 @@ const cardDescription = description || desc || '';
   <div class="service-top">
     <h3 class="title"><a href={href}>{title}</a></h3>
     <div class="icon">
-      <img src={icon} alt={title} loading="lazy" />
+      <OptimizedImage src={icon} alt={title} />
     </div>
   </div>
   <p>{cardDescription}</p>

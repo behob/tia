@@ -1,5 +1,11 @@
 ---
-import { legacyScriptAssets } from '../../data/assets';
+import { legacyScriptAssets, shouldLoadScript } from '../../data/assets';
+
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
 ---
 
-{legacyScriptAssets.map((asset) => <script is:inline src={asset.src} defer></script>)}
+{legacyScriptAssets.filter((asset) => shouldLoadScript(asset, currentPath)).map((asset) => <script is:inline src={asset.src} defer></script>)}

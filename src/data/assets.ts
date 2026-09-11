@@ -6,6 +6,7 @@ export interface StylesheetAsset {
 
 export interface ScriptAsset {
   src: string;
+  routes?: readonly string[];
 }
 
 export const stylesheetAssets: readonly StylesheetAsset[] = [
@@ -40,6 +41,13 @@ export const legacyScriptAssets = [
   { src: '/assets/js/vendor/jquery.twentytwenty.min.js' },
   { src: '/assets/js/slider.js' },
   { src: '/assets/js/banner-process.js' },
-  { src: '/assets/js/contact.js' },
   { src: '/assets/js/main.min.js' },
+  { src: '/assets/js/contact.js', routes: ['/contact'] },
+  { src: '/assets/js/vendor/countdown.js', routes: ['/coming-soon'] },
 ] as const satisfies readonly ScriptAsset[];
+
+export function shouldLoadScript(asset: ScriptAsset, pathname: string) {
+  const currentPath = pathname.length > 1 ? pathname.replace(/\/$/, '') : pathname;
+
+  return !asset.routes || asset.routes.includes(currentPath);
+}

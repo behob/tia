@@ -131,6 +131,6 @@ const jsonLd = [...siteJsonLd, ...routeJsonLd, ...customJsonLd.filter(Boolean)];
 
     <div id="scroll-percentage" role="button" aria-label="Scroll to top" tabindex="0"><span id="scroll-percentage-value"></span></div>
 
-    <LegacyScripts />
+    <LegacyScripts currentPath={currentPath} />
   </body>
 </html>

@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/ui/PageHeader.astro';
+import ServiceFaqAccordion from '../components/sections/ServiceFaqAccordion.astro';
 import { site } from '../data/site';
 import { serviceNames, serviceDetailsFeatures, serviceFaqs } from '../data/services';
 
@@ -111,39 +112,7 @@ const otherServices = serviceNames.map((label, i) => ({ label, active: i === 0 }
               Commercial interior design is a dynamic and multifaceted field that plays a critical role in the success
               of businesses across a wide range of industries.
             </p>
-            <div class="service-faq">
-              <h3 class="faq-title">Frequently asked questions</h3>
-              <div class="faq-accordion fade-wrapper">
-                <div class="accordion" id="accordionExample">
-                  {
-                    serviceFaqs.map((faq) => (
-                      <div class="accordion-item fade-top">
-                        <h2 class="accordion-header" id={`heading${faq.id}`}>
-                          <button
-                            class={`accordion-button${faq.open ? '' : ' collapsed'}`}
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target={`#collapse${faq.id}`}
-                            aria-expanded={faq.open ? 'true' : 'false'}
-                            aria-controls={`collapse${faq.id}`}
-                          >
-                            {faq.question}
-                          </button>
-                        </h2>
-                        <div
-                          id={`collapse${faq.id}`}
-                          class={`accordion-collapse collapse${faq.open ? ' show' : ''}`}
-                          aria-labelledby={`heading${faq.id}`}
-                          data-bs-parent="#accordionExample"
-                        >
-                          <div class="accordion-body">{faq.answer}</div>
-                        </div>
-                      </div>
-                    ))
-                  }
-                </div>
-              </div>
-            </div>
+            <ServiceFaqAccordion faqs={serviceFaqs} />
           </div>
         </div>
       </div>

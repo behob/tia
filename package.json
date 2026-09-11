@@ -39,13 +39,17 @@
 	"scripts": {
 		"astro": "astro",
 		"build": "astro build",
+		"audit:routes": "node scripts/audit-routes.mjs",
+		"audit:seo": "node scripts/audit-seo.mjs",
 		"cf-typegen": "wrangler types",
 		"check": "astro check && tsc && wrangler deploy --dry-run",
 		"deploy": "wrangler deploy",
 		"dev": "astro dev",
 		"lint": "eslint src/",
 		"format": "prettier --write src/",
-		"preview": "astro build && wrangler dev"
+		"preview": "astro build && wrangler dev",
+		"verify": "npm run check && npm run lint && npm run build && npm run audit:seo && npm run audit:routes",
+		"visual:routes": "node scripts/visual-routes.mjs"
 	},
 	"type": "module"
 }

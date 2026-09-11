@@ -1,0 +1,45 @@
+---
+import type { FaqItem } from '../../data/types';
+
+interface Props {
+  faqs: readonly FaqItem[];
+  id?: string;
+  title?: string;
+}
+
+const { faqs, id = 'accordionExample', title = 'Frequently asked questions' } = Astro.props;
+---
+
+<div class="service-faq">
+  <h3 class="faq-title">{title}</h3>
+  <div class="faq-accordion fade-wrapper">
+    <div class="accordion" id={id}>
+      {
+        faqs.map((faq) => (
+          <div class="accordion-item fade-top">
+            <h2 class="accordion-header" id={`heading${faq.id}`}>
+              <button
+                class={`accordion-button${faq.open ? '' : ' collapsed'}`}
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target={`#collapse${faq.id}`}
+                aria-expanded={faq.open ? 'true' : 'false'}
+                aria-controls={`collapse${faq.id}`}
+              >
+                {faq.question}
+              </button>
+            </h2>
+            <div
+              id={`collapse${faq.id}`}
+              class={`accordion-collapse collapse${faq.open ? ' show' : ''}`}
+              aria-labelledby={`heading${faq.id}`}
+              data-bs-parent={`#${id}`}
+            >
+              <div class="accordion-body">{faq.answer}</div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>

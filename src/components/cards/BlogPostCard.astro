@@ -1,4 +1,6 @@
 ---
+import OptimizedImage from '../ui/OptimizedImage.astro';
+
 interface Props {
   image: string;
   title: string;
@@ -26,7 +28,7 @@ const {
   {
     variant === 'default' && (
       <div class="post-thumb">
-        <img src={image} alt={title} loading="lazy" />
+        <OptimizedImage src={image} alt={title} />
         <span class="category">{category}</span>
       </div>
     )

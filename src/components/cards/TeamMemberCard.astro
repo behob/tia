@@ -1,4 +1,6 @@
 ---
+import OptimizedImage from '../ui/OptimizedImage.astro';
+
 interface Props {
   image: string;
   name: string;
@@ -20,7 +22,7 @@ const { image, name, role, href = '/team-details', variant = 'grid', social = {}
   variant === 'grid' ? (
     <div class="team-item-2">
       <div class="team-thumb">
-        <img src={image} alt={name} loading="lazy" />
+        <OptimizedImage src={image} alt={name} />
       </div>
       <div class="team-content">
         <h3 class="title">
