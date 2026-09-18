@@ -2,6 +2,8 @@
 import OptimizedImage from '../components/ui/OptimizedImage.astro';
 import Layout from '../layouts/Layout.astro';
 import NewsletterSection from '../components/sections/NewsletterSection.astro';
+import { getBlogPosts } from '../data/blog';
+const blogDates = new Map((await getBlogPosts()).map((post) => [post.slug, post.date]));
 ---
 
 <Layout
@@ -960,7 +962,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
                   </div>
                   <div class="post-content">
                     <ul class="post-meta">
-                      <li>Dec 25, 2025</li>
+                      <li>{blogDates.get('four-ways-for-creating-extra-space-in-small-homes')}</li>
                       <li>By <span>Admin</span></li>
                     </ul>
                     <h3 class="title"><a href="/blog/four-ways-for-creating-extra-space-in-small-homes">Four Ways for Creating Extra Space in Small Homes</a></h3>
@@ -979,7 +981,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
                   </div>
                   <div class="post-content">
                     <ul class="post-meta">
-                      <li>Dec 25, 2025</li>
+                      <li>{blogDates.get('four-ways-for-creating-extra-space-in-small-homes')}</li>
                       <li>By <span>Admin</span></li>
                     </ul>
                     <h3 class="title"><a href="/blog/four-ways-for-creating-extra-space-in-small-homes">Four Ways for Creating Extra Space in Small Homes</a></h3>

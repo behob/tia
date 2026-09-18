@@ -1,6 +1,8 @@
 ---
 import OptimizedImage from '../components/ui/OptimizedImage.astro';
 import Layout from '../layouts/Layout.astro';
+import { getBlogPosts } from '../data/blog';
+const blogDates = new Map((await getBlogPosts()).map((post) => [post.slug, post.date]));
 ---
 
 <Layout
@@ -926,7 +928,7 @@ import Layout from '../layouts/Layout.astro';
               </div>
               <div class="post-content">
                 <ul class="post-meta">
-                  <li>Dec 25, 2025</li>
+                  <li>{blogDates.get('contemporary-living-room-ideas-for-modern-homes')}</li>
                   <li>By <span>Admin</span></li>
                 </ul>
                 <h3 class="title"><a href="/blog/contemporary-living-room-ideas-for-modern-homes">Contemporary Living Room Ideas for Modern Homes</a></h3>
@@ -945,7 +947,7 @@ import Layout from '../layouts/Layout.astro';
               </div>
               <div class="post-content">
                 <ul class="post-meta">
-                  <li>Dec 25, 2025</li>
+                  <li>{blogDates.get('minimalist-interior-design-for-calm-modern-living')}</li>
                   <li>By <span>Admin</span></li>
                 </ul>
                 <h3 class="title"><a href="/blog/minimalist-interior-design-for-calm-modern-living">Minimalist Interior Design for Calm Modern Living</a></h3>
@@ -964,7 +966,7 @@ import Layout from '../layouts/Layout.astro';
               </div>
               <div class="post-content">
                 <ul class="post-meta">
-                  <li>Dec 25, 2025</li>
+                  <li>{blogDates.get('elegant-open-plan-interiors-for-modern-apartments')}</li>
                   <li>By <span>Admin</span></li>
                 </ul>
                 <h3 class="title"><a href="/blog/elegant-open-plan-interiors-for-modern-apartments">Elegant Open-Plan Interiors for Modern Apartments</a></h3>

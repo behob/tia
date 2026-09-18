@@ -2,21 +2,25 @@
 import Layout from './Layout.astro';
 import PageHeader from '../components/ui/PageHeader.astro';
 import BlogViewToggle from '../components/ui/BlogViewToggle.astro';
+import BlogPagination from '../components/ui/BlogPagination.astro';
 import BlogPostCard from '../components/cards/BlogPostCard.astro';
 import BlogArchiveCard from '../components/cards/BlogArchiveCard.astro';
 import BlogSidebar from '../components/sections/BlogSidebar.astro';
 import NewsletterSection from '../components/sections/NewsletterSection.astro';
 import { getBlogPosts } from '../data/blog';
+import { paginateBlogPosts, type BlogView } from '../data/blogPagination';
 
 interface Props {
-  view: 'grid' | 'list' | 'standard';
+  view: BlogView;
+  currentPage?: number;
 }
-const { view } = Astro.props;
-const posts = await getBlogPosts();
+const { view, currentPage = 1 } = Astro.props;
+const allPosts = await getBlogPosts();
+const { posts, totalPages } = paginateBlogPosts(allPosts, currentPage);
 ---
 
 <Layout
-  title="Blog - TIA Interior"
+  title={currentPage === 1 ? 'Blog - TIA Interior' : `Blog - Page ${currentPage} - TIA Interior`}
   description="Read the latest interior design tips, trends, and insights from TIA Interior."
 >
   <PageHeader title="Blog" currentPage="Blog" />
@@ -25,16 +29,19 @@ const posts = await getBlogPosts();
     class:list={['blog-section fade-wrapper', view === 'grid' ? 'pt-150 pb-150' : 'pt-130 pb-130']}
   >
     <div class="container container-2">
-      <BlogViewToggle view={view} />
+      <BlogViewToggle view={view} currentPage={currentPage} />
       {
         view === 'grid' ? (
-          <div class="row gy-5 fade-wrapper">
-            {posts.map((post) => (
-              <div class="col-lg-4 col-md-6 fade-top">
-                <BlogPostCard {...post} />
-              </div>
-            ))}
-          </div>
+          <>
+            <div class="row gy-5 fade-wrapper">
+              {posts.map((post) => (
+                <div class="col-lg-4 col-md-6 fade-top">
+                  <BlogPostCard {...post} />
+                </div>
+              ))}
+            </div>
+            <BlogPagination view={view} currentPage={currentPage} totalPages={totalPages} />
+          </>
         ) : (
           <div class="row gy-5">
             <div class="col-lg-8 col-md-12">
@@ -55,9 +62,10 @@ const posts = await getBlogPosts();
                   ))}
                 </div>
               )}
+              <BlogPagination view={view} currentPage={currentPage} totalPages={totalPages} />
             </div>
             <aside class="col-lg-4">
-              <BlogSidebar posts={posts} />
+              <BlogSidebar posts={allPosts} />
             </aside>
           </div>
         )

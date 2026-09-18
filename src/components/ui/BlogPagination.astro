@@ -1,0 +1,56 @@
+---
+import { getBlogArchiveHref, type BlogView } from '../../data/blogPagination';
+interface Props {
+  view: BlogView;
+  currentPage: number;
+  totalPages: number;
+}
+const { view, currentPage, totalPages } = Astro.props;
+const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
+---
+
+{
+  totalPages > 1 && (
+    <nav aria-label="Blog pagination">
+      <ul class="pagination-wrap mt-100 justify-content-center">
+        {currentPage > 1 && (
+          <li>
+            <a href={getBlogArchiveHref(view, currentPage - 1)} rel="prev" aria-label="Previous page">
+              <i class="fa-regular fa-arrow-left" aria-hidden="true" />
+            </a>
+          </li>
+        )}
+        {pages.map((page) => (
+          <li>
+            <a
+              href={getBlogArchiveHref(view, page)}
+              class:list={{ active: page === currentPage }}
+              aria-current={page === currentPage ? 'page' : undefined}
+              aria-label={`Page ${page}`}
+            >
+              {page}
+            </a>
+          </li>
+        ))}
+        {currentPage < totalPages && (
+          <li>
+            <a href={getBlogArchiveHref(view, currentPage + 1)} rel="next" aria-label="Next page">
+              <i class="fa-regular fa-arrow-right" aria-hidden="true" />
+            </a>
+          </li>
+        )}
+      </ul>
+    </nav>
+  )
+}
+
+<style>
+  ul {
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
+  a:focus-visible {
+    outline: 2px solid var(--tl-color-theme-primary);
+    outline-offset: 3px;
+  }
+</style>

@@ -1,0 +1,26 @@
+---
+import type { GetStaticPaths } from 'astro';
+import BlogArchiveLayout from '../../layouts/BlogArchiveLayout.astro';
+import { getBlogPosts } from '../../data/blog';
+import { blogViews, getBlogPageCount, type BlogView } from '../../data/blogPagination';
+
+export const getStaticPaths = (async () => {
+  const posts = await getBlogPosts();
+  const totalPages = getBlogPageCount(posts.length);
+  // Existing /blog-grid, /blog-list and /blog-standard routes are page one.
+  return blogViews.flatMap((view) =>
+    Array.from({ length: totalPages - 1 }, (_, index) => ({
+      params: { blogView: `blog-${view}`, page: String(index + 2) },
+      props: { view, currentPage: index + 2 },
+    })),
+  );
+}) satisfies GetStaticPaths;
+
+interface Props {
+  view: BlogView;
+  currentPage: number;
+}
+const { view, currentPage } = Astro.props;
+---
+
+<BlogArchiveLayout view={view} currentPage={currentPage} />

@@ -1,8 +1,10 @@
 ---
+import { getBlogArchiveHref, type BlogView } from '../../data/blogPagination';
 interface Props {
-  view: 'grid' | 'list' | 'standard';
+  view: BlogView;
+  currentPage?: number;
 }
-const { view } = Astro.props;
+const { view, currentPage = 1 } = Astro.props;
 const views = [
   { value: 'grid', label: 'Grid', icon: 'fa-grid-2' },
   { value: 'list', label: 'List', icon: 'fa-list' },
@@ -15,7 +17,7 @@ const views = [
   <div class="view-options">
     {
       views.map(({ value, label, icon }) => (
-        <a href={`/blog-${value}`} aria-current={view === value ? 'page' : undefined}>
+        <a href={getBlogArchiveHref(value, currentPage)} aria-current={view === value ? 'page' : undefined}>
           <i class={`fa-regular ${icon}`} aria-hidden="true" />
           {label}
         </a>
