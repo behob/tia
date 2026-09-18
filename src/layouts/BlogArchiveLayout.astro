@@ -47,18 +47,13 @@ const posts = await getBlogPosts();
                   ))}
                 </div>
               ) : (
-                <>
-                  <article class="post-card inner-post">
-                    <BlogArchiveCard post={posts[0]} />
-                  </article>
-                  <div class="post-card-wrap post-card-wrap-inner blog-list-cards">
-                    {posts.slice(1).map((post) => (
-                      <article class="post-card">
-                        <BlogArchiveCard post={post} />
-                      </article>
-                    ))}
-                  </div>
-                </>
+                <div class="post-card-wrap post-card-wrap-inner blog-list-cards">
+                  {posts.map((post) => (
+                    <article class="post-card">
+                      <BlogArchiveCard post={post} />
+                    </article>
+                  ))}
+                </div>
               )}
             </div>
             <aside class="col-lg-4">
