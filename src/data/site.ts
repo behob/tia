@@ -69,13 +69,6 @@ export const site = {
       { label: '404 Error', href: '/error-page' },
       { label: 'Coming Soon', href: '/coming-soon' },
     ],
-    blog: [
-      { label: 'Blog Grid', href: '/blog-grid' },
-      { label: 'Blog List', href: '/blog-list' },
-      { label: 'Blog Standard', href: '/blog-standard' },
-      { label: 'Blog Single', href: '/blog-single' },
-      { label: 'Blog Details', href: '/blog-details' },
-    ],
   },
   footer: {
     links: [

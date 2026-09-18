@@ -42,6 +42,7 @@
 		"build": "astro build",
 		"audit:a11y": "node scripts/audit-a11y.mjs",
 		"audit:assets": "node scripts/audit-assets.mjs",
+		"audit:blog": "node scripts/audit-blog.mjs",
 		"audit:content": "node scripts/audit-content-parity.mjs",
 		"audit:jsonld": "node scripts/audit-jsonld.mjs",
 		"audit:links": "node scripts/audit-links.mjs",

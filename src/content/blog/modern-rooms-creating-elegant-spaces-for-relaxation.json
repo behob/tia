@@ -1,0 +1,25 @@
+{
+  "image": "/assets/img/blog/post-3.webp",
+  "title": "Modern Rooms Creating Elegant Spaces for Relaxation",
+  "excerpt": "Modest, recently established interior design company that seeks to address a variety of topics, including...",
+  "date": "Dec 25, 2025",
+  "category": "Exteriors",
+  "order": 6,
+  "author": "TIA Interior Team",
+  "wideImage": "/assets/img/blog/post-3.webp",
+  "detailImage": "/assets/img/blog/blog-details-img-1.webp",
+  "intro": "Modest, recently established interior design company that seeks to address a variety of topics, including... This guide explains how TIA Interior approaches exteriors concepts with practical planning, refined materials, and a design process shaped for Dubai homes and modern UAE lifestyles.",
+  "sections": [
+    {
+      "title": "Create Zones That Support Real Living",
+      "text": "Modern homes work best when each zone has a clear purpose. Seating, work, dining, and display areas should feel connected while still giving the family enough flexibility for everyday life."
+    },
+    {
+      "title": "Use Details to Add Character",
+      "text": "Wall treatments, custom joinery, lighting temperature, and carefully placed accents bring warmth to contemporary interiors. These details make the design feel tailored instead of generic."
+    }
+  ],
+  "gallery": ["/assets/img/blog/post-inner-2.webp"],
+  "tags": ["Interior", "Exteriors", "Modern Living"],
+  "aliases": []
+}

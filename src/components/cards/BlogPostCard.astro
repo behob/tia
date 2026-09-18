@@ -1,6 +1,5 @@
 ---
 import OptimizedImage from '../ui/OptimizedImage.astro';
-import { getBlogHref } from '../../data/detailPages';
 
 interface Props {
   image: string;
@@ -9,29 +8,22 @@ interface Props {
   date: string;
   author?: string;
   category?: string;
-  href?: string;
+  href: string;
   variant?: 'default' | 'inner';
 }
 
-const {
-  image,
-  title,
-  excerpt,
-  date,
-  author = 'Admin',
-  category = 'Design',
-  href,
-  variant = 'default',
-} = Astro.props;
+const { image, title, excerpt, date, author = 'Admin', category = 'Design', href, variant = 'default' } = Astro.props;
 
-const resolvedHref = href ?? getBlogHref(title);
+const resolvedHref = href;
 ---
 
 <div class={`post-card ${variant === 'inner' ? 'post-card-2 inner-post' : ''}`}>
   {
     variant === 'default' && (
       <div class="post-thumb">
-        <OptimizedImage src={image} alt={title} />
+        <a href={resolvedHref} aria-label={title} class="post-image-link">
+          <OptimizedImage src={image} alt={title} width={450} height={320} />
+        </a>
         <span class="category">{category}</span>
       </div>
     )
@@ -46,3 +38,10 @@ const resolvedHref = href ?? getBlogHref(title);
     {variant === 'default' && <p>{excerpt}</p>}
   </div>
 </div>
+
+<style>
+  .post-image-link {
+    display: block;
+    height: 100%;
+  }
+</style>

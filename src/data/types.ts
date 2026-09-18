@@ -12,47 +12,6 @@ export interface SocialLink {
   label: string;
 }
 
-export interface BlogPost {
-  image: ImagePath;
-  title: string;
-  excerpt: string;
-  date: string;
-  category: string;
-  featured?: boolean;
-}
-
-export interface BlogDetailPage extends BlogPost {
-  slug: string;
-  author: string;
-  detailImage: ImagePath;
-  secondaryImage: ImagePath;
-  intro: string;
-  sectionTitle: string;
-  sectionBody: string;
-  secondSectionTitle: string;
-  secondSectionBody: string;
-  tags: readonly string[];
-}
-
-export interface SidebarPost {
-  image: ImagePath;
-  title: string;
-  date: string;
-}
-
-export interface SidebarPostSummary {
-  img: ImagePath;
-  title: string;
-  date: string;
-}
-
-export interface BlogComment {
-  author: string;
-  image: ImagePath;
-  date: string;
-  text: string;
-}
-
 export interface ServiceCardData {
   icon: ImagePath;
   title: string;

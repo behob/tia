@@ -1,0 +1,70 @@
+---
+interface Props {
+  view: 'grid' | 'list' | 'standard';
+}
+const { view } = Astro.props;
+const views = [
+  { value: 'grid', label: 'Grid', icon: 'fa-grid-2' },
+  { value: 'list', label: 'List', icon: 'fa-list' },
+  { value: 'standard', label: 'Standard', icon: 'fa-bars' },
+] as const;
+---
+
+<nav class="blog-view-toggle" aria-label="Blog view">
+  <span>View:</span>
+  <div class="view-options">
+    {
+      views.map(({ value, label, icon }) => (
+        <a href={`/blog-${value}`} aria-current={view === value ? 'page' : undefined}>
+          <i class={`fa-regular ${icon}`} aria-hidden="true" />
+          {label}
+        </a>
+      ))
+    }
+  </div>
+</nav>
+
+<style>
+  .blog-view-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 16px;
+    margin-bottom: 40px;
+    font-family: var(--tl-ff-heading);
+  }
+  .view-options {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid rgba(159, 159, 164, 0.3);
+    padding: 5px;
+    border-radius: 30px;
+    gap: 4px;
+  }
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 24px;
+    color: var(--tl-color-heading-primary);
+  }
+  a:hover,
+  a[aria-current] {
+    background: var(--tl-color-theme-primary);
+    color: var(--tl-color-common-white);
+  }
+  a:focus-visible {
+    outline: 2px solid var(--tl-color-theme-primary);
+    outline-offset: 3px;
+  }
+  @media (max-width: 575px) {
+    .blog-view-toggle {
+      justify-content: center;
+      gap: 8px;
+    }
+    a {
+      padding: 9px 12px;
+    }
+  }
+</style>

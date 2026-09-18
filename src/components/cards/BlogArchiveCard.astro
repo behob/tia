@@ -1,0 +1,30 @@
+---
+import OptimizedImage from '../ui/OptimizedImage.astro';
+import type { BlogPost } from '../../data/blog';
+interface Props {
+  post: BlogPost;
+}
+const { post } = Astro.props;
+---
+
+<div class="post-thumb">
+  <a href={post.href} aria-label={post.title}>
+    <OptimizedImage src={post.wideImage ?? post.image} alt={post.title} width={930} height={520} />
+  </a>
+</div>
+<div class="post-content">
+  <ul class="post-meta">
+    <li class="category">{post.category.toLowerCase()}</li>
+    <li>{post.date}</li>
+    <li>By <span>{post.author}</span></li>
+  </ul>
+  <h3 class="title"><a href={post.href}>{post.title}</a></h3>
+  <p>{post.excerpt}</p>
+  <a href={post.href} class="read-more" aria-label={`Read more: ${post.title}`}>Read More</a>
+</div>
+<style>
+  .post-thumb > a {
+    display: block;
+    height: 100%;
+  }
+</style>

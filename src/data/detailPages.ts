@@ -1,7 +1,6 @@
-import { blogListPosts, blogPosts, blogStandardPosts } from './blog';
 import { commercialProjects, hospitalityProjects, residentialProjects } from './portfolio';
 import { teamDetail, teamMembers } from './team';
-import type { BlogDetailPage, BlogPost, PortfolioDetailPage, ProjectSummary, TeamDetail, TeamMember } from './types';
+import type { PortfolioDetailPage, ProjectSummary, TeamDetail, TeamMember } from './types';
 
 function slugify(value: string) {
   return value
@@ -18,54 +17,6 @@ function uniqueSlug(title: string, used: Map<string, number>) {
 
   return count === 0 ? base : `${base}-${count + 1}`;
 }
-
-const blogSourcePosts = [...blogPosts, ...blogListPosts, ...blogStandardPosts] as readonly BlogPost[];
-const blogSlugCounts = new Map<string, number>();
-
-const blogAngles = [
-  {
-    sectionTitle: 'Plan the Room Before Choosing Finishes',
-    sectionBody:
-      'A strong interior starts with circulation, furniture scale, and the daily routines of the people using the room. Once those decisions are clear, finishes and styling choices become easier to select and easier to maintain.',
-    secondSectionTitle: 'Balance Storage, Light, and Texture',
-    secondSectionBody:
-      'Built-in storage, layered lighting, and tactile materials help a space feel calm without becoming plain. The goal is to make every visible element useful, beautiful, and proportionate to the room.',
-  },
-  {
-    sectionTitle: 'Create Zones That Support Real Living',
-    sectionBody:
-      'Modern homes work best when each zone has a clear purpose. Seating, work, dining, and display areas should feel connected while still giving the family enough flexibility for everyday life.',
-    secondSectionTitle: 'Use Details to Add Character',
-    secondSectionBody:
-      'Wall treatments, custom joinery, lighting temperature, and carefully placed accents bring warmth to contemporary interiors. These details make the design feel tailored instead of generic.',
-  },
-  {
-    sectionTitle: 'Prioritize Function Before Decoration',
-    sectionBody:
-      'A minimalist room succeeds when the practical decisions are handled first. Storage, movement, acoustics, and lighting should be resolved before the final styling layer is added.',
-    secondSectionTitle: 'Keep the Palette Calm but Not Empty',
-    secondSectionBody:
-      'Minimal design does not mean bare design. Natural texture, soft contrast, and a small number of high-quality focal points can create a composed interior with long-term appeal.',
-  },
-];
-
-export const blogDetailPages = blogSourcePosts.map((post, index) => {
-  const angle = blogAngles[index % blogAngles.length];
-
-  return {
-    ...post,
-    slug: uniqueSlug(post.title, blogSlugCounts),
-    author: 'TIA Interior Team',
-    detailImage: index % 2 === 0 ? '/assets/img/blog/blog-details-img.webp' : '/assets/img/blog/blog-details-img-1.webp',
-    secondaryImage: index % 3 === 0 ? '/assets/img/blog/blog-details-img-2.webp' : '/assets/img/blog/post-inner-2.webp',
-    intro: `${post.excerpt} This guide explains how TIA Interior approaches ${post.category.toLowerCase()} concepts with practical planning, refined materials, and a design process shaped for Dubai homes and modern UAE lifestyles.`,
-    sectionTitle: angle.sectionTitle,
-    sectionBody: angle.sectionBody,
-    secondSectionTitle: angle.secondSectionTitle,
-    secondSectionBody: angle.secondSectionBody,
-    tags: ['Interior', post.category, index % 2 === 0 ? 'Dubai Design' : 'Modern Living'],
-  };
-}) satisfies BlogDetailPage[];
 
 const portfolioSourceProjects = [
   ...residentialProjects.map((project) => ({ ...project, group: 'Residential' })),
@@ -168,14 +119,6 @@ export const teamDetailPages = [...teamMembers, teamDetail].map((member: TeamMem
           ],
   };
 }) satisfies TeamDetail[];
-
-export function getBlogDetailBySlug(slug: string) {
-  return blogDetailPages.find((post) => post.slug === slug);
-}
-
-export function getBlogHref(title: string) {
-  return `/blog/${blogDetailPages.find((post) => post.title === title)?.slug ?? slugify(title)}`;
-}
 
 export function getPortfolioDetailBySlug(slug: string) {
   return portfolioDetailPages.find((project) => project.slug === slug);

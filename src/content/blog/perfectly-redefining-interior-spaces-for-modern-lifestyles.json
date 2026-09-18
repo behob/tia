@@ -1,0 +1,25 @@
+{
+  "image": "/assets/img/blog/post-5.webp",
+  "title": "Perfectly Redefining Interior Spaces for Modern Lifestyles",
+  "excerpt": "Modest, recently established interior design company that seeks to address a variety of topics, including...",
+  "date": "Dec 25, 2025",
+  "category": "Exteriors",
+  "order": 4,
+  "author": "TIA Interior Team",
+  "wideImage": "/assets/img/blog/post-5.webp",
+  "detailImage": "/assets/img/blog/blog-details-img-1.webp",
+  "intro": "Modest, recently established interior design company that seeks to address a variety of topics, including... This guide explains how TIA Interior approaches exteriors concepts with practical planning, refined materials, and a design process shaped for Dubai homes and modern UAE lifestyles.",
+  "sections": [
+    {
+      "title": "Prioritize Function Before Decoration",
+      "text": "A minimalist room succeeds when the practical decisions are handled first. Storage, movement, acoustics, and lighting should be resolved before the final styling layer is added."
+    },
+    {
+      "title": "Keep the Palette Calm but Not Empty",
+      "text": "Minimal design does not mean bare design. Natural texture, soft contrast, and a small number of high-quality focal points can create a composed interior with long-term appeal."
+    }
+  ],
+  "gallery": ["/assets/img/blog/post-inner-2.webp"],
+  "tags": ["Interior", "Exteriors", "Modern Living"],
+  "aliases": []
+}

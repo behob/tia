@@ -1,0 +1,186 @@
+---
+import OptimizedImage from '../components/ui/OptimizedImage.astro';
+import Layout from './Layout.astro';
+import PageHeader from '../components/ui/PageHeader.astro';
+import type { BlogPost } from '../data/blog';
+interface Props {
+  post: BlogPost;
+}
+const { post } = Astro.props;
+---
+
+<Layout title={`${post.title} - TIA Interior`} description={post.excerpt} ogImage={post.image} ogType="article">
+  <PageHeader title="Blog Details" currentPage="Blog Details" />
+
+  <section class="blog-details pt-150 pb-150 overflow-hidden">
+    <div class="container container-2">
+      <div class="row gy-5 justify-content-center">
+        <div class="col-lg-8 col-md-12">
+          <div class="blog-details-wrap">
+            <a class="back-to-blog" href="/blog-grid">← Back to Blog</a>
+            <div class="post-card post-card-2 inner-post">
+              <div class="post-content">
+                <ul class="post-meta">
+                  <li class="category">{post.category.toLowerCase()}</li>
+                  <li>{post.date}</li>
+                  <li>By <span>{post.author}</span></li>
+                </ul>
+                <h2 class="title">{post.title}</h2>
+              </div>
+            </div>
+            <div class="blog-details-img mb-30">
+              <OptimizedImage
+                src={post.detailImage ?? post.image}
+                alt={post.title}
+                width={930}
+                height={520}
+                loading="lazy"
+              />
+            </div>
+            <div class="blog-details-content">
+              <p class="mb-30">{post.intro}</p>
+              {
+                post.sections.map((section, index) => (
+                  <>
+                    <h3 class="details-title-2">{section.title}</h3>
+                    <p class="mb-40">{section.text}</p>
+                    {index === 0 && post.gallery.length > 0 && (
+                      <div class="details-img-wrap mt-40 mb-40">
+                        {post.gallery.map((image, i) => (
+                          <OptimizedImage
+                            src={image}
+                            alt={post.title + ' — detail ' + (i + 1)}
+                            width={450}
+                            height={310}
+                          />
+                        ))}
+                      </div>
+                    )}
+                  </>
+                ))
+              }
+              {
+                post.quote && (
+                  <blockquote class="mb-40">
+                    <div class="shape">
+                      <OptimizedImage
+                        src="/assets/img/icon/blog-details-1.webp"
+                        alt="Quote decoration"
+                        aria-hidden="true"
+                      />
+                    </div>
+                    <div class="icon">
+                      <OptimizedImage src="/assets/img/icon/quote-2.webp" alt="Quotation mark" aria-hidden="true" />
+                    </div>
+                    <div class="content">
+                      <p>{post.quote.text}</p>
+                      <h4 class="author">{post.quote.author}</h4>
+                    </div>
+                  </blockquote>
+                )
+              }
+              {
+                post.conclusion && (
+                  <>
+                    <h3 class="details-title-2">{post.conclusion.title}</h3>
+                    <p>{post.conclusion.text}</p>
+                  </>
+                )
+              }
+            </div>
+            <div class="tags">
+              <ul class="tag-list">
+                {
+                  post.tags.map((tag) => (
+                    <li>
+                      <a href="/blog-grid">{tag}</a>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+            {
+              post.comments.length > 0 && (
+                <div class="comments-area">
+                  <div class="section-heading">
+                    <h2 class="section-title">Customer Reviews</h2>
+                  </div>
+                  {post.comments.map((comment, i) => (
+                    <div class={`comment-item${i === 1 ? ' item-2' : ''}`}>
+                      <div class="comment-thumb">
+                        <OptimizedImage src={comment.image} alt={comment.author} loading="lazy" />
+                      </div>
+                      <div class="comment-info">
+                        <div class="comment-top">
+                          <h3 class="author">{comment.author}</h3>
+                          <div class="comments-meta">
+                            <span>{comment.date}</span>
+                          </div>
+                        </div>
+                        <p>{comment.text}</p>
+                        <button class="reply">
+                          <OptimizedImage src="/assets/img/icon/arrow-left.webp" alt="arrow" loading="lazy" /> Reply
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )
+            }
+            <div class="form-wrap pt-70">
+              <div class="blog-contact-form">
+                <h2 class="title">Post Comment</h2>
+                <div class="request-form">
+                  <form action="/api/mail" method="post" id="ajax_contact" class="form-horizontal">
+                    <div class="form-group row">
+                      <div class="col-md-4">
+                        <div class="form-item">
+                          <input type="text" id="fullname" name="fullname" class="form-control" placeholder="Name*" />
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-item">
+                          <input type="email" id="email" name="email" class="form-control" placeholder="Email*" />
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-item">
+                          <input type="text" id="website" name="website" class="form-control" placeholder="Website*" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="col-md-12">
+                        <div class="form-item message-item">
+                          <textarea
+                            id="message"
+                            name="message"
+                            cols="30"
+                            rows="8"
+                            class="form-control address"
+                            placeholder="Comment*"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="submit-btn">
+                      <button id="submit" class="tl-primary-btn" type="submit"
+                        >Post Comment <span class="icon"><i class="fa-regular fa-arrow-right"></i></span></button
+                      >
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .back-to-blog {
+    display: inline-block;
+    margin-bottom: 30px;
+  }
+</style>

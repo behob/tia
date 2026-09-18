@@ -52,6 +52,8 @@ for (const { route, file } of routes) {
   }
 
   const html = readFileSync(file, 'utf8');
+  // Astro's static redirects intentionally contain no article or page schema.
+  if (/<meta http-equiv="refresh" content="0;url=[^"]+">/.test(html)) continue;
   const scripts = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
 
   if (scripts.length === 0) {

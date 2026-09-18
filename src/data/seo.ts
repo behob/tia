@@ -1,4 +1,3 @@
-import { blogPosts } from './blog';
 import { portfolioDetail } from './portfolio';
 import { serviceFaqs, serviceNames } from './services';
 import { site } from './site';
@@ -11,7 +10,8 @@ export interface PageMeta {
   ogImage?: string;
   ogType?: OgType;
   robots?: string;
-  schemaType?: 'home' | 'about' | 'service' | 'portfolio' | 'blog' | 'article' | 'faq' | 'contact' | 'product' | 'utility';
+  schemaType?:
+    'home' | 'about' | 'service' | 'portfolio' | 'blog' | 'article' | 'faq' | 'contact' | 'product' | 'utility';
 }
 
 interface ResolveMetaInput {
@@ -48,17 +48,20 @@ export const routeMeta = {
   },
   '/index-2': {
     title: 'Apartment Interior Design Dubai - TIA Interior',
-    description: 'TIA Interior - Luxury apartment interior design in Dubai. Creating elegant, functional living spaces.',
+    description:
+      'TIA Interior - Luxury apartment interior design in Dubai. Creating elegant, functional living spaces.',
     schemaType: 'service',
   },
   '/index-3': {
     title: 'Villa Interior Design Dubai - TIA Interior',
-    description: 'TIA Interior - Premium villa interior design in Dubai. Crafting timeless and inspiring residential spaces.',
+    description:
+      'TIA Interior - Premium villa interior design in Dubai. Crafting timeless and inspiring residential spaces.',
     schemaType: 'service',
   },
   '/index-4': {
     title: 'Retail Interior Design Dubai - TIA Interior',
-    description: 'TIA Interior - Innovative retail space design in Dubai. Elevating customer experiences through design.',
+    description:
+      'TIA Interior - Innovative retail space design in Dubai. Elevating customer experiences through design.',
     schemaType: 'service',
   },
   '/index-5': {
@@ -230,7 +233,9 @@ export function normalizePath(pathname: string): keyof typeof routeMeta | string
 
 export function resolvePageMeta(pathname: string, input: ResolveMetaInput = {}) {
   const path = normalizePath(pathname);
-  const registeredMeta = Object.prototype.hasOwnProperty.call(routeMeta, path) ? routeMeta[path as keyof typeof routeMeta] : {};
+  const registeredMeta = Object.prototype.hasOwnProperty.call(routeMeta, path)
+    ? routeMeta[path as keyof typeof routeMeta]
+    : {};
   const definedInput = Object.fromEntries(Object.entries(input).filter(([, value]) => value !== undefined));
 
   return {
@@ -378,12 +383,11 @@ export function createPageJsonLd(meta: PageMeta, input: JsonLdInput) {
     });
   }
 
-  if (schemaType === 'article') {
-    const post = blogPosts[0];
+  if (schemaType === 'article' || path.startsWith('/blog/')) {
     extras.push({
       '@context': 'https://schema.org',
       '@type': 'Article',
-      headline: post?.title ?? input.title,
+      headline: input.title.replace(` - ${site.name}`, ''),
       description: input.description,
       image: input.ogImageURL,
       author: {

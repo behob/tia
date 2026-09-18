@@ -1,0 +1,91 @@
+---
+import Layout from './Layout.astro';
+import PageHeader from '../components/ui/PageHeader.astro';
+import BlogViewToggle from '../components/ui/BlogViewToggle.astro';
+import BlogPostCard from '../components/cards/BlogPostCard.astro';
+import BlogArchiveCard from '../components/cards/BlogArchiveCard.astro';
+import BlogSidebar from '../components/sections/BlogSidebar.astro';
+import NewsletterSection from '../components/sections/NewsletterSection.astro';
+import { getBlogPosts } from '../data/blog';
+
+interface Props {
+  view: 'grid' | 'list' | 'standard';
+}
+const { view } = Astro.props;
+const posts = await getBlogPosts();
+---
+
+<Layout
+  title="Blog - TIA Interior"
+  description="Read the latest interior design tips, trends, and insights from TIA Interior."
+>
+  <PageHeader title="Blog" currentPage="Blog" />
+  <section
+    id="blog-posts"
+    class:list={['blog-section fade-wrapper', view === 'grid' ? 'pt-150 pb-150' : 'pt-130 pb-130']}
+  >
+    <div class="container container-2">
+      <BlogViewToggle view={view} />
+      {
+        view === 'grid' ? (
+          <div class="row gy-5 fade-wrapper">
+            {posts.map((post) => (
+              <div class="col-lg-4 col-md-6 fade-top">
+                <BlogPostCard {...post} />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div class="row gy-5">
+            <div class="col-lg-8 col-md-12">
+              {view === 'standard' ? (
+                <div class="post-inner-card-wrap">
+                  {posts.map((post) => (
+                    <article class="post-card inner-post">
+                      <BlogArchiveCard post={post} />
+                    </article>
+                  ))}
+                </div>
+              ) : (
+                <>
+                  <article class="post-card inner-post">
+                    <BlogArchiveCard post={posts[0]} />
+                  </article>
+                  <div class="post-card-wrap post-card-wrap-inner blog-list-cards">
+                    {posts.slice(1).map((post) => (
+                      <article class="post-card">
+                        <BlogArchiveCard post={post} />
+                      </article>
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
+            <aside class="col-lg-4">
+              <BlogSidebar posts={posts} />
+            </aside>
+          </div>
+        )
+      }
+    </div>
+  </section>
+  {view === 'grid' && <NewsletterSection />}
+</Layout>
+
+<style>
+  #blog-posts {
+    scroll-margin-top: 100px;
+  }
+  /* Keep the template's horizontal cards within the eight-column content area. */
+  .blog-list-cards {
+    padding-left: 0;
+  }
+  .blog-list-cards .post-card {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  @media (max-width: 1199px) {
+    .blog-list-cards .post-card {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,25 @@
+{
+  "image": "/assets/img/blog/post-4.webp",
+  "title": "Modern Materials That Elevate Your Home's Functionality",
+  "excerpt": "Modest, recently established interior design company that seeks to address a variety of topics, including...",
+  "date": "Dec 25, 2025",
+  "category": "Exteriors",
+  "order": 5,
+  "author": "TIA Interior Team",
+  "wideImage": "/assets/img/blog/post-4.webp",
+  "detailImage": "/assets/img/blog/blog-details-img.webp",
+  "intro": "Modest, recently established interior design company that seeks to address a variety of topics, including... This guide explains how TIA Interior approaches exteriors concepts with practical planning, refined materials, and a design process shaped for Dubai homes and modern UAE lifestyles.",
+  "sections": [
+    {
+      "title": "Plan the Room Before Choosing Finishes",
+      "text": "A strong interior starts with circulation, furniture scale, and the daily routines of the people using the room. Once those decisions are clear, finishes and styling choices become easier to select and easier to maintain."
+    },
+    {
+      "title": "Balance Storage, Light, and Texture",
+      "text": "Built-in storage, layered lighting, and tactile materials help a space feel calm without becoming plain. The goal is to make every visible element useful, beautiful, and proportionate to the room."
+    }
+  ],
+  "gallery": ["/assets/img/blog/blog-details-img-2.webp"],
+  "tags": ["Interior", "Exteriors", "Dubai Design"],
+  "aliases": []
+}

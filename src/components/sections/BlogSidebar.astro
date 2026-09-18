@@ -1,0 +1,70 @@
+---
+import OptimizedImage from '../ui/OptimizedImage.astro';
+import { blogCategories, blogTags, type BlogPost } from '../../data/blog';
+interface Props {
+  posts: BlogPost[];
+}
+const { posts } = Astro.props;
+---
+
+<div class="sidebar-widget">
+  <h3 class="widget-title">Search</h3>
+  <div class="search-box">
+    <form action="#" class="search-form">
+      <input type="text" class="form-control" placeholder="Search" />
+      <button class="search-btn" type="button" aria-label="Search"
+        ><i class="fa-regular fa-magnifying-glass"></i></button
+      >
+    </form>
+  </div>
+</div>
+<div class="sidebar-widget">
+  <h3 class="widget-title">Categories</h3>
+  <ul class="category-list">
+    {
+      blogCategories.map((cat) => (
+        <li>
+          <a href="#">{cat}</a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+<div class="sidebar-widget">
+  <h3 class="widget-title">Recent Post</h3>
+  {
+    posts
+      .filter((post) => post.sidebarImage)
+      .map((post) => (
+        <div class="sidebar-post">
+          <OptimizedImage
+            src={post.sidebarImage ?? post.image}
+            alt={post.title}
+            width={110}
+            height={100}
+            loading="lazy"
+          />
+          <div class="post-content">
+            <ul class="post-meta">
+              <li>{post.date}</li>
+            </ul>
+            <h3 class="title">
+              <a href={post.href}>{post.title}</a>
+            </h3>
+          </div>
+        </div>
+      ))
+  }
+</div>
+<div class="sidebar-widget sticky-widget">
+  <h3 class="widget-title">Tags</h3>
+  <ul class="tags">
+    {
+      blogTags.map((tag) => (
+        <li>
+          <a href="#">{tag}</a>
+        </li>
+      ))
+    }
+  </ul>
+</div>

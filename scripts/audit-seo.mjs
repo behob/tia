@@ -38,12 +38,26 @@ for (const { route, file } of pages) {
   try {
     assert(existsSync(file), `${route}: missing built HTML`);
     const html = readFileSync(file, 'utf8');
+    const redirect = html.match(/<meta http-equiv="refresh" content="0;url=(\/[^"]+)">/);
+    if (redirect) {
+      const destination = redirect[1].replace(/\/$/, '');
+      assert(existsSync(join(distDir, destination, 'index.html')), `${route}: missing redirect destination`);
+      assert(html.includes('<meta name="robots" content="noindex">'), `${route}: redirect must be noindex`);
+      assert(
+        html.includes(`href="https://tiadecors.com${destination}"`),
+        `${route}: redirect canonical must match destination`,
+      );
+      continue;
+    }
     assert(/<title>[^<]+<\/title>/.test(html), `${route}: missing title`);
     assert(/<meta name="description" content="[^"]+">/.test(html), `${route}: missing meta description`);
     assert(/<meta name="robots" content="[^"]+">/.test(html), `${route}: missing robots meta`);
     assert(/<link rel="canonical" href="https:\/\/tiadecors\.com\/[^"]*">/.test(html), `${route}: missing canonical`);
     assert(/<meta property="og:type" content="[^"]+">/.test(html), `${route}: missing og:type`);
-    assert(/<meta property="og:image" content="https:\/\/tiadecors\.com\/assets\/img\/[^"]+\.webp">/.test(html), `${route}: missing og:image`);
+    assert(
+      /<meta property="og:image" content="https:\/\/tiadecors\.com\/assets\/img\/[^"]+\.webp">/.test(html),
+      `${route}: missing og:image`,
+    );
     assert(!html.includes('undefined'), `${route}: contains undefined`);
     assert(!html.includes('content=""'), `${route}: contains empty meta content`);
     assert(!/\/assets\/img\/[^"')]+\.png/.test(html), `${route}: references legacy PNG image`);

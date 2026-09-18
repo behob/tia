@@ -66,18 +66,7 @@ const { nav } = site;
                     }
                   </ul>
                 </li>
-                <li class="menu-item-has-children">
-                  <a href="/blog-grid">Blog</a>
-                  <ul>
-                    {
-                      nav.blog.map((item) => (
-                        <li>
-                          <a href={item.href}>{item.label}</a>
-                        </li>
-                      ))
-                    }
-                  </ul>
-                </li>
+                <li><a href="/blog-grid">Blog</a></li>
                 <li><a href="/contact">Contact</a></li>
               </ul>
             </div>

@@ -1,0 +1,25 @@
+{
+  "image": "/assets/img/blog/post-3.webp",
+  "title": "The Art of Minimalist Interior Design for Modern Living",
+  "excerpt": "Learn how minimalist interior design creates calm, functional living spaces with timeless visual appeal.",
+  "date": "Dec 25, 2025",
+  "category": "Exteriors",
+  "order": 2,
+  "author": "TIA Interior Team",
+  "wideImage": "/assets/img/blog/post-3.webp",
+  "detailImage": "/assets/img/blog/blog-details-img.webp",
+  "intro": "Learn how minimalist interior design creates calm, functional living spaces with timeless visual appeal. This guide explains how TIA Interior approaches exteriors concepts with practical planning, refined materials, and a design process shaped for Dubai homes and modern UAE lifestyles.",
+  "sections": [
+    {
+      "title": "Prioritize Function Before Decoration",
+      "text": "A minimalist room succeeds when the practical decisions are handled first. Storage, movement, acoustics, and lighting should be resolved before the final styling layer is added."
+    },
+    {
+      "title": "Keep the Palette Calm but Not Empty",
+      "text": "Minimal design does not mean bare design. Natural texture, soft contrast, and a small number of high-quality focal points can create a composed interior with long-term appeal."
+    }
+  ],
+  "gallery": ["/assets/img/blog/post-inner-2.webp"],
+  "tags": ["Interior", "Exteriors", "Dubai Design"],
+  "aliases": []
+}
