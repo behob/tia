@@ -138,36 +138,28 @@ START: Footer CSS
     list-style: none;
     margin-top: 100px;
     flex-wrap: wrap;
-    row-gap: 10px;
+    gap: 8px;
     @include breakpoint(sm) {
       margin-top: 50px;
     }
     li {
-      position: relative;
       line-height: 1;
-      &:not(:last-of-type) {
-        margin-right: 13px;
-        padding-right: 13px;
-        &:before {
-          background-color: var(--tl-color-common-white);
-          content: '';
-          width: 5px;
-          height: 1px;
-          position: absolute;
-          top: 50%;
-          right: 0;
-          transform: translateY(-50%);
-        }
-      }
       a {
         color: var(--tl-color-common-white);
-        font-size: 15px;
-        font-weight: 500;
+        font-size: 20px;
         line-height: 1;
-        display: inline-block;
-      }
-      &:not(:last-of-type) {
-        margin-right: 8px;
+        width: 40px;
+        height: 40px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        &:hover {
+          color: var(--tl-color-theme-primary);
+        }
+        &:focus-visible {
+          outline: 2px solid var(--tl-color-theme-primary);
+          outline-offset: 2px;
+        }
       }
     }
   }

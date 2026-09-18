@@ -58,9 +58,11 @@ const { footer, copyright } = site;
             <a class="mail" href={`mailto:${site.email}`}>{site.email}</a>
             <ul class="social-list">
               {
-                site.socials.map((social) => (
+                site.socials.filter((social) => social.platform !== 'behance').map((social) => (
                   <li>
-                    <a href={social.href}>{social.label}</a>
+                    <a href={social.href} aria-label={social.label} title={social.label}>
+                      <i class={social.icon} aria-hidden="true"></i>
+                    </a>
                   </li>
                 ))
               }
