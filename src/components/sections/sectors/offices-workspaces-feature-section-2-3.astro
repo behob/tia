@@ -2,70 +2,75 @@
 import OptimizedImage from '../../ui/OptimizedImage.astro';
 interface Props {}
 ---
+
 <section class="feature-section-2 pt-150 pb-110 overflow-hidden fade-wrapper">
-    <div class="bg-shape"><OptimizedImage src="/assets/img/bg-img/feature-bg-shape-1.webp" alt="img" loading="lazy" /></div>
-    <div class="container container-2">
-      <div class="row section-heading-wrap feature-top white-content fade-top">
-        <div class="shape"><OptimizedImage src="/assets/img/shapes/section-heading-2.webp" alt="shape" loading="lazy" /></div>
-        <div class="col-lg-4 col-md-12">
-          <div class="section-heading mb-0 white-content">
-            <h4
-              class="sub-heading"
-              data-text-animation="fade-in-right"
-              data-split="char"
-              data-duration="0.9"
-              data-stagger="0.03"
-            >
-              Our Services
-            </h4>
+  <div class="bg-shape">
+    <OptimizedImage src="/assets/img/bg-img/feature-bg-shape-1.webp" alt="img" loading="lazy" />
+  </div>
+  <div class="container container-2">
+    <div class="row section-heading-wrap feature-top white-content fade-top">
+      <div class="shape">
+        <OptimizedImage src="/assets/img/shapes/section-heading-2.webp" alt="shape" loading="lazy" />
+      </div>
+      <div class="col-lg-4 col-md-12">
+        <div class="section-heading mb-0 white-content">
+          <h4
+            class="sub-heading"
+            data-text-animation="fade-in-right"
+            data-split="char"
+            data-duration="0.9"
+            data-stagger="0.03"
+          >
+            Our Services
+          </h4>
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-12">
+        <div class="section-heading section-heading-2 mb-0 white-content">
+          <h2 class="section-title cursor-effect title-2">
+            Explore our <span>comprehensive <br />interior design</span> services
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="feature-item-list slide-anim" data-delay="0.3" data-offset="100" data-direction="left">
+          <div class="feature-item white-content" data-img="assets/img/service/feature-img-1.webp" data-mode="click">
+            <span class="number">01</span>
+            <h3 class="title"><a href="/service-details">Residential Interior Design</a></h3>
+          </div>
+          <div class="feature-item white-content" data-img="assets/img/service/feature-img-2.webp" data-mode="click">
+            <span class="number">02</span>
+            <h3 class="title"><a href="/service-details">Commercial Interior Design</a></h3>
+          </div>
+          <div class="feature-item white-content" data-img="assets/img/service/feature-img-3.webp" data-mode="click">
+            <span class="number">03</span>
+            <h3 class="title"><a href="/service-details">Interior Design Consultation</a></h3>
+          </div>
+          <div class="feature-item white-content" data-img="assets/img/service/feature-img-4.webp" data-mode="click">
+            <span class="number">04</span>
+            <h3 class="title"><a href="/service-details">Outdoor & Landscape Design</a></h3>
           </div>
         </div>
-        <div class="col-lg-8 col-md-12">
-          <div class="section-heading section-heading-2 mb-0 white-content">
-            <h2 class="section-title cursor-effect title-2">
-              Explore our <span>comprehensive <br />interior design</span> services
-            </h2>
+        <div class="feature-item-content white-content">
+          <p class="mt-50 mb-60">
+            Tailored design services for private homes, including room makeovers <br /> and complete home transformations.
+          </p>
+          <div class="feature-btn">
+            <a href="/service" class="tl-primary-btn white-btn"
+              >Explore all services <span class="icon"><i class="fa-regular fa-arrow-right"></i></span></a
+            >
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="feature-item-list slide-anim" data-delay="0.3" data-offset="100" data-direction="left">
-            <div class="feature-item white-content" data-img="assets/img/service/feature-img-1.webp" data-mode="click">
-              <span class="number">01</span>
-              <h3 class="title"><a href="/service-details">Residential Interior Design</a></h3>
-            </div>
-            <div class="feature-item white-content" data-img="assets/img/service/feature-img-2.webp" data-mode="click">
-              <span class="number">02</span>
-              <h3 class="title"><a href="/service-details">Commercial Interior Design</a></h3>
-            </div>
-            <div class="feature-item white-content" data-img="assets/img/service/feature-img-3.webp" data-mode="click">
-              <span class="number">03</span>
-              <h3 class="title"><a href="/service-details">Interior Design Consultation</a></h3>
-            </div>
-            <div class="feature-item white-content" data-img="assets/img/service/feature-img-4.webp" data-mode="click">
-              <span class="number">04</span>
-              <h3 class="title"><a href="/service-details">Outdoor & Landscape Design</a></h3>
-            </div>
-          </div>
-          <div class="feature-item-content white-content">
-            <p class="mt-50 mb-60">
-              Tailored design services for private homes, including room makeovers <br /> and complete home transformations.
-            </p>
-            <div class="feature-btn">
-              <a href="/service" class="tl-primary-btn white-btn"
-                >Explore all services <span class="icon"><i class="fa-regular fa-arrow-right"></i></span></a
-              >
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="feature-item-imgs slide-anim" data-delay="0.3" data-offset="100" data-direction="right">
-            <div class="feature-img">
-              <OptimizedImage src="/assets/img/service/feature-img-1.webp" alt="feature" loading="lazy" />
-            </div>
+      <div class="col-lg-6">
+        <div class="feature-item-imgs slide-anim" data-delay="0.3" data-offset="100" data-direction="right">
+          <div class="feature-img">
+            <OptimizedImage src="/assets/img/service/feature-img-1.webp" alt="feature" loading="lazy" />
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>

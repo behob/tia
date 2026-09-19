@@ -2,7 +2,10 @@ import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
-const imagePath = z.string().regex(/^\/assets\/img\/.+\.(webp|svg)$/).transform(value => value as `/assets/img/${string}`);
+const imagePath = z
+  .string()
+  .regex(/^\/assets\/img\/.+\.(webp|svg)$/)
+  .transform((value) => value as `/assets/img/${string}`);
 
 const blog = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/blog' }),
@@ -71,7 +74,13 @@ const services = defineCollection({
   schema: z.object({
     title: z.string().min(1),
     desc: z.string().min(1),
-    group: z.enum(['featureServices', 'iconServices', 'fitOutServices', 'customFurnitureServices', 'serviceDetailsFeatures']),
+    group: z.enum([
+      'featureServices',
+      'iconServices',
+      'fitOutServices',
+      'customFurnitureServices',
+      'serviceDetailsFeatures',
+    ]),
     order: z.number().int(),
     num: z.string().optional(),
     big: z.boolean().optional(),
@@ -95,12 +104,25 @@ const team = defineCollection({
     professionalInfo: z.string(),
     expertiseDescription: z.string(),
     expertise: z.array(z.string()),
-    skills: z.array(z.object({ title: z.string(), width: z.string().regex(/^\d{1,3}%$/).transform(value => value as `${number}%`) })),
+    skills: z.array(
+      z.object({
+        title: z.string(),
+        width: z
+          .string()
+          .regex(/^\d{1,3}%$/)
+          .transform((value) => value as `${number}%`),
+      }),
+    ),
   }),
 });
 
 const sectors = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/sectors' }),
-  schema: z.object({ title: z.string(), description: z.string(), legacyPath: z.string(), sections: z.array(z.string()).min(1) }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    legacyPath: z.string(),
+    sections: z.array(z.string()).min(1),
+  }),
 });
 export const collections = { blog, portfolio, services, team, sectors };

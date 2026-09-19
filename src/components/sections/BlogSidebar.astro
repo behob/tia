@@ -5,8 +5,8 @@ interface Props {
   posts: BlogPost[];
 }
 const { posts } = Astro.props;
-const blogCategories = [...new Set(posts.map(post => post.category))].sort();
-const blogTags = [...new Set(posts.flatMap(post => post.tags))].sort();
+const blogCategories = [...new Set(posts.map((post) => post.category))].sort();
+const blogTags = [...new Set(posts.flatMap((post) => post.tags))].sort();
 ---
 
 <div class="sidebar-widget">
@@ -35,27 +35,25 @@ const blogTags = [...new Set(posts.flatMap(post => post.tags))].sort();
 <div class="sidebar-widget">
   <h3 class="widget-title">Recent Post</h3>
   {
-    posts
-      .slice(0, 3)
-      .map((post) => (
-        <div class="sidebar-post">
-          <OptimizedImage
-            src={post.sidebarImage ?? post.image}
-            alt={post.title}
-            width={110}
-            height={100}
-            loading="lazy"
-          />
-          <div class="post-content">
-            <ul class="post-meta">
-              <li>{post.date}</li>
-            </ul>
-            <h3 class="title">
-              <a href={post.href}>{post.title}</a>
-            </h3>
-          </div>
+    posts.slice(0, 3).map((post) => (
+      <div class="sidebar-post">
+        <OptimizedImage
+          src={post.sidebarImage ?? post.image}
+          alt={post.title}
+          width={110}
+          height={100}
+          loading="lazy"
+        />
+        <div class="post-content">
+          <ul class="post-meta">
+            <li>{post.date}</li>
+          </ul>
+          <h3 class="title">
+            <a href={post.href}>{post.title}</a>
+          </h3>
         </div>
-      ))
+      </div>
+    ))
   }
 </div>
 <div class="sidebar-widget sticky-widget">

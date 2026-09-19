@@ -1,79 +1,85 @@
 ---
 import OptimizedImage from '../../ui/OptimizedImage.astro';
 import { getBlogPosts } from '../../../data/blog';
-const blogDates = new Map((await getBlogPosts()).map(post => [post.slug, post.date]));
+const blogDates = new Map((await getBlogPosts()).map((post) => [post.slug, post.date]));
 interface Props {}
 ---
+
 <section class="blog-section pt-130 fade-wrapper tl-bg-color">
-    <div class="container container-2">
-      <div class="row gy-lg-0 gy-4 fade-wrapper">
-        <div class="col-lg-4 col-md-6 fade-top">
-          <div class="blog-left-content-7 md-pb-40">
-            <div class="section-heading mb-30">
-              <h4
-                class="sub-heading"
-                data-text-animation="fade-in-right"
-                data-split="char"
-                data-duration="0.9"
-                data-stagger="0.03"
+  <div class="container container-2">
+    <div class="row gy-lg-0 gy-4 fade-wrapper">
+      <div class="col-lg-4 col-md-6 fade-top">
+        <div class="blog-left-content-7 md-pb-40">
+          <div class="section-heading mb-30">
+            <h4
+              class="sub-heading"
+              data-text-animation="fade-in-right"
+              data-split="char"
+              data-duration="0.9"
+              data-stagger="0.03"
+            >
+              straight from the newsroom
+            </h4>
+            <h2 class="section-title cursor-effect title-2">
+              Take a look at <span>our latest blog</span>
+              <br />& articles.
+            </h2>
+            <p>
+              Check out our latest blog posts and industry insights to stay informed about the latest trends,
+              technologies, and project updates.
+            </p>
+            <div class="blog-btn mt-40">
+              <a href="/blog-standard" class="tl-primary-btn"
+                >Explore blogs <span class="icon"><i class="fa-regular fa-arrow-right"></i></span></a
               >
-                straight from the newsroom
-              </h4>
-              <h2 class="section-title cursor-effect title-2">
-                Take a look at <span>our latest blog</span>
-                <br />& articles.
-              </h2>
-              <p>
-                Check out our latest blog posts and industry insights to stay informed about the latest trends,
-                technologies, and project updates.
-              </p>
-              <div class="blog-btn mt-40">
-                <a href="/blog-standard" class="tl-primary-btn"
-                  >Explore blogs <span class="icon"><i class="fa-regular fa-arrow-right"></i></span></a
-                >
-              </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-8 col-md-12 fade-top">
-          <div class="blog-carousel-3 swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="post-card">
-                  <div class="post-thumb">
-                    <OptimizedImage src="/assets/img/blog/post-1.webp" alt="post" loading="lazy" />
-                    <span class="category">exteriors</span>
-                  </div>
-                  <div class="post-content">
-                    <ul class="post-meta">
-                      <li>{blogDates.get('four-ways-for-creating-extra-space-in-small-homes')}</li>
-                      <li>By <span>Admin</span></li>
-                    </ul>
-                    <h3 class="title"><a href="/blog/four-ways-for-creating-extra-space-in-small-homes">Four Ways for Creating Extra Space in Small Homes</a></h3>
-                    <p>
-                      Modest, recently established interior design company that seeks to address a variety of topics,
-                      including…
-                    </p>
-                  </div>
+      </div>
+      <div class="col-lg-8 col-md-12 fade-top">
+        <div class="blog-carousel-3 swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="post-card">
+                <div class="post-thumb">
+                  <OptimizedImage src="/assets/img/blog/post-1.webp" alt="post" loading="lazy" />
+                  <span class="category">exteriors</span>
+                </div>
+                <div class="post-content">
+                  <ul class="post-meta">
+                    <li>{blogDates.get('four-ways-for-creating-extra-space-in-small-homes')}</li>
+                    <li>By <span>Admin</span></li>
+                  </ul>
+                  <h3 class="title">
+                    <a href="/blog/four-ways-for-creating-extra-space-in-small-homes"
+                      >Four Ways for Creating Extra Space in Small Homes</a>
+                  </h3>
+                  <p>
+                    Modest, recently established interior design company that seeks to address a variety of topics,
+                    including…
+                  </p>
                 </div>
               </div>
-              <div class="swiper-slide">
-                <div class="post-card">
-                  <div class="post-thumb">
-                    <OptimizedImage src="/assets/img/blog/post-8.webp" alt="post" loading="lazy" />
-                    <span class="category">exteriors</span>
-                  </div>
-                  <div class="post-content">
-                    <ul class="post-meta">
-                      <li>{blogDates.get('four-ways-for-creating-extra-space-in-small-homes')}</li>
-                      <li>By <span>Admin</span></li>
-                    </ul>
-                    <h3 class="title"><a href="/blog/four-ways-for-creating-extra-space-in-small-homes">Four Ways for Creating Extra Space in Small Homes</a></h3>
-                    <p>
-                      Modest, recently established interior design company that seeks to address a variety of topics,
-                      including…
-                    </p>
-                  </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="post-card">
+                <div class="post-thumb">
+                  <OptimizedImage src="/assets/img/blog/post-8.webp" alt="post" loading="lazy" />
+                  <span class="category">exteriors</span>
+                </div>
+                <div class="post-content">
+                  <ul class="post-meta">
+                    <li>{blogDates.get('four-ways-for-creating-extra-space-in-small-homes')}</li>
+                    <li>By <span>Admin</span></li>
+                  </ul>
+                  <h3 class="title">
+                    <a href="/blog/four-ways-for-creating-extra-space-in-small-homes"
+                      >Four Ways for Creating Extra Space in Small Homes</a>
+                  </h3>
+                  <p>
+                    Modest, recently established interior design company that seeks to address a variety of topics,
+                    including…
+                  </p>
                 </div>
               </div>
             </div>
@@ -81,4 +87,5 @@ interface Props {}
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>

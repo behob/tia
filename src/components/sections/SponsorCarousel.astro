@@ -14,7 +14,15 @@ import { sponsors } from '../../data/sponsors';
           sponsors.map((sponsor) => (
             <div class="swiper-slide">
               <div class="sponsor-item">
-                <span aria-label={sponsor.alt}><OptimizedImage src={sponsor.image} alt={sponsor.alt} width={sponsor.width} height={sponsor.height} loading="lazy" /></span>
+                <span aria-label={sponsor.alt}>
+                  <OptimizedImage
+                    src={sponsor.image}
+                    alt={sponsor.alt}
+                    width={sponsor.width}
+                    height={sponsor.height}
+                    loading="lazy"
+                  />
+                </span>
               </div>
             </div>
           ))

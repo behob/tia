@@ -1,13 +1,13 @@
 import { getCollection } from 'astro:content';
 import type { FaqItem, ServiceCardData, ServiceFeature, ServiceListItem } from './types';
-const entries = (await getCollection('services')).sort((a,b) => a.data.order-b.data.order);
-const list = (group:string) => entries.filter(p => p.data.group === group).map(p => p.data);
+const entries = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const list = (group: string) => entries.filter((p) => p.data.group === group).map((p) => p.data);
 export const featureServices = list('featureServices') as ServiceCardData[];
 export const iconServices = list('iconServices') as ServiceCardData[];
 export const fitOutServices = list('fitOutServices') as ServiceListItem[];
 export const customFurnitureServices = list('customFurnitureServices') as ServiceListItem[];
 export const serviceDetailsFeatures = list('serviceDetailsFeatures') as ServiceFeature[];
-export const serviceNames = [...new Set(customFurnitureServices.map(p => p.title))];
+export const serviceNames = [...new Set(customFurnitureServices.map((p) => p.title))];
 export const serviceFaqs: readonly FaqItem[] = [
   {
     id: 'One',

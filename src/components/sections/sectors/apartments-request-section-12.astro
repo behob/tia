@@ -2,59 +2,65 @@
 import ContactForm from '../ContactForm.astro';
 interface Props {}
 ---
+
 <section class="request-section pb-130">
-    <div class="running-text">
-      <div class="carouselTicker carouselTicker-start" data-speed="fast">
-        <ul class="text-anim carouselTicker__list">
-          <li>Architecture Design</li>
-          <li>Interior Design</li>
-          <li>Architecture Design</li>
-          <li>Interior Design</li>
-          <li>Architecture Design</li>
-          <li>Interior Design</li>
-          <li>Architecture Design</li>
-          <li>Interior Design</li>
-        </ul>
-      </div>
+  <div class="running-text">
+    <div class="carouselTicker carouselTicker-start" data-speed="fast">
+      <ul class="text-anim carouselTicker__list">
+        <li>Architecture Design</li>
+        <li>Interior Design</li>
+        <li>Architecture Design</li>
+        <li>Interior Design</li>
+        <li>Architecture Design</li>
+        <li>Interior Design</li>
+        <li>Architecture Design</li>
+        <li>Interior Design</li>
+      </ul>
     </div>
-    <!-- ./ running-text -->
-    <div class="bg-img" data-background="/assets/img/bg-img/request-bg.webp" style="--bg-desktop:url('/assets/img/bg-img/request-bg.webp');--bg-mobile:url('/assets/img/bg-img/request-bg.webp')"></div>
-    <div class="container container-2">
-      <div class="row request-wrap">
-        <div class="col-lg-6">
-          <div class="request-content slide-anim" data-delay="0.3" data-offset="100" data-direction="left">
-            <div class="section-heading white-content">
-              <h4
-                class="sub-heading"
-                data-text-animation="fade-in-right"
-                data-split="char"
-                data-duration="0.9"
-                data-stagger="0.03"
-              >
-                get in touch
-              </h4>
-              <h2 class="section-title cursor-effect title-2">
-                Have a <span>Project in <br /> Mind?</span> Let’s Make It <br /> Happen
-              </h2>
+  </div>
+  <!-- ./ running-text -->
+  <div
+    class="bg-img"
+    data-background="/assets/img/bg-img/request-bg.webp"
+    style="--bg-desktop:url('/assets/img/bg-img/request-bg.webp');--bg-mobile:url('/assets/img/bg-img/request-bg.webp')"
+  >
+  </div>
+  <div class="container container-2">
+    <div class="row request-wrap">
+      <div class="col-lg-6">
+        <div class="request-content slide-anim" data-delay="0.3" data-offset="100" data-direction="left">
+          <div class="section-heading white-content">
+            <h4
+              class="sub-heading"
+              data-text-animation="fade-in-right"
+              data-split="char"
+              data-duration="0.9"
+              data-stagger="0.03"
+            >
+              get in touch
+            </h4>
+            <h2 class="section-title cursor-effect title-2">
+              Have a <span>Project in <br /> Mind?</span> Let’s Make It <br /> Happen
+            </h2>
+          </div>
+          <div class="request-item-wrap">
+            <div class="request-item white-content">
+              <span>Address</span>
+              <p>5609 E Sprague Ave, Spokane <br /> Valley, WA 99212, USA</p>
             </div>
-            <div class="request-item-wrap">
-              <div class="request-item white-content">
-                <span>Address</span>
-                <p>5609 E Sprague Ave, Spokane <br /> Valley, WA 99212, USA</p>
-              </div>
-              <div class="request-item white-content">
-                <span>Support</span>
-                <a href="tel:+0844560789">+(084) 456-0789</a>
-                <a href="mailto:support@example.com">support@example.com</a>
-              </div>
+            <div class="request-item white-content">
+              <span>Support</span>
+              <a href="tel:+0844560789">+(084) 456-0789</a>
+              <a href="mailto:support@example.com">support@example.com</a>
             </div>
           </div>
         </div>
-        <div class="col-lg-6">
-          <div class="request-form-wrap slide-anim" data-delay="0.3" data-offset="100" data-direction="right">
-            <ContactForm />
-          </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="request-form-wrap slide-anim" data-delay="0.3" data-offset="100" data-direction="right">
+          <ContactForm />
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>

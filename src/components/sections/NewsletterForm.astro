@@ -1,17 +1,59 @@
 ---
 import FormFeedback from '../ui/FormFeedback.astro';
-interface Props { id?: string }
+interface Props {
+  id?: string;
+}
 const { id = 'newsletter' } = Astro.props;
 const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 ---
+
 <form action="/api/newsletter" method="post" data-enhanced-form>
   <input type="text" name="company_name" tabindex="-1" autocomplete="off" aria-hidden="true" class="form-trap" />
   <div class="newsletter-form">
-    <input type="email" id={`${id}-email`} name="email" class="form-control" placeholder="Email address.." aria-label="Email address for newsletter" autocomplete="email" maxlength="320" required />
-    <button type="submit" aria-label="Subscribe to newsletter"><i class="fa-regular fa-arrow-right-long" aria-hidden="true"></i></button>
+    <input
+      type="email"
+      id={`${id}-email`}
+      name="email"
+      class="form-control"
+      placeholder="Email address.."
+      aria-label="Email address for newsletter"
+      autocomplete="email"
+      maxlength="320"
+      required
+    />
+    <button type="submit" aria-label="Subscribe to newsletter"
+      ><i class="fa-regular fa-arrow-right-long" aria-hidden="true"></i></button
+    >
   </div>
-  <label class="newsletter-consent" for={`${id}-consent`}><input id={`${id}-consent`} type="checkbox" name="consent" value="yes" required /> I agree to receive TIA Interior news and design tips by email. I can unsubscribe at any time.</label>
-  {siteKey && <div data-turnstile-key={siteKey}></div>}
+  <label class="newsletter-consent" for={`${id}-consent`}
+    ><input id={`${id}-consent`} type="checkbox" name="consent" value="yes" required /> I agree to receive TIA Interior news
+    and design tips by email. I can unsubscribe at any time.</label
+  >
+  {siteKey && <div data-turnstile-key={siteKey} />}
   <FormFeedback />
 </form>
-<style>.form-trap { position:absolute; left:-9999px; width:0; height:0; opacity:0 } .newsletter-consent { display:flex; gap:10px; align-items:baseline; max-width:540px; margin:18px auto; font-size:14px; line-height:1.5 } .newsletter-consent input { flex:none } form { max-width:670px; margin-inline:auto }</style>
+<style>
+  .form-trap {
+    position: absolute;
+    left: -9999px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  .newsletter-consent {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    max-width: 540px;
+    margin: 18px auto;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .newsletter-consent input {
+    flex: none;
+  }
+  form {
+    max-width: 670px;
+    margin-inline: auto;
+  }
+</style>

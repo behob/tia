@@ -2,44 +2,37 @@
 import OptimizedImage from '../../ui/OptimizedImage.astro';
 interface Props {}
 ---
+
 <section class="hero-section-2 overflow-hidden">
-    <div class="bg-shape" data-background="/assets/img/shapes/hero-shape-1.webp" style="--bg-desktop:url('/assets/img/shapes/hero-shape-1.webp');--bg-mobile:url('/assets/img/shapes/hero-shape-1.webp')"></div>
-    <div class="bg-color"></div>
-    <div class="container">
-      <div class="hero-wrap-2">
-        <div class="hero-content-2 white-content">
-          <div
-            class="section-heading mb-0 white-content slide-anim"
-            data-delay="2.5"
-            data-offset="100"
-            data-direction="left"
-          >
-            <h4
-              class="sub-heading"
-              data-text-animation="fade-in-right"
-              data-split="char"
-              data-duration="0.9"
-              data-stagger="0.03"
-            >
-              Trusted Design Partner
-            </h4>
-            <h1 class="section-title cursor-effect">Find Your Inspired <br /><span>Interior Design</span></h1>
-          </div>
-          <div class="hero-content-left slide-anim" data-delay="2.5" data-offset="100" data-direction="right">
-            <p>
-              Whether it’s your home, office, or a commercial project, we are always dedicated to bringing <br /> your vision
-              to life.
-            </p>
-            <div class="hero-btn">
-              <a href="/service" class="tl-primary-btn"
-                >Get our services <span class="icon"><i class="fa-regular fa-arrow-right"></i></span></a
-              >
-            </div>
-          </div>
+  <div
+    class="bg-shape"
+    data-background="/assets/img/shapes/hero-shape-1.webp"
+    style="--bg-desktop:url('/assets/img/shapes/hero-shape-1.webp');--bg-mobile:url('/assets/img/shapes/hero-shape-1.webp')"
+  >
+  </div>
+  <div class="bg-color"></div>
+  <div class="container">
+    <div class="hero-wrap-2">
+      <div class="hero-content-2 white-content">
+        <div class="section-heading mb-0 white-content">
+          <h4 class="sub-heading">Trusted Design Partner</h4>
+          <h1 class="section-title cursor-effect">Find Your Inspired <br /><span>Interior Design</span></h1>
         </div>
-        <div class="hero-bottom-img slide-anim" data-delay="2.5" data-offset="100" data-direction="bottom">
-          <OptimizedImage src="/assets/img/images/hero-img-2.webp" alt="img" loading="lazy" />
+        <div class="hero-content-left">
+          <p>
+            Whether it’s your home, office, or a commercial project, we are always dedicated to bringing <br /> your vision
+            to life.
+          </p>
+          <div class="hero-btn">
+            <a href="/service" class="tl-primary-btn"
+              >Get our services <span class="icon"><i class="fa-regular fa-arrow-right"></i></span></a
+            >
+          </div>
         </div>
       </div>
+      <div class="hero-bottom-img">
+        <OptimizedImage src="/assets/img/images/hero-img-2.webp" alt="img" loading="eager" />
+      </div>
     </div>
-  </section>
+  </div>
+</section>

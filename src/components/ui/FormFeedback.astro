@@ -1,25 +1,36 @@
 ---
 interface Props {}
 ---
+
 <p class="form-feedback mt-10" role="status" aria-live="polite" aria-atomic="true"></p>
-<noscript><p>The security check requires JavaScript. You can also <a href="mailto:info@tiadecors.com">email info@tiadecors.com</a>.</p></noscript>
+<p class="security-feedback" aria-live="polite"></p>
+<noscript
+  ><p>
+    The security check requires JavaScript. You can also <a href="mailto:info@tiadecors.com">email info@tiadecors.com</a
+    >.
+  </p></noscript
+>
 <script>
   type Turnstile = { reset: (id?: string) => void; render: (el: HTMLElement, options: { sitekey: string }) => string };
   const host = window as Window & { turnstile?: Turnstile };
   let loader: Promise<void> | undefined;
   function loadTurnstile() {
-    return loader ??= new Promise((resolve, reject) => {
+    return (loader ??= new Promise((resolve, reject) => {
       if (host.turnstile) return resolve();
       const script = document.createElement('script');
       script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
       script.async = true;
       script.onload = () => resolve();
-      script.onerror = () => { loader = undefined; reject(); };
+      script.onerror = () => {
+        loader = undefined;
+        reject();
+      };
       document.head.appendChild(script);
-    });
+    }));
   }
   document.querySelectorAll<HTMLFormElement>('form[data-enhanced-form]').forEach((form) => {
     const feedback = form.querySelector<HTMLElement>('[role="status"]')!;
+    const securityFeedback = form.querySelector<HTMLElement>('.security-feedback')!;
     const submit = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
     const challenge = form.querySelector<HTMLElement>('[data-turnstile-key]');
     let widget: string | undefined;
@@ -30,15 +41,23 @@ interface Props {}
       try {
         await loadTurnstile();
         widget = host.turnstile!.render(challenge, { sitekey: challenge.dataset.turnstileKey });
+        securityFeedback.textContent = '';
       } catch {
         initializing = false;
-        feedback.textContent = 'The security check could not load. Please try again or email info@tiadecors.com.';
+        securityFeedback.textContent =
+          'The security check could not load. Please try again or email info@tiadecors.com.';
       }
     }
     form.addEventListener('focusin', initialize);
-    const observer = new IntersectionObserver((entries) => {
-      if (entries.some((entry) => entry.isIntersecting)) { void initialize(); observer.disconnect(); }
-    }, { rootMargin: '200px' });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          void initialize();
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '200px' },
+    );
     observer.observe(form);
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
@@ -48,14 +67,17 @@ interface Props {}
       feedback.textContent = 'Sending…';
       try {
         const body = new URLSearchParams();
-        new FormData(form).forEach((value, key) => { if (typeof value === 'string') body.set(key, value); });
+        new FormData(form).forEach((value, key) => {
+          if (typeof value === 'string') body.set(key, value);
+        });
         const response = await fetch(form.action, { method: 'POST', body, signal: AbortSignal.timeout(30000) });
         feedback.textContent = await response.text();
         feedback.classList.toggle('error', !response.ok);
         feedback.classList.toggle('success', response.ok);
         if (response.ok) form.reset();
-      } catch { feedback.textContent = 'The request could not be completed. Please try again or email info@tiadecors.com.'; }
-      finally {
+      } catch {
+        feedback.textContent = 'The request could not be completed. Please try again or email info@tiadecors.com.';
+      } finally {
         if (widget) host.turnstile?.reset(widget);
         submit.disabled = false;
         form.removeAttribute('aria-busy');

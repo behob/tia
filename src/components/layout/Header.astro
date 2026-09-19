@@ -1,18 +1,29 @@
 ---
 import OptimizedImage from '../ui/OptimizedImage.astro';
 import { site } from '../../data/site';
+interface Props {
+  currentPath?: string;
+}
+const { currentPath = '/' } = Astro.props;
+const normalizedPath = currentPath.replace(/\/$/, '') || '/';
 
 const { nav } = site;
 ---
 
-<header class="header sticky-active">
+<header class:list={['header sticky-active', { 'header-on-light': normalizedPath === '/spaces/retail-spaces' }]}>
   <div class="primary-header">
     <div class="container">
       <div class="primary-header-inner">
         <div class="header-left-wrap">
           <div class="header-logo d-lg-block">
             <a href="/">
-              <OptimizedImage src="/assets/img/logo/logo-2.webp" alt={`${site.name} logo`} width="124" height="29" />
+              <OptimizedImage
+                src="/assets/img/logo/logo-2.webp"
+                alt={`${site.name} logo`}
+                width="124"
+                height="29"
+                loading="eager"
+              />
             </a>
           </div>
           <div class="header-menu-wrap">
@@ -86,7 +97,9 @@ const { nav } = site;
           <button type="button" class="search-icon dl-search-icon" aria-label="Open search dialog">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
-          <button type="button" class="native-mobile-toggle mobile-side-menu-toggle" aria-label="Open navigation menu">☰</button>
+          <button type="button" class="native-mobile-toggle mobile-side-menu-toggle" aria-label="Open navigation menu"
+            >☰</button
+          >
           <div class="sidebar-icon">
             <button class="sidebar-trigger open" aria-label="Open sidebar menu">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -110,3 +123,8 @@ const { nav } = site;
     </div>
   </div>
 </header>
+<style>
+  .header-on-light .primary-header {
+    background-color: var(--tl-color-heading-primary);
+  }
+</style>

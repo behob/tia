@@ -9,7 +9,22 @@ interface Props {
 const { post } = Astro.props;
 ---
 
-<Layout title={`${post.title} - TIA Interior`} description={post.excerpt} ogImage={post.image} ogType="article" jsonLd={{ '@context': 'https://schema.org', '@type': 'BlogPosting', headline: post.title, datePublished: post.publishedDate, dateModified: post.updatedDate ?? post.publishedDate, author: { '@type': 'Organization', name: post.author }, image: new URL(post.image, Astro.site).href, mainEntityOfPage: new URL(post.href, Astro.site).href }}>
+<Layout
+  title={`${post.title} - TIA Interior`}
+  description={post.excerpt}
+  ogImage={post.image}
+  ogType="article"
+  jsonLd={{
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    datePublished: post.publishedDate,
+    dateModified: post.updatedDate ?? post.publishedDate,
+    author: { '@type': 'Organization', name: post.author },
+    image: new URL(post.image, Astro.site).href,
+    mainEntityOfPage: new URL(post.href, Astro.site).href,
+  }}
+>
   <PageHeader title="Blog" currentPage="Article" headingTag="p" />
 
   <section class="blog-details pt-150 pb-150 overflow-hidden">
@@ -118,7 +133,6 @@ const { post } = Astro.props;
                           </div>
                         </div>
                         <p>{comment.text}</p>
-                        
                       </div>
                     </div>
                   ))}

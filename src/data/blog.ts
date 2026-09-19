@@ -10,7 +10,10 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', {
 });
 
 export async function getBlogPosts(): Promise<BlogPost[]> {
-  const entries = await getCollection('blog', ({ data }) => data.status === 'published' && data.date <= new Date().toISOString().slice(0, 10));
+  const entries = await getCollection(
+    'blog',
+    ({ data }) => data.status === 'published' && data.date <= new Date().toISOString().slice(0, 10),
+  );
   return entries
     .map(({ id, data }) => ({
       ...data,
@@ -30,4 +33,10 @@ export function getBlogHref(slug: string) {
 
 export const defaultBlogSlug = 'transform-your-home-with-the-modern-interior-design-tips';
 
-export function taxonomySlug(value: string) { return value.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
+export function taxonomySlug(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}

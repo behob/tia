@@ -1146,10 +1146,10 @@
   }
 }
 
-/* slider hidden completely */
+/* The first slide is readable before enhancement, including without JavaScript. */
 .slider-section {
-  opacity: 0;
-  visibility: hidden;
+  opacity: 1;
+  visibility: visible;
 }
 
 /* ready state */
@@ -1161,7 +1161,7 @@
 
 /* prevent animation before start */
 [data-animation] {
-  opacity: 0;
+  opacity: 1;
 }
 
 /* !END: Home 1 CSS */

@@ -2,7 +2,9 @@
 import type { HTMLAttributes } from 'astro/types';
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{webp,png,jpg,jpeg,svg}', { eager: true });
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{webp,png,jpg,jpeg,svg}', {
+  eager: true,
+});
 
 interface Props extends HTMLAttributes<'img'> {
   src: string;
@@ -14,9 +16,30 @@ interface Props extends HTMLAttributes<'img'> {
 const { src, alt, loading = 'lazy', decoding = 'async', ...attrs } = Astro.props;
 const image = images[src.replace('/assets/img/', '/src/assets/images/')]?.default;
 const width = Number(attrs.width ?? image?.width);
-const height = Number(attrs.height ?? (image ? Math.round(width * image.height / image.width) : undefined));
-const widths = image ? [...new Set([320, 640, 960, 1280, 1920, width].filter(value => value > 0 && value <= image.width))].sort((a,b) => a-b) : [];
+const height = Number(attrs.height ?? (image ? Math.round((width * image.height) / image.width) : undefined));
+const widths = image
+  ? [...new Set([320, 640, 960, 1280, 1920, width].filter((value) => value > 0 && value <= image.width))].sort(
+      (a, b) => a - b,
+    )
+  : [];
 const decorative = attrs['aria-hidden'] === 'true' || ['shape', 'shapes', 'decoration'].includes(alt.toLowerCase());
 ---
 
-{image ? <Image {...attrs} src={image} alt={decorative ? '' : alt} width={width} height={height} widths={widths} sizes={attrs.sizes ?? `(max-width: 767px) 100vw, ${width}px`} loading={loading} decoding={decoding} format="webp" /> : <img src={src} alt={decorative ? '' : alt} loading={loading} decoding={decoding} {...attrs} />}
+{
+  image ? (
+    <Image
+      {...attrs}
+      src={image}
+      alt={decorative ? '' : alt}
+      width={width}
+      height={height}
+      widths={widths}
+      sizes={attrs.sizes ?? `(max-width: 767px) 100vw, ${width}px`}
+      loading={loading}
+      decoding={decoding}
+      format="webp"
+    />
+  ) : (
+    <img src={src} alt={decorative ? '' : alt} loading={loading} decoding={decoding} {...attrs} />
+  )
+}

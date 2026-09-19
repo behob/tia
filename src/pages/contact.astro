@@ -4,7 +4,6 @@ import OptimizedImage from '../components/ui/OptimizedImage.astro';
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/ui/PageHeader.astro';
 import { site } from '../data/site';
-
 ---
 
 <Layout
@@ -16,7 +15,9 @@ import { site } from '../data/site';
   <section class="contact-section pt-150 pb-150">
     <div class="container container-2">
       <div class="row section-heading-wrap w-100 ml-0">
-        <div class="shape"><OptimizedImage src="/assets/img/shapes/section-heading.webp" alt="shape" loading="lazy" /></div>
+        <div class="shape">
+          <OptimizedImage src="/assets/img/shapes/section-heading.webp" alt="shape" loading="lazy" />
+        </div>
         <div class="col-lg-4 col-md-12">
           <div class="section-heading mb-0">
             <h4

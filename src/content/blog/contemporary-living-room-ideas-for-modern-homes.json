@@ -7,10 +7,7 @@
   "category": "Exteriors",
   "author": "Admin",
   "order": 11,
-  "tags": [
-    "Interior",
-    "Design"
-  ],
+  "tags": ["Interior", "Design"],
   "sections": [
     {
       "title": "Start with how the room is used",

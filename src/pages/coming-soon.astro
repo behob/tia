@@ -4,13 +4,30 @@ import Layout from '../layouts/Layout.astro';
 import { site } from '../data/site';
 ---
 
-<Layout title="Coming Soon - TIA Interior" description="We are working on something amazing. Stay tuned!" robots="noindex, nofollow">
+<Layout
+  title="Coming Soon - TIA Interior"
+  description="We are working on something amazing. Stay tuned!"
+  robots="noindex, nofollow"
+>
   <section class="coming-section">
-    <div class="bg-img" data-background="/assets/img/bg-img/coming-bg-1.webp" style="--bg-desktop:url('/assets/img/bg-img/coming-bg-1.webp');--bg-mobile:url('/assets/img/bg-img/coming-bg-1.webp')"></div>
+    <div
+      class="bg-img"
+      data-background="/assets/img/bg-img/coming-bg-1.webp"
+      style="--bg-desktop:url('/assets/img/bg-img/coming-bg-1.webp');--bg-mobile:url('/assets/img/bg-img/coming-bg-1.webp')"
+    >
+    </div>
     <div class="container container-2">
       <div class="coming-content text-center">
         <div class="coming-logo">
-          <a href="/"><OptimizedImage src="/assets/img/logo/logo-2.webp" alt={`${site.name} logo`} width="124" height="29" loading="lazy" /></a>
+          <a href="/"
+            ><OptimizedImage
+              src="/assets/img/logo/logo-2.webp"
+              alt={`${site.name} logo`}
+              width="124"
+              height="29"
+              loading="lazy"
+            /></a
+          >
         </div>
         <div class="section-heading white-content mb-40 align-items-center">
           <h4
@@ -36,8 +53,17 @@ import { site } from '../data/site';
         </div>
         <p>Hi! We are launching soon! Please reach us at {site.email} <br /> for any immediate inquiries!</p>
         <div class="form-item message-item">
-          <input type="email" id="message" name="message" class="form-control address" placeholder="Email Here.." aria-label="Email address" />
-          <button class="icon" aria-label="Subscribe for launch updates"><i class="fa-regular fa-arrow-right"></i></button>
+          <input
+            type="email"
+            id="message"
+            name="message"
+            class="form-control address"
+            placeholder="Email Here.."
+            aria-label="Email address"
+          />
+          <button class="icon" aria-label="Subscribe for launch updates"
+            ><i class="fa-regular fa-arrow-right"></i></button
+          >
         </div>
       </div>
     </div>

@@ -218,8 +218,18 @@ export const routeMeta = {
     robots: 'noindex, nofollow',
     schemaType: 'utility',
   },
-  '/404': { title: 'Page Not Found - TIA Interior', description: 'The page you are looking for could not be found.', robots: 'noindex, follow', schemaType: 'utility' },
-  '/search': { title: 'Search - TIA Interior', description: 'Find interior design articles, services and projects.', robots: 'noindex, follow', schemaType: 'utility' },
+  '/404': {
+    title: 'Page Not Found - TIA Interior',
+    description: 'The page you are looking for could not be found.',
+    robots: 'noindex, follow',
+    schemaType: 'utility',
+  },
+  '/search': {
+    title: 'Search - TIA Interior',
+    description: 'Find interior design articles, services and projects.',
+    robots: 'noindex, follow',
+    schemaType: 'utility',
+  },
   '/error-page': {
     title: 'Page Not Found - TIA Interior',
     description: 'The page you are looking for could not be found.',

@@ -71,6 +71,11 @@ export const site = {
     ],
     projectLinks: [
       { label: 'Our Projects', href: '/portfolio' },
+      { label: 'Residential', href: '/portfolio' },
+      { label: 'Commercial', href: '/portfolio-2' },
+      { label: 'Hospitality', href: '/portfolio-3' },
+      { label: 'Gallery', href: '/gallery-1' },
+      { label: 'FAQ', href: '/faq' },
     ],
   },
   copyright: `© ${new Date().getFullYear()} TIA Interior. All Rights Reserved.`,

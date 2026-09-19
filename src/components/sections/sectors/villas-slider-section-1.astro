@@ -3,89 +3,55 @@ import HeroBackground from '../../ui/HeroBackground.astro';
 
 interface Props {}
 ---
+
 <section class="slider-section overflow-hidden">
-    <div class="antra-slider slider-2 slider-3 swiper-container">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <div class="slider-item">
-            <HeroBackground src="/assets/img/bg-img/slider-img-3.webp" priority={true} />
-            <div class="container slider-container">
-              <div class="slider-content-wrap">
-                <div class="slider-content">
-                  <div class="section-heading white-content text-center mb-0">
-                    <h4
-                      class="sub-heading"
-                      data-animation="antra-fadeInDown"
-                      data-delay="1000ms"
-                      data-duration="1400ms"
-                    >
-                      Trusted Design Partner
-                    </h4>
-                    <h1
-                      class="section-title"
-                      data-animation="antra-fadeInDown"
-                      data-delay="1200ms"
-                      data-duration="1400ms"
-                    >
-                      Find Your Inspired <br />Interior Design
-                    </h1>
-                    <div class="slider-desc" data-animation="antra-fadeInUp" data-delay="1000ms" data-duration="1400ms">
-                      <p>
-                        Transform your vision into reality with our innovative designs, creating modern spaces that
-                        blend functionality, aesthetics, and sustainability.
-                      </p>
-                    </div>
-                    <div
-                      class="slider-btn mt-50"
-                      data-animation="antra-fadeInUp"
-                      data-delay="1200ms"
-                      data-duration="1600ms"
-                    >
-                      <a href="/contact">Start <br /> Project</a>
-                    </div>
+  <div class="antra-slider slider-2 slider-3 swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="slider-item">
+          <HeroBackground src="/assets/img/bg-img/slider-img-3.webp" priority={true} />
+          <div class="container slider-container">
+            <div class="slider-content-wrap">
+              <div class="slider-content">
+                <div class="section-heading white-content text-center mb-0">
+                  <h4 class="sub-heading">Trusted Design Partner</h4>
+                  <h1 class="section-title">
+                    Find Your Inspired <br />Interior Design
+                  </h1>
+                  <div class="slider-desc">
+                    <p>
+                      Transform your vision into reality with our innovative designs, creating modern spaces that blend
+                      functionality, aesthetics, and sustainability.
+                    </p>
+                  </div>
+                  <div class="slider-btn mt-50">
+                    <a href="/contact">Start <br /> Project</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="swiper-slide">
-          <div class="slider-item">
-            <HeroBackground src="/assets/img/bg-img/slider-img-2.webp" priority={false} />
-            <div class="container slider-container">
-              <div class="slider-content-wrap">
-                <div class="slider-content">
-                  <div class="section-heading white-content text-center mb-0">
-                    <h4
-                      class="sub-heading"
-                      data-animation="antra-fadeInDown"
-                      data-delay="1000ms"
-                      data-duration="1400ms"
-                    >
-                      Trusted Design Partner
-                    </h4>
-                    <h2
-                      class="section-title"
-                      data-animation="antra-fadeInDown"
-                      data-delay="1200ms"
-                      data-duration="1400ms"
-                    >
-                      Find Your Inspired <br />Interior Design
-                    </h2>
-                    <div class="slider-desc" data-animation="antra-fadeInUp" data-delay="1000ms" data-duration="1400ms">
-                      <p>
-                        Transform your vision into reality with our innovative designs, creating modern spaces that
-                        blend functionality, aesthetics, and sustainability.
-                      </p>
-                    </div>
-                    <div
-                      class="slider-btn mt-50"
-                      data-animation="antra-fadeInUp"
-                      data-delay="1200ms"
-                      data-duration="1600ms"
-                    >
-                      <a href="/contact">Start <br /> Project</a>
-                    </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="slider-item">
+          <HeroBackground src="/assets/img/bg-img/slider-img-2.webp" priority={false} />
+          <div class="container slider-container">
+            <div class="slider-content-wrap">
+              <div class="slider-content">
+                <div class="section-heading white-content text-center mb-0">
+                  <h4 class="sub-heading">Trusted Design Partner</h4>
+                  <h2 class="section-title">
+                    Find Your Inspired <br />Interior Design
+                  </h2>
+                  <div class="slider-desc">
+                    <p>
+                      Transform your vision into reality with our innovative designs, creating modern spaces that blend
+                      functionality, aesthetics, and sustainability.
+                    </p>
+                  </div>
+                  <div class="slider-btn mt-50">
+                    <a href="/contact">Start <br /> Project</a>
                   </div>
                 </div>
               </div>
@@ -94,4 +60,5 @@ interface Props {}
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>

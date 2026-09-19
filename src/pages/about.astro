@@ -66,7 +66,12 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
   </section>
 
   <div class="video-area-wrap">
-    <div class="video-bg" data-background="/assets/img/bg-img/video-bg-3.webp" style="--bg-desktop:url('/assets/img/bg-img/video-bg-3.webp');--bg-mobile:url('/assets/img/bg-img/video-bg-3.webp')"></div>
+    <div
+      class="video-bg"
+      data-background="/assets/img/bg-img/video-bg-3.webp"
+      style="--bg-desktop:url('/assets/img/bg-img/video-bg-3.webp');--bg-mobile:url('/assets/img/bg-img/video-bg-3.webp')"
+    >
+    </div>
     <div class="play-btn">
       <a class="video-popup venobox" data-autoplay="true" data-vbtype="video" href="https://youtu.be/JwC-Qx1lJso"
         >play</a
@@ -76,10 +81,14 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
 
   <section class="history-section pt-130 pb-130">
     <div class="history-text"><span>tia</span></div>
-    <div class="history-element"><OptimizedImage src="/assets/img/images/counter-img-1.webp" alt="counter" loading="lazy" /></div>
+    <div class="history-element">
+      <OptimizedImage src="/assets/img/images/counter-img-1.webp" alt="counter" loading="lazy" />
+    </div>
     <div class="container container-2">
       <div class="row section-heading-wrap ml-0 mw-100">
-        <div class="shape"><OptimizedImage src="/assets/img/shapes/section-heading.webp" alt="shape" loading="lazy" /></div>
+        <div class="shape">
+          <OptimizedImage src="/assets/img/shapes/section-heading.webp" alt="shape" loading="lazy" />
+        </div>
         <div class="col-lg-4 col-md-12">
           <div class="section-heading mb-0">
             <h4
@@ -129,7 +138,12 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
   </section>
 
   <section class="process-section overflow-hidden bg-white">
-    <div class="bg-shape" data-background="/assets/img/shapes/process-shape-1.webp" style="--bg-desktop:url('/assets/img/shapes/process-shape-1.webp');--bg-mobile:url('/assets/img/shapes/process-shape-1.webp')"></div>
+    <div
+      class="bg-shape"
+      data-background="/assets/img/shapes/process-shape-1.webp"
+      style="--bg-desktop:url('/assets/img/shapes/process-shape-1.webp');--bg-mobile:url('/assets/img/shapes/process-shape-1.webp')"
+    >
+    </div>
     <div class="container container-2">
       <div class="heading-space align-items-end">
         <div class="section-heading mb-0">
@@ -188,10 +202,14 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
   </section>
 
   <section class="award-section bg-grey pt-130 pb-130">
-    <div class="bg-shape"><OptimizedImage src="/assets/img/shapes/team-bg-shape-1.webp" alt="shape" loading="lazy" /></div>
+    <div class="bg-shape">
+      <OptimizedImage src="/assets/img/shapes/team-bg-shape-1.webp" alt="shape" loading="lazy" />
+    </div>
     <div class="container container-2">
       <div class="row section-heading-wrap">
-        <div class="shape"><OptimizedImage src="/assets/img/shapes/section-heading.webp" alt="shape" loading="lazy" /></div>
+        <div class="shape">
+          <OptimizedImage src="/assets/img/shapes/section-heading.webp" alt="shape" loading="lazy" />
+        </div>
         <div class="col-lg-4 col-md-12">
           <div class="section-heading mb-0">
             <h4
@@ -221,7 +239,12 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
           <div class="award-item-list">
             {
               [
-                { year: '2025', title: 'Best Residential Design', category: 'Interior Design', img: 'award-img-1.webp' },
+                {
+                  year: '2025',
+                  title: 'Best Residential Design',
+                  category: 'Interior Design',
+                  img: 'award-img-1.webp',
+                },
                 { year: '2024', title: 'Top Commercial Design', category: 'Architecture', img: 'award-img-2.webp' },
                 {
                   year: '2023',
@@ -260,7 +283,12 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
   </section>
 
   <section class="gallary-section-2 pb-130 overflow-hidden">
-    <div class="bg-img" data-background="/assets/img/bg-img/gallary-bg-1.webp" style="--bg-desktop:url('/assets/img/bg-img/gallary-bg-1.webp');--bg-mobile:url('/assets/img/bg-img/gallary-bg-1.webp')"></div>
+    <div
+      class="bg-img"
+      data-background="/assets/img/bg-img/gallary-bg-1.webp"
+      style="--bg-desktop:url('/assets/img/bg-img/gallary-bg-1.webp');--bg-mobile:url('/assets/img/bg-img/gallary-bg-1.webp')"
+    >
+    </div>
     <div class="container container-2">
       <div class="row">
         <div class="col-lg-4 col-md-12">
@@ -292,7 +320,11 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
                     <div class="swiper-slide">
                       <div class="gallary-inner-item">
                         <a href="/about">
-                          <OptimizedImage src={`/assets/img/images/gallary-img-${i}.webp`} alt={`gallery ${i}`} loading="lazy" />
+                          <OptimizedImage
+                            src={`/assets/img/images/gallary-img-${i}.webp`}
+                            alt={`gallery ${i}`}
+                            loading="lazy"
+                          />
                         </a>
                       </div>
                     </div>
@@ -313,7 +345,9 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
   <section class="testimonial-section bg-white pt-150">
     <div class="container container-2">
       <div class="row section-heading-wrap">
-        <div class="shape"><OptimizedImage src="/assets/img/shapes/section-heading.webp" alt="shape" loading="lazy" /></div>
+        <div class="shape">
+          <OptimizedImage src="/assets/img/shapes/section-heading.webp" alt="shape" loading="lazy" />
+        </div>
         <div class="col-lg-4 col-md-12">
           <div class="section-heading mb-0">
             <h4
@@ -397,7 +431,9 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
             [1, 2, 3, 4, 5, 6].map((i) => (
               <div class="swiper-slide">
                 <div class="sponsor-item">
-                  <span><OptimizedImage src={`/assets/img/sponsor/sponsor-${i}.webp`} alt={`sponsor ${i}`} loading="lazy" /></span>
+                  <span>
+                    <OptimizedImage src={`/assets/img/sponsor/sponsor-${i}.webp`} alt={`sponsor ${i}`} loading="lazy" />
+                  </span>
                 </div>
               </div>
             ))
@@ -409,4 +445,3 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
 
   <NewsletterSection />
 </Layout>
-

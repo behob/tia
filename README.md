@@ -8,7 +8,7 @@ Architecture & interior design website built with [Astro](https://astro.build) a
 - **Deployment:** Cloudflare Workers (via @astrojs/cloudflare)
 - **Styling:** SCSS (via sass-embedded)
 - **TypeScript:** Strict mode
-- **Email:** MailChannels Send API (contact form)
+- **Email:** Resend (contact enquiries and optional newsletter subscriptions), protected by Cloudflare Turnstile
 
 ## Getting Started
 
@@ -22,9 +22,15 @@ npm run dev
 | Variable | Description |
 |----------|-------------|
 | `CONTACT_EMAIL` | Where contact form submissions are sent |
-| `SENDER_EMAIL` | "From" address used by the MailChannels API |
+| `SENDER_EMAIL` | Sender address on a verified Resend domain |
+| `RESEND_API_KEY` | Resend API key; Contacts access is required for newsletter subscriptions |
+| `TURNSTILE_SECRET_KEY` | Server-side Cloudflare Turnstile secret |
+| `PUBLIC_TURNSTILE_SITE_KEY` | Public Turnstile site key supplied at build time |
+| `NEWSLETTER_ENABLED` | Set to `true` in Worker bindings after confirming newsletter configuration |
 
 Copy `.env.example` to `.env` and fill in the values.
+
+Production secrets must also be configured on the Worker. See [the implementation and publishing guide](docs/website-audit-implementation.md) for setup, retained content awaiting review, and all 20 audit items.
 
 ## Scripts
 
@@ -35,6 +41,9 @@ Copy `.env.example` to `.env` and fill in the values.
 | `npm run preview` | Build and preview locally with Wrangler |
 | `npm run deploy` | Deploy to Cloudflare Workers |
 | `npm run check` | Run type checking and validate deployment |
+| `npm run verify` | Build, type/lint checks, Worker dry-run, content/SEO/image/link audits, mocked form tests and browser checks |
+| `npm run audit:images` | Verify actual generated responsive image dimensions |
+| `npm run audit:interactions` | Check desktop/mobile controls, form feedback, search and progressive rendering |
 | `npm run cf-typegen` | Generate Cloudflare type declarations |
 
 ## Project Structure

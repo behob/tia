@@ -27,6 +27,7 @@ const posts = readdirSync('src/content/blog')
     slug: file.slice(0, -5),
     ...JSON.parse(readFileSync(join('src/content/blog', file), 'utf8')),
   }))
+  .filter((post) => post.status !== 'draft' && post.date <= new Date().toISOString().slice(0, 10))
   .sort((a, b) => b.date.localeCompare(a.date) || a.order - b.order || a.slug.localeCompare(b.slug));
 const pageCount = getBlogPageCount(posts.length);
 const dateFormatter = new Intl.DateTimeFormat('en-US', {
@@ -151,7 +152,7 @@ try {
       .locator('script[type="application/ld+json"]')
       .evaluate((el) => JSON.parse(el.textContent).find((item) => item['@type'] === 'BlogPosting'));
     assert.equal(article.headline, post.title);
-    for (const alias of post.aliases) {
+    for (const alias of post.aliases ?? []) {
       assert(
         readFileSync(join(root, 'blog', alias, 'index.html'), 'utf8').includes(`/blog/${post.slug}`),
         `Missing redirect: ${alias}`,

@@ -72,7 +72,9 @@ const paymentIcons = [1, 2, 3, 4, 5, 6, 7];
                 <form>
                   <input type="number" name="quantity" min="1" max="100" step="1" value="1" aria-label="Quantity" />
                 </form>
-                <div class="cart-btn-wrap-2"><a href="/contact" class="cp-primary-btn cart-btn">Enquire About This Item</a></div>
+                <div class="cart-btn-wrap-2">
+                  <a href="/contact" class="cp-primary-btn cart-btn">Enquire About This Item</a>
+                </div>
               </div>
               <ul class="product-meta">
                 <li><a href="/contact">Ask about availability</a></li>
@@ -84,7 +86,9 @@ const paymentIcons = [1, 2, 3, 4, 5, 6, 7];
                   {
                     paymentIcons.map((i) => (
                       <li>
-                        <span><OptimizedImage src={`/assets/img/icon/shop-icon-${i}.webp`} alt="payment" loading="lazy" /></span>
+                        <span>
+                          <OptimizedImage src={`/assets/img/icon/shop-icon-${i}.webp`} alt="payment" loading="lazy" />
+                        </span>
                       </li>
                     ))
                   }
@@ -107,15 +111,18 @@ const paymentIcons = [1, 2, 3, 4, 5, 6, 7];
       <ul class="nav tab-navigation" id="product-tab-navigation" role="tablist">
         <li role="presentation">
           <button class="active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab"
-            >Description</button>
+            >Description</button
+          >
         </li>
         <li role="presentation">
           <button id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab"
-            >Additional information</button>
+            >Additional information</button
+          >
         </li>
         <li role="presentation">
           <button id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab"
-            >Reviews (3)</button>
+            >Reviews (3)</button
+          >
         </li>
       </ul>
       <div class="tab-content" id="product-tab-content">
@@ -262,4 +269,3 @@ const paymentIcons = [1, 2, 3, 4, 5, 6, 7];
     </div>
   </section>
 </Layout>
-

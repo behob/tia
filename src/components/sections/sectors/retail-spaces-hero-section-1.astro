@@ -2,55 +2,53 @@
 import OptimizedImage from '../../ui/OptimizedImage.astro';
 interface Props {}
 ---
+
 <section class="hero-section overflow-hidden tl-bg-color">
-    <div class="bg-shape" data-background="/assets/img/shapes/hero-bg-shape.webp" style="--bg-desktop:url('/assets/img/shapes/hero-bg-shape.webp');--bg-mobile:url('/assets/img/shapes/hero-bg-shape.webp')"></div>
-    <div class="container">
-      <div class="row hero-wrap pt-130">
-        <div class="col-lg-6">
-          <div class="hero-content hero-content-4">
-            <div class="section-heading mb-0 slide-anim" data-delay="2.7" data-offset="100" data-direction="left">
-              <h4
-                class="sub-heading"
-                data-text-animation="fade-in-right"
-                data-split="char"
-                data-duration="0.9"
-                data-stagger="0.03"
-              >
-                Trusted Design Partner
-              </h4>
-              <h1 class="section-title cursor-effect title-2">
-                Find Your <br /> Inspired <span>Interior <br /> Design</span>
-              </h1>
-              <p class="slide-anim" data-delay="2.8" data-offset="100" data-direction="left">
-                Whether it’s your home, office, or a commercial project, we are always dedicated to bringing your vision
-                to life.
-              </p>
-              <div class="hero-play-btn slide-anim" data-delay="3" data-offset="100" data-direction="left">
-                <OptimizedImage src="/assets/img/images/hero-title-thumb-1.webp" alt="hero" loading="lazy" />
-                <div class="play-btn">
-                  <a
-                    class="video-popup venobox"
-                    data-autoplay="true"
-                    data-vbtype="video"
-                    href="https://youtu.be/JwC-Qx1lJso"
-                  >
-                    <i class="fa-solid fa-play"></i>
-                  </a>
-                </div>
+  <div
+    class="bg-shape"
+    data-background="/assets/img/shapes/hero-bg-shape.webp"
+    style="--bg-desktop:url('/assets/img/shapes/hero-bg-shape.webp');--bg-mobile:url('/assets/img/shapes/hero-bg-shape.webp')"
+  >
+  </div>
+  <div class="container">
+    <div class="row hero-wrap pt-130">
+      <div class="col-lg-6">
+        <div class="hero-content hero-content-4">
+          <div class="section-heading mb-0">
+            <h4 class="sub-heading">Trusted Design Partner</h4>
+            <h1 class="section-title cursor-effect title-2">
+              Find Your <br /> Inspired <span>Interior <br /> Design</span>
+            </h1>
+            <p class="">
+              Whether it’s your home, office, or a commercial project, we are always dedicated to bringing your vision
+              to life.
+            </p>
+            <div class="hero-play-btn">
+              <OptimizedImage src="/assets/img/images/hero-title-thumb-1.webp" alt="hero" loading="eager" />
+              <div class="play-btn">
+                <a
+                  class="video-popup venobox"
+                  data-autoplay="true"
+                  data-vbtype="video"
+                  href="https://youtu.be/JwC-Qx1lJso"
+                >
+                  <i class="fa-solid fa-play"></i>
+                </a>
               </div>
             </div>
-            <div class="hero-btn slide-anim" data-delay="3.3" data-offset="100" data-direction="left">
-              <a href="/service" class="tl-primary-btn"
-                >Get our services <span class="icon"><i class="fa-regular fa-arrow-right"></i></span></a
-              >
-            </div>
           </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="hero-img slide-anim" data-delay="3" data-offset="100" data-direction="right">
-            <OptimizedImage src="/assets/img/images/hero-img-1.webp" alt="hero" loading="lazy" />
+          <div class="hero-btn">
+            <a href="/service" class="tl-primary-btn"
+              >Get our services <span class="icon"><i class="fa-regular fa-arrow-right"></i></span></a
+            >
           </div>
         </div>
       </div>
+      <div class="col-lg-6">
+        <div class="hero-img">
+          <OptimizedImage src="/assets/img/images/hero-img-1.webp" alt="hero" loading="eager" />
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>

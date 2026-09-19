@@ -6,12 +6,37 @@ import { getBlogPosts } from '../data/blog';
 import { portfolioDetailPages } from '../data/detailPages';
 import { site } from '../data/site';
 const entries = [
-  ...(await getBlogPosts()).map(post => ({ title: post.title, description: post.excerpt, href: post.href, type: 'Article' })),
-  ...portfolioDetailPages.map(project => ({ title: project.title, description: project.seoDescription, href: `/portfolio/${project.slug}`, type: 'Project' })),
-  ...[...site.nav.home, ...site.nav.services, ...site.nav.pages, { label: 'Contact TIA Interior', href: '/contact' }].map(page => ({ title: page.label, description: `Explore ${page.label.toLowerCase()} at TIA Interior.`, href: page.href, type: 'Studio' })),
+  ...(await getBlogPosts()).map((post) => ({
+    title: post.title,
+    description: post.excerpt,
+    href: post.href,
+    type: 'Article',
+  })),
+  ...portfolioDetailPages.map((project) => ({
+    title: project.title,
+    description: project.seoDescription,
+    href: `/portfolio/${project.slug}`,
+    type: 'Project',
+  })),
+  ...[
+    ...site.nav.home,
+    ...site.nav.services,
+    ...site.nav.pages,
+    { label: 'Contact TIA Interior', href: '/contact' },
+  ].map((page) => ({
+    title: page.label,
+    description: `Explore ${page.label.toLowerCase()} at TIA Interior.`,
+    href: page.href,
+    type: 'Studio',
+  })),
 ];
 ---
-<Layout title="Search - TIA Interior" description="Find TIA Interior design articles, projects and services." robots="noindex, follow">
+
+<Layout
+  title="Search - TIA Interior"
+  description="Find TIA Interior design articles, projects and services."
+  robots="noindex, follow"
+>
   <PageHeader title="Search" currentPage="Search" />
   <section class="pt-130 pb-130"><div class="container container-2"><SearchResults entries={entries} /></div></section>
 </Layout>

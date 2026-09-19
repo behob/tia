@@ -6,15 +6,29 @@ import { site } from '../../data/site';
 <div id="mobile-navigation" class="mobile-side-menu" role="dialog" aria-modal="true" aria-label="Navigation">
   <div class="side-menu-content">
     <div class="side-menu-head">
-      <a href="/"><OptimizedImage src="/assets/img/logo/logo-2.webp" alt={`${site.name} logo`} width="124" height="29" loading="lazy" /></a>
-      <button class="mobile-side-menu-close" aria-label="Close navigation menu"><i class="fa-regular fa-xmark"></i></button>
+      <a href="/"
+        ><OptimizedImage
+          src="/assets/img/logo/logo-2.webp"
+          alt={`${site.name} logo`}
+          width="124"
+          height="29"
+          loading="lazy"
+        /></a
+      >
+      <button class="mobile-side-menu-close" aria-label="Close navigation menu"
+        ><i class="fa-regular fa-xmark"></i></button
+      >
     </div>
     <nav class="mobile-navigation-links" aria-label="Mobile navigation">
       <a href="/">Home</a>
-      <details><summary>Spaces</summary>{site.nav.home.map(item => <a href={item.href}>{item.label}</a>)}</details>
-      <details><summary>Services</summary>{site.nav.services.map(item => <a href={item.href}>{item.label}</a>)}</details>
-      <details><summary>Portfolio</summary>{site.nav.portfolio.map(item => <a href={item.href}>{item.label}</a>)}</details>
-      <details><summary>Studio</summary>{site.nav.pages.map(item => <a href={item.href}>{item.label}</a>)}</details>
+      <details><summary>Spaces</summary>{site.nav.home.map((item) => <a href={item.href}>{item.label}</a>)}</details>
+      <details>
+        <summary>Services</summary>{site.nav.services.map((item) => <a href={item.href}>{item.label}</a>)}
+      </details>
+      <details>
+        <summary>Portfolio</summary>{site.nav.portfolio.map((item) => <a href={item.href}>{item.label}</a>)}
+      </details>
+      <details><summary>Studio</summary>{site.nav.pages.map((item) => <a href={item.href}>{item.label}</a>)}</details>
       <a href="/blog-grid">Blog</a><a href="/contact">Contact</a>
     </nav>
     <div class="side-menu-contact">
@@ -51,4 +65,10 @@ import { site } from '../../data/site';
 </div>
 <div class="mobile-side-menu-overlay"></div>
 
-<noscript><nav aria-label="Navigation without JavaScript"><a href="/">Home</a> · <a href="/service">Services</a> · <a href="/portfolio">Portfolio</a> · <a href="/blog-grid">Blog</a> · <a href="/contact">Contact</a></nav></noscript>
+<noscript
+  ><nav aria-label="Navigation without JavaScript">
+    <a href="/">Home</a> · <a href="/service">Services</a> · <a href="/portfolio">Portfolio</a> · <a href="/blog-grid"
+      >Blog</a
+    > · <a href="/contact">Contact</a>
+  </nav></noscript
+>

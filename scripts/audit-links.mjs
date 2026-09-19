@@ -80,7 +80,7 @@ for (const file of htmlFiles) {
       continue;
     }
 
-    if (rawValue === '/api/mail' || rawValue === '/manifest.webmanifest') {
+    if (rawValue === '/api/mail' || rawValue === '/api/newsletter' || rawValue === '/manifest.webmanifest') {
       continue;
     }
 

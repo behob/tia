@@ -2,50 +2,48 @@
 import OptimizedImage from '../../ui/OptimizedImage.astro';
 interface Props {}
 ---
+
 <section class="hero-section-7 overflow-hidden">
-    <div class="bg-img" data-background="/assets/img/bg-img/hero-bg-2.webp" style="--bg-desktop:url('/assets/img/bg-img/hero-bg-2.webp');--bg-mobile:url('/assets/img/bg-img/hero-bg-2.webp')"></div>
-    <div class="hero-text"><span>Interior</span></div>
-    <div class="container">
-      <div class="hero-wrap-7 pt-130">
-        <div class="hero-content-7 white-content">
-          <div class="section-heading mb-0 white-content">
-            <h4
-              class="sub-heading"
-              data-text-animation="fade-in-right"
-              data-split="char"
-              data-duration="0.9"
-              data-stagger="0.03"
-            >
-              FAST AND RELIABLE
-            </h4>
-            <h1 class="section-title cursor-effect">The Art of <span>Stunning <br />Interior</span> Design</h1>
-          </div>
-        </div>
-        <div class="hero-content-right">
-          <div class="hero-right-box">
-            <div class="box-img">
-              <OptimizedImage src="/assets/img/images/hero-box-img-1.webp" alt="hero" loading="lazy" />
-            </div>
-            <div class="content">
-              <h4 class="title">Project Excellence</h4>
-              <p>We create timeless and sustainable architectural designs</p>
-              <a href="/portfolio">Our Projects</a>
-            </div>
-          </div>
+  <div
+    class="bg-img"
+    data-background="/assets/img/bg-img/hero-bg-2.webp"
+    style="--bg-desktop:url('/assets/img/bg-img/hero-bg-2.webp');--bg-mobile:url('/assets/img/bg-img/hero-bg-2.webp')"
+  >
+  </div>
+  <div class="hero-text"><span>Interior</span></div>
+  <div class="container">
+    <div class="hero-wrap-7 pt-130">
+      <div class="hero-content-7 white-content">
+        <div class="section-heading mb-0 white-content">
+          <h4 class="sub-heading">FAST AND RELIABLE</h4>
+          <h1 class="section-title cursor-effect">The Art of <span>Stunning <br />Interior</span> Design</h1>
         </div>
       </div>
-      <div class="hero-bottom-7">
-        <div class="hero-desc">
-          <p>
-            Whether it’s your home, office, or a commercial project, we are always dedicated to bringing your vision to
-            life.
-          </p>
-        </div>
-        <div class="hero-btn">
-          <a href="/contact" class="tl-primary-btn white-btn"
-            >Take Counsel <span class="icon"><i class="fa-regular fa-arrow-right"></i></span></a
-          >
+      <div class="hero-content-right">
+        <div class="hero-right-box">
+          <div class="box-img">
+            <OptimizedImage src="/assets/img/images/hero-box-img-1.webp" alt="hero" loading="eager" />
+          </div>
+          <div class="content">
+            <h4 class="title">Project Excellence</h4>
+            <p>We create timeless and sustainable architectural designs</p>
+            <a href="/portfolio">Our Projects</a>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+    <div class="hero-bottom-7">
+      <div class="hero-desc">
+        <p>
+          Whether it’s your home, office, or a commercial project, we are always dedicated to bringing your vision to
+          life.
+        </p>
+      </div>
+      <div class="hero-btn">
+        <a href="/contact" class="tl-primary-btn white-btn"
+          >Take Counsel <span class="icon"><i class="fa-regular fa-arrow-right"></i></span></a
+        >
+      </div>
+    </div>
+  </div>
+</section>

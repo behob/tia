@@ -1,15 +1,40 @@
 ---
-interface Props { entries: { title: string; description: string; href: string; type: string }[] }
+interface Props {
+  entries: { title: string; description: string; href: string; type: string }[];
+}
 const { entries } = Astro.props;
 ---
+
 <div data-site-search>
   <form action="/search" method="get" role="search" class="site-search-form">
     <label for="site-query">Search articles, services and projects</label>
-    <div><input id="site-query" name="q" type="search" placeholder="Try lighting, villa or kitchen" maxlength="150" /><button type="submit" class="tl-primary-btn">Search</button></div>
+    <div>
+      <input
+        id="site-query"
+        name="q"
+        type="search"
+        placeholder="Try lighting, villa or kitchen"
+        maxlength="150"
+      /><button type="submit" class="tl-primary-btn">Search</button>
+    </div>
   </form>
   <p data-search-count role="status" aria-live="polite">{entries.length} pages to explore</p>
   <ul class="search-results">
-    {entries.map(entry => <li data-search-item><article><small>{entry.type}</small><h2><a href={entry.href}>{entry.title}</a></h2><p>{entry.description}</p></article></li>)}
+    {
+      entries.map((entry) => (
+        <li data-search-item>
+          <article>
+            <>
+              <small>{entry.type}</small>
+              <h2>
+                <a href={entry.href}>{entry.title}</a>
+              </h2>
+              <p>{entry.description}</p>
+            </>
+          </article>
+        </li>
+      ))
+    }
   </ul>
   <p data-search-empty hidden>No matching pages. Try a different word or <a href="/contact">contact our team</a>.</p>
 </div>
@@ -21,22 +46,59 @@ const { entries } = Astro.props;
     function filter() {
       const words = input.value.toLocaleLowerCase().trim().split(/\s+/).filter(Boolean);
       let count = 0;
-      entries.forEach(entry => {
-        entry.hidden = !words.every(word => entry.textContent?.toLocaleLowerCase().includes(word));
+      entries.forEach((entry) => {
+        entry.hidden = !words.every((word) => entry.textContent?.toLocaleLowerCase().includes(word));
         if (!entry.hidden) count++;
       });
       root!.querySelector('[data-search-count]')!.textContent = `${count} ${count === 1 ? 'result' : 'results'}`;
       root!.querySelector<HTMLElement>('[data-search-empty]')!.hidden = count !== 0;
     }
-    input.value = new URLSearchParams(location.search).get('q')?.slice(0,150) ?? '';
+    input.value = new URLSearchParams(location.search).get('q')?.slice(0, 150) ?? '';
     filter();
     input.addEventListener('input', filter);
-    root.querySelector('form')!.addEventListener('submit', event => {
-      event.preventDefault(); filter();
+    root.querySelector('form')!.addEventListener('submit', (event) => {
+      event.preventDefault();
+      filter();
       const url = new URL(location.href);
-      if (input.value.trim()) url.searchParams.set('q', input.value.trim()); else url.searchParams.delete('q');
+      if (input.value.trim()) url.searchParams.set('q', input.value.trim());
+      else url.searchParams.delete('q');
       history.replaceState(null, '', url);
     });
   }
 </script>
-<style>.site-search-form { margin-bottom:30px } label { display:block; margin-bottom:12px } .site-search-form div { display:flex; gap:12px; flex-wrap:wrap } input { flex:1; min-width:200px; padding:14px; border:1px solid #777; background:transparent; color:inherit } .search-results { list-style:none; padding:0 } li { padding:24px 0; border-bottom:1px solid #777 } h2 { font-size:28px } [hidden] { display:none!important }</style>
+<style>
+  .site-search-form {
+    margin-bottom: 30px;
+  }
+  label {
+    display: block;
+    margin-bottom: 12px;
+  }
+  .site-search-form div {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  input {
+    flex: 1;
+    min-width: 200px;
+    padding: 14px;
+    border: 1px solid #777;
+    background: transparent;
+    color: inherit;
+  }
+  .search-results {
+    list-style: none;
+    padding: 0;
+  }
+  li {
+    padding: 24px 0;
+    border-bottom: 1px solid #777;
+  }
+  h2 {
+    font-size: 28px;
+  }
+  [hidden] {
+    display: none !important;
+  }
+</style>

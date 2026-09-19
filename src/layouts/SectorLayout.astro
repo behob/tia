@@ -1,16 +1,19 @@
 ---
 import Layout from './Layout.astro';
 import type { CollectionEntry } from 'astro:content';
-interface Props { sector: CollectionEntry<'sectors'>['data'] }
+interface Props {
+  sector: CollectionEntry<'sectors'>['data'];
+}
 const { sector } = Astro.props;
 type Section = typeof import('../components/sections/ContactForm.astro').default;
 const modules = import.meta.glob<{ default: Section }>('../components/sections/sectors/*.astro', { eager: true });
-const sections = sector.sections.map(name => {
+const sections = sector.sections.map((name) => {
   const component = modules[`../components/sections/sectors/${name}.astro`]?.default;
   if (!component) throw new Error(`Missing section: ${name}`);
   return component;
 });
 ---
+
 <Layout title={`${sector.title} Interior Design in Dubai - TIA Interior`} description={sector.description}>
-  {sections.map(Section => <Section />)}
+  {sections.map((Section) => <Section />)}
 </Layout>

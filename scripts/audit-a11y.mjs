@@ -60,7 +60,7 @@ for (const { route, file } of routes) {
   for (const match of html.matchAll(/<img\b[^>]*>/gi)) {
     const tag = match[0];
 
-    if (!/\salt=(["']).*?\1/i.test(tag)) {
+    if (!/\salt(?:=(["']).*?\1|(?=\s|\/?>))/i.test(tag)) {
       failures.push(`${route}: image missing alt attribute`);
     }
   }

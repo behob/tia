@@ -7,10 +7,7 @@
   "category": "Exteriors",
   "author": "Admin",
   "order": 12,
-  "tags": [
-    "Interior",
-    "Design"
-  ],
+  "tags": ["Interior", "Design"],
   "sections": [
     {
       "title": "Define what you want the room to support",
