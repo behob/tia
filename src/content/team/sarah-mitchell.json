@@ -1,5 +1,32 @@
 {
+  "image": "/assets/img/team/team-img-3.webp",
   "name": "Sarah Mitchell",
   "role": "Design Director",
-  "image": "/assets/img/team/team-img-3.webp"
+  "slug": "sarah-mitchell",
+  "bio": "Sarah Mitchell contributes design director expertise to TIA Interior projects, helping translate client briefs into practical, elegant spaces with a clear design direction.",
+  "professionalInfo": "Sarah Mitchell works across concept refinement, technical coordination, and client communication. Their role supports the studio’s ability to deliver interiors that feel polished, functional, and responsive to each project brief.",
+  "expertise": [
+    "3D Visualization for residential and commercial interiors",
+    "Finish Selection with contractors, suppliers, and internal design teams",
+    "Project Documentation for clear decisions during project delivery",
+    "Quality review, design consistency, and practical implementation support"
+  ],
+  "expertiseDescription": "Sarah Mitchell combines design awareness with execution discipline, supporting TIA Interior clients from early ideas through detailed project coordination.",
+  "skills": [
+    {
+      "title": "3D Visualization",
+      "width": "87%"
+    },
+    {
+      "title": "Finish Selection",
+      "width": "83%"
+    },
+    {
+      "title": "Project Documentation",
+      "width": "79%"
+    }
+  ],
+  "order": 5,
+  "listed": true,
+  "reviewStatus": "pending"
 }

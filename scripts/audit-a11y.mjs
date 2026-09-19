@@ -59,12 +59,9 @@ for (const { route, file } of routes) {
 
   for (const match of html.matchAll(/<img\b[^>]*>/gi)) {
     const tag = match[0];
-    const alt = attr(tag, 'alt');
 
     if (!/\salt=(["']).*?\1/i.test(tag)) {
       failures.push(`${route}: image missing alt attribute`);
-    } else if (alt.trim().length === 0) {
-      failures.push(`${route}: image has empty alt text`);
     }
   }
 

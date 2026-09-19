@@ -7,8 +7,29 @@
   "category": "Exteriors",
   "author": "Admin",
   "order": 12,
-  "tags": ["Interior", "Design"],
-  "sections": [],
+  "tags": [
+    "Interior",
+    "Design"
+  ],
+  "sections": [
+    {
+      "title": "Define what you want the room to support",
+      "text": "Minimalism begins with priorities rather than an empty room. Identify the activities and objects that matter to you, then make space for them. A reading chair, a generous dining table or a collection of books can belong in a minimalist interior when it has a clear purpose. Remove duplication before considering new storage or furniture."
+    },
+    {
+      "title": "Make storage easy to use",
+      "text": "Place everyday storage close to where its contents are needed. Closed cupboards can reduce visual distraction, while a few open shelves provide room for personal objects. Measure the items going inside before choosing shelf depths and internal divisions. Storage that is difficult to reach or too tightly packed tends to move clutter onto visible surfaces."
+    },
+    {
+      "title": "Use texture to give simple rooms depth",
+      "text": "A restrained palette can still feel warm. Combine matte walls with woven fabrics, timber grain and a soft rug instead of depending on decorative patterns everywhere. Check undertones across large surfaces so whites and neutrals work together. Leave some contrast between furniture and flooring to prevent the room from looking indistinct."
+    },
+    {
+      "title": "Keep the layout adaptable",
+      "text": "Choose furniture that supports more than one arrangement and leave room around the pieces you use most. Test the plan with doors open and chairs pulled out. Review the space occasionally as your routine changes; the goal is a home that is easy to live in and care for, not a fixed photograph that requires constant tidying."
+    }
+  ],
   "gallery": [],
-  "aliases": []
+  "aliases": [],
+  "updatedDate": "2026-09-19"
 }

@@ -3,9 +3,8 @@ import { join, relative, sep } from 'node:path';
 
 const distDir = join(process.cwd(), 'dist', 'client');
 const expectedScriptRoutes = {
-  '/assets/js/slider.js': ['/', '/index-2', '/index-3', '/index-9'],
-  '/assets/js/banner-process.js': ['/index-2', '/index-3'],
-  '/assets/js/contact.js': ['/contact'],
+  '/assets/js/slider.js': ['/', '/spaces/apartments', '/spaces/villas', '/spaces/fit-out-custom-joinery'],
+  '/assets/js/banner-process.js': ['/spaces/apartments', '/spaces/villas'],
   '/assets/js/vendor/countdown.js': ['/coming-soon'],
 };
 

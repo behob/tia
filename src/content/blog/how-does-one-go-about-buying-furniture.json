@@ -1,14 +1,35 @@
 {
   "title": "How Does One Go About Buying Furniture?",
-  "excerpt": "Modest, recently established interior design company that seeks to address a variety of topics, including…",
-  "intro": "Modest, recently established interior design company that seeks to address a variety of topics, including…",
+  "excerpt": "A practical guide to measuring, comparing and buying furniture that fits your home and daily routines.",
+  "intro": "A thoughtful furniture purchase starts with measurements, a clear brief and a realistic delivery plan. These steps help you choose pieces that fit both your space and the way you live.",
   "image": "/assets/img/blog/post-5.webp",
   "date": "2026-04-09",
   "category": "Exteriors",
   "author": "Admin",
   "order": 14,
-  "tags": ["Interior", "Design"],
-  "sections": [],
+  "tags": [
+    "Interior",
+    "Design"
+  ],
+  "sections": [
+    {
+      "title": "Measure the room and the delivery route",
+      "text": "Record wall lengths, door swings, windows and fixed services before shopping. Measure lifts, stair turns and entry doors as well as the final furniture position. Check the packaged dimensions with the supplier; a piece that fits in the room may not pass through the building. Mark its footprint on the floor and leave room for drawers, recliners and chairs to move."
+    },
+    {
+      "title": "Write a practical specification",
+      "text": "Decide who will use the piece, how often it will be used and what maintenance you can manage. For seating, try the depth, back support and seat height in person where possible. For a table, check stability, edge details and the finish. Ask for the material composition rather than relying on a photograph or a broad label such as wood finish."
+    },
+    {
+      "title": "Compare the total purchase cost",
+      "text": "Include delivery, assembly, installation and any fabric upgrades in your comparison. Obtain the lead time, return terms and warranty details in writing before paying. Bespoke items may have different cancellation or return conditions from stock pieces. If timing matters, ask what happens if delivery is delayed and whether the quoted date refers to dispatch or arrival."
+    },
+    {
+      "title": "Order in a sequence that leaves flexibility",
+      "text": "Choose the largest and most frequently used pieces first, then build smaller purchases around them. Confirm finishes using physical samples where available. On delivery, inspect the item and note damage promptly according to the supplier’s process. Live with the main furniture arrangement before filling every remaining corner with accessories."
+    }
+  ],
   "gallery": [],
-  "aliases": []
+  "aliases": [],
+  "updatedDate": "2026-09-19"
 }

@@ -1,0 +1,94 @@
+---
+import OptimizedImage from '../../ui/OptimizedImage.astro';
+interface Props {}
+---
+<section class="service-section-3 pt-130 pb-130 overflow-hidden">
+    <div class="bg-img" data-background="/assets/img/bg-img/service-bg-1.webp" style="--bg-desktop:url('/assets/img/bg-img/service-bg-1.webp');--bg-mobile:url('/assets/img/bg-img/service-bg-1.webp')"></div>
+    <div class="container container-2">
+      <div class="row fade-wrapper">
+        <div class="col-lg-5">
+          <div class="service-left-content-3 white-content fade-top">
+            <div class="section-heading white-content mb-30">
+              <h4
+                class="sub-heading"
+                data-text-animation="fade-in-right"
+                data-split="char"
+                data-duration="0.9"
+                data-stagger="0.03"
+              >
+                Our Services
+              </h4>
+              <h2 class="section-title cursor-effect title-2">
+                Explore our comprehensive <br /><span>interior design <br />services</span>
+              </h2>
+              <div class="desc mt-40 mb-50">
+                <p>
+                  We believe that every space has the power to inspire, and that great design brings that inspiration to
+                  life. Our mission is to craft environments that stir creativity, evoke emotion, and reflect the
+                  essence of those who inhabit them.
+                </p>
+              </div>
+            </div>
+            <div class="service-btn">
+              <a href="/service" class="tl-primary-btn white-btn"
+                >Explore all services <span class="icon"><i class="fa-regular fa-arrow-right"></i></span></a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="service-carousel-wrap-3 fade-top">
+            <div class="service-carousel-3 swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="service-item-3">
+                    <div class="service-thumb">
+                      <OptimizedImage src="/assets/img/service/service-img-1.webp" alt="service" loading="lazy" />
+                      <span class="number">01</span>
+                    </div>
+                    <div class="service-content">
+                      <h5 class="title"><a href="/service-details">Residential Interior Design</a></h5>
+                      <p>
+                        Tailored design services for private homes, including room makeovers and complete home
+                        transformations.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="service-item-3">
+                    <div class="service-thumb">
+                      <OptimizedImage src="/assets/img/service/service-img-3.webp" alt="service" loading="lazy" />
+                      <span class="number">02</span>
+                    </div>
+                    <div class="service-content">
+                      <h5 class="title"><a href="/service-details">Residential Interior Design</a></h5>
+                      <p>
+                        Tailored design services for private homes, including room makeovers and complete home
+                        transformations.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="service-item-3">
+                    <div class="service-thumb">
+                      <OptimizedImage src="/assets/img/service/service-img-2.webp" alt="service" loading="lazy" />
+                      <span class="number">03</span>
+                    </div>
+                    <div class="service-content">
+                      <h5 class="title"><a href="/service-details">Residential Interior Design</a></h5>
+                      <p>
+                        Tailored design services for private homes, including room makeovers and complete home
+                        transformations.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

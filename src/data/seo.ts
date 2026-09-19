@@ -218,6 +218,8 @@ export const routeMeta = {
     robots: 'noindex, nofollow',
     schemaType: 'utility',
   },
+  '/404': { title: 'Page Not Found - TIA Interior', description: 'The page you are looking for could not be found.', robots: 'noindex, follow', schemaType: 'utility' },
+  '/search': { title: 'Search - TIA Interior', description: 'Find interior design articles, services and projects.', robots: 'noindex, follow', schemaType: 'utility' },
   '/error-page': {
     title: 'Page Not Found - TIA Interior',
     description: 'The page you are looking for could not be found.',
@@ -246,7 +248,7 @@ export function resolvePageMeta(pathname: string, input: ResolveMetaInput = {}) 
 }
 
 export function createSiteJsonLd(siteUrl: string) {
-  const socialUrls = site.socials.map((s) => s.href).filter((url) => url !== '#');
+  const socialUrls = site.socials.map((s) => s.href);
 
   return [
     {
@@ -383,7 +385,7 @@ export function createPageJsonLd(meta: PageMeta, input: JsonLdInput) {
     });
   }
 
-  if (schemaType === 'article' || path.startsWith('/blog/')) {
+  if (schemaType === 'article' && !path.startsWith('/blog/')) {
     extras.push({
       '@context': 'https://schema.org',
       '@type': 'Article',

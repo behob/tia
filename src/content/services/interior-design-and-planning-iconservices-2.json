@@ -1,0 +1,8 @@
+{
+  "icon": "/assets/img/icon/service-icon-2.webp",
+  "title": "Interior Design & Planning",
+  "desc": "We create beautiful, functional interiors that reflect your personality and lifestyle.",
+  "group": "iconServices",
+  "order": 1,
+  "reviewStatus": "pending"
+}

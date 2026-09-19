@@ -33,7 +33,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
             </div>
             <div class="about-counter-wrap">
               <div class="counter-content">
-                <h3 class="title"><span class="odometer" data-count="26">0</span></h3>
+                <h3 class="title"><span class="odometer" data-count="26">26</span></h3>
                 <p>Years of <br /> experience</p>
               </div>
               <div class="counter-img">
@@ -66,7 +66,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
   </section>
 
   <div class="video-area-wrap">
-    <div class="video-bg" data-background="/assets/img/bg-img/video-bg-3.webp"></div>
+    <div class="video-bg" data-background="/assets/img/bg-img/video-bg-3.webp" style="--bg-desktop:url('/assets/img/bg-img/video-bg-3.webp');--bg-mobile:url('/assets/img/bg-img/video-bg-3.webp')"></div>
     <div class="play-btn">
       <a class="video-popup venobox" data-autoplay="true" data-vbtype="video" href="https://youtu.be/JwC-Qx1lJso"
         >play</a
@@ -129,7 +129,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
   </section>
 
   <section class="process-section overflow-hidden bg-white">
-    <div class="bg-shape" data-background="/assets/img/shapes/process-shape-1.webp"></div>
+    <div class="bg-shape" data-background="/assets/img/shapes/process-shape-1.webp" style="--bg-desktop:url('/assets/img/shapes/process-shape-1.webp');--bg-mobile:url('/assets/img/shapes/process-shape-1.webp')"></div>
     <div class="container container-2">
       <div class="heading-space align-items-end">
         <div class="section-heading mb-0">
@@ -260,7 +260,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
   </section>
 
   <section class="gallary-section-2 pb-130 overflow-hidden">
-    <div class="bg-img" data-background="/assets/img/bg-img/gallary-bg-1.webp"></div>
+    <div class="bg-img" data-background="/assets/img/bg-img/gallary-bg-1.webp" style="--bg-desktop:url('/assets/img/bg-img/gallary-bg-1.webp');--bg-mobile:url('/assets/img/bg-img/gallary-bg-1.webp')"></div>
     <div class="container container-2">
       <div class="row">
         <div class="col-lg-4 col-md-12">
@@ -397,9 +397,7 @@ import NewsletterSection from '../components/sections/NewsletterSection.astro';
             [1, 2, 3, 4, 5, 6].map((i) => (
               <div class="swiper-slide">
                 <div class="sponsor-item">
-                  <a href="#">
-                    <OptimizedImage src={`/assets/img/sponsor/sponsor-${i}.webp`} alt={`sponsor ${i}`} loading="lazy" />
-                  </a>
+                  <span><OptimizedImage src={`/assets/img/sponsor/sponsor-${i}.webp`} alt={`sponsor ${i}`} loading="lazy" /></span>
                 </div>
               </div>
             ))

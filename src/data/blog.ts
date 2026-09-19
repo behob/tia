@@ -10,7 +10,7 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', {
 });
 
 export async function getBlogPosts(): Promise<BlogPost[]> {
-  const entries = await getCollection('blog');
+  const entries = await getCollection('blog', ({ data }) => data.status === 'published' && data.date <= new Date().toISOString().slice(0, 10));
   return entries
     .map(({ id, data }) => ({
       ...data,
@@ -30,22 +30,4 @@ export function getBlogHref(slug: string) {
 
 export const defaultBlogSlug = 'transform-your-home-with-the-modern-interior-design-tips';
 
-export const blogCategories = [
-  'Accessories',
-  'Electrical & Lighting',
-  'Home Appliance',
-  'Power Tools',
-  'Uncategorized',
-  'Ware Accessories',
-];
-export const blogTags = [
-  'Architecture',
-  'Construction',
-  'Furniture',
-  'Design',
-  'Interior',
-  'Kitchen',
-  'Living Room',
-  'Building',
-  'Planning',
-];
+export function taxonomySlug(value: string) { return value.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }

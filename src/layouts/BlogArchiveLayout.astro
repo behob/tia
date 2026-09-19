@@ -8,7 +8,7 @@ import BlogArchiveCard from '../components/cards/BlogArchiveCard.astro';
 import BlogSidebar from '../components/sections/BlogSidebar.astro';
 import NewsletterSection from '../components/sections/NewsletterSection.astro';
 import { getBlogPosts } from '../data/blog';
-import { paginateBlogPosts, type BlogView } from '../data/blogPagination';
+import { getBlogArchiveHref, paginateBlogPosts, type BlogView } from '../data/blogPagination';
 
 interface Props {
   view: BlogView;
@@ -21,6 +21,7 @@ const { posts, totalPages } = paginateBlogPosts(allPosts, currentPage);
 
 <Layout
   title={currentPage === 1 ? 'Blog - TIA Interior' : `Blog - Page ${currentPage} - TIA Interior`}
+  canonical={new URL(getBlogArchiveHref('grid', currentPage), Astro.site).href}
   description="Read the latest interior design tips, trends, and insights from TIA Interior."
 >
   <PageHeader title="Blog" currentPage="Blog" />

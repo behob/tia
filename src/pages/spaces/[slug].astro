@@ -1,0 +1,9 @@
+---
+import { getCollection } from 'astro:content';
+import SectorLayout from '../../layouts/SectorLayout.astro';
+export async function getStaticPaths() {
+  return (await getCollection('sectors')).map(({id,data}) => ({ params:{slug:id}, props:{sector:data} }));
+}
+const {sector} = Astro.props;
+---
+<SectorLayout sector={sector} />

@@ -1,4 +1,6 @@
 ---
+import HeroBackground from '../components/ui/HeroBackground.astro';
+import NewsletterForm from '../components/sections/NewsletterForm.astro';
 import OptimizedImage from '../components/ui/OptimizedImage.astro';
 import Layout from '../layouts/Layout.astro';
 import { getBlogPosts } from '../data/blog';
@@ -14,11 +16,7 @@ const blogDates = new Map((await getBlogPosts()).map((post) => [post.slug, post.
       <div class="swiper-wrapper">
         <div class="swiper-slide">
           <div class="slider-item">
-            <div
-              class="bg-img"
-              data-background="/assets/img/bg-img/slider-img-1.webp"
-              data-background-mobile="/assets/img/bg-img/slider-img-1-mobile.webp"
-            ></div>
+            <HeroBackground src="/assets/img/bg-img/slider-img-1.webp" priority={true} />
             <div class="container slider-container">
               <div class="slider-content-wrap">
                 <div class="slider-content">
@@ -31,14 +29,14 @@ const blogDates = new Map((await getBlogPosts()).map((post) => [post.slug, post.
                     >
                       FAST AND RELIABLE
                     </h4>
-                    <h2
+                    <h1
                       class="section-title cursor-effect"
                       data-animation="antra-fadeInDown"
                       data-delay="1200ms"
                       data-duration="1400ms"
                     >
                       The Art of Stunning <br /> Interior Design
-                    </h2>
+                    </h1>
                   </div>
                   <div class="bottom-content">
                     <div class="antra-desc" data-animation="antra-fadeInUp" data-delay="1000ms" data-duration="1400ms">
@@ -75,11 +73,7 @@ const blogDates = new Map((await getBlogPosts()).map((post) => [post.slug, post.
         </div>
         <div class="swiper-slide">
           <div class="slider-item">
-            <div
-              class="bg-img"
-              data-background="/assets/img/bg-img/slider-img-2.webp"
-              data-background-mobile="/assets/img/bg-img/slider-img-2-mobile.webp"
-            ></div>
+            <HeroBackground src="/assets/img/bg-img/slider-img-2.webp" priority={false} />
             <div class="container slider-container">
               <div class="slider-content-wrap">
                 <div class="slider-content">
@@ -142,8 +136,7 @@ const blogDates = new Map((await getBlogPosts()).map((post) => [post.slug, post.
   <section class="service-section pt-150 pb-110 overflow-hidden tl-bg-color fade-wrapper">
     <div
       class="bg-shape"
-      data-background="/assets/img/shapes/service-bg-shape-1.webp"
-      data-background-mobile="/assets/img/shapes/service-bg-shape-1-mobile.webp"
+      data-background="/assets/img/shapes/service-bg-shape-1.webp" data-background-mobile="/assets/img/shapes/service-bg-shape-1-mobile.webp" style="--bg-desktop:url('/assets/img/shapes/service-bg-shape-1.webp');--bg-mobile:url('/assets/img/shapes/service-bg-shape-1-mobile.webp')"
     ></div>
     <div class="container">
       <div class="row section-heading-wrap fade-top">
@@ -234,7 +227,7 @@ const blogDates = new Map((await getBlogPosts()).map((post) => [post.slug, post.
   <!-- ./ service-section -->
 
   <section class="about-section overflow-hidden">
-    <div class="about-bg" data-background="/assets/img/bg-img/about-bg.webp"></div>
+    <div class="about-bg" data-background="/assets/img/bg-img/about-bg.webp" style="--bg-desktop:url('/assets/img/bg-img/about-bg.webp');--bg-mobile:url('/assets/img/bg-img/about-bg.webp')"></div>
     <div class="about-text"><span>tia</span></div>
     <div class="container">
       <div class="row align-items-center">
@@ -387,28 +380,28 @@ const blogDates = new Map((await getBlogPosts()).map((post) => [post.slug, post.
       <div class="row gy-5 fade-wrapper">
         <div class="col-lg-3 col-md-6 fade-top">
           <div class="counter-item">
-            <h3 class="title"><span class="odometer" data-count="22">0</span><span class="icon">+</span></h3>
+            <h3 class="title"><span class="odometer" data-count="22">22</span><span class="icon">+</span></h3>
             <h4 class="sub-title">Years experience</h4>
             <p>Delivering trusted architecture and <br /> interior design expertise for 22 years</p>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 fade-top">
           <div class="counter-item">
-            <h3 class="title"><span class="odometer" data-count="189">0</span><span class="icon">+</span></h3>
+            <h3 class="title"><span class="odometer" data-count="189">189</span><span class="icon">+</span></h3>
             <h4 class="sub-title">Projects completed</h4>
             <p>Creating tailored residential and <br /> commercial spaces across Dubai</p>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 fade-top">
           <div class="counter-item">
-            <h3 class="title"><span class="odometer" data-count="265">0</span><span class="icon">+</span></h3>
+            <h3 class="title"><span class="odometer" data-count="265">265</span><span class="icon">+</span></h3>
             <h4 class="sub-title">Skilled Tradespeople</h4>
             <p>Working with skilled specialists for <br /> precise, high-quality project delivery</p>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 fade-top">
           <div class="counter-item">
-            <h3 class="title"><span class="odometer" data-count="328">0</span><span class="icon">+</span></h3>
+            <h3 class="title"><span class="odometer" data-count="328">328</span><span class="icon">+</span></h3>
             <h4 class="sub-title">Client satisfaction</h4>
             <p>Building lasting client relationships <br /> through thoughtful design and service</p>
           </div>
@@ -421,8 +414,7 @@ const blogDates = new Map((await getBlogPosts()).map((post) => [post.slug, post.
   <section class="process-section overflow-hidden fade-wrapper">
     <div
       class="bg-shape"
-      data-background="/assets/img/shapes/process-shape-1.webp"
-      data-background-mobile="/assets/img/shapes/process-shape-1-mobile.webp"
+      data-background="/assets/img/shapes/process-shape-1.webp" data-background-mobile="/assets/img/shapes/process-shape-1-mobile.webp" style="--bg-desktop:url('/assets/img/shapes/process-shape-1.webp');--bg-mobile:url('/assets/img/shapes/process-shape-1-mobile.webp')"
     ></div>
     <div class="container container-2">
       <div class="heading-space align-items-end">
@@ -505,7 +497,7 @@ const blogDates = new Map((await getBlogPosts()).map((post) => [post.slug, post.
   <!-- ./ process-section -->
 
   <section class="project-section pt-130 tl-bg-color fade-wrapper">
-    <div class="bg-shape" data-background="/assets/img/shapes/project-shape-1.webp"></div>
+    <div class="bg-shape" data-background="/assets/img/shapes/project-shape-1.webp" style="--bg-desktop:url('/assets/img/shapes/project-shape-1.webp');--bg-mobile:url('/assets/img/shapes/project-shape-1.webp')"></div>
     <div class="project-text"><span>Interior</span></div>
     <div class="container container-2">
       <div class="row section-heading-wrap fade-top">
@@ -709,32 +701,32 @@ const blogDates = new Map((await getBlogPosts()).map((post) => [post.slug, post.
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <div class="sponsor-item">
-              <a href="#"><OptimizedImage src="/assets/img/sponsor/sponsor-1.webp" alt="sponsor" loading="lazy" /></a>
+              <span><OptimizedImage src="/assets/img/sponsor/sponsor-1.webp" alt="sponsor" loading="lazy" /></span>
             </div>
           </div>
           <div class="swiper-slide">
             <div class="sponsor-item">
-              <a href="#"><OptimizedImage src="/assets/img/sponsor/sponsor-2.webp" alt="sponsor" loading="lazy" /></a>
+              <span><OptimizedImage src="/assets/img/sponsor/sponsor-2.webp" alt="sponsor" loading="lazy" /></span>
             </div>
           </div>
           <div class="swiper-slide">
             <div class="sponsor-item">
-              <a href="#"><OptimizedImage src="/assets/img/sponsor/sponsor-3.webp" alt="sponsor" loading="lazy" /></a>
+              <span><OptimizedImage src="/assets/img/sponsor/sponsor-3.webp" alt="sponsor" loading="lazy" /></span>
             </div>
           </div>
           <div class="swiper-slide">
             <div class="sponsor-item">
-              <a href="#"><OptimizedImage src="/assets/img/sponsor/sponsor-4.webp" alt="sponsor" loading="lazy" /></a>
+              <span><OptimizedImage src="/assets/img/sponsor/sponsor-4.webp" alt="sponsor" loading="lazy" /></span>
             </div>
           </div>
           <div class="swiper-slide">
             <div class="sponsor-item">
-              <a href="#"><OptimizedImage src="/assets/img/sponsor/sponsor-5.webp" alt="sponsor" loading="lazy" /></a>
+              <span><OptimizedImage src="/assets/img/sponsor/sponsor-5.webp" alt="sponsor" loading="lazy" /></span>
             </div>
           </div>
           <div class="swiper-slide">
             <div class="sponsor-item">
-              <a href="#"><OptimizedImage src="/assets/img/sponsor/sponsor-6.webp" alt="sponsor" loading="lazy" /></a>
+              <span><OptimizedImage src="/assets/img/sponsor/sponsor-6.webp" alt="sponsor" loading="lazy" /></span>
             </div>
           </div>
         </div>
@@ -866,11 +858,7 @@ const blogDates = new Map((await getBlogPosts()).map((post) => [post.slug, post.
   <!-- ./ team-section -->
 
   <section class="video-section">
-    <div
-      class="bg-img"
-      data-background="/assets/img/bg-img/video-bg-1.webp"
-      data-background-mobile="/assets/img/bg-img/video-bg-1-mobile.webp"
-    ></div>
+    <HeroBackground src="/assets/img/bg-img/video-bg-1.webp" priority={false} />
     <div class="container container-2">
       <div class="video-content">
         <div class="play-btn">
@@ -1055,18 +1043,7 @@ const blogDates = new Map((await getBlogPosts()).map((post) => [post.slug, post.
             latest updates in the industry.
           </p>
         </div>
-        <div class="newsletter-form fade-top">
-          <input
-            type="email"
-            id="email"
-            name="email"
-            class="form-control"
-            placeholder="Email address.."
-            aria-label="Email address"
-            required
-          />
-          <button type="submit" aria-label="Subscribe to newsletter"><i class="fa-regular fa-arrow-right-long"></i></button>
-        </div>
+        <NewsletterForm />
       </div>
     </div>
   </section>

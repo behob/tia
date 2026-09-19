@@ -1,3 +1,4 @@
+import { sectorLegacyRoutes } from './sectors';
 export interface StylesheetAsset {
   href: string;
   preload?: boolean;
@@ -15,7 +16,6 @@ export const stylesheetAssets: readonly StylesheetAsset[] = [
   { href: '/assets/css/fontawesome.min.css', preload: true, deferred: true },
   { href: '/assets/css/venobox.min.css', deferred: true },
   { href: '/assets/css/odometer.min.css', deferred: true },
-  { href: '/assets/css/nice-select.css', deferred: true },
   { href: '/assets/css/carouselTicker.css', deferred: true },
   { href: '/assets/css/animation.css', deferred: true },
   { href: '/assets/css/twentytwenty.min.css', deferred: true },
@@ -24,30 +24,26 @@ export const stylesheetAssets: readonly StylesheetAsset[] = [
 export const legacyScriptAssets = [
   { src: '/assets/js/vendor/jquery-3.7.1.min.js' },
   { src: '/assets/js/vendor/bootstrap-bundle.js' },
-  { src: '/assets/js/vendor/imagesloaded-pkgd.js' },
   { src: '/assets/js/vendor/waypoints.min.js' },
   { src: '/assets/js/vendor/venobox.min.js' },
   { src: '/assets/js/vendor/odometer.min.js' },
-  { src: '/assets/js/vendor/meanmenu.js' },
-  { src: '/assets/js/vendor/jquery.isotope.js' },
   { src: '/assets/js/vendor/swiper.min.js' },
   { src: '/assets/js/vendor/split-type.min.js' },
   { src: '/assets/js/vendor/gsap.min.js' },
   { src: '/assets/js/vendor/scroll-trigger.min.js' },
-  { src: '/assets/js/vendor/scroll-smoother.js' },
-  { src: '/assets/js/vendor/jquery.carouselTicker.js' },
-  { src: '/assets/js/vendor/nice-select.js' },
-  { src: '/assets/js/vendor/jquery.event.move.min.js' },
-  { src: '/assets/js/vendor/jquery.twentytwenty.min.js' },
+  { src: '/assets/js/vendor/jquery.carouselTicker.js', routes: ['/index-2', '/index-6', '/index-9'] },
+  { src: '/assets/js/vendor/jquery.event.move.min.js', routes: ['/index-4'] },
+  { src: '/assets/js/vendor/jquery.twentytwenty.min.js', routes: ['/index-4'] },
   { src: '/assets/js/slider.js', routes: ['/', '/index-2', '/index-3', '/index-9'] },
   { src: '/assets/js/banner-process.js', routes: ['/index-2', '/index-3'] },
   { src: '/assets/js/main.min.js' },
-  { src: '/assets/js/contact.js', routes: ['/contact'] },
   { src: '/assets/js/vendor/countdown.js', routes: ['/coming-soon'] },
 ] as const satisfies readonly ScriptAsset[];
 
 export function shouldLoadScript(asset: ScriptAsset, pathname: string) {
-  const currentPath = pathname.length > 1 ? pathname.replace(/\/$/, '') : pathname;
+  const path = pathname.length > 1 ? pathname.replace(/\/$/, '') : pathname;
+  const currentPath = sectorLegacyRoutes[path] ?? path;
 
+  if (/^\/(?:blog(?:-|\/)|contact(?:\/|$)|search(?:\/|$)|404(?:\/|$))/.test(currentPath)) return false;
   return !asset.routes || asset.routes.includes(currentPath);
 }

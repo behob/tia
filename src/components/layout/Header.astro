@@ -19,7 +19,7 @@ const { nav } = site;
             <div class="mobile-menu-items">
               <ul>
                 <li class="menu-item-has-children">
-                  <a href="#">Home</a>
+                  <a href="/">Home</a>
                   <ul>
                     {
                       nav.home.map((item) => (
@@ -55,7 +55,7 @@ const { nav } = site;
                   </ul>
                 </li>
                 <li class="menu-item-has-children">
-                  <a href="#">Pages</a>
+                  <a href="/about">Studio</a>
                   <ul>
                     {
                       nav.pages.map((item) => (
@@ -86,6 +86,7 @@ const { nav } = site;
           <button type="button" class="search-icon dl-search-icon" aria-label="Open search dialog">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
+          <button type="button" class="native-mobile-toggle mobile-side-menu-toggle" aria-label="Open navigation menu">☰</button>
           <div class="sidebar-icon">
             <button class="sidebar-trigger open" aria-label="Open sidebar menu">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

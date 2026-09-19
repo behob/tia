@@ -1,0 +1,9 @@
+{
+  "num": "03",
+  "title": "Interior Design Consultation",
+  "image": "/assets/img/service/service-img-3.webp",
+  "desc": "Tailored design services for private homes, including room makeovers and complete home transformations.",
+  "group": "customFurnitureServices",
+  "order": 2,
+  "reviewStatus": "pending"
+}

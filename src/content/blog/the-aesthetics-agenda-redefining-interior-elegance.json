@@ -6,10 +6,31 @@
   "author": "Admin",
   "category": "Exteriors",
   "excerpt": "The Aesthetics Agenda: Redefining Interior Elegance",
-  "intro": "The Aesthetics Agenda: Redefining Interior Elegance",
+  "intro": "A refined interior brings proportion, detail and daily comfort into balance. The following principles can help you create a coherent room without relying on elaborate decoration.",
   "sidebarImage": "/assets/img/blog/sidebar-post-3.webp",
-  "tags": ["Interior", "Design"],
-  "sections": [],
+  "tags": [
+    "Interior",
+    "Design"
+  ],
+  "sections": [
+    {
+      "title": "Begin with proportion",
+      "text": "Elegance often comes from the relationship between elements rather than their individual cost. Compare the sofa with the wall behind it, the pendant with the dining table and the rug with the seating group. Use a measured drawing or temporary floor markings to test scale. A single well-proportioned focal point can be more effective than several competing statement pieces."
+    },
+    {
+      "title": "Create a clear visual hierarchy",
+      "text": "Decide where attention should go when someone enters the room. That might be a view, an artwork or a material feature. Keep surrounding finishes quieter so the focal point has space to work. Repeat shapes or tones in smaller details to connect the room without reproducing the same object everywhere."
+    },
+    {
+      "title": "Consider how finishes meet",
+      "text": "Transitions between flooring, joinery and wall finishes have a strong effect on the final impression. Review edges, handles, skirtings and junctions during design rather than leaving them to the end. Ask for a sample or mock-up of important details. Simple construction executed consistently usually reads more clearly than complex detailing that is difficult to maintain."
+    },
+    {
+      "title": "Balance refinement with everyday use",
+      "text": "Select materials with care requirements that suit the household. Test seating for comfort and make sure lighting supports reading, conversation and cleaning. Leave room for personal possessions so the interior feels inhabited. An elegant room should make daily routines easier as well as look considered when photographed."
+    }
+  ],
   "gallery": [],
-  "aliases": []
+  "aliases": [],
+  "updatedDate": "2026-09-19"
 }

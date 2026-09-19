@@ -6,7 +6,18 @@ declare namespace App {
   interface Locals {}
 }
 
+declare namespace Cloudflare {
+  interface Env {
+    CONTACT_EMAIL?: string;
+    SENDER_EMAIL?: string;
+    RESEND_API_KEY?: string;
+    TURNSTILE_SECRET_KEY?: string;
+    NEWSLETTER_ENABLED?: string;
+  }
+}
+
 interface Env {
+  NEWSLETTER_ENABLED?: string;
   SESSION: KVNamespace;
   CONTACT_EMAIL: string;
   SENDER_EMAIL: string;

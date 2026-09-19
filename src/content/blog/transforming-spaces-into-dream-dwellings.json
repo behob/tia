@@ -6,10 +6,31 @@
   "author": "Admin",
   "category": "Exteriors",
   "excerpt": "Transforming Spaces into Dream Dwellings",
-  "intro": "Transforming Spaces into Dream Dwellings",
+  "intro": "Turning a home into a place that supports your life takes a sequence of practical decisions. Begin with a clear brief, coordinate the details and review the result against the needs you set out to meet.",
   "sidebarImage": "/assets/img/blog/sidebar-post-4.webp",
-  "tags": ["Interior", "Design"],
-  "sections": [],
+  "tags": [
+    "Interior",
+    "Design"
+  ],
+  "sections": [
+    {
+      "title": "Turn a wish list into a design brief",
+      "text": "Describe what is frustrating about the current space and what you want to do differently. Separate essential changes from optional ideas, and identify anything that must remain. Include storage, privacy, lighting and maintenance alongside appearance. A clear brief gives you a useful way to judge proposals when several attractive options compete for the same budget."
+    },
+    {
+      "title": "Survey before making commitments",
+      "text": "Start from accurate measurements and a record of existing conditions. Identify structural elements, service locations and building restrictions before committing to alterations. Where specialist work is involved, arrange the appropriate professional assessment. Early checks can expose limitations while the layout is still easy to change."
+    },
+    {
+      "title": "Coordinate the decisions that depend on one another",
+      "text": "Finalize major layouts before selecting finishes that depend on them. Joinery dimensions, lighting positions and furniture sizes should be reviewed together. Keep a written schedule of selections, costs and decisions so everyone works from the same information. Allow for lead times and discuss how changes will affect both the programme and the budget."
+    },
+    {
+      "title": "Review the finished space in use",
+      "text": "Inspect the work against the agreed scope and record items that need attention. Check doors, drawers, lighting controls and appliance access rather than judging only the overall appearance. Keep care instructions and product information together. After moving in, make small adjustments to lighting and furniture placement based on how the rooms actually feel during daily life."
+    }
+  ],
   "gallery": [],
-  "aliases": []
+  "aliases": [],
+  "updatedDate": "2026-09-19"
 }

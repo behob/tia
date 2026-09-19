@@ -1,0 +1,20 @@
+{
+  "title": "Villas",
+  "description": "TIA Interior - Premium villa interior design in Dubai. Crafting timeless and inspiring residential spaces.",
+  "legacyPath": "/index-3",
+  "sections": [
+    "villas-slider-section-1",
+    "villas-about-section-3-2",
+    "villas-service-section-3-3",
+    "villas-skill-section-4",
+    "villas-faq-section-5",
+    "villas-banner-process-area-6",
+    "villas-project-section-3-7",
+    "villas-counter-section-8",
+    "villas-cta-section-3-9",
+    "villas-testimonial-section-3-10",
+    "villas-gallary-section-2-11",
+    "villas-blog-section-12",
+    "villas-NewsletterSection-13"
+  ]
+}

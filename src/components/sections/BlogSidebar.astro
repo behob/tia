@@ -1,18 +1,20 @@
 ---
 import OptimizedImage from '../ui/OptimizedImage.astro';
-import { blogCategories, blogTags, type BlogPost } from '../../data/blog';
+import { taxonomySlug, type BlogPost } from '../../data/blog';
 interface Props {
   posts: BlogPost[];
 }
 const { posts } = Astro.props;
+const blogCategories = [...new Set(posts.map(post => post.category))].sort();
+const blogTags = [...new Set(posts.flatMap(post => post.tags))].sort();
 ---
 
 <div class="sidebar-widget">
   <h3 class="widget-title">Search</h3>
   <div class="search-box">
-    <form action="#" class="search-form">
-      <input type="text" class="form-control" placeholder="Search" />
-      <button class="search-btn" type="button" aria-label="Search"
+    <form action="/search" class="search-form">
+      <input type="search" name="q" aria-label="Search articles" class="form-control" placeholder="Search" />
+      <button class="search-btn" type="submit" aria-label="Search"
         ><i class="fa-regular fa-magnifying-glass"></i></button
       >
     </form>
@@ -24,7 +26,7 @@ const { posts } = Astro.props;
     {
       blogCategories.map((cat) => (
         <li>
-          <a href="#">{cat}</a>
+          <a href={`/blog/category/${taxonomySlug(cat)}`}>{cat}</a>
         </li>
       ))
     }
@@ -34,7 +36,7 @@ const { posts } = Astro.props;
   <h3 class="widget-title">Recent Post</h3>
   {
     posts
-      .filter((post) => post.sidebarImage)
+      .slice(0, 3)
       .map((post) => (
         <div class="sidebar-post">
           <OptimizedImage
@@ -62,7 +64,7 @@ const { posts } = Astro.props;
     {
       blogTags.map((tag) => (
         <li>
-          <a href="#">{tag}</a>
+          <a href={`/blog/tag/${taxonomySlug(tag)}`}>{tag}</a>
         </li>
       ))
     }

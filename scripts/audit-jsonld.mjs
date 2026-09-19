@@ -26,6 +26,7 @@ function flattenJsonLd(value) {
 }
 
 const requiredByType = {
+  BlogPosting: ['headline', 'image', 'datePublished', 'dateModified', 'author', 'mainEntityOfPage'],
   Article: ['headline', 'image', 'publisher', 'mainEntityOfPage'],
   BreadcrumbList: ['itemListElement'],
   CreativeWork: ['name', 'description', 'image', 'creator'],

@@ -1,57 +1,14 @@
+import assert from 'node:assert/strict';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
-import { basename, join } from 'node:path';
-
-const teamSource = readFileSync(join(process.cwd(), 'src', 'data', 'team.ts'), 'utf8');
-const contentDir = join(process.cwd(), 'src', 'content', 'team');
-const failures = [];
-
-function readTeamContent() {
-  if (!existsSync(contentDir)) {
-    failures.push('src/content/team: missing team content directory');
-    return [];
-  }
-
-  return readdirSync(contentDir)
-    .filter((file) => file.endsWith('.json'))
-    .map((file) => {
-      const entry = JSON.parse(readFileSync(join(contentDir, file), 'utf8'));
-      return { slug: basename(file, '.json'), ...entry };
-    });
+let count=0;
+for(const group of ['blog','portfolio','services','team','sectors']) {
+ const files=readdirSync('src/content/'+group).filter(file=>file.endsWith('.json'));
+ for(const file of files) {
+  const entry=JSON.parse(readFileSync('src/content/'+group+'/'+file,'utf8'));count++;
+  if(entry.slug) assert.equal(entry.slug,file.slice(0,-5),'Stable id differs from filename');
+  if(group==='blog' && entry.status!=='draft') assert(entry.sections.length>0,'Published article has no body: '+file);
+  if(group==='sectors') for(const section of entry.sections) assert(existsSync('src/components/sections/sectors/'+section+'.astro'),'Missing sector section '+section);
+ }
 }
-
-const contentEntries = readTeamContent();
-const contentByName = new Map(contentEntries.map((entry) => [entry.name, entry]));
-const moduleMemberMatches = [
-  ...teamSource.matchAll(/\{\s*image:\s*'(?<image>[^']+)',\s*name:\s*'(?<name>[^']+)',\s*role:\s*'(?<role>[^']+)'\s*\}/g),
-].map((match) => match.groups);
-
-for (const member of moduleMemberMatches) {
-  const content = contentByName.get(member.name);
-
-  if (!content) {
-    failures.push(`team content missing entry for ${member.name}`);
-    continue;
-  }
-
-  for (const key of ['image', 'role']) {
-    if (content[key] !== member[key]) {
-      failures.push(`team content mismatch for ${member.name}: ${key} differs`);
-    }
-  }
-}
-
-for (const entry of contentEntries) {
-  const isListMember = moduleMemberMatches.some((member) => member.name === entry.name);
-  const isDetailMember = teamSource.includes(`name: '${entry.name}'`) && teamSource.includes(`image: '${entry.image}'`);
-
-  if (!isListMember && !isDetailMember) {
-    failures.push(`team content entry ${entry.slug} has no matching src/data/team.ts record`);
-  }
-}
-
-if (failures.length > 0) {
-  console.error(failures.join('\n'));
-  process.exit(1);
-}
-
-console.log(`Content parity audit passed for ${contentEntries.length} team entries.`);
+for(const name of ['portfolio','team','services']) assert(readFileSync('src/data/'+name+'.ts','utf8').includes("getCollection('"+name+"')"),'Collection is not the source of truth: '+name);
+console.log('Content audit passed for '+count+' collection entries.');

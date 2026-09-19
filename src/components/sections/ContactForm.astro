@@ -1,0 +1,31 @@
+---
+import FormFeedback from '../ui/FormFeedback.astro';
+interface Props { id?: string }
+const { id = 'enquiry' } = Astro.props;
+const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
+---
+<form action="/api/mail" method="post" class="form-horizontal" data-enhanced-form>
+  <input type="text" name="company_name" tabindex="-1" autocomplete="off" aria-hidden="true" class="form-trap" />
+  <div class="form-group row">
+    <div class="col-md-6"><div class="form-item">
+      <label class="form-title" for={`${id}-name`}>Full Name *</label>
+      <input id={`${id}-name`} name="fullname" class="form-control" placeholder="Your name" autocomplete="name" maxlength="100" required />
+    </div></div>
+    <div class="col-md-6"><div class="form-item">
+      <label class="form-title" for={`${id}-phone`}>Phone *</label>
+      <input type="tel" id={`${id}-phone`} name="phone" class="form-control" placeholder="Phone number" autocomplete="tel" maxlength="50" required />
+    </div></div>
+  </div>
+  <div class="form-group"><div class="form-item">
+    <label class="form-title" for={`${id}-email`}>Email *</label>
+    <input type="email" id={`${id}-email`} name="email" class="form-control" placeholder="Email address" autocomplete="email" maxlength="320" required />
+  </div></div>
+  <div class="form-group"><div class="form-item">
+    <label class="form-title" for={`${id}-message`}>Message *</label>
+    <textarea id={`${id}-message`} name="message" class="form-control" rows="5" placeholder="Tell us about your project" maxlength="5000" required></textarea>
+  </div></div>
+  {siteKey && <div class="form-group mt-10" data-turnstile-key={siteKey}></div>}
+  <div class="form-group mt-10"><button type="submit" class="tl-primary-btn">Send Message <span class="icon"><i class="fa-regular fa-arrow-right" aria-hidden="true"></i></span></button></div>
+  <FormFeedback />
+</form>
+<style>.form-trap { position:absolute; left:-9999px; width:0; height:0; opacity:0 } .form-title { display:block; font-size:18px; font-weight:500; margin-bottom:15px; color:inherit }</style>

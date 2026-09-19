@@ -1,24 +1,25 @@
 ---
 interface Props {
   title: string;
+  headingTag?: 'h1' | 'p';
   currentPage: string;
   parentLabel?: string;
   parentHref?: string;
 }
 
-const { title, currentPage, parentLabel = 'Home', parentHref = '/' } = Astro.props;
+const { headingTag: Heading = 'h1', title, currentPage, parentLabel = 'Home', parentHref = '/' } = Astro.props;
 ---
 
 <section class="page-header">
-  <div class="bg-img" data-background="/assets/img/bg-img/page-header-bg.webp"></div>
+  <div class="bg-img" data-background="/assets/img/bg-img/page-header-bg.webp" style="--bg-desktop:url('/assets/img/bg-img/page-header-bg.webp');--bg-mobile:url('/assets/img/bg-img/page-header-bg.webp')"></div>
   <div class="overlay"></div>
   <div class="container">
     <div class="page-header-content">
-      <h1 class="title">{title}</h1>
+      <Heading class="title">{title}</Heading>
       <h4 class="sub-title">
         <a class="home" href={parentHref}>{parentLabel}</a>
         <span class="icon">-</span>
-        <a class="inner-page" href="#">{currentPage}</a>
+        <span class="inner-page" aria-current="page">{currentPage}</span>
       </h4>
     </div>
   </div>

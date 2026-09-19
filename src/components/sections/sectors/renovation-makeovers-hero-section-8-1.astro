@@ -1,0 +1,42 @@
+---
+import OptimizedImage from '../../ui/OptimizedImage.astro';
+interface Props {}
+---
+<section class="hero-section-8 overflow-hidden tl-bg-color">
+    <div class="bg-shape" data-background="/assets/img/shapes/hero-shape-2.webp" style="--bg-desktop:url('/assets/img/shapes/hero-shape-2.webp');--bg-mobile:url('/assets/img/shapes/hero-shape-2.webp')"></div>
+    <div class="container">
+      <div class="hero-wrap-8 pt-130">
+        <div class="hero-content-8 white-content">
+          <div class="section-heading mb-0 slide-anim" data-delay="2.3" data-offset="100" data-direction="left">
+            <h4
+              class="sub-heading"
+              data-text-animation="fade-in-right"
+              data-split="char"
+              data-duration="0.9"
+              data-stagger="0.03"
+            >
+              Trusted Design Partner
+            </h4>
+            <h1 class="section-title cursor-effect">Find Your Inspired <br /><span>Interior Design</span></h1>
+            <div class="hero-btn mt-50">
+              <a href="/service" class="tl-primary-btn"
+                >Get our services <span class="icon"><i class="fa-regular fa-arrow-right"></i></span></a
+              >
+            </div>
+          </div>
+          <div class="hero-content-left slide-anim" data-delay="2.3" data-offset="100" data-direction="right">
+            <div class="hero-thumb">
+              <OptimizedImage src="/assets/img/images/hero-img-3.webp" alt="thumb" loading="lazy" />
+            </div>
+            <p>
+              Whether it’s your home, office, or a commercial project, we are always dedicated to bringing <br /> your vision
+              to life.
+            </p>
+          </div>
+        </div>
+        <div class="hero-bottom-img slide-anim" data-delay="2.3" data-offset="100" data-direction="bottom">
+          <OptimizedImage src="/assets/img/images/hero-img-4.webp" alt="img" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>

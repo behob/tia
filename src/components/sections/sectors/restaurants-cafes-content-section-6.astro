@@ -1,0 +1,53 @@
+---
+import OptimizedImage from '../../ui/OptimizedImage.astro';
+interface Props {}
+---
+<section class="content-section pt-130 pb-130 tl-bg-color">
+    <div class="shape-1"><OptimizedImage src="/assets/img/shapes/content-shape-1.webp" alt="shape" loading="lazy" /></div>
+    <div class="container container-2">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="content-info slide-anim" data-delay="0.3" data-offset="100" data-direction="left">
+            <div class="section-heading mb-30">
+              <h4
+                class="sub-heading"
+                data-text-animation="fade-in-right"
+                data-split="char"
+                data-duration="0.9"
+                data-stagger="0.03"
+              >
+                What we do
+              </h4>
+              <h2 class="section-title cursor-effect title-2">
+                TIA has <span>created <br /> exceptional</span> architectural <br />designs.
+              </h2>
+            </div>
+            <ul class="content-list">
+              <li><i class="fa-solid fa-circle-chevron-right"></i>Residence And Condo</li>
+              <li><i class="fa-solid fa-circle-chevron-right"></i>Modern Kitchen Renovate</li>
+              <li><i class="fa-solid fa-circle-chevron-right"></i>Interior House Decoration</li>
+            </ul>
+            <p>
+              We specialize in transforming visions into reality. Explore our portfolio of innovative architectural and
+              interior design projects crafted with precision.
+            </p>
+            <div class="content-btn">
+              <a href="/about" class="tl-primary-btn"
+                >Discover more <span class="icon"><i class="fa-regular fa-arrow-right"></i></span></a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="content-img-wrap slide-anim" data-delay="0.3" data-offset="100" data-direction="right">
+            <div class="content-img-1">
+              <OptimizedImage src="/assets/img/images/content-img-1.webp" alt="content" loading="lazy" />
+            </div>
+            <div class="content-img-2">
+              <OptimizedImage src="/assets/img/images/content-img-2.webp" alt="content" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,8 @@
+{
+  "icon": "/assets/img/service/feature-img-3.webp",
+  "title": "Interior Design Consultation",
+  "desc": "Expert advice and guidance to help you make informed decisions about your space.",
+  "group": "featureServices",
+  "order": 2,
+  "reviewStatus": "pending"
+}

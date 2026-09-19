@@ -1,0 +1,8 @@
+{
+  "icon": "/assets/img/service/feature-img-2.webp",
+  "title": "Commercial Interior Design",
+  "desc": "Creating functional and aesthetically pleasing workspaces that boost productivity and reflect brand identity.",
+  "group": "featureServices",
+  "order": 1,
+  "reviewStatus": "pending"
+}

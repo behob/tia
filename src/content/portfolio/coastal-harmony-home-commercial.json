@@ -1,0 +1,59 @@
+{
+  "slug": "coastal-harmony-home-commercial",
+  "title": "Coastal Harmony Home",
+  "category": "Commercial",
+  "architect": "TIA Interior Team",
+  "projectType": "Commercial Interior Design",
+  "client": "Commercial Client",
+  "terms": "4 months",
+  "strategy": "Contemporary luxury",
+  "date": "March 17, 2025",
+  "heroImage": "/assets/img/project/project-3.webp",
+  "seoDescription": "Coastal Harmony Home is a commercial interior design project in Dubai focused on planning, material harmony, and refined execution by TIA Interior.",
+  "description": "The Coastal Harmony Home project focused on creating a commercial environment with a clear design language, practical circulation, and finishes selected for long-term use in Dubai. The concept balances visual impact with comfort, durability, and a strong sense of place.",
+  "features": [
+    {
+      "title": "Spatial Planning",
+      "desc": "The layout was organized to improve movement, sightlines, and daily usability for this commercial setting."
+    },
+    {
+      "title": "Material Direction",
+      "desc": "Finishes were selected to balance warmth, durability, and a refined contemporary look."
+    },
+    {
+      "title": "Lighting Layers",
+      "desc": "Ambient, task, and accent lighting were planned to support both function and atmosphere."
+    },
+    {
+      "title": "Custom Details",
+      "desc": "Joinery, feature surfaces, and styling elements were tailored to the project brief."
+    },
+    {
+      "title": "Execution Focus",
+      "desc": "The final result was coordinated around quality control, timeline clarity, and practical maintenance."
+    }
+  ],
+  "roomSizes": [
+    {
+      "size": "30m2",
+      "label": "main area"
+    },
+    {
+      "size": "17m2",
+      "label": "feature zone"
+    },
+    {
+      "size": "14m2",
+      "label": "support space"
+    },
+    {
+      "size": "10m2",
+      "label": "entry area"
+    }
+  ],
+  "resultDescription": "The completed Coastal Harmony Home interior delivers a composed commercial experience with improved usability, stronger visual identity, and details that support the client’s day-to-day needs.",
+  "image": "/assets/img/project/project-3.webp",
+  "order": 6,
+  "listingGroup": "commercial",
+  "reviewStatus": "pending"
+}

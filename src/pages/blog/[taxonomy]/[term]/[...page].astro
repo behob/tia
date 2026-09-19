@@ -1,0 +1,28 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Layout from '../../../../layouts/Layout.astro';
+import PageHeader from '../../../../components/ui/PageHeader.astro';
+import BlogPostCard from '../../../../components/cards/BlogPostCard.astro';
+import { getBlogPosts, taxonomySlug } from '../../../../data/blog';
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = await getBlogPosts();
+  return (['category', 'tag'] as const).flatMap(taxonomy => {
+    const terms = [...new Set(posts.flatMap(post => taxonomy === 'category' ? [post.category] : post.tags))];
+    return terms.flatMap(label => paginate(posts.filter(post => (taxonomy === 'category' ? [post.category] : post.tags).includes(label)), {
+      params: { taxonomy, term: taxonomySlug(label) }, props: { label }, pageSize:9,
+    }));
+  });
+}) satisfies GetStaticPaths;
+const { page, label } = Astro.props;
+---
+<Layout title={`${label}${page.currentPage > 1 ? ` - Page ${page.currentPage}` : ''} - TIA Interior Blog`} description={`Explore ${label.toLowerCase()} ideas and advice from TIA Interior.`}>
+  <PageHeader title={label} currentPage={label} parentLabel="Blog" parentHref="/blog-grid" />
+  <section class="pt-130 pb-130"><div class="container container-2">
+    <div class="row gy-5">{page.data.map(post => <div class="col-lg-4 col-md-6"><BlogPostCard {...post} /></div>)}</div>
+    <nav class="mt-40" aria-label="Blog pagination">
+      {page.url.prev && <a class="tl-primary-btn" href={page.url.prev}>Previous</a>}
+      <span> Page {page.currentPage} of {page.lastPage} </span>
+      {page.url.next && <a class="tl-primary-btn" href={page.url.next}>Next</a>}
+    </nav>
+  </div></section>
+</Layout>

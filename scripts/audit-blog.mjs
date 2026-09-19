@@ -149,7 +149,7 @@ try {
     assert.equal(await page.locator('.blog-details .justify-content-center').count(), 1);
     const article = await page
       .locator('script[type="application/ld+json"]')
-      .evaluate((el) => JSON.parse(el.textContent).find((item) => item['@type'] === 'Article'));
+      .evaluate((el) => JSON.parse(el.textContent).find((item) => item['@type'] === 'BlogPosting'));
     assert.equal(article.headline, post.title);
     for (const alias of post.aliases) {
       assert(

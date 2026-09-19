@@ -1,0 +1,93 @@
+---
+import OptimizedImage from '../../ui/OptimizedImage.astro';
+interface Props {}
+---
+<section class="testimonial-section pt-130 pb-130 fade-wrapper">
+    <div class="container container-2">
+      <div class="row section-heading-wrap fade-top">
+        <div class="shape"><OptimizedImage src="/assets/img/shapes/section-heading.webp" alt="shape" loading="lazy" /></div>
+        <div class="col-lg-4 col-md-12">
+          <div class="section-heading mb-0">
+            <h4
+              class="sub-heading"
+              data-text-animation="fade-in-right"
+              data-split="char"
+              data-duration="0.9"
+              data-stagger="0.03"
+            >
+              Owr clients say
+            </h4>
+          </div>
+        </div>
+        <div class="col-lg-8 col-md-12">
+          <div class="section-heading section-heading-2 mb-0">
+            <h2 class="section-title cursor-effect title-2">
+              Here’s What <span>warm words <br /> our clients</span> say
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="testi-img slide-anim" data-delay="0.3" data-offset="100" data-direction="left">
+            <OptimizedImage src="/assets/img/testi/testi-img-1.webp" alt="testi" loading="lazy" />
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div
+            class="testi-carousel-wrap testi-carousel-wrap-7 slide-anim"
+            data-delay="0.3"
+            data-offset="100"
+            data-direction="right"
+          >
+            <div class="testi-top-content-wrap">
+              <div class="testi-top-content">
+                <div class="left-content">
+                  <h3 class="rating">4.80</h3>
+                  <div class="rating-list">
+                    <ul>
+                      <li><i class="fa-solid fa-star"></i></li>
+                      <li><i class="fa-solid fa-star"></i></li>
+                      <li><i class="fa-solid fa-star"></i></li>
+                      <li><i class="fa-solid fa-star"></i></li>
+                      <li><i class="fa-solid fa-star"></i></li>
+                    </ul>
+                    <span>2,688 reviews</span>
+                  </div>
+                </div>
+                <div class="right-content">
+                  <p>
+                    From concept to reality, the team turned <br />my vision into a stunning, livable space. I <br
+                    />couldn’t be happier with this!
+                  </p>
+                </div>
+              </div>
+              <div class="swiper-nav-wrap">
+                <div class="swiper-nav swiper-prev"><i class="fa-regular fa-arrow-left"></i></div>
+                <div class="swiper-nav swiper-next"><i class="fa-regular fa-arrow-right"></i></div>
+              </div>
+            </div>
+            <div class="testi-carousel swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="testi-item">
+                    <p>
+                      “I absolutely love my the new modern living room! The clean lines, a neutral tones, and minimalist
+                      interior create such a calming & stylish atmosphere. Highly recommend their modern interior design
+                      services!"
+                    </p>
+                    <div class="testi-author">
+                      <div class="author-img">
+                        <OptimizedImage src="/assets/img/testi/testi-author-1.webp" alt="author" loading="lazy" />
+                      </div>
+                      <h4 class="name">Morgan Dufresne <span>Company Owner</span></h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

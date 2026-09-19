@@ -1,0 +1,8 @@
+{
+  "icon": "/assets/img/icon/service-icon-4.webp",
+  "title": "Project Management",
+  "desc": "We oversee every aspect of your project to ensure timely and budget-friendly delivery.",
+  "group": "iconServices",
+  "order": 3,
+  "reviewStatus": "pending"
+}

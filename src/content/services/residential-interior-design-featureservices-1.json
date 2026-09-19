@@ -1,0 +1,8 @@
+{
+  "icon": "/assets/img/service/feature-img-1.webp",
+  "title": "Residential Interior Design",
+  "desc": "Tailored design services for private homes, including room makeovers and complete home transformations.",
+  "group": "featureServices",
+  "order": 0,
+  "reviewStatus": "pending"
+}

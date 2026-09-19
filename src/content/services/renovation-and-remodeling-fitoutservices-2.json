@@ -1,0 +1,10 @@
+{
+  "num": "02",
+  "title": "Renovation and Remodeling",
+  "image": "/assets/img/service/service-img-2.webp",
+  "desc": "Tailored design services for private homes, including room makeovers and complete home transformations.",
+  "big": true,
+  "group": "fitOutServices",
+  "order": 1,
+  "reviewStatus": "pending"
+}

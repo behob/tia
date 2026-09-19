@@ -1,5 +1,32 @@
 {
+  "image": "/assets/img/team/team-img-8.webp",
   "name": "Valeria Novikova",
   "role": "Interior Designer",
-  "image": "/assets/img/team/team-img-8.webp"
+  "slug": "valeria-novikova",
+  "bio": "Valeria Novikova contributes interior designer expertise to TIA Interior projects, helping translate client briefs into practical, elegant spaces with a clear design direction.",
+  "professionalInfo": "Valeria Novikova works across concept refinement, technical coordination, and client communication. Their role supports the studio’s ability to deliver interiors that feel polished, functional, and responsive to each project brief.",
+  "expertise": [
+    "3D Visualization for residential and commercial interiors",
+    "Finish Selection with contractors, suppliers, and internal design teams",
+    "Project Documentation for clear decisions during project delivery",
+    "Quality review, design consistency, and practical implementation support"
+  ],
+  "expertiseDescription": "Valeria Novikova combines design awareness with execution discipline, supporting TIA Interior clients from early ideas through detailed project coordination.",
+  "skills": [
+    {
+      "title": "3D Visualization",
+      "width": "84%"
+    },
+    {
+      "title": "Finish Selection",
+      "width": "80%"
+    },
+    {
+      "title": "Project Documentation",
+      "width": "76%"
+    }
+  ],
+  "order": 2,
+  "listed": true,
+  "reviewStatus": "pending"
 }

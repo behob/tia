@@ -1,0 +1,8 @@
+{
+  "icon": "/assets/img/icon/service-details-1.webp",
+  "title": "Space Optimization",
+  "desc": "Through the best smart space optimization interior design.",
+  "group": "serviceDetailsFeatures",
+  "order": 0,
+  "reviewStatus": "pending"
+}

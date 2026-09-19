@@ -1,0 +1,75 @@
+---
+import OptimizedImage from '../../ui/OptimizedImage.astro';
+interface Props {}
+---
+<section class="testimonial-section-4">
+    <div class="testi-bg"><OptimizedImage src="/assets/img/bg-img/testi-bg.webp" alt="testi" loading="lazy" /></div>
+    <div class="container container-2">
+      <div class="row">
+        <div class="col-lg-6"></div>
+        <div class="col-lg-6">
+          <div
+            class="testi-left-content-4 pt-130 pb-130 slide-anim"
+            data-delay="0.3"
+            data-offset="100"
+            data-direction="right"
+          >
+            <div class="section-heading mb-30 exp-heading">
+              <h4
+                class="sub-heading"
+                data-text-animation="fade-in-right"
+                data-split="char"
+                data-duration="0.9"
+                data-stagger="0.03"
+              >
+                Owr clients say
+              </h4>
+              <h2 class="section-title cursor-effect">Here’s What <span>warm <br />words our clients</span> say</h2>
+            </div>
+            <div class="testi-carousel-wrap">
+              <div class="testi-top-content">
+                <div class="left-content">
+                  <h3 class="rating">4.80</h3>
+                  <div class="rating-list">
+                    <ul>
+                      <li><i class="fa-solid fa-star"></i></li>
+                      <li><i class="fa-solid fa-star"></i></li>
+                      <li><i class="fa-solid fa-star"></i></li>
+                      <li><i class="fa-solid fa-star"></i></li>
+                      <li><i class="fa-solid fa-star"></i></li>
+                    </ul>
+                    <span>2,688 reviews</span>
+                  </div>
+                </div>
+                <div class="right-content">
+                  <p>
+                    From concept to reality, the team turned my <br /> vision into a stunning, livable space. I couldn’t <br
+                    /> be happier with this!
+                  </p>
+                </div>
+              </div>
+              <div class="testi-carousel swiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="testi-item">
+                      <p>
+                        “I absolutely love my the new modern living room! The clean lines, a neutral tones, and
+                        minimalist interior create such a calming & stylish atmosphere. Highly recommend their modern
+                        interior design services!"
+                      </p>
+                      <div class="testi-author">
+                        <div class="author-img">
+                          <OptimizedImage src="/assets/img/testi/testi-author-1.webp" alt="author" loading="lazy" />
+                        </div>
+                        <h4 class="name">Morgan Dufresne <span>Company Owner</span></h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

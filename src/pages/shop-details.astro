@@ -72,11 +72,11 @@ const paymentIcons = [1, 2, 3, 4, 5, 6, 7];
                 <form>
                   <input type="number" name="quantity" min="1" max="100" step="1" value="1" aria-label="Quantity" />
                 </form>
-                <div class="cart-btn-wrap-2"><a href="#" class="cp-primary-btn cart-btn">Add To Cart</a></div>
+                <div class="cart-btn-wrap-2"><a href="/contact" class="cp-primary-btn cart-btn">Enquire About This Item</a></div>
               </div>
               <ul class="product-meta">
-                <li><a href="#"><i class="fa-regular fa-heart"></i> Add to wishlist</a></li>
-                <li><a href="#"><i class="fa-regular fa-recycle"></i> Compare</a></li>
+                <li><a href="/contact">Ask about availability</a></li>
+                <li><a href="/shop">Browse the collection</a></li>
               </ul>
               <div class="payment-card-wrap">
                 <span class="card-title">Guarantee Safe & Secure Checkout</span>
@@ -84,9 +84,7 @@ const paymentIcons = [1, 2, 3, 4, 5, 6, 7];
                   {
                     paymentIcons.map((i) => (
                       <li>
-                        <a href="#">
-                          <OptimizedImage src={`/assets/img/icon/shop-icon-${i}.webp`} alt="payment" loading="lazy" />
-                        </a>
+                        <span><OptimizedImage src={`/assets/img/icon/shop-icon-${i}.webp`} alt="payment" loading="lazy" /></span>
                       </li>
                     ))
                   }
@@ -199,37 +197,7 @@ const paymentIcons = [1, 2, 3, 4, 5, 6, 7];
                 </div>
                 <div class="blog-contact-form form-2 review-form">
                   <div class="request-form">
-                    <form action="/api/mail" method="post" class="form-horizontal">
-                      <div class="form-group row">
-                        <div class="col-md-12">
-                          <div class="form-item">
-                            <input type="text" name="fullname" class="form-control" placeholder="Your Name" />
-                          </div>
-                        </div>
-                        <div class="col-md-12">
-                          <div class="form-item">
-                            <input type="email" name="email" class="form-control" placeholder="Your Email" />
-                          </div>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <div class="col-md-12">
-                          <div class="form-item message-item">
-                            <textarea
-                              name="message"
-                              cols="30"
-                              rows="5"
-                              class="form-control address"
-                              placeholder="Comment"></textarea>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="submit-btn">
-                        <button class="tl-primary-btn" type="submit"
-                          >Submit <span class="icon"><i class="fa-regular fa-arrow-right"></i></span></button
-                        >
-                      </div>
-                    </form>
+                    <p>For product availability and specifications, <a href="/contact">contact our team</a>.</p>
                   </div>
                 </div>
               </div>

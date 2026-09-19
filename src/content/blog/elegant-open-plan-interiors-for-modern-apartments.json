@@ -7,8 +7,29 @@
   "category": "Exteriors",
   "author": "Admin",
   "order": 13,
-  "tags": ["Interior", "Design"],
-  "sections": [],
+  "tags": [
+    "Interior",
+    "Design"
+  ],
+  "sections": [
+    {
+      "title": "Map routes before dividing the room",
+      "text": "An open-plan apartment works best when the route from the entrance to the kitchen, balcony and bedrooms remains obvious. Draw these routes first, then locate the dining and seating areas around them. Measure the space needed to pull out dining chairs and open cabinets. A layout that looks balanced on a plan can still feel cramped when furniture is in use."
+    },
+    {
+      "title": "Create zones without building walls",
+      "text": "A rug can define the living area while a pendant marks the dining table. A sofa back or a low console can form a gentle boundary without blocking daylight. Use tall shelving carefully: it may offer storage but can make the room beyond feel disconnected. Keep sightlines open to the brightest part of the apartment wherever practical."
+    },
+    {
+      "title": "Connect finishes across the space",
+      "text": "Choose a small family of colors and materials that can work in the kitchen, dining and living areas. Repeat a timber tone or metal finish instead of giving each zone a completely different theme. Vary texture to avoid a flat result: curtains, upholstery and a textured rug can soften a room with extensive tile and glass."
+    },
+    {
+      "title": "Plan for noise and daily clutter",
+      "text": "Open rooms expose kitchen activity and work materials to view. Include closed storage near the places where items accumulate, and check appliance noise before selecting equipment. Curtains and upholstered furniture can help soften reflections, but they are not a substitute for acoustic advice where noise is a major concern. Test your plan against an ordinary weekday as well as a dinner with guests."
+    }
+  ],
   "gallery": [],
-  "aliases": []
+  "aliases": [],
+  "updatedDate": "2026-09-19"
 }

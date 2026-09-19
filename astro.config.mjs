@@ -7,9 +7,9 @@ import cloudflare from '@astrojs/cloudflare';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://tiadecors.com',
-  integrations: [sitemap()],
+  integrations: [sitemap({ filter: (url) => !/^\/(?:index-[2-9]|blog-(?:list|standard|single|details)|search|404|error-page|coming-soon)(?:\/|$)/.test(new URL(url).pathname) })],
   adapter: cloudflare({
-    prerenderEnvironment: 'node',
+    imageService: 'compile',
   }),
   output: 'static',
 });

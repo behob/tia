@@ -1,5 +1,32 @@
 {
+  "image": "/assets/img/team/team-img-6.webp",
   "name": "Mark Jackson",
   "role": "Exhibition Designer",
-  "image": "/assets/img/team/team-img-6.webp"
+  "slug": "mark-jackson",
+  "bio": "Mark Jackson contributes exhibition designer expertise to TIA Interior projects, helping translate client briefs into practical, elegant spaces with a clear design direction.",
+  "professionalInfo": "Mark Jackson works across concept refinement, technical coordination, and client communication. Their role supports the studio’s ability to deliver interiors that feel polished, functional, and responsive to each project brief.",
+  "expertise": [
+    "Concept Development for residential and commercial interiors",
+    "Material Coordination with contractors, suppliers, and internal design teams",
+    "Client Presentation for clear decisions during project delivery",
+    "Quality review, design consistency, and practical implementation support"
+  ],
+  "expertiseDescription": "Mark Jackson combines design awareness with execution discipline, supporting TIA Interior clients from early ideas through detailed project coordination.",
+  "skills": [
+    {
+      "title": "Concept Development",
+      "width": "82%"
+    },
+    {
+      "title": "Material Coordination",
+      "width": "78%"
+    },
+    {
+      "title": "Client Presentation",
+      "width": "74%"
+    }
+  ],
+  "order": 0,
+  "listed": true,
+  "reviewStatus": "pending"
 }

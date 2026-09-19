@@ -1,5 +1,4 @@
 ---
 import { defaultBlogSlug, getBlogHref } from '../data/blog';
-const destination = getBlogHref(defaultBlogSlug);
-return Astro.redirect(destination, 301);
+return Astro.redirect(getBlogHref(defaultBlogSlug), 301);
 ---

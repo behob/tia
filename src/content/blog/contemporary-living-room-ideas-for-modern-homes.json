@@ -7,8 +7,29 @@
   "category": "Exteriors",
   "author": "Admin",
   "order": 11,
-  "tags": ["Interior", "Design"],
-  "sections": [],
+  "tags": [
+    "Interior",
+    "Design"
+  ],
+  "sections": [
+    {
+      "title": "Start with how the room is used",
+      "text": "List the activities your living room needs to support before choosing a style: conversation, television, reading and occasional work often compete for the same space. Position the main seating around the activity you use most, and leave a clear route between doors. Mark the proposed furniture footprint with tape so you can check circulation before ordering."
+    },
+    {
+      "title": "Build a restrained material palette",
+      "text": "Choose one main finish, such as timber, and repeat it in two or three places. Add contrast through a smaller amount of stone, metal or textured fabric. A contemporary room does not need every surface to match; it benefits from a consistent relationship between warm and cool tones. View fabric and paint samples together in the actual room during daylight and after sunset."
+    },
+    {
+      "title": "Layer lighting around people",
+      "text": "Combine general light with lamps for reading and a softer source near art or shelving. Place switches where they are easy to reach from the seating area. Check whether lamps reflect in the television, and avoid relying on a single bright ceiling fixture. Where dimming is planned, confirm that the lamps, drivers and controls are compatible before installation."
+    },
+    {
+      "title": "Finish with comfort and flexibility",
+      "text": "Use a rug to connect the seating group and select upholstery for the way the room will be lived in. A movable side table can be more useful than a second large coffee table. Keep a few surfaces clear, then add books, art and objects that matter to you. Reassess the arrangement after living with it for a week rather than buying every accessory at once."
+    }
+  ],
   "gallery": [],
-  "aliases": []
+  "aliases": [],
+  "updatedDate": "2026-09-19"
 }

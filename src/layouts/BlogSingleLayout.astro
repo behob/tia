@@ -2,15 +2,15 @@
 import OptimizedImage from '../components/ui/OptimizedImage.astro';
 import Layout from './Layout.astro';
 import PageHeader from '../components/ui/PageHeader.astro';
-import type { BlogPost } from '../data/blog';
+import { taxonomySlug, type BlogPost } from '../data/blog';
 interface Props {
   post: BlogPost;
 }
 const { post } = Astro.props;
 ---
 
-<Layout title={`${post.title} - TIA Interior`} description={post.excerpt} ogImage={post.image} ogType="article">
-  <PageHeader title="Blog Details" currentPage="Blog Details" />
+<Layout title={`${post.title} - TIA Interior`} description={post.excerpt} ogImage={post.image} ogType="article" jsonLd={{ '@context': 'https://schema.org', '@type': 'BlogPosting', headline: post.title, datePublished: post.publishedDate, dateModified: post.updatedDate ?? post.publishedDate, author: { '@type': 'Organization', name: post.author }, image: new URL(post.image, Astro.site).href, mainEntityOfPage: new URL(post.href, Astro.site).href }}>
+  <PageHeader title="Blog" currentPage="Article" headingTag="p" />
 
   <section class="blog-details pt-150 pb-150 overflow-hidden">
     <div class="container container-2">
@@ -22,10 +22,10 @@ const { post } = Astro.props;
               <div class="post-content">
                 <ul class="post-meta">
                   <li class="category">{post.category.toLowerCase()}</li>
-                  <li>{post.date}</li>
+                  <li><time datetime={post.publishedDate}>{post.date}</time></li>
                   <li>By <span>{post.author}</span></li>
                 </ul>
-                <h2 class="title">{post.title}</h2>
+                <h1 class="title">{post.title}</h1>
               </div>
             </div>
             <div class="blog-details-img mb-30">
@@ -93,7 +93,7 @@ const { post } = Astro.props;
                 {
                   post.tags.map((tag) => (
                     <li>
-                      <a href="/blog-grid">{tag}</a>
+                      <a href={`/blog/tag/${taxonomySlug(tag)}`}>{tag}</a>
                     </li>
                   ))
                 }
@@ -118,59 +118,14 @@ const { post } = Astro.props;
                           </div>
                         </div>
                         <p>{comment.text}</p>
-                        <button class="reply">
-                          <OptimizedImage src="/assets/img/icon/arrow-left.webp" alt="arrow" loading="lazy" /> Reply
-                        </button>
+                        
                       </div>
                     </div>
                   ))}
                 </div>
               )
             }
-            <div class="form-wrap pt-70">
-              <div class="blog-contact-form">
-                <h2 class="title">Post Comment</h2>
-                <div class="request-form">
-                  <form action="/api/mail" method="post" id="ajax_contact" class="form-horizontal">
-                    <div class="form-group row">
-                      <div class="col-md-4">
-                        <div class="form-item">
-                          <input type="text" id="fullname" name="fullname" class="form-control" placeholder="Name*" />
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-item">
-                          <input type="email" id="email" name="email" class="form-control" placeholder="Email*" />
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-item">
-                          <input type="text" id="website" name="website" class="form-control" placeholder="Website*" />
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <div class="col-md-12">
-                        <div class="form-item message-item">
-                          <textarea
-                            id="message"
-                            name="message"
-                            cols="30"
-                            rows="8"
-                            class="form-control address"
-                            placeholder="Comment*"></textarea>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="submit-btn">
-                      <button id="submit" class="tl-primary-btn" type="submit"
-                        >Post Comment <span class="icon"><i class="fa-regular fa-arrow-right"></i></span></button
-                      >
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
+            <p class="mt-40">Have a question about your space? <a href="/contact">Talk to our design team</a>.</p>
           </div>
         </div>
       </div>

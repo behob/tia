@@ -1,9 +1,11 @@
 ---
 import { stylesheetAssets } from '../../data/assets';
+const simple = /^\/(?:blog(?:-|\/)|contact(?:\/|$)|search(?:\/|$)|404(?:\/|$))/.test(Astro.url.pathname);
+const styles = simple ? stylesheetAssets.filter(asset => /bootstrap|fontawesome/.test(asset.href)) : stylesheetAssets;
 ---
 
 {
-  stylesheetAssets.map((asset) => (
+  styles.map((asset) => (
     <>
       {asset.preload && <link rel="preload" href={asset.href} as="style" />}
       {asset.deferred ? (

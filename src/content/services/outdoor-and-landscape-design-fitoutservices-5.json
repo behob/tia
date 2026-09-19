@@ -1,0 +1,9 @@
+{
+  "num": "05",
+  "title": "Outdoor & Landscape Design",
+  "image": "/assets/img/service/service-img-5.webp",
+  "desc": "Tailored design services for private homes, including room makeovers and complete home transformations.",
+  "group": "fitOutServices",
+  "order": 4,
+  "reviewStatus": "pending"
+}

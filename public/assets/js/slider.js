@@ -9,6 +9,7 @@
 
         /* ============================ Animation Function ============================ */
         function sliderAnimations(elements) {
+            if (matchMedia("(prefers-reduced-motion: reduce)").matches) { elements.css("opacity", 1); return; }
             var animationEndEvents = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
             elements.each(function () {
                 var $this = $(this);
@@ -32,7 +33,7 @@
         /* ============================ Swiper Setup ============================ */
         var sliderOptions = {
             init: false,
-            speed: 1500,
+            speed: matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 1500,
             loop: true,
             effect: "fade", // Fixed typo: "verticle" isn't a default Swiper effect, usually "vertical" or "fade"
             grabCursor: true,
@@ -68,7 +69,7 @@
             swiper.update();
 
             const elements = $(swiper.slides[swiper.activeIndex]).find("[data-animation]");
-            elements.css("opacity", 0);
+            elements.css("opacity", 1);
 
             setTimeout(function () {
                 const sliderSection = document.querySelector(".slider-section");
@@ -83,8 +84,9 @@
                     delay: 7000,
                     disableOnInteraction: false,
                 };
-                swiper.autoplay.start();
+                // Advance slides only when visitors choose to; keep content readable.
             }, 80);
         };
+        window.startSliderAfterPreload();
     });
 })(jQuery);

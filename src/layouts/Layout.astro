@@ -5,7 +5,7 @@ import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import Sidebar from '../components/layout/Sidebar.astro';
 import MobileMenu from '../components/layout/MobileMenu.astro';
-import Preloader from '../components/layout/Preloader.astro';
+import SiteControls from '../components/ui/SiteControls.astro';
 import SearchBox from '../components/layout/SearchBox.astro';
 import LegacyScripts from '../components/seo/LegacyScripts.astro';
 import StylesheetLinks from '../components/seo/StylesheetLinks.astro';
@@ -114,7 +114,7 @@ const jsonLd = [...siteJsonLd, ...routeJsonLd, ...customJsonLd.filter(Boolean)];
   </head>
 
   <body>
-    <Preloader />
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <Header currentPath={currentPath} />
     <SearchBox />
     <Sidebar />
@@ -122,14 +122,14 @@ const jsonLd = [...siteJsonLd, ...routeJsonLd, ...customJsonLd.filter(Boolean)];
 
     <div id="antra-smooth-wrapper">
       <div id="antra-smooth-content">
-        <main id="main-content">
+        <main id="main-content" tabindex="-1">
           <slot />
         </main>
         <Footer />
       </div>
     </div>
 
-    <div id="scroll-percentage" role="button" aria-label="Scroll to top" tabindex="0"><span id="scroll-percentage-value"></span></div>
+    <SiteControls />
 
     <LegacyScripts currentPath={currentPath} />
   </body>

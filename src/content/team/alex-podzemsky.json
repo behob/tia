@@ -1,5 +1,32 @@
 {
+  "image": "/assets/img/team/team-img-1.webp",
   "name": "Alex Podzemsky",
   "role": "Architect",
-  "image": "/assets/img/team/team-img-1.webp"
+  "slug": "alex-podzemsky",
+  "bio": "Alex Podzemsky contributes architect expertise to TIA Interior projects, helping translate client briefs into practical, elegant spaces with a clear design direction.",
+  "professionalInfo": "Alex Podzemsky works across concept refinement, technical coordination, and client communication. Their role supports the studio’s ability to deliver interiors that feel polished, functional, and responsive to each project brief.",
+  "expertise": [
+    "Concept Development for residential and commercial interiors",
+    "Material Coordination with contractors, suppliers, and internal design teams",
+    "Client Presentation for clear decisions during project delivery",
+    "Quality review, design consistency, and practical implementation support"
+  ],
+  "expertiseDescription": "Alex Podzemsky combines design awareness with execution discipline, supporting TIA Interior clients from early ideas through detailed project coordination.",
+  "skills": [
+    {
+      "title": "Concept Development",
+      "width": "85%"
+    },
+    {
+      "title": "Material Coordination",
+      "width": "81%"
+    },
+    {
+      "title": "Client Presentation",
+      "width": "77%"
+    }
+  ],
+  "order": 3,
+  "listed": true,
+  "reviewStatus": "pending"
 }

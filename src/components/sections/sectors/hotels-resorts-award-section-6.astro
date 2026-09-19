@@ -1,0 +1,88 @@
+---
+import OptimizedImage from '../../ui/OptimizedImage.astro';
+interface Props {}
+---
+<section class="award-section bg-grey pt-130 pb-130 fade-wrapper">
+    <div class="bg-shape"><OptimizedImage src="/assets/img/shapes/team-bg-shape-1.webp" alt="shape" loading="lazy" /></div>
+    <div class="container container-2">
+      <div class="row section-heading-wrap fade-top">
+        <div class="shape"><OptimizedImage src="/assets/img/shapes/section-heading.webp" alt="shape" loading="lazy" /></div>
+        <div class="col-lg-4 col-md-12">
+          <div class="section-heading mb-0">
+            <h4
+              class="sub-heading"
+              data-text-animation="fade-in-right"
+              data-split="char"
+              data-duration="0.9"
+              data-stagger="0.03"
+            >
+              Award & achievement
+            </h4>
+          </div>
+        </div>
+        <div class="col-lg-8 col-md-12">
+          <div class="section-heading section-heading-2 mb-0">
+            <h2 class="section-title cursor-effect title-2">
+              Design That <span>Speaks Our <br /> Industry</span> Awards
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div class="row award-wrap">
+        <div class="col-lg-5">
+          <div class="award-img slide-anim" data-delay="0.3" data-offset="100" data-direction="left">
+            <OptimizedImage src="/assets/img/images/award-img-1.webp" alt="img" loading="lazy" />
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="award-item-list slide-anim" data-delay="0.3" data-offset="100" data-direction="right">
+            <div class="award-item" data-img="assets/img/images/award-img-1.webp">
+              <div class="left-content">
+                <span class="number">2025</span>
+                <h3 class="title">Best Residential Design</h3>
+              </div>
+              <div class="mid-content">
+                <span>Interior Design</span>
+              </div>
+            </div>
+            <div class="award-item" data-img="assets/img/images/award-img-2.webp">
+              <div class="left-content">
+                <span class="number">2024</span>
+                <h3 class="title">Top Commercial Design</h3>
+              </div>
+              <div class="mid-content">
+                <span>Architecture</span>
+              </div>
+            </div>
+            <div class="award-item" data-img="assets/img/images/award-img-3.webp">
+              <div class="left-content">
+                <span class="number">2023</span>
+                <h3 class="title">Sustainable Design Award</h3>
+              </div>
+              <div class="mid-content">
+                <span>Community Center</span>
+              </div>
+            </div>
+            <div class="award-item" data-img="assets/img/images/award-img-4.webp">
+              <div class="left-content">
+                <span class="number">2022</span>
+                <h3 class="title">Creative Office Space Award</h3>
+              </div>
+              <div class="mid-content">
+                <span>Corporation Building</span>
+              </div>
+            </div>
+            <div class="award-item" data-img="assets/img/images/award-img-5.webp">
+              <div class="left-content">
+                <span class="number">2020</span>
+                <h3 class="title">Emerging Designer of the Year</h3>
+              </div>
+              <div class="mid-content">
+                <span>Interior Design</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

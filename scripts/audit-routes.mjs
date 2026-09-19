@@ -4,6 +4,16 @@ import { join } from 'node:path';
 const distDir = join(process.cwd(), 'dist', 'client');
 const expected = [
   'index.html',
+  '404.html',
+  'search/index.html',
+  'spaces/apartments/index.html',
+  'spaces/villas/index.html',
+  'spaces/retail-spaces/index.html',
+  'spaces/offices-workspaces/index.html',
+  'spaces/restaurants-cafes/index.html',
+  'spaces/hotels-resorts/index.html',
+  'spaces/renovation-makeovers/index.html',
+  'spaces/fit-out-custom-joinery/index.html',
   'about/index.html',
   'service/index.html',
   'service-2/index.html',

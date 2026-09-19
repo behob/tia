@@ -1,0 +1,113 @@
+---
+import HeroBackground from '../../ui/HeroBackground.astro';
+import OptimizedImage from '../../ui/OptimizedImage.astro';
+interface Props {}
+---
+<section class="slider-section overflow-hidden">
+    <div class="antra-slider slider-2 swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="slider-item">
+            <HeroBackground src="/assets/img/bg-img/slider-img-2.webp" priority={true} />
+            <div class="slider-text"><span>Interior</span></div>
+            <div class="container slider-container">
+              <div class="slider-content-wrap">
+                <div class="slider-content">
+                  <div class="section-heading white-content text-center align-items-center">
+                    <h4
+                      class="sub-heading"
+                      data-animation="antra-fadeInDown"
+                      data-delay="1000ms"
+                      data-duration="1400ms"
+                    >
+                      Trusted Design Partner
+                    </h4>
+                    <h1
+                      class="section-title cursor-effect"
+                      data-animation="antra-fadeInDown"
+                      data-delay="1200ms"
+                      data-duration="1400ms"
+                    >
+                      Find Your <span>Inspired <br /> Interior Design</span>
+                    </h1>
+                    <div
+                      class="slider-btn mt-50"
+                      data-animation="antra-fadeInUp"
+                      data-delay="1000ms"
+                      data-duration="1400ms"
+                    >
+                      <a href="/contact">Start <br /> Project</a>
+                    </div>
+                  </div>
+                  <div class="bottom-content">
+                    <div class="antra-desc" data-animation="antra-fadeInUp" data-delay="1000ms" data-duration="1400ms">
+                      <div class="desc-img">
+                        <OptimizedImage src="/assets/img/images/slider-thumb-2.webp" alt="thumb" loading="lazy" />
+                      </div>
+                      <p>
+                        Transform your vision into reality with our innovative designs, creating modern spaces that
+                        blend functionality, aesthetics, and sustainability.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="slider-item">
+            <HeroBackground src="/assets/img/bg-img/slider-img-1.webp" priority={false} />
+            <div class="slider-text"><span>Interior</span></div>
+            <div class="container slider-container">
+              <div class="slider-content-wrap">
+                <div class="slider-content">
+                  <div class="section-heading white-content text-center align-items-center">
+                    <h4
+                      class="sub-heading"
+                      data-animation="antra-fadeInDown"
+                      data-delay="1000ms"
+                      data-duration="1400ms"
+                    >
+                      Trusted Design Partner
+                    </h4>
+                    <h2
+                      class="section-title cursor-effect"
+                      data-animation="antra-fadeInDown"
+                      data-delay="1200ms"
+                      data-duration="1400ms"
+                    >
+                      Find Your <span>Inspired <br /> Interior Design</span>
+                    </h2>
+                    <div
+                      class="slider-btn mt-50"
+                      data-animation="antra-fadeInUp"
+                      data-delay="1000ms"
+                      data-duration="1400ms"
+                    >
+                      <a href="/contact">Start <br /> Project</a>
+                    </div>
+                  </div>
+                  <div class="bottom-content">
+                    <div class="antra-desc" data-animation="antra-fadeInUp" data-delay="1000ms" data-duration="1400ms">
+                      <div class="desc-img">
+                        <OptimizedImage src="/assets/img/images/slider-thumb-2.webp" alt="thumb" loading="lazy" />
+                      </div>
+                      <p>
+                        Transform your vision into reality with our innovative designs, creating modern spaces that
+                        blend functionality, aesthetics, and sustainability.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slider-navigation">
+        <div class="swiper-nav swiper-prev"><i class="fa-regular fa-arrow-left"></i></div>
+        <div class="swiper-nav swiper-next"><i class="fa-regular fa-arrow-right"></i></div>
+      </div>
+    </div>
+  </section>

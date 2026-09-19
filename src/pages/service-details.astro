@@ -26,14 +26,14 @@ const otherServices = serviceNames.map((label, i) => ({ label, active: i === 0 }
                 {
                   otherServices.map((s) => (
                     <li class={s.active ? 'active' : ''}>
-                      <a href="#">{s.label}</a>
+                      <a href="/service">{s.label}</a>
                     </li>
                   ))
                 }
               </ul>
             </div>
             <div class="service-details-cta">
-              <div class="cta-bg" data-background="/assets/img/bg-img/service-cta-bg-2.webp"></div>
+              <div class="cta-bg" data-background="/assets/img/bg-img/service-cta-bg-2.webp" style="--bg-desktop:url('/assets/img/bg-img/service-cta-bg-2.webp');--bg-mobile:url('/assets/img/bg-img/service-cta-bg-2.webp')"></div>
               <div class="icon"><OptimizedImage src="/assets/img/icon/service-details-cta.webp" alt="icon" loading="lazy" /></div>
               <span>Do You Need Help?</span>
               <a class="number" href={`tel:${site.phoneRaw}`}>{site.phone}</a>
