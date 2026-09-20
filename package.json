@@ -52,17 +52,20 @@
     "audit:scripts": "node scripts/audit-scripts.mjs",
     "cf-typegen": "wrangler types",
     "check": "astro check && tsc && wrangler deploy --dry-run",
-    "deploy": "wrangler deploy",
+    "deploy": "npm run build:release && wrangler deploy",
     "dev": "astro dev",
     "lint": "eslint src/",
     "format": "prettier --write src/",
     "preview": "astro build && wrangler dev",
-    "verify": "npm run build:legacy && npm run build && npm run check && npm run lint && npm run test:forms && npm run audit:seo:source && npm run audit:seo && npm run audit:routes && npm run audit:scripts && npm run audit:assets && npm run audit:images && npm run audit:a11y && npm run audit:content && npm run audit:links && npm run audit:jsonld && npm run audit:blog && npm run audit:interactions",
+    "verify": "npm run build:legacy && npm run build && npm run check && npm run lint && npm run test:forms && npm run test:release && npm run audit:seo:source && npm run audit:seo && npm run audit:routes && npm run audit:scripts && npm run audit:assets && npm run audit:images && npm run audit:a11y && npm run audit:content && npm run audit:links && npm run audit:jsonld && npm run audit:blog && npm run audit:interactions",
     "visual:routes": "node scripts/visual-routes.mjs",
     "build:legacy": "node scripts/build-legacy.mjs",
     "test:forms": "node scripts/test-forms.mjs",
     "audit:interactions": "node scripts/audit-interactions.mjs",
-    "audit:images": "node scripts/audit-image-output.mjs"
+    "audit:images": "node scripts/audit-image-output.mjs",
+    "audit:release": "node scripts/audit-release.mjs",
+    "test:release": "node scripts/test-release.mjs",
+    "build:release": "npm run audit:release && npm run build:legacy && npm run build && npm run audit:release -- --built"
   },
   "type": "module"
 }

@@ -1,5 +1,14 @@
 # AGENTS.md
 
+## Session documentation
+
+Before changing code, read [coding rules](docs/rules.md), [project memory](docs/memory.md),
+and the relevant [product requirements](docs/prd.md). Consult [architecture](docs/architecture.md),
+[design](docs/design.md), and [tasks](docs/tasks.md) as needed. Keep affected documents current
+when behavior, architecture, design, decisions or task status changes; keep memory concise.
+The historical project snapshot below contains some outdated implementation descriptions;
+the architecture document identifies them. Its architectural guardrails remain in force.
+
 ## Project Overview
 
 **Tiadecors** is an architecture and luxury interior design studio website based in Dubai, UAE. The project is built with **Astro 7** and configured for deployment on **Cloudflare Workers** via `@astrojs/cloudflare`.
@@ -103,4 +112,3 @@ When modifying or expanding this codebase, agents MUST adhere to the following p
   - Convert all 268 legacy PNG, JPG, and JPEG images to WebP format using `sharp`
   - Update all image references across `src/pages/`, `src/components/`, `src/data/`, and `src/assets/scss/`
   - Reduce static asset weight by ~65-75% before structural code refactoring
-- 

@@ -32,6 +32,8 @@ Copy `.env.example` to `.env` and fill in the values.
 
 Production secrets must also be configured on the Worker. See [the implementation and publishing guide](docs/website-audit-implementation.md) for setup, retained content awaiting review, and all 20 audit items.
 
+For release preparation and the remaining live-service checks, see [launch readiness](docs/launch-readiness.md). Local `.env` values are not automatically uploaded as Worker secrets.
+
 ## Scripts
 
 | Script | Description |
@@ -39,11 +41,13 @@ Production secrets must also be configured on the Worker. See [the implementatio
 | `npm run dev` | Start local development server |
 | `npm run build` | Build for production |
 | `npm run preview` | Build and preview locally with Wrangler |
-| `npm run deploy` | Deploy to Cloudflare Workers |
+| `npm run build:release` | Validate the production public key, rebuild, and check the generated forms and public output |
+| `npm run deploy` | Run `build:release`, then deploy to Cloudflare Workers |
 | `npm run check` | Run type checking and validate deployment |
 | `npm run verify` | Build, type/lint checks, Worker dry-run, content/SEO/image/link audits, mocked form tests and browser checks |
 | `npm run audit:images` | Verify actual generated responsive image dimensions |
 | `npm run audit:interactions` | Check desktop/mobile controls, form feedback, search and progressive rendering |
+| `npm run audit:release -- --built` | Check the built Turnstile widgets and detect configured private keys in public output; does not verify live services |
 | `npm run cf-typegen` | Generate Cloudflare type declarations |
 
 ## Project Structure
