@@ -23,16 +23,31 @@ npm run dev
 |----------|-------------|
 | `CONTACT_EMAIL` | Where contact form submissions are sent |
 | `SENDER_EMAIL` | Sender address on a verified Resend domain |
-| `RESEND_API_KEY` | Resend API key; Contacts access is required for newsletter subscriptions |
+| `RESEND_API_KEY` | Resend API key (starts with `re_`); install with `npm install resend` |
 | `TURNSTILE_SECRET_KEY` | Server-side Cloudflare Turnstile secret |
 | `PUBLIC_TURNSTILE_SITE_KEY` | Public Turnstile site key supplied at build time |
 | `NEWSLETTER_ENABLED` | Set to `true` in Worker bindings after confirming newsletter configuration |
 
 Copy `.env.example` to `.env` and fill in the values.
 
-Production secrets must also be configured on the Worker. See [the implementation and publishing guide](docs/website-audit-implementation.md) for setup, retained content awaiting review, and all 20 audit items.
+### Setting up Resend for the Contact Form
 
-For release preparation and the remaining live-service checks, see [launch readiness](docs/launch-readiness.md). Local `.env` values are not automatically uploaded as Worker secrets.
+1. Sign up at [resend.com](https://resend.com) and get your API key
+2. Add your sending domain in Resend and verify it (e.g., `tiadecors.com`)
+3. Replace `RESEND_API_KEY` with your actual Resend API key
+4. Set `CONTACT_EMAIL` to where you want to receive enquiries
+5. Set `SENDER_EMAIL` to an email on your verified Resend domain (e.g., `no-reply@tiadecors.com`)
+6. Configure Cloudflare Turnstile keys for spam protection
+
+Production secrets must also be configured on the Worker using:
+```bash
+npx wrangler secret put RESEND_API_KEY
+npx wrangler secret put CONTACT_EMAIL
+npx wrangler secret put SENDER_EMAIL
+npx wrangler secret put TURNSTILE_SECRET_KEY
+```
+
+See [the implementation and publishing guide](docs/website-audit-implementation.md) for setup details and [launch readiness](docs/launch-readiness.md) for release preparation. Local `.env` values are not automatically uploaded as Worker secrets.
 
 ## Scripts
 

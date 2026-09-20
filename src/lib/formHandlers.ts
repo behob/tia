@@ -1,3 +1,5 @@
+import { Resend } from 'resend';
+
 export interface FormEnvironment {
   CONTACT_EMAIL?: string;
   SENDER_EMAIL?: string;
@@ -72,33 +74,42 @@ export async function handleForm(
     });
     if (!validation.ok || !((await validation.json()) as { success?: boolean }).success)
       return reply('The security check expired or failed. Please try again.', 400);
-    const response = await send(`https://api.resend.com/${kind === 'contact' ? 'emails' : 'contacts'}`, {
-      method: 'POST',
-      signal: AbortSignal.timeout(15000),
-      headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify(
-        kind === 'contact'
-          ? {
-              from: `TIA Interior <${env.SENDER_EMAIL}>`,
-              to: [env.CONTACT_EMAIL],
-              reply_to: email,
-              subject: `Website enquiry from ${fullname.replace(/[\r\n]/g, ' ')}`,
-              text: `Name: ${fullname}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,
-            }
-          : { email, unsubscribed: false },
-      ),
-    });
-    if (!response.ok) {
-      console.error('Form provider failure', { kind, status: response.status });
-      return reply('We could not complete your request. Please try again or email info@tiadecors.com.', 502);
+    
+    // Use Resend SDK for sending emails
+    const resend = new Resend(env.RESEND_API_KEY!);
+    
+    if (kind === 'contact') {
+      const { error } = await resend.emails.send({
+        from: `TIA Interior <${env.SENDER_EMAIL!}>`,
+        to: [env.CONTACT_EMAIL!],
+        replyTo: email,
+        subject: `Website enquiry from ${fullname.replace(/[\r\n]/g, ' ')}`,
+        text: `Name: ${fullname}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,
+      });
+      
+      if (error) {
+        console.error('Resend email error', { kind, error });
+        return reply('We could not complete your request. Please try again or email info@tiadecors.com.', 502);
+      }
+    } else {
+      const { error } = await resend.contacts.create({
+        email,
+        unsubscribed: false,
+      });
+      
+      if (error) {
+        console.error('Resend contact error', { kind, error });
+        return reply('We could not complete your request. Please try again or email info@tiadecors.com.', 502);
+      }
     }
+    
     return reply(
       kind === 'contact'
         ? 'Thank you! Your message has been sent.'
         : 'Thank you! You are subscribed to the TIA Interior newsletter.',
     );
-  } catch {
-    console.error('Form provider unavailable', { kind });
+  } catch (err) {
+    console.error('Form provider unavailable', { kind, error: err });
     return reply('The service is temporarily unavailable. Please try again shortly.', 502);
   }
 }
