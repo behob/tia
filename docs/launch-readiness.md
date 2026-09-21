@@ -1,15 +1,15 @@
 # Launch readiness
 
-Checked 20 September 2026. Email and newsletter activation are pending at the owner's request. Existing business content remains visible pending owner review. No production deployment or real email/subscription test was performed in this readiness pass.
+Checked 20 September 2026 and updated 22 September 2026. Email and newsletter configuration is active; no real email/subscription test was performed. Existing business content remains visible pending owner review.
 
 ## Findings
 
 | Check               | Result                                                                                                                                                                                                                                            |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Local form settings | Contact address, sender address, Resend key, and both Turnstile keys are present. Values were not printed.                                                                                                                                        |
-| Resend access       | Read-only requests to `/domains` and `/contacts?limit=1` both returned HTTP 401. The local key needs replacing before it can be used. The active production Worker has no secret bindings.                                                        |
-| Newsletter          | `NEWSLETTER_ENABLED` is absent locally. Activation remains pending; the handler returns an unavailable message when the flag is not `true`.                                                                                                       |
-| Cloudflare access   | Wrangler sign-in succeeded. The account owns `tia`, and `tiadecors.com` maps to its production environment. The deployed `SESSION` binding matches the existing `tia-session` KV namespace. `wrangler secret list` returned an empty list.        |
+| Resend access       | The plugin connection confirms `tiadecors.com` is verified. A dedicated full-access deployment key passed read-only `/domains` and `/contacts?limit=1` checks and is stored only in ignored local configuration and the Worker secret binding.    |
+| Newsletter          | `NEWSLETTER_ENABLED` is active locally and on the Worker. Contacts access is verified; no subscriber or unsubscribe test has been performed.                                                                                                      |
+| Cloudflare access   | The account owns `tia`, and `tiadecors.com` maps to production. The Worker has the expected `SESSION` namespace and five form secret names. A secret-only deployment was created on 22 September.                                                 |
 | Release command     | `npm run deploy` now builds the current source before deploying. Production release checks reject missing, placeholder, and Turnstile test keys, check every enhanced form's embedded key, and look for configured private keys in public output. |
 | Content             | Staff, testimonials, awards, statistics and project claims are retained for owner review.                                                                                                                                                         |
 
@@ -29,7 +29,7 @@ Read-only production checks confirmed:
 - Grid, List, and Standard each show nine posts on page one and six on page two. Titles, order, weekly publication dates, article links, page numbers, and canonical URLs match the content collection and intended Grid canonical routes.
 - Legacy `blog-single`, `blog-details`, and `index-2` pages contain the expected HTML refresh destination and canonical URL. They return HTTP 200 with a browser redirect, rather than an HTTP 301; this remains a potential SEO improvement.
 
-The machine-readable live check is in the ignored local file `.astro/cloudflare-live-verification.json`. No new production version was published during these checks, and no real email or newsletter submission was sent. Turnstile hostname configuration and actual delivery remain unverified while activation is pending.
+The machine-readable live check is in the ignored local file `.astro/cloudflare-live-verification.json`. On 22 September, managed Turnstile was confirmed restricted to `tiadecors.com`, the live form public key matched, and both production endpoints reached the Turnstile rejection using safe missing-token probes. No provider request, real email or subscription occurred. Deployment `97dc96fa-0831-435a-9a2d-f895b258f6fd` routes 100% to version `33895136-6337-4ff2-bcb6-3edc6d37cba3`. Actual delivery and subscription/unsubscribe behavior remain unverified.
 
 ```bash
 npm run verify

@@ -32,7 +32,7 @@ Read this file, [memory](memory.md), [AGENTS.md](../AGENTS.md), and the relevant
 
 - Keep server integration logic in `src/lib/`; API routes remain thin and explicitly non-prerendered. Use `cloudflare:workers` runtime bindings, not build-time private values in client code.
 - Validate on the server even when browser validation exists. Preserve documented content types, size/field limits, consent, origin check, honeypot, Turnstile validation, timeouts and failure statuses when changing forms.
-- Do not send real emails, create subscribers or enable newsletter delivery as a side effect of tests. The owner has explicitly deferred activation; use mocks until that decision changes.
+- Do not send real emails, create subscribers or send newsletter campaigns as a side effect of tests. Production capture was activated on 22 September 2026, but real recipients/subscribers still require explicit authorization; use mocks otherwise.
 - Show success only after the appropriate API result; preserve user input on failure and provide actionable fallback feedback. Keep provider detail and visitor content out of logs.
 - Never commit credentials, private keys, form submissions or account tokens, including in docs, fixtures and screenshots. Store names/placeholders only; keep `.env*`, `.dev.vars*` and generated output ignored. Do not dump secret files when debugging.
 - Do not render visitor input through `set:html`/`innerHTML`. Existing JSON-LD generation deserves careful serialization review when changed; its exception is not permission to insert arbitrary HTML.
