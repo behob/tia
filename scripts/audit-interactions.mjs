@@ -44,17 +44,16 @@ try {
         const input = document.createElement('input');
         input.type = 'hidden';
         input.name = 'cf-turnstile-response';
-        input.value = 'browser-test-token';
         container.dataset.browserTestWidget = id;
         container.appendChild(input);
         callbacks.set(id, options.callback);
-        options.callback(input.value);
+        options.callback('browser-test-token');
         return id;
       },
       reset(id) {
         const container = document.querySelector(`[data-browser-test-widget="${id}"]`);
         const input = container?.querySelector('input[name="cf-turnstile-response"]');
-        if (input) input.value = 'browser-test-token';
+        if (input) input.value = '';
         callbacks.get(id)?.('browser-test-token');
       },
     };
@@ -127,7 +126,7 @@ try {
   await page.goto(base, { waitUntil: 'networkidle' });
   const newsletter = page.locator('form[action="/api/newsletter"]').first();
   await newsletter.scrollIntoViewIfNeeded();
-  assert.equal(await newsletter.locator('input[name="cf-turnstile-response"]').inputValue(), 'browser-test-token');
+  assert.equal(await newsletter.locator('input[name="cf-turnstile-response"]').inputValue(), '');
   assert.equal(await newsletter.getByRole('button', { name: 'Subscribe to newsletter' }).isEnabled(), true);
   await page.route('**/api/newsletter', async (route) => {
     const body = new URLSearchParams(route.request().postData());

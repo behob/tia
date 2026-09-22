@@ -56,7 +56,7 @@ Build flow: JSON → schema validation → collection adapters → route generat
 
 Both routes set `prerender=false` and read runtime `env` from `cloudflare:workers`. Replies are plain text with `Cache-Control: no-store`: 200 provider acceptance (also the intentional honeypot response), 400 invalid input/challenge, 403 mismatched supplied Origin, 413 oversized input, 415 unsupported format, 503 missing configuration/disabled newsletter, and 502 provider failure/timeout. Provider acceptance is not proof of received delivery.
 
-Forms share component-scoped enhancement: lazy Turnstile loading, pending/disabled state, feedback and retry. Search/view/page state is in the URL or local DOM; there is no application-wide client state store. `SESSION` KV is bound by the adapter, but no application session usage or user login was found.
+Forms share component-scoped enhancement: lazy Turnstile loading, pending/disabled state, feedback and retry. The callback token is retained in component state and explicitly placed in the request body, so submission does not depend on Cloudflare populating its generated hidden field. Search/view/page state is in the URL or local DOM; there is no application-wide client state store. `SESSION` KV is bound by the adapter, but no application session usage or user login was found.
 
 ## Security boundaries
 

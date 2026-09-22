@@ -44,12 +44,15 @@ interface Props {}
     const challenge = form.querySelector<HTMLElement>('[data-turnstile-key]');
     let widget: string | undefined;
     let initializing = false;
+    let securityToken = '';
     const waitForSecurity = (message: string) => {
+      securityToken = '';
       submit.disabled = true;
       securityFeedback.textContent = message;
     };
     const acceptSecurityToken = (token: string) => {
       if (!token) return waitForSecurity('Please complete the security check.');
+      securityToken = token;
       submit.disabled = false;
       securityFeedback.textContent = '';
     };
@@ -88,8 +91,8 @@ interface Props {}
     observer.observe(form);
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
-      const token = new FormData(form).get('cf-turnstile-response');
-      if (typeof token !== 'string' || !token) {
+      const token = securityToken;
+      if (!token) {
         waitForSecurity('Please wait for the security check to complete.');
         void initialize();
         return;
@@ -102,6 +105,7 @@ interface Props {}
         new FormData(form).forEach((value, key) => {
           if (typeof value === 'string') body.set(key, value);
         });
+        body.set('cf-turnstile-response', token);
         const response = await fetch(form.action, { method: 'POST', body, signal: AbortSignal.timeout(30000) });
         feedback.textContent = await response.text();
         feedback.classList.toggle('error', !response.ok);
