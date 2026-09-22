@@ -4,13 +4,13 @@ Inspected 20 September 2026. Current implementation is described below; proposed
 
 ## Stack and confirmed constraints
 
-| Layer       | Current implementation                                                                           | Choice context                                                                                                                                     |
-| ----------- | ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Framework   | Astro 7.1.4, TypeScript 5.9.3 with Astro strict configuration                                    | Existing project; owner requires design preservation. `AGENTS.md` requires pure Astro for new work. Original framework-selection rationale is TBD. |
-| Hosting     | `@astrojs/cloudflare` 14.0.0, Wrangler 4.114.0, Workers                                          | Existing deployment target, explicitly requested by owner. Static pages with server API exceptions.                                                |
-| Assets/UI   | SCSS via sass-embedded 1.100.0, Bootstrap grid, local fonts, selective legacy jQuery/GSAP/Swiper | Inherited Antra template; incrementally modernized to preserve layouts. No client framework integration is installed.                              |
-| Content/SEO | Astro glob collections and Zod schemas; `@astrojs/sitemap` 3.7.3                                 | Shared validated content replaces duplicated template records; Grid canonicals consolidate archive presentations.                                  |
-| Quality     | ESLint 10.8.0, Prettier 3.9.6, Playwright 1.63.0, Node assertion scripts                         | Repository scripts and CI implement content, rendering and interaction regression checks.                                                          |
+| Layer       | Current implementation                                                                                       | Choice context                                                                                                                                     |
+| ----------- | ------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Framework   | Astro 7.1.4, TypeScript 5.9.3 with Astro strict configuration                                                | Existing project; owner requires design preservation. `AGENTS.md` requires pure Astro for new work. Original framework-selection rationale is TBD. |
+| Hosting     | `@astrojs/cloudflare` 14.0.0, Wrangler 4.114.0, Workers                                                      | Existing deployment target, explicitly requested by owner. Static pages with server API exceptions.                                                |
+| Assets/UI   | SCSS via sass-embedded 1.100.0, Bootstrap grid, subset local icon fonts, selective legacy jQuery/GSAP/Swiper | Inherited Antra template; incrementally modernized to preserve layouts. No client framework integration is installed.                              |
+| Content/SEO | Astro glob collections and Zod schemas; `@astrojs/sitemap` 3.7.3                                             | Shared validated content replaces duplicated template records; Grid canonicals consolidate archive presentations.                                  |
+| Quality     | ESLint 10.8.0, Prettier 3.9.6, Playwright 1.63.0, Node assertion scripts                                     | Repository scripts and CI implement content, rendering and interaction regression checks.                                                          |
 
 Versions above are resolved from [package-lock.json](../package-lock.json), not upgrade recommendations. Node `>=22` is declared; CI uses Node 24. Vite 8.1.5 and esbuild 0.28.1 are overrides; their original rationale is **TBD**. Use the lockfile and CI runtime.
 

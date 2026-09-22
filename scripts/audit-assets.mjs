@@ -8,6 +8,11 @@ const assetPattern = /(["'(`=])(?<asset>\/assets\/[^"'`)\s?#]+)(?:[?#][^"'`)\s]*
 const ignoredDynamicMarkers = ['${'];
 const failures = [];
 const checkedAssets = new Set();
+const usedIcons = new Set();
+const iconStylesheet = readFileSync(join(projectRoot, 'public/assets/css/fontawesome-subset.css'), 'utf8');
+const availableIcons = new Set(
+  [...iconStylesheet.matchAll(/\.fa-(?<icon>[a-z0-9-]+)::before/g)].map((match) => match.groups.icon),
+);
 
 function walk(dir) {
   if (!existsSync(dir)) {
@@ -34,6 +39,14 @@ for (const dir of sourceDirs.map((sourceDir) => join(projectRoot, sourceDir))) {
   for (const file of walk(dir)) {
     const source = readFileSync(file, 'utf8');
 
+    if (extname(file) === '.astro' || extname(file) === '.ts') {
+      for (const match of source.matchAll(
+        /\bfa-(?!brands\b|light\b|regular\b|sharp\b|solid\b|thin\b)(?<icon>[a-z0-9-]+)/g,
+      )) {
+        usedIcons.add(match.groups.icon);
+      }
+    }
+
     for (const match of source.matchAll(assetPattern)) {
       const asset = match.groups.asset;
 
@@ -51,9 +64,15 @@ for (const dir of sourceDirs.map((sourceDir) => join(projectRoot, sourceDir))) {
   }
 }
 
+for (const icon of usedIcons) {
+  if (!availableIcons.has(icon)) {
+    failures.push(`Font Awesome subset is missing the fa-${icon} glyph used by source.`);
+  }
+}
+
 if (failures.length > 0) {
   console.error(failures.join('\n'));
   process.exit(1);
 }
 
-console.log(`Asset audit passed for ${checkedAssets.size} unique public assets.`);
+console.log(`Asset audit passed for ${checkedAssets.size} unique public assets and ${usedIcons.size} icon glyphs.`);

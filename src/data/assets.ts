@@ -13,7 +13,7 @@ export interface ScriptAsset {
 export const stylesheetAssets: readonly StylesheetAsset[] = [
   { href: '/assets/css/bootstrap.min.css', preload: true },
   { href: '/assets/css/swiper.min.css', preload: true },
-  { href: '/assets/css/fontawesome.min.css', preload: true, deferred: true },
+  { href: '/assets/css/fontawesome-subset.css', preload: true, deferred: true },
   { href: '/assets/css/venobox.min.css', deferred: true },
   { href: '/assets/css/odometer.min.css', deferred: true },
   { href: '/assets/css/carouselTicker.css', deferred: true },

@@ -22,8 +22,8 @@ The dominant shared transfers were Font Awesome: `fa-regular-400.woff2` (350 KiB
 
 ## Decisions and next measurements
 
-1. Reduce Font Awesome delivery by loading only icon families actually used or replacing local uses with the existing SVG/icon patterns. Verify visual parity and accessible names before removing fonts.
-2. Re-run this command after deployment. The current production numbers do not measure this batch's static mobile-homepage motion or new responsive blog images.
+1. Implemented locally on 23 September: built pages reference a 26-glyph Font Awesome subset. CSS plus four WOFF2 files total 7,526 bytes versus 1,623,793 bytes for the previously referenced CSS/families, a 99.54% local reduction. Desktop/mobile screenshots, interaction checks and a source-glyph audit pass; production remains unchanged until deployment.
+2. Re-run this command after deployment. The current production numbers do not measure the Font Awesome subset, static mobile-homepage motion or new responsive blog images.
 3. Add field monitoring or check CrUX/PageSpeed when enough traffic data exists. Lab blocking time is only a diagnostic proxy; it is not INP.
 
 Google's current guidance defines good field performance as LCP at or below 2.5 seconds, INP at or below 200 ms and CLS at or below 0.1. See [Web Vitals](https://web.dev/articles/vitals).
