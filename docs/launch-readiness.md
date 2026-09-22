@@ -4,6 +4,8 @@ Checked 20 September 2026 and updated 22 September 2026. Email and newsletter co
 
 ## Findings
 
+**Current release blocker (22 September 2026):** the live Homepage newsletter form omits its Turnstile container/public site key, so submissions reach the backend without a token. The repaired build renders the widget, exposes loading/error/expiry feedback, and keeps submit disabled until token callback. Local build/release/browser checks pass; production deployment and read-only live widget verification await explicit owner approval. No subscriber was created.
+
 | Check               | Result                                                                                                                                                                                                                                            |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Local form settings | Contact address, sender address, Resend key, and both Turnstile keys are present. Values were not printed.                                                                                                                                        |

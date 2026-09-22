@@ -68,10 +68,11 @@ const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
         required></textarea>
     </div>
   </div>
-  {siteKey && <div class="form-group mt-10" data-turnstile-key={siteKey} />}
+  <div class="form-group mt-10" data-turnstile-key={siteKey ?? ''}></div>
   <div class="form-group mt-10">
     <button type="submit" class="tl-primary-btn"
-      >Send Message <span class="icon"><i class="fa-regular fa-arrow-right" aria-hidden="true"></i></span></button>
+      >Send Message <span class="icon"><i class="fa-regular fa-arrow-right" aria-hidden="true"></i></span></button
+    >
   </div>
   <FormFeedback />
 </form>

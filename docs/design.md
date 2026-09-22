@@ -44,16 +44,16 @@ Verify at 390px and 1440px as existing regression baselines, and at affected bre
 
 ## States
 
-| State               | Implemented behavior / remaining gap                                                                                                                                     |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Initial/loading     | Main content and hero render before JS. Turnstile initializes near viewport or on form focus. There is no general skeleton/loading framework.                            |
-| Submitting/disabled | Form announces “Sending…”, sets `aria-busy`, disables its submit button, and prevents duplicate submissions. Controls re-enable after completion.                        |
-| Success             | Server response is announced; successful form resets. Production configuration is active, but received delivery and subscription/unsubscribe behavior remain unverified. |
-| Validation/error    | Native field constraints plus server feedback. Network/provider failures keep input and expose an email fallback; Turnstile resets after attempts.                       |
-| Service unavailable | Missing runtime configuration/disabled newsletter returns an unavailable message. The public form remains visible; do not describe it as active delivery.                |
-| Empty               | Search shows no-match guidance. A dedicated zero-post blog message is not implemented; its copy/behavior is TBD if required.                                             |
-| Missing page        | Custom 404 with a home link; missing live URLs return HTTP 404.                                                                                                          |
-| No JavaScript       | Blog links and content remain usable; search shows the full index. Protected forms require JavaScript for Turnstile and show an email fallback.                          |
+| State               | Implemented behavior / remaining gap                                                                                                                                                                                    |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Initial/loading     | Main content and hero render before JS. Turnstile initializes near viewport or on form focus. There is no general skeleton/loading framework.                                                                           |
+| Submitting/disabled | Forms announce “Sending…”, set `aria-busy` and prevent duplicates. Security-protected submit buttons remain disabled while Turnstile loads, after expiry/error and during token refresh; callback success enables them. |
+| Success             | Server response is announced; successful form resets. Production configuration is active, but received delivery and subscription/unsubscribe behavior remain unverified.                                                |
+| Validation/error    | Native field constraints plus server feedback. Network/provider failures keep input and expose an email fallback; Turnstile resets after attempts.                                                                      |
+| Service unavailable | Missing runtime configuration/disabled newsletter returns an unavailable message. The public form remains visible; do not describe it as active delivery.                                                               |
+| Empty               | Search shows no-match guidance. A dedicated zero-post blog message is not implemented; its copy/behavior is TBD if required.                                                                                            |
+| Missing page        | Custom 404 with a home link; missing live URLs return HTTP 404.                                                                                                                                                         |
+| No JavaScript       | Blog links and content remain usable; search shows the full index. Protected forms require JavaScript for Turnstile and show an email fallback.                                                                         |
 
 ## Proposed direction
 

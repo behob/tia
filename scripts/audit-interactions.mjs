@@ -35,6 +35,30 @@ try {
     new URL(route.request().url()).origin === base ? route.continue() : route.abort(),
   );
   const page = await context.newPage();
+  await page.addInitScript(() => {
+    const callbacks = new Map();
+    let nextWidget = 0;
+    window.turnstile = {
+      render(container, options) {
+        const id = `browser-test-widget-${++nextWidget}`;
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'cf-turnstile-response';
+        input.value = 'browser-test-token';
+        container.dataset.browserTestWidget = id;
+        container.appendChild(input);
+        callbacks.set(id, options.callback);
+        options.callback(input.value);
+        return id;
+      },
+      reset(id) {
+        const container = document.querySelector(`[data-browser-test-widget="${id}"]`);
+        const input = container?.querySelector('input[name="cf-turnstile-response"]');
+        if (input) input.value = 'browser-test-token';
+        callbacks.get(id)?.('browser-test-token');
+      },
+    };
+  });
   page.setDefaultTimeout(10000);
   page.on('pageerror', (error) => errors.push(error.message));
   for (const width of [1440, 390]) {
@@ -99,6 +123,23 @@ try {
     await page.unroute('**/api/mail');
     await page.screenshot({ path: `.astro/site-verification/contact-${width}.png`, fullPage: true });
   }
+  await page.setViewportSize({ width: 390, height: 900 });
+  await page.goto(base, { waitUntil: 'networkidle' });
+  const newsletter = page.locator('form[action="/api/newsletter"]').first();
+  await newsletter.scrollIntoViewIfNeeded();
+  assert.equal(await newsletter.locator('input[name="cf-turnstile-response"]').inputValue(), 'browser-test-token');
+  assert.equal(await newsletter.getByRole('button', { name: 'Subscribe to newsletter' }).isEnabled(), true);
+  await page.route('**/api/newsletter', async (route) => {
+    const body = new URLSearchParams(route.request().postData());
+    assert.equal(body.get('cf-turnstile-response'), 'browser-test-token');
+    await route.fulfill({ status: 200, body: 'Thank you! You are subscribed to the TIA Interior newsletter.' });
+  });
+  await newsletter.getByLabel('Email address for newsletter').fill('subscriber@example.test');
+  await newsletter.getByRole('checkbox').check();
+  await newsletter.getByRole('button', { name: 'Subscribe to newsletter' }).click();
+  await newsletter.getByRole('status').filter({ hasText: 'You are subscribed' }).waitFor();
+  assert.equal(await newsletter.getByLabel('Email address for newsletter').inputValue(), '');
+  await page.unroute('**/api/newsletter');
   const routes = [
     '/',
     '/spaces/apartments',

@@ -29,7 +29,7 @@ const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
     ><input id={`${id}-consent`} type="checkbox" name="consent" value="yes" required /> I agree to receive TIA Interior news
     and design tips by email. I can unsubscribe at any time.</label
   >
-  {siteKey && <div data-turnstile-key={siteKey} />}
+  <div class="newsletter-security" data-turnstile-key={siteKey ?? ''}></div>
   <FormFeedback />
 </form>
 <style>
@@ -51,6 +51,12 @@ const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
   }
   .newsletter-consent input {
     flex: none;
+  }
+  .newsletter-security {
+    display: flex;
+    min-height: 65px;
+    justify-content: center;
+    margin: 18px auto 0;
   }
   form {
     max-width: 670px;
