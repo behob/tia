@@ -1,4 +1,4 @@
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const distDir = join(process.cwd(), 'dist', 'client');
@@ -59,4 +59,63 @@ if (missing.length > 0) {
   process.exit(1);
 }
 
-console.log(`Route audit passed for ${expected.length} expected outputs.`);
+const redirectsFile = join(distDir, '_redirects');
+if (!existsSync(redirectsFile)) {
+  console.error('Missing Cloudflare _redirects build output.');
+  process.exit(1);
+}
+
+const redirects = new Map(
+  readFileSync(redirectsFile, 'utf8')
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter((line) => line && !line.startsWith('#'))
+    .map((line) => {
+      const [source, destination, status] = line.split(/\s+/);
+      return [source, { destination, status }];
+    }),
+);
+
+const redirectDestinations = new Map([
+  ['/index-2', '/spaces/apartments/'],
+  ['/index-3', '/spaces/villas/'],
+  ['/index-4', '/spaces/retail-spaces/'],
+  ['/index-5', '/spaces/offices-workspaces/'],
+  ['/index-6', '/spaces/restaurants-cafes/'],
+  ['/index-7', '/spaces/hotels-resorts/'],
+  ['/index-8', '/spaces/renovation-makeovers/'],
+  ['/index-9', '/spaces/fit-out-custom-joinery/'],
+  ['/blog-single', '/blog/transform-your-home-with-the-modern-interior-design-tips/'],
+  ['/blog-details', '/blog/transform-your-home-with-the-modern-interior-design-tips/'],
+  [
+    '/blog/transform-your-home-with-the-modern-interior-design-tips-2',
+    '/blog/transform-your-home-with-the-modern-interior-design-tips/',
+  ],
+  [
+    '/blog/transform-your-home-with-the-modern-interior-design-tips-3',
+    '/blog/transform-your-home-with-the-modern-interior-design-tips/',
+  ],
+  [
+    '/blog/transform-your-home-with-the-modern-interior-design-tips-4',
+    '/blog/transform-your-home-with-the-modern-interior-design-tips/',
+  ],
+]);
+
+for (const [source, destination] of redirectDestinations) {
+  for (const route of [source, `${source}/`]) {
+    const redirect = redirects.get(route);
+    if (redirect?.destination !== destination || redirect.status !== '301') {
+      console.error(`Invalid Cloudflare redirect: ${route} -> ${destination} 301`);
+      process.exit(1);
+    }
+  }
+
+  if (!existsSync(join(distDir, destination, 'index.html'))) {
+    console.error(`Missing Cloudflare redirect destination: ${destination}`);
+    process.exit(1);
+  }
+}
+
+console.log(
+  `Route audit passed for ${expected.length} expected outputs and ${redirectDestinations.size * 2} Cloudflare redirects.`,
+);

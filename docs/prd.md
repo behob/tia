@@ -30,7 +30,7 @@ Publication is **build-time**, not a scheduler: changing JSON or reaching a futu
 
 **Explicit constraints for this phase:** keep existing staff, testimonials, awards, statistics and project claims visible pending owner review. Preserve the template's designs. Email/newsletter configuration was activated on 22 September 2026; real sends, subscriber creation and campaigns still require their own authorization and verification.
 
-**Potential follow-up work, not committed features:** production performance measurement, HTTP redirects for legacy URLs, remaining legacy-script reduction, editorial approval, and live form activation after the owner resumes it. See [tasks](tasks.md).
+**Potential follow-up work, not committed features:** remaining legacy-script reduction, editorial approval, and authorized live form tests. Production performance measurement is complete; native HTTP redirects for legacy URLs are implemented and await deployed verification. See [tasks](tasks.md).
 
 **Outside the implemented product scope:** visitor accounts, admin/CMS editing, checkout/payment processing, working public comment/review submission, newsletter campaign delivery, and automatic scheduled publishing. Shop/pricing/demo routes still exist; their presence does not establish a commerce requirement. Arabic/localization, CRM integration and these additional features require product decisions.
 

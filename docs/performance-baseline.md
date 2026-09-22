@@ -20,10 +20,20 @@ Captured 22 September 2026 against `https://tiadecors.com`, before the blog-imag
 
 The dominant shared transfers were Font Awesome: `fa-regular-400.woff2` (350 KiB), `fa-solid-900.woff2` (297 KiB), `fa-brands-400.woff2` (103 KiB), plus `fontawesome.min.css` (87 KiB). The homepage also ships 58 resources and the built interaction audit records 11 legacy scripts totalling 481,645 bytes.
 
+## Post-deployment comparison
+
+Repeated on 23 September 2026 with the same mobile lab settings after the Font Awesome subset deployment.
+
+| URL                                               |   LCP | CLS | Long-task blocking | Resources | Transfer | Transfer change |
+| ------------------------------------------------- | ----: | --: | -----------------: | --------: | -------: | --------------: |
+| `/`                                               | 192ms |   0 |                0ms |        58 |  810 KiB | -830 KiB (-51%) |
+| `/blog/transforming-spaces-into-dream-dwellings/` | 204ms |   0 |                0ms |        17 |  271 KiB | -814 KiB (-75%) |
+| `/contact`                                        | 172ms |   0 |                0ms |        17 |  289 KiB | -830 KiB (-74%) |
+
 ## Decisions and next measurements
 
-1. Implemented locally on 23 September: built pages reference a 26-glyph Font Awesome subset. CSS plus four WOFF2 files total 7,526 bytes versus 1,623,793 bytes for the previously referenced CSS/families, a 99.54% local reduction. Desktop/mobile screenshots, interaction checks and a source-glyph audit pass; production remains unchanged until deployment.
-2. Re-run this command after deployment. The current production numbers do not measure the Font Awesome subset, static mobile-homepage motion or new responsive blog images.
+1. The 26-glyph Font Awesome subset is deployed and accounts for the dominant measured transfer reduction. Keep the source-glyph audit when adding icons.
+2. The remaining largest known frontend cost is the homepage's 11 legacy scripts totalling 481,645 bytes; change them only with route-specific visual and interaction verification.
 3. Add field monitoring or check CrUX/PageSpeed when enough traffic data exists. Lab blocking time is only a diagnostic proxy; it is not INP.
 
 Google's current guidance defines good field performance as LCP at or below 2.5 seconds, INP at or below 200 ms and CLS at or below 0.1. See [Web Vitals](https://web.dev/articles/vitals).

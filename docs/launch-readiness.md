@@ -29,7 +29,7 @@ Read-only production checks confirmed:
 - `tiadecors.com` maps to `tia` in production. The deployed bindings are `ASSETS` and `SESSION`; the latter references the configured `tia-session` namespace. There are no deployed form secrets or newsletter flag.
 - Homepage, contact, search, apartment sector, sitemap index, robots.txt, all 15 blog articles, and all six blog archive pages returned HTTP 200. A nonexistent route returned HTTP 404.
 - Grid, List, and Standard each show nine posts on page one and six on page two. Titles, order, weekly publication dates, article links, page numbers, and canonical URLs match the content collection and intended Grid canonical routes.
-- Legacy `blog-single`, `blog-details`, and `index-2` pages contain the expected HTML refresh destination and canonical URL. They return HTTP 200 with a browser redirect, rather than an HTTP 301; this remains a potential SEO improvement.
+- At the 20 September check, legacy `blog-single`, `blog-details`, and `index-2` pages returned HTTP 200 with browser redirects. The 23 September source now includes 26 Cloudflare `_redirects` rules covering both slash forms of all sector, blog-template and article aliases; deployment and live 301 verification are pending.
 
 The machine-readable live check is in the ignored local file `.astro/cloudflare-live-verification.json`. On 22 September, managed Turnstile was confirmed restricted to `tiadecors.com`, the live form public key matched, and both production endpoints reached the Turnstile rejection using safe missing-token probes. No provider request, real email or subscription occurred. Deployment `97dc96fa-0831-435a-9a2d-f895b258f6fd` routes 100% to version `33895136-6337-4ff2-bcb6-3edc6d37cba3`. Actual delivery and subscription/unsubscribe behavior remain unverified.
 
@@ -55,7 +55,7 @@ Email/newsletter activation is a separate pending step. Once authorized to activ
 
 ## After deployment
 
-A three-run production mobile lab baseline was captured on 22 September 2026; see [performance baseline](performance-baseline.md). Re-run it after this batch is deployed and compare the same URLs and settings. Field Core Web Vitals remain unavailable.
+A three-run production mobile lab baseline was captured on 22 September 2026 and repeated after the Font Awesome deployment on 23 September; see [performance baseline](performance-baseline.md). Transfer dropped by 796–830 KiB across the measured routes. Field Core Web Vitals remain unavailable.
 
 Measure the deployed site's mobile performance and inspect actual network requests before further script/CSS changes. Submit or verify the sitemap in the owner's search-console account when access is available. Local regression budgets are not field Core Web Vitals measurements.
 

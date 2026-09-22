@@ -1,0 +1,31 @@
+# Legacy sector routes
+/index-2 /spaces/apartments/ 301
+/index-2/ /spaces/apartments/ 301
+/index-3 /spaces/villas/ 301
+/index-3/ /spaces/villas/ 301
+/index-4 /spaces/retail-spaces/ 301
+/index-4/ /spaces/retail-spaces/ 301
+/index-5 /spaces/offices-workspaces/ 301
+/index-5/ /spaces/offices-workspaces/ 301
+/index-6 /spaces/restaurants-cafes/ 301
+/index-6/ /spaces/restaurants-cafes/ 301
+/index-7 /spaces/hotels-resorts/ 301
+/index-7/ /spaces/hotels-resorts/ 301
+/index-8 /spaces/renovation-makeovers/ 301
+/index-8/ /spaces/renovation-makeovers/ 301
+/index-9 /spaces/fit-out-custom-joinery/ 301
+/index-9/ /spaces/fit-out-custom-joinery/ 301
+
+# Legacy blog template routes
+/blog-single /blog/transform-your-home-with-the-modern-interior-design-tips/ 301
+/blog-single/ /blog/transform-your-home-with-the-modern-interior-design-tips/ 301
+/blog-details /blog/transform-your-home-with-the-modern-interior-design-tips/ 301
+/blog-details/ /blog/transform-your-home-with-the-modern-interior-design-tips/ 301
+
+# Legacy article aliases
+/blog/transform-your-home-with-the-modern-interior-design-tips-2 /blog/transform-your-home-with-the-modern-interior-design-tips/ 301
+/blog/transform-your-home-with-the-modern-interior-design-tips-2/ /blog/transform-your-home-with-the-modern-interior-design-tips/ 301
+/blog/transform-your-home-with-the-modern-interior-design-tips-3 /blog/transform-your-home-with-the-modern-interior-design-tips/ 301
+/blog/transform-your-home-with-the-modern-interior-design-tips-3/ /blog/transform-your-home-with-the-modern-interior-design-tips/ 301
+/blog/transform-your-home-with-the-modern-interior-design-tips-4 /blog/transform-your-home-with-the-modern-interior-design-tips/ 301
+/blog/transform-your-home-with-the-modern-interior-design-tips-4/ /blog/transform-your-home-with-the-modern-interior-design-tips/ 301
