@@ -197,6 +197,27 @@ try {
   assert((await page.locator('.post-card').count()) > 0);
   await page.setViewportSize({ width: 390, height: 900 });
   await page.goto(base, { waitUntil: 'networkidle' });
+  const carouselState = await page.locator('[aria-roledescription="carousel"]').evaluateAll((carousels) =>
+    carousels.map((carousel) => {
+      const slides = [...carousel.querySelectorAll(':scope > .swiper-wrapper > .swiper-slide')];
+      const hidden = slides.filter((slide) => slide.getAttribute('aria-hidden') === 'true');
+      return {
+        label: carousel.getAttribute('aria-label'),
+        exposed: slides.length - hidden.length,
+        hiddenInert: hidden.every((slide) => slide.inert),
+      };
+    }),
+  );
+  assert.deepEqual(
+    carouselState,
+    [
+      { label: 'Featured projects', exposed: 1, hiddenInert: true },
+      { label: 'Client testimonials', exposed: 1, hiddenInert: true },
+      { label: 'Client logos', exposed: 2, hiddenInert: true },
+      { label: 'Design articles', exposed: 1, hiddenInert: true },
+    ],
+    'Mobile homepage carousels expose only visible slides',
+  );
   assert.equal(
     await page.locator('[data-text-animation] .line').count(),
     0,

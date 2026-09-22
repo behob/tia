@@ -691,6 +691,24 @@
       },
     });
 
+    document.querySelectorAll(".swiper").forEach((carousel) => {
+        const swiper = carousel.swiper;
+        if (!swiper) return;
+
+        const syncAccessibleSlides = () => {
+            const carouselBounds = carousel.getBoundingClientRect();
+            swiper.slides.forEach((slide) => {
+                const slideBounds = slide.getBoundingClientRect();
+                const hidden = slideBounds.right <= carouselBounds.left + 1 || slideBounds.left >= carouselBounds.right - 1;
+                slide.inert = hidden;
+                slide.setAttribute("aria-hidden", String(hidden));
+            });
+        };
+
+        swiper.on("slideChange transitionEnd resize observerUpdate", syncAccessibleSlides);
+        syncAccessibleSlides();
+    });
+
     if (reducedMotion) { document.querySelectorAll(".swiper-container, .swiper").forEach(el => el.swiper?.autoplay?.stop()); return; }
 
     // hover reveal start

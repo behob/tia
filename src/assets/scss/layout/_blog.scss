@@ -400,4 +400,20 @@ START: Blog CSS
   }
 }
 
+.blog-section {
+  .post-meta li {
+    color: var(--tl-color-text-body);
+
+    span {
+      color: var(--tl-color-heading-primary);
+    }
+  }
+
+  .post-thumb .category,
+  .inner-post .post-content .category,
+  .post-card-wrap-inner .post-content .category {
+    color: var(--tl-color-heading-primary);
+  }
+}
+
 /* !END: Theme Blog CSS */

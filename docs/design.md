@@ -38,7 +38,7 @@ At 767px and below, Homepage reveal, text and slide targets render in their fina
 
 Existing SCSS mixins use max-width breakpoints 1700, 1600, 1399, 1199, 992 and 767px; controls additionally use 991px and 575px. Bootstrap and local overrides coexist. Preserve existing breakpoint behavior on touched pages rather than assuming a single new scale.
 
-Retain semantic headings/landmarks, skip-to-content, unique IDs, visible labels or accessible names, keyboard-operable menus, focus containment/return, and descriptive image alt text. Keep primary mobile navigation/search controls at their existing 44px size. Do not communicate state by color alone. Full contrast/screen-reader coverage and a formal conformance target are **TBD**; the current audits are not certification.
+Retain semantic headings/landmarks, skip-to-content, unique IDs, visible labels or accessible names, keyboard-operable menus, focus containment/return, and descriptive image alt text. Keep primary mobile navigation/search controls at their existing 44px size. Do not communicate state by color alone. The focused [accessibility review](accessibility-review.md) confirmed core keyboard behavior; its verified contrast, inactive-carousel exposure and generic homepage alternative issues are fixed locally. The review's scope is not certification. Full-route coverage and a formal conformance target remain **TBD**.
 
 Verify at 390px and 1440px as existing regression baselines, and at affected breakpoint edges. Avoid horizontal overflow, text clipping, distorted imagery or hidden primary content. Preserve eager/high-priority first-hero imagery, visible HTML before scripts, disabled hero autoplay and reduced-motion behavior. Do not reintroduce a blocking preloader or intercepted smooth scrolling.
 

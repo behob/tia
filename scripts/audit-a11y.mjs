@@ -27,7 +27,10 @@ function attr(tag, name) {
 }
 
 function stripTags(value) {
-  return value.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+  return value
+    .replace(/<[^>]*>/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 const failures = [];
@@ -63,6 +66,10 @@ for (const { route, file } of routes) {
     if (!/\salt(?:=(["']).*?\1|(?=\s|\/?>))/i.test(tag)) {
       failures.push(`${route}: image missing alt attribute`);
     }
+
+    if (route === '/' && /^(img|post|project|service|about|sponsor|shape)$/i.test(attr(tag, 'alt'))) {
+      failures.push(`${route}: generic image alt "${attr(tag, 'alt')}"`);
+    }
   }
 
   for (const match of html.matchAll(/<button\b[^>]*>([\s\S]*?)<\/button>/gi)) {
@@ -84,7 +91,8 @@ for (const { route, file } of routes) {
 
     const id = attr(tag, 'id');
     const hasLabel = id ? new RegExp(`<label\\b[^>]*\\sfor=(["'])${id}\\1`, 'i').test(html) : false;
-    const hasAccessibleName = hasLabel || attr(tag, 'aria-label') || attr(tag, 'aria-labelledby') || attr(tag, 'placeholder');
+    const hasAccessibleName =
+      hasLabel || attr(tag, 'aria-label') || attr(tag, 'aria-labelledby') || attr(tag, 'placeholder');
 
     if (!hasAccessibleName) {
       failures.push(`${route}: form control missing accessible name`);
