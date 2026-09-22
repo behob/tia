@@ -39,6 +39,8 @@ Read this file, [memory](memory.md), [AGENTS.md](../AGENTS.md), and the relevant
 
 ## Commands
 
+`npm run audit:performance` captures a three-run mobile lab baseline for the live Homepage, one article and Contact. It writes ignored evidence under `.astro/` and requires Chromium plus network access.
+
 These commands are verified against [package.json](../package.json) and [CI](../.github/workflows/verify.yml). Prior execution evidence is in [launch readiness](launch-readiness.md); this documentation-only session does not rerun the application suite. Prefer Node 24 and the committed npm lockfile.
 
 | Command                                             | Purpose / prerequisite                                                                                                             |

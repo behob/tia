@@ -53,6 +53,8 @@ Email/newsletter activation is a separate pending step. Once authorized to activ
 
 ## After deployment
 
+A three-run production mobile lab baseline was captured on 22 September 2026; see [performance baseline](performance-baseline.md). Re-run it after this batch is deployed and compare the same URLs and settings. Field Core Web Vitals remain unavailable.
+
 Measure the deployed site's mobile performance and inspect actual network requests before further script/CSS changes. Submit or verify the sitemap in the owner's search-console account when access is available. Local regression budgets are not field Core Web Vitals measurements.
 
 References: [Cloudflare secrets](https://developers.cloudflare.com/workers/configuration/secrets/), [Turnstile testing](https://developers.cloudflare.com/turnstile/troubleshooting/testing/), [Resend domain listing](https://resend.com/docs/api-reference/domains/list-domains), [Resend contact listing](https://resend.com/docs/api-reference/contacts/list-contacts).

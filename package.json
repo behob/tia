@@ -46,6 +46,7 @@
     "audit:content": "node scripts/audit-content-parity.mjs",
     "audit:jsonld": "node scripts/audit-jsonld.mjs",
     "audit:links": "node scripts/audit-links.mjs",
+    "audit:performance": "node scripts/audit-performance.mjs",
     "audit:routes": "node scripts/audit-routes.mjs",
     "audit:seo": "node scripts/audit-seo.mjs",
     "audit:seo:source": "node scripts/audit-source-seo.mjs",

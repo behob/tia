@@ -1,8 +1,10 @@
 # Project memory
 
-Last updated: 20 September 2026. Read [rules](rules.md), [PRD](prd.md) and relevant source before changes. This is a handoff, not a substitute for inspection.
+Last updated: 22 September 2026. Read [rules](rules.md), [PRD](prd.md) and relevant source before changes. This is a handoff, not a substitute for inspection.
 
 ## Current state and confirmed decisions
+
+- 22 September implementation batch: all 15 posts use distinct high-resolution full-size interior assets while sidebar thumbnails remain separate. Homepage at 767px and below renders reveal targets directly, without SplitType/GSAP scroll-reveal setup; desktop motion remains. Production measurements are in [performance baseline](performance-baseline.md).
 
 - TIA Interior / Tiadecors is a Dubai studio website on Astro 7 and Cloudflare Workers, evolved from the purchased Antra template. Preserve its design; use pure Astro and native component behavior. See [architecture](architecture.md) and [design](design.md).
 - Blog content is consolidated: 15 posts, one Blog navigation entry, Grid/List/Standard views, matching article routes, uniform List cards, and automatic build-time pagination at nine. Original weekly dates run 1 January–9 April 2026. New publication needs a build/deploy; no scheduler exists.
@@ -13,7 +15,7 @@ Last updated: 20 September 2026. Read [rules](rules.md), [PRD](prd.md) and relev
 
 ## Important gaps
 
-Legacy compatibility pages currently return HTML refresh redirects with HTTP 200; true HTTP redirects are open work. Remaining business/editorial approval, live form configuration, production performance measurements and product success targets are tracked in [tasks](tasks.md) and [PRD questions](prd.md#success-measures-and-product-decisions).
+Legacy compatibility pages currently return HTML refresh redirects with HTTP 200; true HTTP redirects are open work. Remaining business/editorial approval, live form configuration, post-deployment performance comparison and unavailable field data and product success targets are tracked in [tasks](tasks.md) and [PRD questions](prd.md#success-measures-and-product-decisions).
 
 Older `AGENTS.md` factual descriptions and the blog migration README lag parts of the implementation; follow the current code and [architecture drift notes](architecture.md#proposed-changes-and-documentation-drift) while retaining the agent guardrails. An env-example analytics variable alone does not prove working analytics.
 
@@ -25,4 +27,4 @@ Prior recorded checks: full `npm run verify` and `build:release` passed; read-on
 
 Pre-existing work at session start included modified `README.md`/`package.json` and untracked launch-readiness/release-check files. Preserve these changes; inspect current git status rather than assuming they are committed. Cloudflare agent skills/connections were installed as local developer tooling; their credentials/configuration are outside this repository and must not be copied into project docs.
 
-Next: PERF-001, read-only production performance measurement. MAIL-002 needs an owner-approved recipient; NEWS-001/NEWS-002 need the unsubscribe decision and an approved subscriber. Content review awaits approved material. The unused `tia-cloudflare-worker` Resend key was revoked with explicit owner approval; `tia-cloudflare-worker-full` remains the production credential. Update this handoff when facts change, linking evidence instead of appending a transcript.
+Next: PERF-002, reduce the shared Font Awesome transfer identified in the [production baseline](performance-baseline.md). MAIL-002 needs an owner-approved recipient; NEWS-001/NEWS-002 need an unsubscribe decision and approved subscriber. Content review awaits approved material. No deployment of the imagery or mobile-motion batch occurred. Local build, lint, Cloudflare dry-run, blog/image/accessibility/interaction audits and 390px visual checks passed.

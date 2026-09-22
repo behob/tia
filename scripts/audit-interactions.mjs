@@ -155,6 +155,24 @@ try {
   await page.locator('.tag-list a').first().click();
   assert.match(page.url(), /\/blog\/tag\//);
   assert((await page.locator('.post-card').count()) > 0);
+  await page.setViewportSize({ width: 390, height: 900 });
+  await page.goto(base, { waitUntil: 'networkidle' });
+  assert.equal(
+    await page.locator('[data-text-animation] .line').count(),
+    0,
+    'Mobile home must not split text into animation wrappers',
+  );
+  assert.equal(
+    await page.locator('.reveal, .img-reveal, [data-text-animation], .fade-top, .slide-anim').evaluateAll(
+      (elements) =>
+        elements.filter((element) => {
+          const style = getComputedStyle(element);
+          return style.visibility === 'hidden' || Number(style.opacity) < 0.99;
+        }).length,
+    ),
+    0,
+    'Mobile home motion targets must render without hidden scroll states',
+  );
   const reduced = await browser.newContext({ reducedMotion: 'reduce' });
   await reduced.route('**/*', (route) =>
     new URL(route.request().url()).origin === base ? route.continue() : route.abort(),

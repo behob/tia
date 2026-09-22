@@ -911,11 +911,26 @@
       return () => trigger.kill();
     });
 
+    const simplifyMobileHomeMotion =
+      window.location.pathname === "/" &&
+      (reducedMotion || window.matchMedia("(max-width: 767px)").matches);
+
+    if (simplifyMobileHomeMotion) {
+      gsap.set(
+        ".reveal, .img-reveal, [data-text-animation], .fade-top, .slide-anim, .text-animation-effect",
+        { autoAlpha: 1, clearProps: "transform" },
+      );
+      const overlays = document.querySelectorAll(".img-reveal .img-overlay");
+      const scaleTargets = document.querySelectorAll(".scale, .scale img");
+      if (overlays.length) gsap.set(overlays, { width: 0 });
+      if (scaleTargets.length) gsap.set(scaleTargets, { scale: 1 });
+    }
+
     // Image Reveal
 
     gsap.registerPlugin(ScrollTrigger);
 
-    let revealContainers = document.querySelectorAll(".reveal");
+    let revealContainers = simplifyMobileHomeMotion ? [] : document.querySelectorAll(".reveal");
 
     revealContainers.forEach((container) => {
       let image = container.querySelector("img");
@@ -939,7 +954,7 @@
       });
     });
 
-    const images = document.querySelectorAll(".img-reveal");
+    const images = simplifyMobileHomeMotion ? [] : document.querySelectorAll(".img-reveal");
 
     const removeOverlay = (overlay) => {
       let tl = gsap.timeline();
@@ -995,11 +1010,15 @@
 
     // Scroll Animation
 
-    let typeSplit = new SplitType("[data-text-animation]", {
-      types: "lines,words, chars",
-      className: "line",
-    });
-    var text_animations = document.querySelectorAll("[data-text-animation]");
+    if (!simplifyMobileHomeMotion) {
+      new SplitType("[data-text-animation]", {
+        types: "lines,words, chars",
+        className: "line",
+      });
+    }
+    var text_animations = simplifyMobileHomeMotion
+      ? []
+      : document.querySelectorAll("[data-text-animation]");
 
     function createScrollTrigger(triggerElement, timeline) {
       // Play tl when scrolled into view (60% from top of screen)
@@ -1244,7 +1263,7 @@
       }
     });
 
-    if ($(".fade-wrapper").length > 0) {
+    if (!simplifyMobileHomeMotion && $(".fade-wrapper").length > 0) {
       $(".fade-wrapper").each(function () {
         var section = $(this);
         var fadeItems = section.find(".fade-top");
@@ -1276,7 +1295,9 @@
       });
     }
 
-    let fadeArray_items = document.querySelectorAll(".slide-anim");
+    let fadeArray_items = simplifyMobileHomeMotion
+      ? []
+      : document.querySelectorAll(".slide-anim");
     if (fadeArray_items.length > 0) {
       const fadeArray = gsap.utils.toArray(".slide-anim");
       fadeArray.forEach((item, i) => {
@@ -1333,6 +1354,7 @@
     }
 
     window.addEventListener("load", (event) => {
+      if (simplifyMobileHomeMotion) return;
       setTimeout(() => {
         function textAnimationEffect() {
           let TextAnim = gsap.timeline();
@@ -1352,8 +1374,8 @@
     });
 
     // scale animation
-    var scale = document.querySelectorAll(".scale");
-    var image = document.querySelectorAll(".scale img");
+    var scale = simplifyMobileHomeMotion ? [] : document.querySelectorAll(".scale");
+    var image = simplifyMobileHomeMotion ? [] : document.querySelectorAll(".scale img");
     scale.forEach((item) => {
       gsap.to(item, {
         scale: 1,

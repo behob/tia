@@ -68,6 +68,8 @@ Forms share component-scoped enhancement: lazy Turnstile loading, pending/disabl
 
 ## Configuration, deployment and verification
 
+`audit:performance` records three cold mobile lab runs against the configured URL and writes ignored evidence under `.astro/`. The dated production result is documented in [performance baseline](performance-baseline.md); it is separate from field Core Web Vitals.
+
 Source configuration: [Astro](../astro.config.mjs), [Wrangler](../wrangler.json), [environment example](../.env.example). The configured Worker is `tia`, with `ASSETS` and the existing `SESSION` KV namespace, `nodejs_compat`, compatibility date `2026-07-28`, observability and source-map upload enabled. Public base URL is `https://tiadecors.com`. No named staging environment is configured.
 
 Build-time: `PUBLIC_TURNSTILE_SITE_KEY`. Runtime: `CONTACT_EMAIL`, `SENDER_EMAIL`, `RESEND_API_KEY`, `TURNSTILE_SECRET_KEY`, optional `NEWSLETTER_ENABLED`. `CLOUDFLARE_WEB_ANALYTICS_SITE_TOKEN` exists in the env example, but no source consumer was found; dashboard injection/analytics operation is **TBD**. Local env values are not automatically production bindings.

@@ -34,6 +34,8 @@ Token sources: [colors](../src/assets/scss/utilities/_colors.scss), [typography]
 
 ## Responsive and accessibility requirements
 
+At 767px and below, Homepage reveal, text and slide targets render in their final state without SplitType or GSAP scroll-reveal initialization. Desktop motion remains unchanged. This prevents mobile content from waiting in invisible scroll states.
+
 Existing SCSS mixins use max-width breakpoints 1700, 1600, 1399, 1199, 992 and 767px; controls additionally use 991px and 575px. Bootstrap and local overrides coexist. Preserve existing breakpoint behavior on touched pages rather than assuming a single new scale.
 
 Retain semantic headings/landmarks, skip-to-content, unique IDs, visible labels or accessible names, keyboard-operable menus, focus containment/return, and descriptive image alt text. Keep primary mobile navigation/search controls at their existing 44px size. Do not communicate state by color alone. Full contrast/screen-reader coverage and a formal conformance target are **TBD**; the current audits are not certification.
