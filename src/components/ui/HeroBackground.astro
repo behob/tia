@@ -15,7 +15,7 @@ const { src, priority = false } = Astro.props;
     height={1080}
     sizes="100vw"
     loading={priority ? 'eager' : 'lazy'}
-    fetchpriority={priority ? 'high' : 'auto'}
+    fetchpriority={priority ? 'high' : 'low'}
   />
 </div>
 <style>

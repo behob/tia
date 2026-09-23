@@ -1,5 +1,18 @@
 # Production performance baseline
 
+## PageSpeed Insights follow-up, 23 September 2026
+
+The [production homepage report](https://pagespeed.web.dev/analysis/https-tiadecors-com/88222xwonk?form_factor=mobile) predates the local changes below. Lighthouse 13.5.0 used a single initial-load run with Slow 4G mobile throttling; the desktop run used custom throttling. Neither view had field data.
+
+| Mode    | Performance | Accessibility | Best Practices | SEO |   FCP |   LCP |    TBT | CLS |
+| ------- | ----------: | ------------: | -------------: | --: | ----: | ----: | -----: | --: |
+| Mobile  |          81 |            92 |             96 | 100 | 2.0 s | 4.4 s |  30 ms |   0 |
+| Desktop |          77 |            92 |            100 | 100 | 0.5 s | 1.2 s | 450 ms |   0 |
+
+Mobile LCP was the first hero image. Lighthouse attributed 2,040 ms of its LCP to element render delay, while its resource load took 120 ms. It estimated 280 ms savings from render-blocking CSS and 40 ms from icon-font display. The desktop report found 2.1 s of main-thread work, including 757 ms script evaluation and 711 ms style/layout. Its longest task was attributed to the legacy jQuery stack. These are one-run diagnostics, not proof of the effect of any proposed change.
+
+Locally, the icon subset now uses `font-display: swap`, and the noninitial hero image has low fetch priority. The homepage's icon-only service/team links have names, and decorative section labels are paragraphs rather than skipped heading levels. The full verification and release build pass. Production deployment was blocked by automatic approval review, so no after score or live improvement is claimed.
+
 Captured 22 September 2026 against `https://tiadecors.com`, before the blog-image and mobile-homepage changes in this batch were deployed.
 
 ## Method

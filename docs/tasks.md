@@ -24,6 +24,8 @@ Updated 23 September 2026. Status vocabulary: `todo`, `in_progress`, `blocked`, 
 | CONTENT-001 | P1       | blocked     | Obtain review of retained business claims and editorial content.                                   | Owner review pending; keep content visible                    | Owner supplies approvals/corrections for staff, projects, services, testimonials, awards/statistics and article copy; record which items were reviewed without storing private evidence.                                                                         |
 | PRODUCT-001 | P2       | todo        | Resolve product scope questions.                                                                   | Owner decisions                                               | Record decisions for conversion targets, future publishing cadence, demo/shop/pricing pages and supported audiences/browsers; update PRD without inventing requirements.                                                                                         |
 
+PERF-003 is in progress: the dated [PageSpeed Insights baseline](performance-baseline.md#pagespeed-insights-follow-up-23-september-2026) is recorded, and the focused local fixes pass full verification and release build. Production publication needs explicit approval after automatic review rejected deployment; rerun mobile and desktop PageSpeed against the deployed version before marking the score improvement done.
+
 No remaining open task is marked done based only on an implementation proposal. Add smaller implementation tasks after measurement/review identifies concrete changes; wholesale script removal, a CMS and new service routing are not approved deliverables here.
 
 ## Completed implementation batch
