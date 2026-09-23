@@ -29,6 +29,12 @@ The first hero image remains the LCP element. Its reported render delay is 1,180
 
 A local follow-up lets the first mobile hero image decode and receive a paint opportunity before initializing Swiper's fade effect. The unthrottled, three-run local homepage audit measured 128 ms median LCP before and after this change; it cannot establish a Lighthouse score gain. The built interaction audit passes. Recheck throttled mobile LCP after publication before calling PERF-003 complete.
 
+## Mobile report after hero paint change, 23 September 2026
+
+The owner's [next production report](https://pagespeed.web.dev/analysis/https-tiadecors-com/uma2u8z6o0?form_factor=mobile) scored 68 performance: FCP 1.7 s, LCP 3.4 s, TBT 1,010 ms, CLS zero and Speed Index 3.0 s. The hero LCP improved from the prior 4.2–4.5 s runs, while the score fell because blocking time rose sharply. Its 18 long tasks included a 500 ms task attributed to jQuery, plus work attributed to GSAP, Bootstrap and Swiper. A [repeat production run](https://pagespeed.web.dev/analysis/https-tiadecors-com/dqokdznzu1?form_factor=mobile) scored 90: FCP 1.5 s, LCP 3.5 s, TBT zero, CLS zero and Speed Index 1.5 s. The large TBT swing between same-day runs shows lab variance; neither score alone demonstrates a consistent regression from the hero paint change. Both reports had no field data.
+
+The homepage has no Bootstrap `data-bs-*` controls, yet loaded its 80,377-byte JavaScript bundle (about 23 KiB gzipped). A local route-specific change omits that bundle from `/` while preserving it on FAQ and other routes that use Bootstrap behavior. The built homepage now loads 10 legacy scripts totaling 402,055 source bytes, down from 11 totaling 482,432; desktop/mobile interaction and script-route audits pass. This reduction is not yet reflected in production PageSpeed data. LCP remains above the 2.5 s target in both new reports; render-blocking CSS and remaining legacy JavaScript are still candidates for measured follow-up.
+
 Captured 22 September 2026 against `https://tiadecors.com`, before the blog-image and mobile-homepage changes in this batch were deployed.
 
 ## Method

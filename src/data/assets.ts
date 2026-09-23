@@ -45,5 +45,6 @@ export function shouldLoadScript(asset: ScriptAsset, pathname: string) {
   const currentPath = sectorLegacyRoutes[path] ?? path;
 
   if (/^\/(?:blog(?:-|\/)|contact(?:\/|$)|search(?:\/|$)|404(?:\/|$))/.test(currentPath)) return false;
+  if (currentPath === '/' && asset.src === '/assets/js/vendor/bootstrap-bundle.js') return false;
   return !asset.routes || asset.routes.includes(currentPath);
 }
