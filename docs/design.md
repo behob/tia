@@ -19,7 +19,7 @@ Large interior photography, generous section spacing, prominent display headings
 | Containers                                                      | `.container` max 1795px; `.container-2` max 1425px, with Bootstrap gutters.                           |
 | Section spacing                                                 | `pt/pb-130`: 130 → 80 → 60px at desktop / ≤992 / ≤767. `pt/pb-150`: 150 → 80 → 70px.                  |
 | Buttons                                                         | `.tl-primary-btn`: outlined pill, 16px heading font, 40px circular arrow area; gold hover treatment.  |
-| Focus                                                           | Global 3px `#ca9b65` outline with 4px offset in `SiteControls`; some controls also have scoped rules. |
+| Focus                                                           | Global 3px `#a66f32` outline with 4px offset in `SiteControls`; some controls also have scoped rules. |
 
 Token sources: [colors](../src/assets/scss/utilities/_colors.scss), [typography](../src/assets/scss/utilities/_typography.scss), [CSS-variable generation](../src/assets/scss/utilities/_root.scss), [theme/layout utilities](../src/assets/scss/components/_theme.scss), [buttons](../src/assets/scss/components/_buttons.scss). There is no unified spacing/radius scale beyond current utilities and component values. Token consolidation is a proposal, not a current standard. The unused Google Fonts URL in SCSS is historical; the layout loads local brand fonts.
 
@@ -38,7 +38,7 @@ At 767px and below, Homepage reveal, text and slide targets render in their fina
 
 Existing SCSS mixins use max-width breakpoints 1700, 1600, 1399, 1199, 992 and 767px; controls additionally use 991px and 575px. Bootstrap and local overrides coexist. Preserve existing breakpoint behavior on touched pages rather than assuming a single new scale.
 
-Retain semantic headings/landmarks, skip-to-content, unique IDs, visible labels or accessible names, keyboard-operable menus, focus containment/return, and descriptive image alt text. Keep primary mobile navigation/search controls at their existing 44px size. Do not communicate state by color alone. The focused [accessibility review](accessibility-review.md) confirmed core keyboard behavior; its verified contrast, inactive-carousel exposure and generic homepage alternative issues are fixed locally. The review's scope is not certification. Full-route coverage and a formal conformance target remain **TBD**.
+Retain semantic headings/landmarks, skip-to-content, unique IDs, visible labels or accessible names, keyboard-operable menus, focus containment/return, and descriptive image alt text. Keep primary mobile navigation/search controls at their existing 44px size. Do not communicate state by color alone. The focused [accessibility review](accessibility-review.md) confirmed core keyboard behavior; its verified contrast, inactive-carousel exposure and generic homepage alternative issues are fixed and production-verified. The review's scope is not certification. Full-route coverage and a formal conformance target remain **TBD**.
 
 Verify at 390px and 1440px as existing regression baselines, and at affected breakpoint edges. Avoid horizontal overflow, text clipping, distorted imagery or hidden primary content. Preserve eager/high-priority first-hero imagery, visible HTML before scripts, disabled hero autoplay and reduced-motion behavior. Do not reintroduce a blocking preloader or intercepted smooth scrolling.
 

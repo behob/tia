@@ -32,7 +32,7 @@ Several rendered foreground/background pairs do not meet the usual WCAG AA thres
 
 Fix with context-specific text, badge and focus tokens rather than changing the brand accent globally. Recheck both light and dark surfaces and preserve a clearly visible focus treatment.
 
-Resolved locally on 23 September: the focus outline is `#a66f32` (4.25:1 on white and 4.48:1 on `#101010`); blog metadata uses `#4d4d52` on white (8.40:1); author text uses `#191919` on white (17.58:1); and badge text uses `#191919` on `#caa05c` (7.28:1). Chrome computed-style checks at 390px and 1440px, the production build, lint, route audit and 95-route structural accessibility audit pass. Deployment verification remains part of the next release check.
+Resolved and production-verified on 23 September: the focus outline is `#a66f32` (4.25:1 on white and 4.48:1 on `#101010`); blog metadata uses `#4d4d52` on white (8.40:1); author text uses `#191919` on white (17.58:1); and badge text uses `#191919` on `#caa05c` (7.28:1). Chrome computed styles matched at 390px and 1440px, including keyboard focus on the skip link. The production build, lint, route audit and 95-route structural accessibility audit also pass.
 
 ### A11Y-003: inactive carousel slides remain exposed
 
@@ -42,7 +42,7 @@ The homepage accessibility tree contains repeated project, article and sponsor s
 
 Keep only active/relevant slides available to assistive technology. Synchronize `aria-hidden` and `inert` with carousel changes, label each carousel and its controls, and verify that focus cannot enter hidden slides.
 
-Resolved locally on 23 September: the shared Swiper setup now synchronizes `aria-hidden` and `inert` from rendered slide geometry on initialization, navigation, transition, resize and observer updates. The four homepage carousels have named regions. At 1440px, projects/testimonials/logos/articles expose 3/1/6/3 slides; at 390px they expose 1/1/2/1. Navigation changes the exposed project while hidden links remain inert. The browser interaction audit now protects the mobile state; deployment verification remains part of the next release check.
+Resolved and production-verified on 23 September: the shared Swiper setup synchronizes `aria-hidden` and `inert` from rendered slide geometry on initialization, navigation, transition, resize and observer updates. The four homepage carousels have named regions. Production exposes 3/1/6/3 project/testimonial/logo/article slides at 1440px and 1/1/2/1 at 390px. Navigation changed the exposed project from Luxury Skyline to Bohemian Rhapsody while hidden links remained inert and unfocusable. The browser interaction audit protects the mobile state.
 
 ### A11Y-004: generic image alternatives
 
@@ -52,7 +52,7 @@ The homepage uses repeated generic alternatives including `img`, `sponsor`, `pro
 
 Use an empty alternative for decorative images and concise, content-specific text for informative or linked images. Prefer data-driven alternatives so repeated card and gallery components remain consistent.
 
-Resolved locally on 23 September: decorative homepage shapes, icons, duplicate portraits and unverified template logos now use empty alternatives. Project, article, about and linked gallery imagery has content-specific text. Shared sponsor data no longer fabricates numbered names. The structural audit now rejects the original generic homepage values and passes all 95 generated routes; deployment verification remains part of the next release check.
+Resolved and production-verified on 23 September: decorative homepage shapes, icons, duplicate portraits and unverified template logos use empty alternatives. Project, article, about and linked gallery imagery has content-specific text. Shared sponsor data no longer fabricates numbered names. Production contains none of the original generic homepage alternatives. The structural audit rejects those values and passes all 95 generated routes.
 
 ## Follow-up verification
 
