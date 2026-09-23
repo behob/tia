@@ -7,6 +7,13 @@
 // Slider CSS
 
 .antra-slider {
+  .swiper-wrapper {
+    display: flex;
+  }
+  .swiper-slide {
+    flex: 0 0 100%;
+    min-width: 0;
+  }
   .slider-item {
     position: relative;
     z-index: 1;

@@ -11,7 +11,15 @@ The [production homepage report](https://pagespeed.web.dev/analysis/https-tiadec
 
 Mobile LCP was the first hero image. Lighthouse attributed 2,040 ms of its LCP to element render delay, while its resource load took 120 ms. It estimated 280 ms savings from render-blocking CSS and 40 ms from icon-font display. The desktop report found 2.1 s of main-thread work, including 757 ms script evaluation and 711 ms style/layout. Its longest task was attributed to the legacy jQuery stack. These are one-run diagnostics, not proof of the effect of any proposed change.
 
-Locally, the icon subset now uses `font-display: swap`, and the noninitial hero image has low fetch priority. The homepage's icon-only service/team links have names, and decorative section labels are paragraphs rather than skipped heading levels. The full verification and release build pass. Production deployment was blocked by automatic approval review, so no after score or live improvement is claimed.
+The icon subset uses `font-display: swap`, and the noninitial hero image has low fetch priority. The homepage's icon-only service/team links have names, and decorative section labels are paragraphs rather than skipped heading levels. The full verification and release build passed. These changes were subsequently committed; the live follow-up report below was generated after that commit.
+
+## Mobile follow-up report, 23 September 2026
+
+The owner's [later production report](https://pagespeed.web.dev/analysis/https-tiadecors-com/wi0a75qx4p?form_factor=mobile) records 93 performance, 97 accessibility, 96 Best Practices, and 100 SEO. Its mobile lab metrics are 1.5 s FCP, 3.2 s LCP, 20 ms TBT, and zero CLS. The desktop view scored 100 performance. This is another single run with no field data, so the score change is not a controlled measurement of the previous changes.
+
+The mobile LCP element remains the first hero image. Its insight shows 420 ms resource load delay, 80 ms load duration, and 240 ms render delay. Lighthouse estimated 450 ms for render-blocking requests, including `swiper.min.css` (5.2 KiB), and 94 KiB for image delivery. The largest image opportunity is the below-fold `about-img-1` WebP (86.1 KiB transferred in that run).
+
+The next local revision defers the homepage Swiper CSS while keeping first-slide layout in the critical stylesheet. It also requests quality 60 for `about-img-1`: the generated 809 px WebP falls from 88,148 to 58,134 bytes. Build and browser interaction checks pass; the production score for this revision remains unmeasured.
 
 Captured 22 September 2026 against `https://tiadecors.com`, before the blog-image and mobile-homepage changes in this batch were deployed.
 

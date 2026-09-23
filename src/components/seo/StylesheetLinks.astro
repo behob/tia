@@ -1,7 +1,13 @@
 ---
 import { stylesheetAssets } from '../../data/assets';
 const simple = /^\/(?:blog(?:-|\/)|contact(?:\/|$)|search(?:\/|$)|404(?:\/|$))/.test(Astro.url.pathname);
-const styles = simple ? stylesheetAssets.filter((asset) => /bootstrap|fontawesome/.test(asset.href)) : stylesheetAssets;
+const styles = (
+  simple ? stylesheetAssets.filter((asset) => /bootstrap|fontawesome/.test(asset.href)) : stylesheetAssets
+).map((asset) =>
+  Astro.url.pathname === '/' && asset.href === '/assets/css/swiper.min.css'
+    ? { ...asset, preload: false, deferred: true }
+    : asset,
+);
 ---
 
 {

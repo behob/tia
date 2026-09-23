@@ -242,13 +242,15 @@ try {
   await reducedPage.goto(base, { waitUntil: 'networkidle' });
   assert.equal(await reducedPage.evaluate(() => Boolean(window.ScrollSmoother?.get?.())), false);
   assert.equal(await reducedPage.evaluate(() => Boolean(window.mainSlider?.autoplay?.running)), false);
-  const noJs = await browser.newContext({ javaScriptEnabled: false });
+  const noJs = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
   await noJs.route('**/*', (route) =>
     new URL(route.request().url()).origin === base ? route.continue() : route.abort(),
   );
   const plain = await noJs.newPage();
   await plain.goto(base, { waitUntil: 'networkidle' });
   assert(await plain.locator('h1').isVisible());
+  const slides = plain.locator('.antra-slider .swiper-slide');
+  assert.equal(Math.round((await slides.nth(0).boundingBox()).y), Math.round((await slides.nth(1).boundingBox()).y));
   assert.equal(await plain.locator('.preloader').count(), 0);
   const hero = plain.locator('.hero-background img').first();
   assert.equal(await hero.getAttribute('loading'), 'eager');

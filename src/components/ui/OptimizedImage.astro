@@ -11,9 +11,10 @@ interface Props extends HTMLAttributes<'img'> {
   alt: string;
   loading?: 'eager' | 'lazy';
   decoding?: 'async' | 'auto' | 'sync';
+  quality?: number;
 }
 
-const { src, alt, loading = 'lazy', decoding = 'async', ...attrs } = Astro.props;
+const { src, alt, loading = 'lazy', decoding = 'async', quality, ...attrs } = Astro.props;
 const image = images[src.replace('/assets/img/', '/src/assets/images/')]?.default;
 const width = Number(attrs.width ?? image?.width);
 const height = Number(attrs.height ?? (image ? Math.round((width * image.height) / image.width) : undefined));
@@ -38,6 +39,7 @@ const decorative = attrs['aria-hidden'] === 'true' || ['shape', 'shapes', 'decor
       loading={loading}
       decoding={decoding}
       format="webp"
+      quality={quality}
     />
   ) : (
     <img src={src} alt={decorative ? '' : alt} loading={loading} decoding={decoding} {...attrs} />
