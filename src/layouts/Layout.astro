@@ -2,6 +2,7 @@
 /* eslint-disable astro/no-set-html-directive */
 import homepageStylesheet from '../assets/scss/homepage.scss?url';
 import fullStylesheet from '../assets/scss/main.scss?url';
+import brandFontStyles from '../../public/assets/css/brand-fonts.css?raw';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import Sidebar from '../components/layout/Sidebar.astro';
@@ -90,7 +91,13 @@ const jsonLd = [...siteJsonLd, ...routeJsonLd, ...customJsonLd.filter(Boolean)];
 
     <link rel="preload" href="/assets/fonts/brand/cal-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/assets/fonts/brand/golos-text-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="/assets/css/brand-fonts.css" />
+    {
+      currentPath === '/' ? (
+        <style is:inline set:html={brandFontStyles} />
+      ) : (
+        <link rel="stylesheet" href="/assets/css/brand-fonts.css" />
+      )
+    }
 
     <StylesheetLinks />
     <link rel="stylesheet" href={currentPath === '/' ? homepageStylesheet : fullStylesheet} />

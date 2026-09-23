@@ -29,7 +29,7 @@ Versions above are resolved from [package-lock.json](../package-lock.json), not 
 | `scripts/`, `.github/workflows/verify.yml`          | Audits/build helpers and verification-only CI.                                                                                                                                   |
 | `dist/client`, `dist/server`, `.astro`, `.wrangler` | Generated output/state; ignored. The adapter generates the deployable Worker config in `dist/server`.                                                                            |
 
-`Layout.astro` links `homepage.scss` only on `/` and the full `main.scss` stylesheet on other routes. Both are compiled and fingerprinted by Vite. The homepage bundle excludes sector-specific `home-2` through `home-9` rules; component-scoped Astro styles still load with their components. Keep shared homepage styles in both SCSS entry points when changing them.
+`Layout.astro` links `homepage.scss` only on `/` and the full `main.scss` stylesheet on other routes. Both are compiled and fingerprinted by Vite. The homepage bundle excludes sector-specific `home-2` through `home-9` rules; component-scoped Astro styles still load with their components. The homepage also inlines the existing local brand-font CSS to avoid a separate blocking request; other routes link that CSS file. Keep shared homepage styles in both SCSS entry points when changing them.
 
 ## Content models and flow
 

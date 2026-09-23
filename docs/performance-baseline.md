@@ -41,6 +41,12 @@ The owner's [post-commit report](https://pagespeed.web.dev/analysis/https-tiadec
 
 A local CSS follow-up uses a homepage stylesheet without sector-specific `home-2` through `home-9` rules. Its built gzip size is 19,092 bytes, compared with 30,780 bytes for the full main stylesheet; other routes keep the full stylesheet. The 390px hero visual check and built desktop/mobile interaction audit pass. Production LCP and score for this revision remain unmeasured.
 
+## Mobile report after the homepage CSS split, 23 September 2026
+
+The owner's [new post-commit report](https://pagespeed.web.dev/analysis/https-tiadecors-com/ekbtb7getc?form_factor=mobile) scores 86 performance, 97 accessibility, 100 Best Practices and 100 SEO. Mobile FCP is 1.5 s, LCP 3.7 s, TBT 210 ms, CLS zero and Speed Index 2.4 s. The smaller `homepage.BoRVtRQa.css` is live: Lighthouse records 20.3 KiB transferred in 750 ms, versus 32.2 KiB in 1,350 ms for the previous Astro layout stylesheet. The reported hero render delay fell from 2,060 to 640 ms. These are separate single-run lab measurements, so their differences are consistent with an improvement but do not prove causality. There is still no field data.
+
+The current report lists `brand-fonts.css` as a 1.1 KiB, 150 ms render-blocking request, alongside the homepage and Bootstrap stylesheets. A local follow-up inlines those existing font-face rules in the homepage HTML and keeps the external stylesheet on other routes. Built HTML confirms the homepage no longer requests `brand-fonts.css`; desktop/mobile interaction checks pass. Production impact is not measured yet. The five reported long tasks still include jQuery and GSAP; avoid attributing their variable blocking time to the CSS change.
+
 Captured 22 September 2026 against `https://tiadecors.com`, before the blog-image and mobile-homepage changes in this batch were deployed.
 
 ## Method
