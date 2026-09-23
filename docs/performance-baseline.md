@@ -21,6 +21,14 @@ The mobile LCP element remains the first hero image. Its insight shows 420 ms re
 
 The next local revision defers the homepage Swiper CSS while keeping first-slide layout in the critical stylesheet. It also requests quality 60 for `about-img-1`: the generated 809 px WebP falls from 88,148 to 58,134 bytes. Build and browser interaction checks pass; the production score for this revision remains unmeasured.
 
+## Mobile report after the Swiper CSS and image changes, 23 September 2026
+
+The owner's [new production report](https://pagespeed.web.dev/analysis/https-tiadecors-com/hmli0f91v3?form_factor=mobile) scores 83 performance, 97 accessibility, 96 Best Practices and 100 SEO. Mobile FCP is 1.5 s, LCP 4.5 s, TBT 30 ms and CLS zero. A [repeat run](https://pagespeed.web.dev/analysis/https-tiadecors-com/tf0nklej7e?form_factor=mobile) scored 82, with 2.0 s FCP, 4.2 s LCP, zero TBT and zero CLS. Both are single lab runs without CrUX field data. The earlier 93 score was also one run, so these results do not isolate the effect of the committed changes.
+
+The first hero image remains the LCP element. Its reported render delay is 1,180 ms in the owner's report and 1,990 ms in the repeat; image load delay/duration are 50/50 ms and 150/150 ms respectively. The image-delivery opportunity fell from 94 KiB in the previous report to 31 KiB, and `swiper.min.css` no longer appears among render-blocking styles. The remaining reported render-blocking styles are the Astro layout CSS, Bootstrap and brand fonts. This points to paint timing rather than image transfer as the next area to investigate, but the report does not prove which operation causes the delay.
+
+A local follow-up lets the first mobile hero image decode and receive a paint opportunity before initializing Swiper's fade effect. The unthrottled, three-run local homepage audit measured 128 ms median LCP before and after this change; it cannot establish a Lighthouse score gain. The built interaction audit passes. Recheck throttled mobile LCP after publication before calling PERF-003 complete.
+
 Captured 22 September 2026 against `https://tiadecors.com`, before the blog-image and mobile-homepage changes in this batch were deployed.
 
 ## Method
