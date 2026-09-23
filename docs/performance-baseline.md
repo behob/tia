@@ -35,6 +35,12 @@ The owner's [next production report](https://pagespeed.web.dev/analysis/https-ti
 
 The homepage has no Bootstrap `data-bs-*` controls, yet loaded its 80,377-byte JavaScript bundle (about 23 KiB gzipped). A local route-specific change omits that bundle from `/` while preserving it on FAQ and other routes that use Bootstrap behavior. The built homepage now loads 10 legacy scripts totaling 402,055 source bytes, down from 11 totaling 482,432; desktop/mobile interaction and script-route audits pass. This reduction is not yet reflected in production PageSpeed data. LCP remains above the 2.5 s target in both new reports; render-blocking CSS and remaining legacy JavaScript are still candidates for measured follow-up.
 
+## Mobile report after removing homepage Bootstrap JavaScript, 23 September 2026
+
+The owner's [post-commit report](https://pagespeed.web.dev/analysis/https-tiadecors-com/120qprlkjh?form_factor=mobile) scores 84 performance, 97 accessibility, 96 Best Practices and 100 SEO. Mobile FCP is 2.0 s, LCP 4.0 s, TBT 10 ms, CLS zero and Speed Index 4.3 s. Bootstrap JavaScript is absent from the built homepage. Blocking time is low in this run, while the first hero image remains the LCP element with 2,060 ms element render delay. Lighthouse lists the Astro layout CSS (32.2 KiB, 1,350 ms) and Bootstrap CSS (33.0 KiB, 1,500 ms) among render-blocking requests. As with prior reports, this is a single lab run without field data; the score difference does not isolate the Bootstrap JavaScript change.
+
+A local CSS follow-up uses a homepage stylesheet without sector-specific `home-2` through `home-9` rules. Its built gzip size is 19,092 bytes, compared with 30,780 bytes for the full main stylesheet; other routes keep the full stylesheet. The 390px hero visual check and built desktop/mobile interaction audit pass. Production LCP and score for this revision remain unmeasured.
+
 Captured 22 September 2026 against `https://tiadecors.com`, before the blog-image and mobile-homepage changes in this batch were deployed.
 
 ## Method

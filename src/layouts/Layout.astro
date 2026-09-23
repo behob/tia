@@ -1,6 +1,7 @@
 ---
 /* eslint-disable astro/no-set-html-directive */
-import '../assets/scss/main.scss';
+import homepageStylesheet from '../assets/scss/homepage.scss?url';
+import fullStylesheet from '../assets/scss/main.scss?url';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import Sidebar from '../components/layout/Sidebar.astro';
@@ -92,6 +93,7 @@ const jsonLd = [...siteJsonLd, ...routeJsonLd, ...customJsonLd.filter(Boolean)];
     <link rel="stylesheet" href="/assets/css/brand-fonts.css" />
 
     <StylesheetLinks />
+    <link rel="stylesheet" href={currentPath === '/' ? homepageStylesheet : fullStylesheet} />
 
     <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
